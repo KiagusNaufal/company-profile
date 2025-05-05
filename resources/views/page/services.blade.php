@@ -93,7 +93,7 @@
         </div>
 
         <!-- Tab Contents -->
-        <div class="bg-gradient-to-b from-blue-50 to-white p-5 rounded-xl shadow-sm border border-gray-100 max-w-xl mx-auto min-h-[300px]">
+        <div class="bg-gradient-to-b from-blue-50 to-white p-5 rounded-xl shadow-sm border border-gray-100 max-w-lg mx-auto min-h-[300px]">
             <!-- Discover Content -->
             <div x-show="openTab === 'discover'" x-transition class="h-full flex flex-col space-y-3">
                 <h3 class="text-xl font-bold text-blue-600">Discover Phase</h3>
@@ -147,6 +147,86 @@
                     <li>Retailer partnerships</li>
                     <li>Customer education programs</li>
                 </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900">SERVICES</h2>
+            <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+                We possess techniques that can dismantle them into fragments
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Heroic Software Crafting -->
+            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div class="flex items-start">
+                    <div class="flex-shrink-0 bg-blue-100 p-3 rounded-lg">
+                        <svg class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Heroic Software Crafting</h3>
+                        <p class="text-gray-700">
+                            In the realm of coding quests, we are your digital heroes. Harness the power of our software development resources to turn your online vision into reality.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Heroic Data Mastery -->
+            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div class="flex items-start">
+                    <div class="flex-shrink-0 bg-blue-100 p-3 rounded-lg">
+                        <svg class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Heroic Data Mastery</h3>
+                        <p class="text-gray-700">
+                            Navigate the vast landscapes of data with our heroic analytics. From unraveling insights to overcoming data challenges, our expertise ensures you make informed decisions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div class="flex items-start">
+                    <div class="flex-shrink-0 bg-blue-100 p-3 rounded-lg">
+                        <svg class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Heroic Data Mastery</h3>
+                        <p class="text-gray-700">
+                            Navigate the vast landscapes of data with our heroic analytics. From unraveling insights to overcoming data challenges, our expertise ensures you make informed decisions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div class="flex items-start">
+                    <div class="flex-shrink-0 bg-blue-100 p-3 rounded-lg">
+                        <svg class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Heroic Data Mastery</h3>
+                        <p class="text-gray-700">
+                            Navigate the vast landscapes of data with our heroic analytics. From unraveling insights to overcoming data challenges, our expertise ensures you make informed decisions.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
