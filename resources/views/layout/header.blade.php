@@ -93,7 +93,7 @@
     @yield('content')
   </div>
 
-  <div class="z-10 py-4 w-full items-center justify-center bg-[#0e60de]">
+  <div class="z-10 py-4 w-full items-center justify-center bg-gradient-to-t from-[#0e40de] via-[#0e50de] to-[#0e60de]">
     <div class="w-[1440px] max-w-[90%] justify-between items-center m-auto">
         <div class="items-center justify-center">
             <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-3 pt-[64px]">
@@ -119,19 +119,19 @@
                     </div>
                 </div>
                 <div class="text-white">
-                    <p class="font-[600] text-[#ffffff] text-[20px] mb-6">Company</p>
+                    <p class="font-[600] text-[#7f90b7] text-[20px] mb-6">Company</p>
                     <p class="cursor-pointer font-thin mb-4 hover:underline">About Us</p>
                     <p class="cursor-pointer font-thin mb-4 hover:underline">Services</p>
                     <p class="cursor-pointer font-thin mb-4 hover:underline">Portofolio</p>
                     <p class="cursor-pointer font-thin mb-4 hover:underline">Career</p>
                 </div>
                 <div class="text-white">
-                    <p class="font-[600] text-[#ffffff] text-[20px] mb-6">Contact Us</p>
-                    <p class="font-[600] text-[#ffffff]">Office</p>
+                    <p class="font-[600] text-[#7f90b7] text-[20px] mb-6">Contact Us</p>
+                    <p class="font-[600] text-[#7f90b7]">Office</p>
                     <a href="https://maps.app.goo.gl/">
                         <p class="font-thin mb-6 hover:underline ">Jl. Arciko Gg Harapan II No 60 Rt 01 Rw 13 Kel Sayang Cianjur,  <br>  Kota Cianjur, Jawa Barat</p>
                     </a>
-                    <p class="font-[600] text-[#ffffff]">Workshop</p>
+                    <p class="font-[600] text-[#7f90b7]">Workshop</p>
                     <a href="https://maps.app.goo.gl/">
                         <p class="font-thin  mb-6 hover:underline">Jl. Arciko Gg Harapan II No 60 Rt 01 Rw 13 Kel Sayang Cianjur,  <br>  Kota Cianjur, Jawa Barat</p>
                     </a>
@@ -144,8 +144,8 @@
                 </div>
             </div>
         </div>
-        <div class="flex items-center justify-center m-auto bg[#0e60de]">
-            <div class="z-10 w-[1440px] bg-[#0e60de] flex pt-[24px] justify-center">
+        <div class="flex items-center justify-center m-auto bg-gradient-to-t from-[#0e10de]  to-[#0e60de]">
+            <div class="z-10 w-[1440px] bg-[#0e40de] flex pt-[24px] justify-center">
                 <div class="w-full justify-center text-center">
                     <hr class="mx-auto">
                     <p class="text-white text-center mt-3">© 2025 PT Aeratek Global Solution. All Rights Reserved.</p>
