@@ -20,8 +20,8 @@
             </p>
 
             <div class="py-10 flex gap-4">
-                <a href="#" class="bg-blue-700 text-white px-5 py-3 rounded-lg hover:bg-blue-800 transition">Tell Us Digital Mission</a>
-                <a href="#" class="border border-blue-700 px-5 py-3 rounded-lg hover:bg-blue-700 hover:text-white transition flex items-center gap-2">
+                <a href="#" class="bg-[#0e60de] text-white px-5 py-3 rounded-lg hover:bg-blue-800 transition">Tell Us Digital Mission</a>
+                <a href="#" class="border border-[#0e60de] px-5 py-3 rounded-lg hover:bg-blue-700 hover:text-white transition flex items-center gap-2">
                 Learn More <span>→</span>
                 </a>
             </div>
@@ -47,7 +47,7 @@
           <!-- Service Item 1 -->
           <div class="flex flex-col lg:flex-row items-center gap-8">
             <div class="lg:w-1/2">
-              <img src="{{ asset('image/11107581_4630060.svg') }}" alt="Software Development" class="w-full rounded-lg shadow-lg">
+              <img src="{{ asset('image/Developer activity-bro.svg') }}" alt="Software Development" class="w-full rounded-lg shadow-lg w-[80%] md:h-[460px] w-[80%]">
             </div>
             <div class="lg:w-1/2 space-y-4">
               <h3 class="text-2xl font-semibold text-gray-800">Software Development</h3>
@@ -64,7 +64,7 @@
           <!-- Service Item 2 (reverse on large screens) -->
           <div class="flex flex-col lg:flex-row-reverse items-center gap-8">
             <div class="lg:w-1/2">
-              <img src="{{ asset('image/Wavy Buddies - Address.png') }}" alt="Data Analytics" class="w-50 rounded-lg shadow-lg">
+              <img src="{{ asset('image/Data extraction-rafiki.svg') }}" alt="Data Analytics" class="w-50 rounded-lg shadow-lg w-[80%] md:h-[460px] w-[80%]">
             </div>
             <div class="lg:w-1/2 space-y-4">
               <h3 class="text-2xl font-semibold text-gray-800">Data Analytics</h3>
@@ -81,7 +81,7 @@
           <!-- Service Item 3 -->
           <div class="flex flex-col lg:flex-row items-center gap-8">
             <div class="lg:w-1/2">
-              <img src="{{ asset('images/service-it.svg') }}" alt="IT Maintenance" class="w-full rounded-lg shadow-lg">
+              <img src="{{ asset('image/Maintenance-bro.svg') }}" alt="IT Maintenance" class="w-full rounded-lg shadow-lg w-[80%] md:h-[460px] w-[80%]">
             </div>
             <div class="lg:w-1/2 space-y-4">
               <h3 class="text-2xl font-semibold text-gray-800">IT Maintenance</h3>
