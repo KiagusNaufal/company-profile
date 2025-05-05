@@ -35,13 +35,15 @@
 <body class="bg-white">
 
   <!-- Navbar -->
-  <div class="z-50 py-4 w-full flex items-center justify-center text-sm border-b border-gray-200 bg-white fixed top-0 left-0">
+<!-- Navbar -->
+<div class="z-50 py-3 w-full flex items-center justify-center text-sm border-b border-gray-200 bg-white fixed top-0 left-0">
     <div class="w-[1440px] max-w-[90%] flex justify-between items-center">
-      <!-- Logo -->
-      <div class="flex items-center">
-        <img src="" alt="Logo" class="w-[100px] min-[800px]:w-[158px] h-[41px] object-left" />
+      <!-- Logo (Ukuran diperbesar sedikit) -->
+      <div class="flex items-center h-[50px] min-[800px]:h-[60px]">
+        <img src="{{ asset('image/company.svg') }}" alt="Logo" 
+             class="object-contain min-[800px]:w-[150px] w-[120px] h-auto">
       </div>
-
+  
       <!-- Desktop Menu -->
       <div class="hidden min-[800px]:flex gap-8 items-center">
         <a href="{{ url('/') }}" id="nav-home" class="group py-4 transition duration-200 hover:-translate-y-1 text-[#343C3C]">
@@ -90,6 +92,31 @@
     @yield('content')
   </div>
 
+  <div class="z-10 py-4 w-full items-center justify-center bg-[#003366]">
+    <div class="w-[1440px] max-w-[90%] justify-between items-center m-auto">
+        <div class="items-center justify-center">
+            <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-3 pt-[64px]">
+                <div class="text-white">
+                    <p class="font-[600] mb-3">Lorem Ipsum</p>
+                    <p class="font[400] mb-6 max-w-[75%]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus pariatur alias placeat molestias</p>
+                    <div class="flex gap-2">
+                        <a href="https://www.facebook.com">
+                            <img src="{{ asset('icons/facebook.svg') }}" alt="fb icon" fetchpriority="high" width="0" height="0"
+                            decoding="async" data-nimg="1" class="relative mb-4 w-[21px] h-[21px]" style="color:transparent"
+                            >
+                        </a>
+                        <a href="https://www.instagram.com">
+                        
+                        </a>
+                        <a href="https://www.twitter.com">
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
   <!-- Scripts -->
   <script>
     // Toggle Mobile Menu Slide

@@ -5,6 +5,7 @@
 {{-- Hero Content --}}
 @section('content')
     <div class="">
+<<<<<<< HEAD
         <div class="flex flex-1 items-center px-6 lg:px-20">
             <div class="py-40 px 4 md:w-1/2 md:space-y-4 text-center md:text-left">
             <h1 class="text-4xl lg:text-5xl font-semibold">
@@ -27,5 +28,7 @@
             <img src="{{ asset('images/hero-man.png') }}" alt="Hero Image" class="mx-auto rounded-xl">
             </div>
         </div>
+=======
+>>>>>>> 836f966f8653bcd64b9121fb6bd8e662021f6a45
     </div>
 @endsection
