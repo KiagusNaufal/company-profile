@@ -106,12 +106,49 @@
                             >
                         </a>
                         <a href="https://www.instagram.com">
-                        
+                            <img src="{{ asset('icons/instagram.svg') }}" alt="fb icon" fetchpriority="high" width="0" height="0"
+                            decoding="async" data-nimg="1" class="relative mb-4 w-[21px] h-[21px]" style="color:transparent"
+                            >
                         </a>
-                        <a href="https://www.twitter.com">
-
+                        <a href="https://www.linkedin.com">
+                            <img src="{{ asset('icons/linkedin.svg') }}" alt="fb icon" fetchpriority="high" width="0" height="0"
+                            decoding="async" data-nimg="1" class="relative mb-4 w-[21px] h-[21px]" style="color:transparent"
+                            >
                         </a>
                     </div>
+                </div>
+                <div class="text-white">
+                    <p class="font-[600] text-[#979B9B] text-[20px] mb-6">Company</p>
+                    <p class="cursor-pointer font-[400] mb-4 hover:underline">About Us</p>
+                    <p class="cursor-pointer font-[400] mb-4 hover:underline">Services</p>
+                    <p class="cursor-pointer font-[400] mb-4 hover:underline">Portofolio</p>
+                    <p class="cursor-pointer font-[400] mb-4 hover:underline">Career</p>
+                </div>
+                <div class="text-white">
+                    <p class="font-[600] text-[#979B9B] text-[20px] mb-6">Contact Us</p>
+                    <p class="font-[600] text-[#979B9B]">Office</p>
+                    <a href="https://maps.app.goo.gl/">
+                        <p class="font-[400] mb-6 hover:underline">Jl. Arciko Gg Harapan II No 60 Rt 01 Rw 13 Kel Sayang Cianjur,  <br>  Kota Cianjur, Jawa Barat</p>
+                    </a>
+                    <p class="font-[600] text-[#979B9B]">Workshop</p>
+                    <a href="https://maps.app.goo.gl/">
+                        <p class="font-[400] mb-6 hover:underline">Jl. Arciko Gg Harapan II No 60 Rt 01 Rw 13 Kel Sayang Cianjur,  <br>  Kota Cianjur, Jawa Barat</p>
+                    </a>
+                    <a href="font-[400] pb-4 cursor-pointer">
+                        <p class="mb-4 hover-underline">aeratek@gmail.com</p>
+                    </a>
+                    <a href="https://whatsapp.com">
+                        <p class="font-[400] mb-4 hover-underline">+62 878 8231 8231</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="flex items-center justify-center m-auto bg[#003366]">
+            <div class="z-10 w-[1440px] bg-[#003366] flex pt-[24px] pb-[48px] justify-center">
+                <div class="w-full justify-center text-center">
+                    <hr class="mx-auto">
+                    <p class="text-white text-center mt-3">© 2025 PT Aeratek Global Solution. All Rights Reserved.</p>
+                    <span class="text-[#003366]">v0.0.0.0</span>
                 </div>
             </div>
         </div>
