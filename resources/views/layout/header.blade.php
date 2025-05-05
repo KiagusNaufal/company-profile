@@ -6,8 +6,9 @@
   <title>@yield('title', 'Company Profile')</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  
+
 <style type="text/tailwindcss">
+
     @layer utilities {
         .slide-down {
             max-height: 999px;
@@ -40,10 +41,10 @@
     <div class="w-[1440px] max-w-[90%] flex justify-between items-center">
       <!-- Logo (Ukuran diperbesar sedikit) -->
       <div class="flex items-center h-[50px] min-[800px]:h-[60px]">
-        <img src="{{ asset('image/company.svg') }}" alt="Logo" 
+        <img src="{{ asset('image/company.svg') }}" alt="Logo"
              class="object-contain min-[800px]:w-[150px] w-[120px] h-auto">
       </div>
-  
+
       <!-- Desktop Menu -->
       <div class="hidden min-[800px]:flex gap-8 items-center">
         <a href="{{ url('/') }}" id="nav-home" class="group py-4 transition duration-200 hover:-translate-y-1 text-[#343C3C]">
@@ -97,6 +98,8 @@
         <div class="items-center justify-center">
             <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-3 pt-[64px]">
                 <div class="text-white">
+                    <img src="{{ asset('image/company.svg') }}" alt="Logo"
+                        class="">
                     <p class="font-[600] mb-3">Lorem Ipsum</p>
                     <p class="font[400] mb-6 max-w-[75%]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus pariatur alias placeat molestias</p>
                     <div class="flex gap-2">
@@ -128,23 +131,23 @@
                     <p class="font-[600] text-[#ffffff] text-[20px] mb-6">Contact Us</p>
                     <p class="font-[600] text-[#ffffff]">Office</p>
                     <a href="https://maps.app.goo.gl/">
-                        <p class="font-[400] mb-6 hover:underline">Jl. Arciko Gg Harapan II No 60 Rt 01 Rw 13 Kel Sayang Cianjur,  <br>  Kota Cianjur, Jawa Barat</p>
+                        <p class="font-[400] mb-6 hover:underline ">Jl. Arciko Gg Harapan II No 60 Rt 01 Rw 13 Kel Sayang Cianjur,  <br>  Kota Cianjur, Jawa Barat</p>
                     </a>
                     <p class="font-[600] text-[#ffffff]">Workshop</p>
                     <a href="https://maps.app.goo.gl/">
-                        <p class="font-[400] mb-6 hover:underline">Jl. Arciko Gg Harapan II No 60 Rt 01 Rw 13 Kel Sayang Cianjur,  <br>  Kota Cianjur, Jawa Barat</p>
+                        <p class="font-[400]  mb-6 hover:underline">Jl. Arciko Gg Harapan II No 60 Rt 01 Rw 13 Kel Sayang Cianjur,  <br>  Kota Cianjur, Jawa Barat</p>
                     </a>
-                    <a href="font-[400] pb-4 cursor-pointer">
-                        <p class="mb-4 hover-underline">aeratek@gmail.com</p>
+                    <a href="font-[400] pb-2 cursor-pointer">
+                        <p class="mb-1 hover-underline ">aeratek@gmail.com</p>
                     </a>
                     <a href="https://whatsapp.com">
-                        <p class="font-[400] mb-4 hover-underline">+62 878 8231 8231</p>
+                        <p class="font-[400] mb-6 hover-underline ">+62 878 8231 8231</p>
                     </a>
                 </div>
             </div>
         </div>
         <div class="flex items-center justify-center m-auto bg[#0e60de]">
-            <div class="z-10 w-[1440px] bg-[#0e60de] flex pt-[24px] pb-[48px] justify-center">
+            <div class="z-10 w-[1440px] bg-[#0e60de] flex pt-[24px] justify-center">
                 <div class="w-full justify-center text-center">
                     <hr class="mx-auto">
                     <p class="text-white text-center mt-3">© 2025 PT Aeratek Global Solution. All Rights Reserved.</p>

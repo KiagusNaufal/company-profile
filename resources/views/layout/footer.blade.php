@@ -10,9 +10,9 @@
                     <div class="text-white">
                         <img src="{{ asset('image/company.svg') }}" alt="Logo" fetchpriority="high" width="0" height="0"
                         class="relative mb-4 w-[158px] h-[441px]" style="color:transparent" data-nimg="1" decoding="async"/>
-                        <p class="font-[600] mb-3">Lorem Ipsum</p>
+                        {{-- <p class="font-[600] mb-3">Lorem Ipsum</p> --}}
                         <p class="font[400] mb-6 max-w-[75%]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus pariatur alias placeat molestias</p>
-                        
+
                     </div>
                 </div>
             </div>
