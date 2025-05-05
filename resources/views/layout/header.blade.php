@@ -98,6 +98,8 @@
         <div class="items-center justify-center">
             <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-3 pt-[64px]">
                 <div class="text-white">
+                    <img src="{{ asset('image/company.svg') }}" alt="Logo"
+                        class="">
                     <p class="font-[600] mb-3">Lorem Ipsum</p>
                     <p class="font[400] mb-6 max-w-[75%]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus pariatur alias placeat molestias</p>
                     <div class="flex gap-2">
@@ -129,17 +131,17 @@
                     <p class="font-[600] text-[#ffffff] text-[20px] mb-6">Contact Us</p>
                     <p class="font-[600] text-[#ffffff]">Office</p>
                     <a href="https://maps.app.goo.gl/">
-                        <p class="font-[400] mb-2 hover:underline leading-2.5 md:leading-4">Jl. Arciko Gg Harapan II No 60 Rt 01 Rw 13 Kel Sayang Cianjur,  <br>  Kota Cianjur, Jawa Barat</p>
+                        <p class="font-[400] mb-6 hover:underline ">Jl. Arciko Gg Harapan II No 60 Rt 01 Rw 13 Kel Sayang Cianjur,  <br>  Kota Cianjur, Jawa Barat</p>
                     </a>
                     <p class="font-[600] text-[#ffffff]">Workshop</p>
                     <a href="https://maps.app.goo.gl/">
-                        <p class="font-[400] leading-2.5 md:leading-4 mb-2 hover:underline">Jl. Arciko Gg Harapan II No 60 Rt 01 Rw 13 Kel Sayang Cianjur,  <br>  Kota Cianjur, Jawa Barat</p>
+                        <p class="font-[400]  mb-6 hover:underline">Jl. Arciko Gg Harapan II No 60 Rt 01 Rw 13 Kel Sayang Cianjur,  <br>  Kota Cianjur, Jawa Barat</p>
                     </a>
                     <a href="font-[400] pb-2 cursor-pointer">
-                        <p class="mb-1 hover-underline leading-2.5 md:leading-4">aeratek@gmail.com</p>
+                        <p class="mb-1 hover-underline ">aeratek@gmail.com</p>
                     </a>
                     <a href="https://whatsapp.com">
-                        <p class="font-[400] mb-1 hover-underline leading-2.5 md:leading-4">+62 878 8231 8231</p>
+                        <p class="font-[400] mb-6 hover-underline ">+62 878 8231 8231</p>
                     </a>
                 </div>
             </div>

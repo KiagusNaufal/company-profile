@@ -3,11 +3,11 @@
 @section('title', 'Home Page')
 <style type="text/tailwindcss">
     * {
-        border: 1px solid red;
+        /* border: 1px solid red; */
     }
 </style>
-{{-- Hero Content --}}
 @section('content')
+{{-- Hero Content --}}
     <div class="">
         <div class="flex flex-1 items-center px-6 lg:px-20 border-b-[1px] border-gray-200">
             <div class="py-40 px 4 md:w-1/2 md:space-y-4 text-center md:text-left">
@@ -28,13 +28,13 @@
 
             </div>
             <div class="hidden lg:block lg:w-1/2 pl-40">
-            <img src="{{ asset('image/company.svg') }}" alt="Hero Image" class="mx-auto rounded-xl ">
+            <img src="{{ asset('image/company.svg') }}" alt="Hero Image" class="mx-auto rounded-xl md:w-full">
             </div>
         </div>
     </div>
 
     <!-- Services Section -->
-    <section class="py-20 bg-sky-50">
+    <section class="py-20  bg-sky-50">
         <!-- Header -->
         <div class="max-w-3xl mx-auto text-center mb-16 py-5">
           <p class="text-sm uppercase text-blue-700 font-semibold">Our Services</p>
@@ -43,7 +43,7 @@
           </h2>
         </div>
 
-        <div class="container mx-auto space-y-20">
+        <div class="container mx-auto space-y-20 px-10 lg:px-20">
           <!-- Service Item 1 -->
           <div class="flex flex-col lg:flex-row items-center gap-8">
             <div class="lg:w-1/2">
@@ -51,7 +51,7 @@
             </div>
             <div class="lg:w-1/2 space-y-4">
               <h3 class="text-2xl font-semibold text-gray-800">Software Development</h3>
-              <p class="text-gray-600">
+              <p class="text-gray-600 text-xl">
                 In the realm of coding quests, we are your digital heroes. Harness the power of our software development prowess to turn your visions into groundbreaking digital solutions.
                 We don’t just write code; we script success stories.
               </p>
@@ -64,11 +64,11 @@
           <!-- Service Item 2 (reverse on large screens) -->
           <div class="flex flex-col lg:flex-row-reverse items-center gap-8">
             <div class="lg:w-1/2">
-              <img src="{{ asset('image/Data extraction-rafiki.svg') }}" alt="Data Analytics" class="w-50 rounded-lg shadow-lg w-[80%] md:h-[460px] w-[80%]">
+              <img src="{{ asset('image/Data extraction-rafiki.svg') }}" alt="Data Analytics" class="w-full rounded-lg shadow-lg w-[80%] md:h-[460px] w-[80%]">
             </div>
             <div class="lg:w-1/2 space-y-4">
               <h3 class="text-2xl font-semibold text-gray-800">Data Analytics</h3>
-              <p class="text-gray-600">
+              <p class="text-gray-600 text-xl" >
                 Navigate the vast landscapes of data with our heroic analytics. From unraveling insights to conquering data challenges, our expertise ensures your business emerges victorious.
                 We turn data into your most powerful ally.
               </p>
