@@ -11,7 +11,7 @@
     <section class="border-b-[1px] border-gray-200">
         <div class="flex flex-col-reverse lg:flex-row items-center px-4 sm:px-6 lg:px-20 ">
             <div class="order-1 lg:order-1 w-full lg:w-1/2 space-y-6 py-12 sm:py-16 md:py-20 text-center md:text-left">
-                <h1 class="text-4xl lg:text-5xl mx-20 mt-7 tracking-wide font-normal">
+                <h1 class="text-4xl lg:text-5xl mx-20 mt-7 mb-7 tracking-wide font-sans">
                     Heroes at Your Service,<br>
                     Meeting Your Every Need
                 </h1>
@@ -210,6 +210,55 @@
                     <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
                         Read More →
                     </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <!-- Heading -->
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">WHAT THEY SAY</h2>
+                <p class="text-xl text-gray-600">Our Partners Kind Words</p>
+            </div>
+    
+            <!-- Testimonials -->
+            <div class="space-y-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white rounded-lg shadow-md p-8 relative">
+                    <div class="absolute top-4 left-4 text-gray-200 text-5xl">“</div>
+                    <p class="text-gray-600 mb-6 mt-2 pl-8 italic">
+                        "Respon admin Someah Baik dan dapat memahami permintaan dari Admin BKHM. Memiliki backup web staging dan pelayanan diluar jam kerja"
+                    </p>
+                    <div class="border-t pt-4 pl-8">
+                        <h4 class="font-semibold text-gray-800">Shaka</h4>
+                        <p class="text-sm text-gray-500">Stat Admin IT Darmasiswa</p>
+                    </div>
+                </div>
+    
+                <!-- Testimonial 2 -->
+                <div class="bg-white rounded-lg shadow-md p-8 relative">
+                    <div class="absolute top-4 left-4 text-gray-200 text-5xl">“</div>
+                    <p class="text-gray-600 mb-6 mt-2 pl-8 italic">
+                        "Tim yang kompeten dan profesional. Komunikasi lancar, solusi kreatif, dan hasil kerja berkualitas membuat saya sangat puas dengan layanan mereka."
+                    </p>
+                    <div class="border-t pt-4 pl-8">
+                        <h4 class="font-semibold text-gray-800">Muhammad Ivandry</h4>
+                        <p class="text-sm text-gray-500">Pasker ID | Pranata Komputer</p>
+                    </div>
+                </div>
+    
+                <!-- Testimonial 3 -->
+                <div class="bg-white rounded-lg shadow-md p-8 relative">
+                    <div class="absolute top-4 left-4 text-gray-200 text-5xl">“</div>
+                    <p class="text-gray-600 mb-6 mt-2 pl-8 italic">
+                        "Sejauh ini Someah cukup adaptif di saat ada perubahan yang kami minta sehubungan dengan kondisi terkini. Responsif dalam mengelola isue yang disampalkan."
+                    </p>
+                    <div class="border-t pt-4 pl-8">
+                        <h4 class="font-semibold text-gray-800">Nindlastuti</h4>
+                        <p class="text-sm text-gray-500">PT Grafindo Media Pratama | Department Head</p>
+                    </div>
                 </div>
             </div>
         </div>
