@@ -88,12 +88,13 @@
     </div>
   </div>
 
+  
   <!-- Page Content -->
   <div class="mt-20"> <!-- Tambahkan margin top untuk konten utama -->
     @yield('content')
   </div>
 
-  <div class="z-10 py-4 w-full items-center justify-center bg-gradient-to-t from-[#0e40de] via-[#0e50de] to-[#0e60de]">
+  <div class="z-10 py-4 w-full items-center justify-center bg-[#04b2f7]">
     <div class="w-[1440px] max-w-[90%] justify-between items-center m-auto">
         <div class="items-center justify-center">
             <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-3 pt-[64px]">
@@ -144,12 +145,12 @@
                 </div>
             </div>
         </div>
-        <div class="flex items-center justify-center m-auto bg-gradient-to-t from-[#0e10de]  to-[#0e60de]">
-            <div class="z-10 w-[1440px] bg-[#0e40de] flex pt-[24px] justify-center">
+        <div class="flex items-center justify-center m-auto bg[#04b2f7]">
+            <div class="z-10 w-[1440px] bg-[#04b2f7] flex pt-[24px] justify-center">
                 <div class="w-full justify-center text-center">
                     <hr class="mx-auto">
                     <p class="text-white text-center mt-3">© 2025 PT Aeratek Global Solution. All Rights Reserved.</p>
-                    <span class="text-[#0e60de]">v0.0.0.0</span>
+                    <span class="text-[#04b2f7]">v0.0.0.0</span>
                 </div>
             </div>
         </div>
@@ -186,7 +187,7 @@
 
       [activeDesktop, activeMobile].forEach(el => {
         if (el) {
-          el.classList.add('text-[#0e60de]', 'border-b-2', 'border-[#0e60de]', 'font-semibold');
+          el.classList.add('text-[#04b2f7]', 'border-b-2', 'border-[#04b2f7]', 'font-semibold');
           if (el.classList.contains('border-gray-100')) {
             el.classList.remove('border-gray-100');
           }
@@ -195,6 +196,10 @@
     }
   </script>
 
+<script src="https://unpkg.com/scrollreveal"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<!-- Load OrbitControls from the correct path -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
   @stack('scripts')
 </body>
 </html>
