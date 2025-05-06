@@ -416,19 +416,6 @@
         if (document.getElementById('threejs-canvas')) {
             initThreeJS();
         }
-
-        init3DCard('card-1', 0x04b2f7);
-    init3DCard('card-2', 0x6c5ce7);
-    init3DCard('card-3', 0x00b894);
-        ScrollReveal().reveal('.scroll-reveal-item', {
-            delay: 200,
-            distance: '20px',
-            origin: 'bottom',
-            duration: 800,
-            easing: 'ease-out',
-            reset: false // Ubah ini menjadi false
-        });
-
         // Hero section specific
         ScrollReveal().reveal('.scroll-reveal-hero', {
             delay: 300,
@@ -519,81 +506,61 @@
       });
     });
 
-function init3DCard(containerId, color) {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-    
-    const width = container.clientWidth;
-    const height = container.clientHeight;
-    
-    // 1. Create Scene
-    const scene = new THREE.Scene();
-    
-    // 2. Create Camera
-    const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-    camera.position.z = 5;
-    
-    // 3. Create Renderer
-    const renderer = new THREE.WebGLRenderer({ 
-      antialias: true,
-      alpha: true
-    });
-    renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    container.appendChild(renderer.domElement);
-    
-    // 4. Create 3D Object
-    const geometry = new THREE.IcosahedronGeometry(1.5, 1);
-    const material = new THREE.MeshStandardMaterial({ 
-      color: color,
-      metalness: 0.7,
-      roughness: 0.4,
-      transparent: true,
-      opacity: 0.9
-    });
-    const mesh = new THREE.Mesh(geometry, material);
-    scene.add(mesh);
-    
-    // 5. Add Lighting
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-    scene.add(ambientLight);
-    
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-    directionalLight.position.set(1, 1, 1);
-    scene.add(directionalLight);
-    
-    // 6. Handle Mouse Move
-    container.addEventListener('mousemove', (e) => {
-      const x = (e.clientX - container.getBoundingClientRect().left) / width;
-      const y = (e.clientY - container.getBoundingClientRect().top) / height;
-      
-      mesh.rotation.y = x * 2;
-      mesh.rotation.x = -y * 2;
-    });
-    
-    // 7. Animation Loop
-    function animate() {
-      requestAnimationFrame(animate);
-      
-      // Gentle rotation when not interacting
-      if (!container.matches(':hover')) {
-        mesh.rotation.x += 0.005;
-        mesh.rotation.y += 0.01;
-      }
-      
-      renderer.render(scene, camera);
-    }
-    
-    animate();
-    
-    // 8. Handle Resize
-    window.addEventListener('resize', () => {
-      camera.aspect = container.clientWidth / container.clientHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(container.clientWidth, container.clientHeight);
-    });
-  }
+    document.addEventListener('DOMContentLoaded', function() {
+    // Inisialisasi Three.js cards
+    const init3DCard = (containerId, color) => {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        
+        const width = container.clientWidth;
+        const height = container.clientHeight;
+        
+        // Scene setup
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+        camera.position.z = 5;
+        
+        const renderer = new THREE.WebGLRenderer({ 
+            antialias: true,
+            alpha: true
+        });
+        renderer.setSize(width, height);
+        container.appendChild(renderer.domElement);
+        
+        // Object
+        const geometry = new THREE.IcosahedronGeometry(1.5, 1);
+        const material = new THREE.MeshStandardMaterial({ 
+            color: color,
+            metalness: 0.7,
+            roughness: 0.4
+        });
+        const mesh = new THREE.Mesh(geometry, material);
+        scene.add(mesh);
+        
+        // Lighting
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        scene.add(ambientLight);
+        
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+        directionalLight.position.set(1, 1, 1);
+        scene.add(directionalLight);
+        
+        // Animation
+        const animate = () => {
+            requestAnimationFrame(animate);
+            mesh.rotation.x += 0.005;
+            mesh.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        };
+        
+        animate();
+    };
+
+    // Inisialisasi semua cards
+    init3DCard('card-1', 0x04b2f7);
+    init3DCard('card-2', 0x6c5ce7);
+    init3DCard('card-3', 0x00b894);
+});
 </script>
 
-<script src="//unpkg.com/alpinejs" defer></script>
 @endsection
