@@ -3,8 +3,7 @@
 @section('title', 'Home Page')
 
 @section('content')
-<section
-    class="relative overflow-hidden bg-gradient-to-b from-blue-50 via-transparent to-transparent pb-12 pt-20 sm:pb-16 sm:pt-32 lg:pb-24 xl:pb-32 xl:pt-40">
+<section class="relative overflow-hidden bg-gradient-to-b from-blue-50 via-transparent to-transparent pb-8 pt-20 sm:pb-12 sm:pt-32 lg:pb-16 xl:pb-24 xl:pt-40">
     <div class="relative z-10">
         <div
             class="absolute inset-x-0 top-1/2 -z-10 flex -translate-y-1/2 justify-center overflow-hidden [mask-image:radial-gradient(50%_45%_at_50%_55%,white,transparent)]">
@@ -48,7 +47,7 @@
 </section>
 
 <!-- New Interactive Process Section -->
-<section class="py-16 bg-white" x-data="{ openTab: 'discover' }">
+<section class="pt-8 pb-16 bg-white" x-data="{ openTab: 'discover' }">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <h2 class="text-3xl font-bold text-center text-gray-900 mb-5">Lorem Ipsum</h2>
         <h2 class="text-3xl font-bold text-center text-gray-900 mb-5">Lorem ipsum dolor sit amet consectetur  </h2>
@@ -93,67 +92,77 @@
         </div>
 
         <!-- Tab Contents -->
-        <div class="bg-gradient-to-b from-blue-50 to-white p-5 rounded-xl shadow-sm border border-gray-100 max-w-lg mx-auto min-h-[300px]">
+        <div class="bg-white p-8 rounded-xl shadow-md border border-gray-200 max-w-4xl mx-auto">
             <!-- Discover Content -->
-            <div x-show="openTab === 'discover'" x-transition class="h-full flex flex-col space-y-3">
-                <h3 class="text-xl font-bold text-blue-600">Discover Phase</h3>
-                <p class="text-gray-700 text-sm flex-grow">We analyze your hydration needs and explore sustainable solutions through comprehensive market research and environmental impact analysis.</p>
-                <ul class="list-disc pl-5 space-y-1 text-gray-600 text-sm">
-                    <li>Market trend analysis</li>
-                    <li>Sustainability research</li>
-                    <li>Consumer behavior studies</li>
-                </ul>
+            <div x-show="openTab === 'discover'" x-transition class="flex flex-col md:flex-row gap-8 items-center">
+                <div class="w-full md:w-1/3">
+                    <img src="{{ asset('image/discover.svg') }}" alt="Discover Phase" class="w-full h-auto rounded-lg object-cover">
+                </div>
+                <div class="w-full md:w-2/3">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Discover</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Commencing each project, we prioritize understanding the goals and user needs. Through thorough exploration, we gather the essential knowledge required to craft solutions that precisely align with the user's requirements.
+                    </p>
+                </div>
             </div>
-        
+            
             <!-- Define Content -->
-            <div x-show="openTab === 'define'" x-transition class="h-full flex flex-col space-y-3">
-                <h3 class="text-xl font-bold text-blue-600">Define Phase</h3>
-                <p class="text-gray-700 text-sm flex-grow">We outline clear objectives and product requirements to perfectly align with your sustainability goals and business vision.</p>
-                <ul class="list-disc pl-5 space-y-1 text-gray-600 text-sm">
-                    <li>Product specifications</li>
-                    <li>Eco-friendly material selection</li>
-                    <li>Supply chain planning</li>
-                </ul>
+            <div x-show="openTab === 'define'" x-transition class="flex flex-col md:flex-row gap-8 items-center">
+                <div class="w-full md:w-1/3">
+                    <img src="{{ asset('image/define.svg') }}" alt="Define Phase" class="w-full h-auto rounded-lg object-cover">
+                </div>
+                <div class="w-full md:w-2/3">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Define</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        We transform discoveries into clear objectives, establishing measurable goals and defining the roadmap for your sustainable packaging solution.
+                    </p>
+                </div>
             </div>
-        
+            
             <!-- Design Content -->
-            <div x-show="openTab === 'design'" x-transition class="h-full flex flex-col space-y-3">
-                <h3 class="text-xl font-bold text-blue-600">Design Phase</h3>
-                <p class="text-gray-700 text-sm flex-grow">We create innovative sustainable packaging designs that combine functionality with environmental responsibility.</p>
-                <ul class="list-disc pl-5 space-y-1 text-gray-600 text-sm">
-                    <li>Eco-friendly packaging concepts</li>
-                    <li>Material testing</li>
-                    <li>Branding integration</li>
-                </ul>
+            <div x-show="openTab === 'design'" x-transition class="flex flex-col md:flex-row gap-8 items-center">
+                <div class="w-full md:w-1/3">
+                    <img src="{{ asset('image/desin.svg') }}" alt="Design Phase" class="w-full h-auto rounded-lg object-cover">
+                </div>
+                <div class="w-full md:w-2/3">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Design</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Our creative team develops eco-friendly packaging concepts that balance aesthetics, functionality, and environmental responsibility.
+                    </p>
+                </div>
             </div>
-        
+            
             <!-- Develop Content -->
-            <div x-show="openTab === 'develop'" x-transition class="h-full flex flex-col space-y-3">
-                <h3 class="text-xl font-bold text-blue-600">Develop Phase</h3>
-                <p class="text-gray-700 text-sm flex-grow">We manufacture your boxed water solution implementing sustainable practices at every production step.</p>
-                <ul class="list-disc pl-5 space-y-1 text-gray-600 text-sm">
-                    <li>Prototype development</li>
-                    <li>Sustainable production processes</li>
-                    <li>Quality assurance testing</li>
-                </ul>
+            <div x-show="openTab === 'develop'" x-transition class="flex flex-col md:flex-row gap-8 items-center">
+                <div class="w-full md:w-1/3">
+                    <img src="{{ asset('image/develop.svg') }}" alt="Develop Phase" class="w-full h-auto rounded-lg object-cover">
+                </div>
+                <div class="w-full md:w-2/3">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Develop</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        We bring designs to life using sustainable materials and manufacturing processes, ensuring quality at every production stage.
+                    </p>
+                </div>
             </div>
-        
+            
             <!-- Deliver Content -->
-            <div x-show="openTab === 'deliver'" x-transition class="h-full flex flex-col space-y-3">
-                <h3 class="text-xl font-bold text-blue-600">Deliver Phase</h3>
-                <p class="text-gray-700 text-sm flex-grow">We distribute your sustainable hydration solution through eco-conscious channels while providing ongoing support.</p>
-                <ul class="list-disc pl-5 space-y-1 text-gray-600 text-sm">
-                    <li>Eco-conscious distribution</li>
-                    <li>Retailer partnerships</li>
-                    <li>Customer education programs</li>
-                </ul>
+            <div x-show="openTab === 'deliver'" x-transition class="flex flex-col md:flex-row gap-8 items-center">
+                <div class="w-full md:w-1/3">
+                    <img src="{{ asset('image/deliver.svg') }}" alt="Deliver Phase" class="w-full h-auto rounded-lg object-cover">
+                </div>
+                <div class="w-full md:w-2/3">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Deliver</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Your sustainable packaging solution reaches the market through environmentally-conscious distribution channels with our ongoing support.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Services Section -->
-<section class="py-16 bg-gray-50">
+<section class="py-16 bg-sky-50">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="text-center mb-12">
             <h2 class="text-3xl font-bold text-gray-900">SERVICES</h2>

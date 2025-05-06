@@ -98,8 +98,6 @@
         <div class="items-center justify-center">
             <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-3 pt-[64px]">
                 <div class="text-white">
-                    <img src="{{ asset('image/company.svg') }}" alt="Logo"
-                        class="">
                     <p class="font-[600] mb-3">Lorem Ipsum</p>
                     <p class="font[400] mb-6 max-w-[75%]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus pariatur alias placeat molestias</p>
                     <div class="flex gap-2">
