@@ -120,26 +120,26 @@
                 </div>
                 <div class="text-white">
                     <p class="font-[600] text-[#ffffff] text-[20px] mb-6">Company</p>
-                    <p class="cursor-pointer font-[400] mb-4 hover:underline">About Us</p>
-                    <p class="cursor-pointer font-[400] mb-4 hover:underline">Services</p>
-                    <p class="cursor-pointer font-[400] mb-4 hover:underline">Portofolio</p>
-                    <p class="cursor-pointer font-[400] mb-4 hover:underline">Career</p>
+                    <p class="cursor-pointer font-thin mb-4 hover:underline">About Us</p>
+                    <p class="cursor-pointer font-thin mb-4 hover:underline">Services</p>
+                    <p class="cursor-pointer font-thin mb-4 hover:underline">Portofolio</p>
+                    <p class="cursor-pointer font-thin mb-4 hover:underline">Career</p>
                 </div>
                 <div class="text-white">
                     <p class="font-[600] text-[#ffffff] text-[20px] mb-6">Contact Us</p>
                     <p class="font-[600] text-[#ffffff]">Office</p>
                     <a href="https://maps.app.goo.gl/">
-                        <p class="font-[400] mb-6 hover:underline ">Jl. Arciko Gg Harapan II No 60 Rt 01 Rw 13 Kel Sayang Cianjur,  <br>  Kota Cianjur, Jawa Barat</p>
+                        <p class="font-thin mb-6 hover:underline ">Jl. Arciko Gg Harapan II No 60 Rt 01 Rw 13 Kel Sayang Cianjur,  <br>  Kota Cianjur, Jawa Barat</p>
                     </a>
                     <p class="font-[600] text-[#ffffff]">Workshop</p>
                     <a href="https://maps.app.goo.gl/">
-                        <p class="font-[400]  mb-6 hover:underline">Jl. Arciko Gg Harapan II No 60 Rt 01 Rw 13 Kel Sayang Cianjur,  <br>  Kota Cianjur, Jawa Barat</p>
+                        <p class="font-thin  mb-6 hover:underline">Jl. Arciko Gg Harapan II No 60 Rt 01 Rw 13 Kel Sayang Cianjur,  <br>  Kota Cianjur, Jawa Barat</p>
                     </a>
-                    <a href="font-[400] pb-2 cursor-pointer">
+                    <a href="font-thin pb-2 cursor-pointer">
                         <p class="mb-1 hover-underline ">aeratek@gmail.com</p>
                     </a>
                     <a href="https://whatsapp.com">
-                        <p class="font-[400] mb-6 hover-underline ">+62 878 8231 8231</p>
+                        <p class="font-thin mb-6 hover-underline ">+62 878 8231 8231</p>
                     </a>
                 </div>
             </div>

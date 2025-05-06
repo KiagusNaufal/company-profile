@@ -7,101 +7,212 @@
     }
 </style>
 @section('content')
-{{-- Hero Content --}}
-    <div class="">
-        <div class="flex flex-1 items-center px-6 lg:px-20 border-b-[1px] border-gray-200">
-            <div class="py-40 px 4 md:w-1/2 md:space-y-4 text-center md:text-left">
-            <h1 class="text-4xl lg:text-5xl font-semibold">
-                Heroes at Your Service,<br>
-                Meeting Your Every Need
-            </h1>
-            <p class="py-10 text-gray-600">
-                We’re Heroes to your business forward through expert software development, strategic big data analytics, and seamless IT maintenance. Elevate your enterprise with us.
-            </p>
-
-            <div class="py-10 flex gap-4">
-                <a href="#" class="bg-[#0e60de] text-white px-5 py-3 rounded-lg hover:bg-blue-800 transition">Tell Us Digital Mission</a>
-                <a href="#" class="border border-[#0e60de] px-5 py-3 rounded-lg hover:bg-blue-700 hover:text-white transition flex items-center gap-2">
-                Learn More <span>→</span>
-                </a>
+    {{-- Hero Content --}}
+    <section class="border-b-[1px] border-gray-200">
+        <div class="flex flex-col-reverse lg:flex-row items-center px-4 sm:px-6 lg:px-20 ">
+            <div class="order-1 lg:order-1 w-full lg:w-1/2 space-y-6 py-12 sm:py-16 md:py-20 text-center md:text-left">
+                <h1 class="text-4xl lg:text-5xl mx-20 mt-7 tracking-wide font-normal">
+                    Heroes at Your Service,<br>
+                    Meeting Your Every Need
+                </h1>
+                <p class="py-5 px-20 text-xl text-gray-600">
+                    We’re Heroes to your business forward through expert software development, strategic big data analytics,
+                    and seamless IT maintenance. Elevate your enterprise with us.
+                </p>
+                <div class="py-5 px-20 flex gap-4">
+                    <a href="#" class="bg-[#0e60de] text-white px-5 py-3 rounded-lg hover:bg-blue-800 transition">Tell
+                        Us Digital Mission</a>
+                    <a href="#" class="border border-[#0e60de] px-5 py-3 rounded-lg hover:bg-blue-700 hover:text-white transition flex items-center">
+                        Learn More <span>→</span>
+                    </a>
+                </div>
             </div>
-
-            </div>
-            <div class="hidden lg:block lg:w-1/2 pl-40">
-            <img src="{{ asset('image/company.svg') }}" alt="Hero Image" class="mx-auto rounded-xl md:w-full">
+            {{-- Hero Image --}}
+            <div class="order-2 lg:order-2 w-full lg:w-1/2 mb-8 lg:mb-0">
+                <img src="{{ asset('image/company.svg') }}" alt="Hero Image" width="512" height="600"
+                    class="mx-auto lg:mx-40 w-4/5 sm:w-3/4 md:w-2/3 lg:w-[80%] rounded-lg">
             </div>
         </div>
-    </div>
+    </section>
+
+
+    <section class="py-4 bg-white">
+        <div class="container mx-auto px-4">
+            <!-- Heading -->
+            <div class="text-center mb-12">
+                <p class="text-gray-600">Companies that use our solution to enhance their digitalization.</p>
+            </div>
+    
+            <!-- Marquee Container -->
+            <div class="overflow-hidden relative h-24">
+                <!-- Marquee Content - Duplicated for seamless loop -->
+                <div class="absolute flex items-center space-x-40 animate-marquee whitespace-nowrap">
+                    <!-- Logo Items -->
+                    <div class="flex-shrink-0">
+                        <img src="/images/bank-bri.png" alt="BANK BRI" class="h-16 object-contain">
+                    </div>
+                    <div class="flex-shrink-0">
+                        <img src="/images/company-2.png" alt="Company 2" class="h-12 object-contain">
+                    </div>
+                    <div class="flex-shrink-0">
+                        <img src="/images/company-3.png" alt="Company 3" class="h-14 object-contain">
+                    </div>
+                    <div class="flex-shrink-0">
+                        <img src="/images/company-4.png" alt="Company 4" class="h-10 object-contain">
+                    </div>
+                    
+                    <!-- Duplicated Logos -->
+                    <div class="flex-shrink-0">
+                        <img src="/images/bank-bri.png" alt="BANK BRI" class="h-16 object-contain">
+                    </div>
+                    <div class="flex-shrink-0">
+                        <img src="/images/company-2.png" alt="Company 2" class="h-12 object-contain">
+                    </div>
+                    <div class="flex-shrink-0">
+                        <img src="/images/company-3.png" alt="Company 3" class="h-14 object-contain">
+                    </div>
+                    <div class="flex-shrink-0">
+                        <img src="/images/company-4.png" alt="Company 4" class="h-10 object-contain">
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <style>
+            @keyframes marquee {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+            .animate-marquee {
+                animation: marquee 10s linear infinite;
+            }
+        </style>
+    </section>
 
     <!-- Services Section -->
     <section class="py-20  bg-sky-50">
         <!-- Header -->
-        <div class="max-w-3xl mx-auto text-center mb-16 py-5">
-          <p class="text-sm uppercase text-blue-700 font-semibold">Our Services</p>
-          <h2 class="mt-2 text-3xl lg:text-4xl font-semibold text-gray-800">
-            We possess techniques that can dismantle them into fragments
-          </h2>
+        <div class="max-w-3xl mx-auto grid justify-between text-center mb-16 py-5">
+            <p class="text-lg uppercase text-blue-700 font-semibold">Our Services</p>
+            <h2 class="mt-2 px-8 text-3xl lg:text-4xl tracking-normal md:tracking-wide font-[600] max-w-[800px] text-gray-800">
+                We possess techniques that can dismantle them into fragments
+            </h2>
         </div>
 
         <div class="container mx-auto space-y-20 px-10 lg:px-20">
-          <!-- Service Item 1 -->
-          <div class="flex flex-col lg:flex-row items-center gap-8">
-            <div class="lg:w-1/2">
-              <img src="{{ asset('image/Developer activity-bro.svg') }}" alt="Software Development" class="w-full rounded-lg shadow-lg w-[80%] md:h-[460px] w-[80%]">
+            <!-- Service Item 1 -->
+            <div class="flex flex-col lg:flex-row items-center gap-8">
+                <div class="lg:w-1/2">
+                    <img src="{{ asset('image/Developer activity-bro.svg') }}" alt="Software Development"
+                        class="w-full rounded-lg  w-[80%] md:h-[460px] w-[80%]">
+                </div>
+                <div class="lg:w-1/2 space-y-4">
+                    <h3 class="text-2xl font-semibold text-gray-800">Software Development</h3>
+                    <p class="text-gray-600 sm:text-[28px] lg:text-2xl">
+                        In the realm of coding quests, we are your digital heroes. Harness the power of our software
+                        development prowess to turn your visions into groundbreaking digital solutions.
+                        We don’t just write code; we script success stories.
+                    </p>
+                    <a href="#" class="inline-flex items-center text-blue-700 hover:underline font-medium text-xl">
+                        Learn More <span class="ml-2">→</span>
+                    </a>
+                </div>
             </div>
-            <div class="lg:w-1/2 space-y-4">
-              <h3 class="text-2xl font-semibold text-gray-800">Software Development</h3>
-              <p class="text-gray-600 text-xl">
-                In the realm of coding quests, we are your digital heroes. Harness the power of our software development prowess to turn your visions into groundbreaking digital solutions.
-                We don’t just write code; we script success stories.
-              </p>
-              <a href="#" class="inline-flex items-center text-blue-700 hover:underline font-medium">
-                Learn More <span class="ml-2">→</span>
-              </a>
-            </div>
-          </div>
 
-          <!-- Service Item 2 (reverse on large screens) -->
-          <div class="flex flex-col lg:flex-row-reverse items-center gap-8">
-            <div class="lg:w-1/2">
-              <img src="{{ asset('image/Data extraction-rafiki.svg') }}" alt="Data Analytics" class="w-full rounded-lg shadow-lg w-[80%] md:h-[460px] w-[80%]">
+            <!-- Service Item 2 (reverse on large screens) -->
+            <div class="flex flex-col lg:flex-row-reverse items-center gap-8">
+                <div class="lg:w-1/2">
+                    <img src="{{ asset('image/Data extraction-rafiki.svg') }}" alt="Data Analytics"
+                        class="w-full rounded-lg  w-[80%] md:h-[460px] w-[80%]">
+                </div>
+                <div class="lg:w-1/2 space-y-4">
+                    <h3 class="text-2xl font-semibold text-gray-800">Data Analytics</h3>
+                    <p class="text-gray-600 sm:text-[28px] lg:text-2xl">
+                        Navigate the vast landscapes of data with our heroic analytics. From unraveling insights to
+                        conquering data challenges, our expertise ensures your business emerges victorious.
+                        We turn data into your most powerful ally.
+                    </p>
+                    <a href="#" class="inline-flex items-center text-blue-700 hover:underline font-medium text-xl">
+                        Learn More <span class="ml-2">→</span>
+                    </a>
+                </div>
             </div>
-            <div class="lg:w-1/2 space-y-4">
-              <h3 class="text-2xl font-semibold text-gray-800">Data Analytics</h3>
-              <p class="text-gray-600 text-xl" >
-                Navigate the vast landscapes of data with our heroic analytics. From unraveling insights to conquering data challenges, our expertise ensures your business emerges victorious.
-                We turn data into your most powerful ally.
-              </p>
-              <a href="#" class="inline-flex items-center text-blue-700 hover:underline font-medium">
-                Learn More <span class="ml-2">→</span>
-              </a>
-            </div>
-          </div>
 
-          <!-- Service Item 3 -->
-          <div class="flex flex-col lg:flex-row items-center gap-8">
-            <div class="lg:w-1/2">
-              <img src="{{ asset('image/Maintenance-bro.svg') }}" alt="IT Maintenance" class="w-full rounded-lg shadow-lg w-[80%] md:h-[460px] w-[80%]">
+            <!-- Service Item 3 -->
+            <div class="flex flex-col lg:flex-row items-center gap-8">
+                <div class="lg:w-1/2">
+                    <img src="{{ asset('image/Maintenance-bro.svg') }}" alt="IT Maintenance"
+                        class="w-full rounded-lg  w-[80%] md:h-[460px] w-[80%]">
+                </div>
+                <div class="lg:w-1/2 sm:w1/2 space-y-4">
+                    <h3 class="text-2xl font-semibold text-gray-800">IT Maintenance</h3>
+                    <p class="text-gray-600 sm:text-[28px] lg:text-2xl">
+                        As guardians of your digital realm, we ensure seamless IT infrastructure. Count on our heroic
+                        maintenance to keep your systems resilient, secure, and ever‑ready for the challenges of the digital
+                        frontier.
+                    </p>
+                    <a href="#" class="inline-flex items-center text-blue-700 hover:underline font-medium text-xl">
+                        Learn More <span class="ml-2">→</span>
+                    </a>
+                </div>
             </div>
-            <div class="lg:w-1/2 space-y-4">
-              <h3 class="text-2xl font-semibold text-gray-800">IT Maintenance</h3>
-              <p class="text-gray-600">
-                As guardians of your digital realm, we ensure seamless IT infrastructure. Count on our heroic maintenance to keep your systems resilient, secure, and ever‑ready for the challenges of the digital frontier.
-              </p>
-              <a href="#" class="inline-flex items-center text-blue-700 hover:underline font-medium">
-                Learn More <span class="ml-2">→</span>
-              </a>
-            </div>
-          </div>
         </div>
 
         <!-- See All Services Button -->
         <div class="mt-16 text-center">
-          <a href="#"
-             class="inline-block px-8 py-3 border border-green-700 text-blue-700 rounded-lg hover:bg-green-700 hover:text-white transition">
-            See All Service →
-          </a>
+            <a href="#"
+                class="inline-block px-8 py-3 border border-[#0e60de] text-blue-700 rounded-lg hover:bg-[#0e61de] hover:text-white transition">
+                See All Service →
+            </a>
         </div>
-      </section>
+    </section>
+
+    <section class="py-16 bg-gray-50 border-b-[1px] border-gray-200">
+        <div class="container mx-auto px-4">
+            <!-- Heading Section -->
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">SELECTED WORKS</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    We work and collaborate to create digital products for business and user goals.
+                </p>
+            </div>
+    
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Dana Siap Pakal Badan Nasional...</h3>
+                    <p class="text-gray-600 mb-4">
+                        DBP is a web-based application system designed to simplify the management of today’s trust in the National Dossier Management Agency. With an intuitive interface and efficient footrest, DBP ensures that fund management is carried out transparently and accurately.
+                    </p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                        Read More →
+                    </a>
+                </div>
+    
+                <!-- Project 2 -->
+                <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">E-Presensi Kemnaker</h3>
+                    <p class="text-gray-600 mb-4">
+                        E-Presensi is a computer-based application designed to manage and monitor employee attendance at the Ministry of Management or the Republic of Indonesia. This application leverages the latest technology to ensure an efficient, accurate, and integrated attendance process with existing data.
+                    </p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                        Read More →
+                    </a>
+                </div>
+    
+                <!-- Project 3 -->
+                <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">School Collaboration System</h3>
+                    <p class="text-gray-600 mb-4">
+                        SCS is an innovative web platform that enables collaboratively create and develop latest integration into the Nordiska Curriculum. We are currently working on a dedicated collaboration project to support SCS in linked theater for teachers to shape up.
+                    </p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                        Read More →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
 @endsection
