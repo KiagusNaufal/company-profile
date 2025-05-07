@@ -120,19 +120,19 @@
                     </div>
                 </div>
                 <div class="text-white">
-                    <p class="font-[600] text-[#ffffff] text-[20px] mb-6">Company</p>
+                    <p class="font-[600] text-[#7f90b7] text-[20px] mb-6">Company</p>
                     <p class="cursor-pointer font-thin mb-4 hover:underline">About Us</p>
                     <p class="cursor-pointer font-thin mb-4 hover:underline">Services</p>
                     <p class="cursor-pointer font-thin mb-4 hover:underline">Portofolio</p>
                     <p class="cursor-pointer font-thin mb-4 hover:underline">Career</p>
                 </div>
                 <div class="text-white">
-                    <p class="font-[600] text-[#ffffff] text-[20px] mb-6">Contact Us</p>
-                    <p class="font-[600] text-[#ffffff]">Office</p>
+                    <p class="font-[600] text-[#7f90b7] text-[20px] mb-6">Contact Us</p>
+                    <p class="font-[600] text-[#7f90b7]">Office</p>
                     <a href="https://maps.app.goo.gl/">
                         <p class="font-thin mb-6 hover:underline ">Jl. Arciko Gg Harapan II No 60 Rt 01 Rw 13 Kel Sayang Cianjur,  <br>  Kota Cianjur, Jawa Barat</p>
                     </a>
-                    <p class="font-[600] text-[#ffffff]">Workshop</p>
+                    <p class="font-[600] text-[#7f90b7]">Workshop</p>
                     <a href="https://maps.app.goo.gl/">
                         <p class="font-thin  mb-6 hover:underline">Jl. Arciko Gg Harapan II No 60 Rt 01 Rw 13 Kel Sayang Cianjur,  <br>  Kota Cianjur, Jawa Barat</p>
                     </a>
