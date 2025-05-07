@@ -416,6 +416,7 @@
         if (document.getElementById('threejs-canvas')) {
             initThreeJS();
         }
+
         // Hero section specific
         ScrollReveal().reveal('.scroll-reveal-hero', {
             delay: 300,
@@ -506,7 +507,7 @@
       });
     });
 
-    document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     // Inisialisasi Three.js cards
     const init3DCard = (containerId, color) => {
         const container = document.getElementById(containerId);
