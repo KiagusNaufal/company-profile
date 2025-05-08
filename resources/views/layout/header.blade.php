@@ -7,6 +7,10 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 
+<script src="https://unpkg.com/scrollreveal"></script>
+    
+  <!-- Sertakan file JavaScript kustom Anda -->
+  <script src="{{ asset('js/scrollReveal.js') }}" defer></script>
 <style type="text/tailwindcss">
 
     @layer utilities {
@@ -199,7 +203,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://unpkg.com/scrollreveal"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
   @stack('scripts')
 </body>
