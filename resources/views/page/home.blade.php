@@ -285,26 +285,7 @@
         </div>
     </section>
 
-    <section class="bg-gradient-to-t from-blue-400 to-white py-16 md:py-24">
-        <div class="flex flex-col md:flex-row items-center justify-between w-[80%] rounded-3xl
-           bg-[#003A38] text-white
-           py-8 px-10 md:py-16 md:px-20
-           bg-[url('/graphics/vector-contact.svg'),_url('/graphics/vector-contact-2.svg')]
-           bg-no-repeat bg-[position:right_top_0rem,_left_12rem_bottom_2rem]
-           mx-auto
-           ">
-            <div class="text-center md:text-left">
-                <h2 class="text-2xl md:text-3xl font-bold mb-4">Ready to Transform Your Business?</h2>
-                <p class="text-lg opacity-90">Let's Create Something Amazing Together</p>
-            </div>
-
-            <button class="mt-6 md:mt-0 bg-white text-[#003A38] px-8 py-3 rounded-full
-                        font-semibold hover:bg-opacity-90 transition-all">
-                Get Started
-            </button>
-            </div>
-        </div>
-    </section>
+    <x-cta-section></x-cta-section>
 
 <script>
         document.addEventListener('DOMContentLoaded', function() {

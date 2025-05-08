@@ -52,30 +52,30 @@
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <h2 class="text-3xl font-bold text-center text-gray-900 mb-5 scroll-reveal-item">Our Proven Process</h2>
         <h2 class="text-3xl font-bold text-center text-gray-900 mb-5 scroll-reveal-item">Delivering Excellence at Every Stage</h2>
-        
+
         <!-- Tabs Navigation -->
         <div class="flex flex-wrap justify-center gap-4 mb-8 scroll-reveal-tabs">
-            <button @click="openTab = 'discover'" 
+            <button @click="openTab = 'discover'"
                 :class="{'bg-gradient-to-r from-[#04b2f7] to-[#0399d9] text-white shadow-lg': openTab === 'discover', 'bg-white hover:bg-gray-50 border border-gray-200': openTab !== 'discover'}"
                 class="px-6 py-3 rounded-xl font-semibold transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#04b2f7] focus:ring-opacity-50 scroll-reveal-tab">
                 Research
             </button>
-            <button @click="openTab = 'define'" 
+            <button @click="openTab = 'define'"
                 :class="{'bg-gradient-to-r from-[#04b2f7] to-[#0399d9] text-white shadow-lg': openTab === 'define', 'bg-white hover:bg-gray-50 border border-gray-200': openTab !== 'define'}"
                 class="px-6 py-3 rounded-xl font-semibold transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#04b2f7] focus:ring-opacity-50 scroll-reveal-tab">
                 Strategy
             </button>
-            <button @click="openTab = 'design'" 
+            <button @click="openTab = 'design'"
                 :class="{'bg-gradient-to-r from-[#04b2f7] to-[#0399d9] text-white shadow-lg': openTab === 'design', 'bg-white hover:bg-gray-50 border border-gray-200': openTab !== 'design'}"
                 class="px-6 py-3 rounded-xl font-semibold transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#04b2f7] focus:ring-opacity-50 scroll-reveal-tab">
                 Creation
             </button>
-            <button @click="openTab = 'develop'" 
+            <button @click="openTab = 'develop'"
                 :class="{'bg-gradient-to-r from-[#04b2f7] to-[#0399d9] text-white shadow-lg': openTab === 'develop', 'bg-white hover:bg-gray-50 border border-gray-200': openTab !== 'develop'}"
                 class="px-6 py-3 rounded-xl font-semibold transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#04b2f7] focus:ring-opacity-50 scroll-reveal-tab">
                 Implementation
             </button>
-            <button @click="openTab = 'deliver'" 
+            <button @click="openTab = 'deliver'"
                 :class="{'bg-gradient-to-r from-[#04b2f7] to-[#0399d9] text-white shadow-lg': openTab === 'deliver', 'bg-white hover:bg-gray-50 border border-gray-200': openTab !== 'deliver'}"
                 class="px-6 py-3 rounded-xl font-semibold transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#04b2f7] focus:ring-opacity-50 scroll-reveal-tab">
                 Optimization
@@ -96,7 +96,7 @@
                     </p>
                 </div>
             </div>
-            
+
             <!-- Strategy Content -->
             <div x-show="openTab === 'define'" x-transition class="flex flex-col md:flex-row gap-8 items-center">
                 <div class="w-full md:w-1/3 scroll-reveal-item">
@@ -109,7 +109,7 @@
                     </p>
                 </div>
             </div>
-            
+
             <!-- Creation Content -->
             <div x-show="openTab === 'design'" x-transition class="flex flex-col md:flex-row gap-8 items-center">
                 <div class="w-full md:w-1/3 scroll-reveal-item">
@@ -122,7 +122,7 @@
                     </p>
                 </div>
             </div>
-            
+
             <!-- Implementation Content -->
             <div x-show="openTab === 'develop'" x-transition class="flex flex-col md:flex-row gap-8 items-center">
                 <div class="w-full md:w-1/3 scroll-reveal-item">
@@ -135,7 +135,7 @@
                     </p>
                 </div>
             </div>
-            
+
             <!-- Optimization Content -->
             <div x-show="openTab === 'deliver'" x-transition class="flex flex-col md:flex-row gap-8 items-center">
                 <div class="w-full md:w-1/3 scroll-reveal-item">
@@ -245,7 +245,7 @@
           We use the latest technologies and best practices to deliver high-quality apps.
         </p>
       </div>
-  
+
       <!-- Pyramid Grid Layout -->
       <div class="flex flex-col items-center">
         <!-- Row 1 (7 items) -->
@@ -279,7 +279,7 @@
             <span class="text-xs font-medium text-gray-700">K8s</span>
           </div>
         </div>
-  
+
         <!-- Row 2 (5 items) -->
         <div class="flex justify-center mb-2 scroll-reveal-row">
           <div class="tech-item group relative bg-gray-50 rounded-lg p-2 flex flex-col items-center justify-center transition-all duration-300 hover:bg-[#04b2f7]/10 hover:shadow-xs hover:-translate-y-1 h-20 w-20 mx-1 scroll-reveal-tech">
@@ -303,7 +303,7 @@
             <span class="text-xs font-medium text-gray-700">NuxtJS</span>
           </div>
         </div>
-  
+
         <!-- Row 3 (3 items) -->
         <div class="flex justify-center mb-2 scroll-reveal-row">
           <div class="tech-item group relative bg-gray-50 rounded-lg p-2 flex flex-col items-center justify-center transition-all duration-300 hover:bg-[#04b2f7]/10 hover:shadow-xs hover:-translate-y-1 h-20 w-20 mx-1 scroll-reveal-tech">
@@ -319,7 +319,7 @@
             <span class="text-xs font-medium text-gray-700">React</span>
           </div>
         </div>
-  
+
         <!-- Row 4 (1 item) -->
         <div class="flex justify-center scroll-reveal-row">
           <div class="tech-item group relative bg-gray-50 rounded-lg p-2 flex flex-col items-center justify-center transition-all duration-300 hover:bg-[#04b2f7]/10 hover:shadow-xs hover:-translate-y-1 h-20 w-20 scroll-reveal-tech">
@@ -345,7 +345,7 @@
           Interactive cards that showcase our services in a modern way
         </p>
       </div>
-  
+
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Card 1 -->
         <div class="relative h-80 bg-white rounded-xl shadow-md overflow-hidden group">
@@ -358,7 +358,7 @@
             </button>
           </div>
         </div>
-  
+
         <!-- Card 2 -->
         <div class="relative h-80 bg-white rounded-xl shadow-md overflow-hidden group">
           <div id="card-2" class="absolute inset-0"></div>
@@ -370,7 +370,7 @@
             </button>
           </div>
         </div>
-  
+
         <!-- Card 3 -->
         <div class="relative h-80 bg-white rounded-xl shadow-md overflow-hidden group">
           <div id="card-3" class="absolute inset-0"></div>
@@ -497,7 +497,7 @@
       techItems.forEach((item, index) => {
         item.style.opacity = '0';
         item.style.transform = 'translateY(10px)';
-        
+
         setTimeout(() => {
           item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
           item.style.opacity = '1';
@@ -511,40 +511,40 @@
     const init3DCard = (containerId, color) => {
         const container = document.getElementById(containerId);
         if (!container) return;
-        
+
         const width = container.clientWidth;
         const height = container.clientHeight;
-        
+
         // Scene setup
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
         camera.position.z = 5;
-        
-        const renderer = new THREE.WebGLRenderer({ 
+
+        const renderer = new THREE.WebGLRenderer({
             antialias: true,
             alpha: true
         });
         renderer.setSize(width, height);
         container.appendChild(renderer.domElement);
-        
+
         // Object
         const geometry = new THREE.IcosahedronGeometry(1.5, 1);
-        const material = new THREE.MeshStandardMaterial({ 
+        const material = new THREE.MeshStandardMaterial({
             color: color,
             metalness: 0.7,
             roughness: 0.4
         });
         const mesh = new THREE.Mesh(geometry, material);
         scene.add(mesh);
-        
+
         // Lighting
         const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
         scene.add(ambientLight);
-        
+
         const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
         directionalLight.position.set(1, 1, 1);
         scene.add(directionalLight);
-        
+
         // Animation
         const animate = () => {
             requestAnimationFrame(animate);
@@ -552,7 +552,7 @@
             mesh.rotation.y += 0.01;
             renderer.render(scene, camera);
         };
-        
+
         animate();
     };
 

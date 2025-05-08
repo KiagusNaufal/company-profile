@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\WorksController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -17,8 +18,5 @@ Route::get('/service', function () {
     return view('page.services');
 });
 
-Route::get('/works', function () {
-    return view('page.works');
-});
-
+Route::get('/works', [WorksController::class, 'index']);
 
