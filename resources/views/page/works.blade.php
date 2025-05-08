@@ -5,7 +5,7 @@
 @section('content')
     <!-- Hero Section -->
     <section class="bg-white py-24">
-        <div class="container mx-auto mt-20 px-4 flex flex-col-reverse lg:flex-row items-center gap-12">
+        <div class="container mx-auto mt-20 px-4 flex flex-col-reverse lg:flex-row items-center gap-12 scroll-reveal-hero">
             <!-- Text Content -->
             <div class="w-full lg:w-1/2 text-center lg:text-left">
                 <h1
@@ -24,12 +24,12 @@
     </section>
 
 <!-- Projects Grid -->
-<section class="container mx-auto px-4 py-12">
+<section class="container mx-auto px-4 py-12 scroll-reveal-section">
     <h2 class="text-3xl font-bold text-gray-800 mb-8">All Works</h2>
   
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       @foreach ($projects as $project)
-        <div class="flex flex-col bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+        <div class="flex flex-col bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 group scroll-reveal-card">
 
           <div class="h-96 w-full overflow-hidden rounded-t-xl border-2" style="background-image: url('https://source.unsplash.com/400x300')">
             
