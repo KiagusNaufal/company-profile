@@ -1,27 +1,21 @@
-@props([
-    'title' => 'Ready to Transform Your Business?',
-    'subtitle' => 'Let\'s Create Something Amazing Together',
-    'buttonText' => 'Tell Us',
-    'bgImage1' => '/graphics/vector-contact.svg',
-    'bgImage2' => '/graphics/vector-contact-2.svg'
-])
-
-<section class="py-16 md:py-24">
-    <div class="flex flex-col md:flex-row items-center justify-between w-[80%] rounded-3xl
-       bg-blue-600 text-white
-       py-8 px-10 md:py-16 md:px-20
-       bg-[url('{{ $bgImage1 }}'),_url('{{ $bgImage2 }}')]
-       bg-no-repeat bg-[position:right_top_0rem,_left_12rem_bottom_2rem]
-       mx-auto">
-
-        <div class="text-center md:text-left">
-            <h2 class="text-2xl md:text-3xl font-bold mb-4">{{ $title }}</h2>
-            <p class="text-lg opacity-90">{{ $subtitle }}</p>
+<section class="py-16 scroll-reveal-section">
+    <div class="bg-white dark:bg-gray-800 rounded-3xl max-w-7xl mx-auto shadow-md ">
+        <div class="lg:flex lg:items-center lg:justify-between  rounded-3xl w-full h-[168px] border-2 mx-auto py-8 px-6 sm:px-8 lg:py-10 lg:px-10 z-20">
+            <h2 class="text-2xl font-extrabold text-black dark:text-white sm:text-3xl ">
+                <span class="block">
+                    Ready to transform your business?
+                </span>
+                <span class="block text-[#04b2f7]">
+                    Let's build something amazing together
+                </span>
+            </h2>
+            <div class="lg:mt-0 lg:flex-shrink-0 ">
+                <div class="inline-flex rounded-md shadow">
+                    <button type="button" class="py-3 px-5 bg-[#04b2f7] hover:bg-[#0399d9] focus:ring-[#04b2f7] focus:ring-offset-[#04b2f7]/50 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg">
+                        Get Started Today
+                    </button>
+                </div>
+            </div>
         </div>
-
-        <button class="mt-6 md:mt-0 bg-white text-blue-600 px-8 py-3 rounded-full
-                    font-semibold hover:bg-opacity-90 transition-all">
-            {{ $buttonText }}
-        </button>
     </div>
 </section>

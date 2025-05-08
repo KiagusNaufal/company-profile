@@ -52,7 +52,7 @@
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <h2 class="text-3xl font-bold text-center text-gray-900 mb-5 ">Our Proven Process</h2>
         <h2 class="text-3xl font-bold text-center text-gray-900 mb-5 ">Delivering Excellence at Every Stage</h2>
-        
+
         <!-- Tabs Navigation -->
         <div class="flex flex-wrap justify-center gap-4 mb-8 scroll-reveal-tabs">
             <button @click="openTab = 'discover'"
@@ -337,8 +337,8 @@
 
 <!-- CTA Section -->
 <section class="py-16 scroll-reveal-section">
-    <div class="bg-white dark:bg-gray-800 rounded-xl max-w-3xl mx-auto shadow-md ">
-        <div class="lg:flex lg:items-center lg:justify-between w-full mx-auto py-8 px-6 sm:px-8 lg:py-10 lg:px-10 z-20">
+    <div class="bg-white dark:bg-gray-800 rounded-3xl max-w-7xl mx-auto shadow-md ">
+        <div class="lg:flex lg:items-center lg:justify-between  rounded-3xl w-full h-[168px] border-2 mx-auto py-8 px-6 sm:px-8 lg:py-10 lg:px-10 z-20">
             <h2 class="text-2xl font-extrabold text-black dark:text-white sm:text-3xl ">
                 <span class="block">
                     Ready to transform your business?

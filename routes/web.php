@@ -16,7 +16,7 @@ Route::get('/contact', function () {
 });
 Route::get('/service', function () {
     return view('page.services');
-});
+})->name('services');
 
 Route::get('/works', [WorksController::class, 'index']);
 

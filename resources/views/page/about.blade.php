@@ -46,6 +46,7 @@
                     rgba(240, 245, 255, 1) 100%);
         }
     </style>
+
     <!-- Hero-style About Us Section -->
     <section class="relative py-32 bg-gradient-to-r from-blue-50 to-gray-50 overflow-hidden scroll-reveal-section">
         <!-- Texture SVG Background -->
@@ -223,7 +224,8 @@
             <!-- Vision & Mission Grid -->
             <div class="grid lg:grid-cols-2 gap-12">
                 <!-- Vision Section -->
-                <div class="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-[#003366] relative overflow-hidden scroll-reveal-section">
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-[#003366] relative overflow-hidden scroll-reveal-section">
                     <div class="absolute -right-20 -top-20 w-64 h-64 bg-[#04b2f7] rounded-full opacity-10"></div>
                     <div class="relative z-10">
                         <div class="flex items-center mb-6">
@@ -249,7 +251,8 @@
                 </div>
 
                 <!-- Mission Section -->
-                <div class="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-[#04b2f7] relative overflow-hidden scroll-reveal-section">
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-[#04b2f7] relative overflow-hidden scroll-reveal-section">
                     <div class="flex items-center mb-6">
                         <div class="bg-[#04b2f7] p-3 rounded-lg mr-4">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -371,8 +374,7 @@
                             <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200 relative">
                                 <div
                                     class="absolute-left-6 top-6 w-12 h-12 bg-white rounded-full border-4 border-[#04b2f7] flex items-center justify-center">
-                                    <img src="{{ asset('image/logo.svg') }}" alt="Somearch logo"
-                                        class="w-8 h-8">
+                                    <img src="{{ asset('image/logo.svg') }}" alt="Somearch logo" class="w-8 h-8">
                                 </div>
                                 <div class="flex justify-between items-start mb-2">
                                     <h3 class="text-xl font-bold text-[#04b2f7]">Somearch</h3>
@@ -404,8 +406,7 @@
                             <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200 relative">
                                 <div
                                     class="absolute-right-6 top-6 w-12 h-12 bg-white rounded-full border-4 border-[#04b2f7] flex items-center justify-center">
-                                    <img src="{{ asset('image/logo.svg') }}" alt="Somearch logo"
-                                        class="w-8 h-8">
+                                    <img src="{{ asset('image/logo.svg') }}" alt="Somearch logo" class="w-8 h-8">
                                 </div>
                                 <div class="flex justify-between items-start mb-2">
                                     <h3 class="text-xl font-bold text-[#04b2f7]">Somearch 2.0</h3>
@@ -425,8 +426,7 @@
                             <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200 relative">
                                 <div
                                     class="absolute-left-6 top-6 w-12 h-12 bg-white rounded-full border-4 border-[#04b2f7] flex items-center justify-center">
-                                    <img src="{{ asset('image/logo.svg') }}" alt="Aeratek logo"
-                                        class="w-8 h-8">
+                                    <img src="{{ asset('image/logo.svg') }}" alt="Aeratek logo" class="w-8 h-8">
                                 </div>
                                 <div class="flex justify-between items-start mb-2">
                                     <h3 class="text-xl font-bold text-[#04b2f7]">Aeratek</h3>
@@ -458,8 +458,7 @@
                             <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200 relative">
                                 <div
                                     class="absolute-right-6 top-6 w-12 h-12 bg-white rounded-full border-4 border-[#04b2f7] flex items-center justify-center">
-                                    <img src="{{ asset('image/logo.svg') }}" alt="Aeratek logo"
-                                        class="w-8 h-8">
+                                    <img src="{{ asset('image/logo.svg') }}" alt="Aeratek logo" class="w-8 h-8">
                                 </div>
                                 <div class="flex justify-between items-start mb-2">
                                     <h3 class="text-xl font-bold text-[#04b2f7]">Aeratek Today</h3>
@@ -718,6 +717,8 @@
             </div>
         </div>
     </section>
+
+    <x-cta-section></x-cta-section>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
