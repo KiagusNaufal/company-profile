@@ -39,17 +39,65 @@
             rgba(240, 245, 255, 1) 100%);
 }
 
-@layer utilities {
-    .slide-down {
-        max-height: 999px;
-        padding-top: 0.5rem; /* Tambahkan padding top saat menu terbuka */
-    }
+/* Mobile Menu Styles */
+#mobile-menu {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 40;
+  overflow-y: auto;
+  max-height: 0;
+  transition: max-height 0.3s ease-out, opacity 0.2s ease-out;
+  opacity: 0;
+}
 
-    .slide-up {
-        max-height: 0;
-        overflow: hidden;
-        padding-top: 0; /* Pastikan padding top 0 saat menu tertutup */
-    }
+#mobile-menu.open {
+  max-height: 500px; /* Adjust based on your content */
+  opacity: 1;
+  padding: 1rem 0;
+}
+
+#mobile-menu a {
+  display: block;
+  padding: 12px 16px;
+  color: #343C3C;
+  text-decoration: none;
+  border-bottom: 1px solid #f3f4f6;
+  transition: background 0.2s;
+}
+
+#mobile-menu a:hover {
+  background: #f9fafb;
+}
+
+#mobile-menu button {
+  width: calc(100% - 32px);
+  margin: 8px 16px;
+  padding: 12px;
+  background: #f3f4f6;
+  border: none;
+  border-radius: 4px;
+  color: #343C3C;
+}
+@layer utilities {
+.slide-up {
+  transform: translateY(-100%);
+  opacity: 0;
+  display: none;
+}
+
+.slide-down {
+  transform: translateY(0);
+  opacity: 1;
+  display: block;
+}
+
+#mobile-menu {
+  transition: all 0.3s ease-in-out;
+}
 
     .transition-slide {
         transition: max-height 0.3s ease-in-out, padding-top 0.3s ease-in-out;
