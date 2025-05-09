@@ -19,70 +19,67 @@
 
     <!-- Navbar -->
     <!-- Navbar -->
-    <div
-        class="z-50 py-3 w-full flex items-center justify-center text-sm border-b border-gray-200 bg-white fixed top-0 left-0">
-        <div class="w-[1440px] max-w-[90%] flex justify-between items-center">
-            <!-- Logo (Ukuran diperbesar sedikit) -->
-            <div class="flex items-center h-[50px] min-[800px]:h-[60px]">
-                <img src="{{ asset('image/company.svg') }}" alt="Logo"
-                    class="object-contain min-[800px]:w-[150px] w-[120px] h-auto">
-            </div>
+<!-- Navbar -->
+<div class="z-50 py-3 w-full flex items-center justify-center text-sm border-b border-gray-200 bg-white fixed top-0 left-0">
+    <div class="w-[1440px] max-w-[90%] flex justify-between items-center">
+        <!-- Logo -->
+        <div class="flex items-center h-[50px] min-[800px]:h-[60px]">
+            <img src="{{ asset('image/company.svg') }}" alt="Logo" 
+                 class="object-contain min-[800px]:w-[150px] w-[120px] h-auto">
+        </div>
 
-            <!-- Desktop Menu -->
-            <div class="hidden min-[800px]:flex gap-8 items-center">
-                <a href="{{ url('/') }}" id="nav-home"
-                    class="group py-4 transition duration-200 hover:-translate-y-1 text-[#343C3C]">
-                    <span class="text-sm">Home</span>
-                </a>
-                <a href="{{ url('/service') }}" id="nav-service"
-                    class="group py-4 transition duration-200 hover:-translate-y-1 text-[#343C3C]">
-                    <span class="text-sm">Service</span>
-                </a>
-                <a href="{{ url('/about') }}" id="nav-about"
-                    class="group py-4 transition duration-200 hover:-translate-y-1 text-[#343C3C]">
-                    <span class="text-sm">About Us</span>
-                </a>
-                <a href="{{ url('/works') }}" id="nav-works"
-                    class="group py-4 transition duration-200 hover:-translate-y-1 text-[#343C3C]">
-                    <span class="text-sm">Works</span>
-                </a>
-                <button type="button"
-                    class="ml-6 group rounded-lg border border-[#343C3C] text-[#343C3C] px-6 py-4 transition hover:border-gray-900 hover:bg-gray-50"
-                    id="tellUsButton">
-                    Tell Us
-                </button>
-            </div>
+        <!-- Desktop Menu -->
+        <div class="hidden min-[800px]:flex gap-6 items-center">
+            <a href="{{ url('/') }}" id="nav-home" class="group py-2 transition duration-200 hover:-translate-y-1 text-[#343C3C]">
+                <span class="text-sm">Home</span>
+            </a>
+            <a href="{{ url('/service') }}" id="nav-service" class="group py-2 transition duration-200 hover:-translate-y-1 text-[#343C3C]">
+                <span class="text-sm">Service</span>
+            </a>
+            <a href="{{ url('/about') }}" id="nav-about" class="group py-2 transition duration-200 hover:-translate-y-1 text-[#343C3C]">
+                <span class="text-sm">About Us</span>
+            </a>
+            <a href="{{ url('/works') }}" id="nav-works" class="group py-2 transition duration-200 hover:-translate-y-1 text-[#343C3C]">
+                <span class="text-sm">Works</span>
+            </a>
+            <button type="button"
+                class="ml-4 group rounded-lg border border-[#343C3C] text-[#343C3C] px-4 py-2 text-sm transition hover:border-gray-900 hover:bg-gray-50"
+                id="tellUsButton">
+                Tell Us
+            </button>
+        </div>
 
-            <!-- Mobile Menu Button -->
-            <div class="min-[800px]:hidden">
-                <button id="menu-toggle" class="text-gray-600 hover:text-gray-800 focus:outline-none">
-                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
+        <!-- Mobile Menu Button -->
+        <div class="min-[800px]:hidden">
+            <button id="menu-toggle" class="text-gray-600 hover:text-gray-800 focus:outline-none p-2">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
         </div>
     </div>
+</div>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu"
-        class="slide-up transition-slide px-4 min-[800px]:hidden bg-white fixed top-16 left-0 right-0 shadow-md">
-        <div class="container mx-auto">
-            <a href="{{ url('/') }}" id="nav-home-m"
-                class="block py-3 text-sm text-[#343C3C] border-b border-gray-100">Home</a>
-            <a href="{{ url('/service') }}" id="nav-service-m"
-                class="block py-3 text-sm text-[#343C3C] border-b border-gray-100">Service</a>
-            <a href="{{ url('/about') }}" id="nav-about-m"
-                class="block py-3 text-sm text-[#343C3C] border-b border-gray-100">About Us</a>
-            <a href="{{ url('/works') }}" id="nav-works-m"
-                class="block py-3 text-sm text-[#343C3C] border-b border-gray-100">Works</a>
-            <a href="#"
-                class="block py-3 text-sm text-[#343C3C] mt-2 mb-2 text-center rounded hover:bg-gray-50 bg-gray-100"
-                id="tellUsButtonMobile">Tell Us</a>
-        </div>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="slide-up transition-slide px-4 min-[800px]:hidden bg-white fixed top-[60px] left-0 right-0 shadow-md z-40">
+    <div class="container mx-auto">
+        <a href="{{ url('/') }}" id="nav-home-m"
+            class="block py-3 text-sm text-[#343C3C] border-b border-gray-100">Home</a>
+        <a href="{{ url('/service') }}" id="nav-service-m"
+            class="block py-3 text-sm text-[#343C3C] border-b border-gray-100">Service</a>
+        <a href="{{ url('/about') }}" id="nav-about-m"
+            class="block py-3 text-sm text-[#343C3C] border-b border-gray-100">About Us</a>
+        <a href="{{ url('/works') }}" id="nav-works-m"
+            class="block py-3 text-sm text-[#343C3C] border-b border-gray-100">Works</a>
+        <button type="button"
+            class="block w-full py-3 text-sm text-[#343C3C] mt-2 mb-2 text-center rounded hover:bg-gray-50 bg-gray-100"
+            id="tellUsButton-mobile">
+            Tell Us
+        </button>
     </div>
+</div>
 
 
     <!-- Page Content -->
@@ -160,41 +157,41 @@
     @include('partials.contact-modal')
 
     <script>
-        // Toggle Mobile Menu Slide
-        const toggleBtn = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        toggleBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('slide-up');
-            mobileMenu.classList.toggle('slide-down');
-        });
+ const toggleBtn = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-        // Highlight active menu
-        let currentPath = window.location.pathname;
-        if (currentPath !== '/' && currentPath.endsWith('/')) {
-            currentPath = currentPath.slice(0, -1);
+    toggleBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('slide-up');
+      mobileMenu.classList.toggle('slide-down');
+    });
+
+    // Highlight active menu
+    let currentPath = window.location.pathname;
+    if (currentPath !== '/' && currentPath.endsWith('/')) {
+      currentPath = currentPath.slice(0, -1);
+    }
+
+    const navItems = {
+      '/': 'nav-home',
+      '/service': 'nav-service',
+      '/about': 'nav-about',
+      '/works': 'nav-works'
+    };
+
+    const activeId = navItems[currentPath];
+    if (activeId) {
+      const activeDesktop = document.getElementById(activeId);
+      const activeMobile = document.getElementById(activeId + '-m');
+
+      [activeDesktop, activeMobile].forEach(el => {
+        if (el) {
+          el.classList.add('text-[#003366]', 'border-b-2', 'border-[#003366]', 'font-semibold');
+          if (el.classList.contains('border-gray-100')) {
+            el.classList.remove('border-gray-100');
+          }
         }
-
-        const navItems = {
-            '/': 'nav-home',
-            '/service': 'nav-service',
-            '/about': 'nav-about',
-            '/works': 'nav-works'
-        };
-
-        const activeId = navItems[currentPath];
-        if (activeId) {
-            const activeDesktop = document.getElementById(activeId);
-            const activeMobile = document.getElementById(activeId + '-m');
-
-            [activeDesktop, activeMobile].forEach(el => {
-                if (el) {
-                    el.classList.add('text-[#04b2f7]', 'border-b-2', 'border-[#04b2f7]', 'font-semibold');
-                    if (el.classList.contains('border-gray-100')) {
-                        el.classList.remove('border-gray-100');
-                    }
-                }
-            });
-        }
+      });
+    }
     </script>
 
 
