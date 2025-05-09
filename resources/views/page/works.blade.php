@@ -24,7 +24,7 @@
     </section> --}}
 
     <!-- Works Hero Section -->
-    <section class="relative py-32 h-[712px] bg-gradient-to-r from-blue-50 to-gray-50 overflow-hidden scroll-reveal-section">
+    <section class="relative py-32 h-[512px] md:min-h-[712px] bg-gradient-to-r from-blue-50 to-gray-50 overflow-hidden scroll-reveal-section">
         <!-- Soft Dot Texture -->
         <div class="absolute inset-0 opacity-5">
             <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -72,12 +72,12 @@
 
     <!-- Projects Grid -->
     <section class="container mx-auto px-4 py-12 scroll-reveal-section">
-        <h2 class="text-3xl font-bold text-gray-800 mb-8">All Works</h2>
+        <h2 class="text-3xl m-3 font-bold text-gray-800 mb-8">All Works</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             @foreach ($projects as $project)
                 <div
-                    class="flex flex-col bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 group scroll-reveal-card">
+                    class="flex flex-col bg-white rounded-xl shadow-lg md:mt-14 md:mx-3 hover:shadow-xl transition-shadow duration-300 group scroll-reveal-card">
 
                     <div class="h-96 w-full overflow-hidden rounded-t-xl border-2"
                         style="background-image: url('https://source.unsplash.com/400x300')">
@@ -85,7 +85,7 @@
                     </div>
 
                     <div class="p-6 flex-1 flex flex-col">
-                        <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center justify-between sm:mx-5 mb-4">
                             <h3 class="text-xl font-semibold text-gray-800">{{ $project['title'] }}</h3>
                             <span class="text-sm {{ $project['badge_color'] }} px-3 py-1 rounded-full">
                                 {{ $project['category'] }}

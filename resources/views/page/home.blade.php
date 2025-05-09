@@ -21,10 +21,10 @@
                     and seamless IT maintenance. Elevate your enterprise with us.
                 </p>
                 <div class="py-5 px-20 flex gap-4">
-                    <a href="#" class="bg-[#0e60de] text-white px-5 py-3 rounded-lg hover:bg-blue-800 transition">Tell
+                    <a href="#" class="bg-[#04b2f7] text-white px-5 py-3 rounded-lg hover:bg-blue-800 transition">Tell
                         Us Digital Mission</a>
                     <a href="#"
-                        class="border border-[#0e60de] px-5 py-3 rounded-lg hover:bg-blue-700 hover:text-white transition flex items-center">
+                        class="border border-[#04b2f7] px-5 py-3 rounded-lg hover:bg-[#04b2f7] hover:text-white transition flex items-center">
                         Learn More <span>→</span>
                     </a>
                 </div>
@@ -121,7 +121,7 @@
     <section class="py-20 ">
         <!-- Header -->
         <div class="max-w-3xl mx-auto grid justify-between text-center mb-16 py-5 scroll-reveal-section">
-            <p class="text-lg uppercase text-blue-700 font-semibold">Our Services</p>
+            <p class="text-lg uppercase text-[#04b2f7] font-semibold">Our Services</p>
             <h2
                 class="mt-4 px-8 text-3xl lg:text-4xl tracking-normal md:tracking-wide font-semibold max-w-[800px] text-gray-800">
                 We possess techniques that can dismantle them into fragments
@@ -132,7 +132,7 @@
             <!-- Service Item 1 -->
             <div class="flex flex-col lg:flex-row items-center gap-8">
                 <div class="lg:w-1/2">
-                    <img src="{{ asset('image/Developer activity-bro.svg') }}" alt="Software Development"
+                    <img src="{{ asset('image/Developer activity-bro (1).svg') }}" alt="Software Development"
                         class="w-full rounded-lg md:h-[460px] ">
                 </div>
                 <div class="lg:w-1/2 space-y-4 pt-10">
@@ -142,7 +142,7 @@
                         development prowess to turn your visions into groundbreaking digital solutions.
                         We don’t just write code; we script success stories.
                     </p>
-                    <a href="#" class="inline-flex items-center text-blue-700 hover:underline font-medium text-xl">
+                    <a href="#" class="inline-flex items-center text-[#04b2f7] hover:underline font-medium text-xl">
                         Learn More <span class="ml-2">→</span>
                     </a>
                 </div>
@@ -151,7 +151,7 @@
             <!-- Service Item 2 (reverse on large screens) -->
             <div class="flex flex-col lg:flex-row-reverse items-center gap-8 scroll-reveal-row">
                 <div class="lg:w-1/2">
-                    <img src="{{ asset('image/Data extraction-rafiki.svg') }}" alt="Data Analytics"
+                    <img src="{{ asset('image/Data extraction-rafiki (1).svg') }}" alt="Data Analytics"
                         class="w-full rounded-lg md:h-[460px]">
                 </div>
                 <div class="lg:w-1/2 space-y-4">
@@ -161,7 +161,7 @@
                         conquering data challenges, our expertise ensures your business emerges victorious.
                         We turn data into your most powerful ally.
                     </p>
-                    <a href="#" class="inline-flex items-center text-blue-700 hover:underline font-medium text-xl">
+                    <a href="#" class="inline-flex items-center text-[#04b2f7] hover:underline font-medium text-xl">
                         Learn More <span class="ml-2">→</span>
                     </a>
                 </div>
@@ -170,7 +170,7 @@
             <!-- Service Item 3 -->
             <div class="flex flex-col lg:flex-row items-center gap-8 scroll-reveal-row">
                 <div class="lg:w-1/2">
-                    <img src="{{ asset('image/Maintenance-bro.svg') }}" alt="IT Maintenance"
+                    <img src="{{ asset('image/Maintenance-bro (1).svg') }}" alt="IT Maintenance"
                         class="w-full rounded-lg md:h-[460px] ">
                 </div>
                 <div class="lg:w-1/2 sm:w1/2 space-y-4">
@@ -180,7 +180,7 @@
                         maintenance to keep your systems resilient, secure, and ever‑ready for the challenges of the digital
                         frontier.
                     </p>
-                    <a href="#" class="inline-flex items-center text-blue-700 hover:underline font-medium text-xl">
+                    <a href="#" class="inline-flex items-center text-[#04b2f7] hover:underline font-medium text-xl">
                         Learn More <span class="ml-2">→</span>
                     </a>
                 </div>
@@ -190,65 +190,65 @@
         <!-- See All Services Button -->
         <div class="mt-16 text-center">
             <a href="{{ route('services') }}"
-                class="inline-block px-8 py-3 border border-[#0e60de] text-blue-700 rounded-lg hover:bg-[#0e61de] hover:text-white transition">
+                class="inline-block px-8 py-3 border border-[#04b2f7] text-[#04b2f7] rounded-lg hover:bg-[#04b2f7] hover:text-white transition">
                 See All Service →
             </a>
         </div>
     </section>
 
-    {{-- Portofolio Project --}}
-    <section class="py-16 bg-gray-50 border-b-[1px] border-gray-200">
-        <div class="container mx-auto px-4">
-            <!-- Heading Section -->
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">SELECTED WORKS</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">
-                    We work and collaborate to create digital products for business and user goals.
-                </p>
+    <section class="py-16 bg-blue-50 h-svh">
+        <div class="max-w-7xl mx-auto px-4 relative">
+            <!-- Judul -->
+            <h2 class="text-sm font-semibold text-teal-600 uppercase mb-2">Selected Works</h2>
+            <p class="text-3xl font-bold text-gray-900 mb-6">
+                We work and collaborate to create digital products for business and user goals.
+            </p>
+
+            <!-- Carousel Wrapper -->
+            <div id="carousel"
+                class="overflow-x-auto snap-x snap-mandatory mt-5 flex space-x-6 scrollbar-none h-[512px] scroll-smooth">
+                @foreach ($projects as $project)
+                    <div class="flex-none w-full sm:w-80 bg-white rounded-2xl shadow-lg snap-start">
+                        <div class="flex flex-col h-full border rounded-[16px] bg-white overflow-hidden">
+                            <!-- Thumbnail Utama -->
+                            <div class="h-48 w-full overflow-hidden rounded-t-[16px] border-b-2"
+                                style="background-image: url('https://picsum.photos/500/300')">
+                            </div>
+                            <div class="p-6 flex-1 flex flex-col">
+                                <!-- Ikon / Logo Kecil -->
+
+                                <!-- Judul Project -->
+                                <h3 class="text-lg font-semibold text-[#192424] mb-2 line-clamp-1"
+                                    title="Dana Siap Pakai Badan Nasional Penanggulangan Bencana (DSP BNPB)">
+                                    {{ $project['title'] }}
+                                </h3>
+
+                                <!-- Deskripsi -->
+                                <p class="text-sm text-[#343C3C] mb-6 line-clamp-5 flex-1">
+                                    {{ $project['description'] }}
+                                </p>
+
+                                <!-- Read More -->
+                                <a href="#"
+                                    class="inline-flex items-center text-[#008A85] font-medium hover:underline">
+                                    <span>Read More</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-5 w-5" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
+                <!-- Prev/Next Buttons -->
+                <button id="prevBtn"
+                    class="absolute top-1/2 left-0 -translate-y-1/2 bg-white p-3 rounded-full shadow-lg">&larr;</button>
+                <button id="nextBtn"
+                    class="absolute top-1/2 right-0 -translate-y-1/2 bg-teal-600 text-white p-3 rounded-full shadow-lg">&rarr;</button>
             </div>
-
-            <!-- Projects Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Dana Siap Pakal Badan Nasional...</h3>
-                    <p class="text-gray-600 mb-4">
-                        DBP is a web-based application system designed to simplify the management of today’s trust in the
-                        National Dossier Management Agency. With an intuitive interface and efficient footrest, DBP ensures
-                        that fund management is carried out transparently and accurately.
-                    </p>
-                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
-                        Read More →
-                    </a>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">E-Presensi Kemnaker</h3>
-                    <p class="text-gray-600 mb-4">
-                        E-Presensi is a computer-based application designed to manage and monitor employee attendance at the
-                        Ministry of Management or the Republic of Indonesia. This application leverages the latest
-                        technology to ensure an efficient, accurate, and integrated attendance process with existing data.
-                    </p>
-                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
-                        Read More →
-                    </a>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">School Collaboration System</h3>
-                    <p class="text-gray-600 mb-4">
-                        SCS is an innovative web platform that enables collaboratively create and develop latest integration
-                        into the Nordiska Curriculum. We are currently working on a dedicated collaboration project to
-                        support SCS in linked theater for teachers to shape up.
-                    </p>
-                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
-                        Read More →
-                    </a>
-                </div>
-            </div>
-        </div>
     </section>
 
     {{-- Feedback Section --}}
