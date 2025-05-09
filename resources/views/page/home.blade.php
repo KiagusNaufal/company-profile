@@ -15,7 +15,7 @@
                     Lebih dari Sekadar Kode, <br>
                     Kami Menciptakan Solusi
                 </h1>
-                <p class="py-5 px-20 text-xl w-[750px] text-gray-600">
+                <p class="py-5 px-20 text-xl md:w-[750px] text-gray-600">
                     We’re Heroes to your business forward through ex pert software development, strategic big data
                     analytics,
                     and seamless IT maintenance. Elevate your enterprise with us.
@@ -196,19 +196,20 @@
         </div>
     </section>
 
-    <section class="py-16 bg-blue-50 h-svh">
+    <section class="py-16 bg-blue-50 ">
         <div class="max-w-7xl mx-auto px-4 relative">
             <!-- Judul -->
-            <h2 class="text-sm font-semibold text-teal-600 uppercase mb-2">Selected Works</h2>
+            <h2 class="text-sm font-semibold text-[#04b2f7] uppercase mb-2">Selected Works</h2>
             <p class="text-3xl font-bold text-gray-900 mb-6">
-                We work and collaborate to create digital products for business and user goals.
+                We work and collaborate to create <br>
+                digital products for business and user goals.
             </p>
 
             <!-- Carousel Wrapper -->
             <div id="carousel"
                 class="overflow-x-auto snap-x snap-mandatory mt-5 flex space-x-6 scrollbar-none h-[512px] scroll-smooth">
                 @foreach ($projects as $project)
-                    <div class="flex-none w-full sm:w-80 bg-white rounded-2xl shadow-lg snap-start">
+                    <div class=" flex-none w-full sm:w-80 bg-white rounded-2xl shadow-lg snap-start">
                         <div class="flex flex-col h-full border rounded-[16px] bg-white overflow-hidden">
                             <!-- Thumbnail Utama -->
                             <div class="h-48 w-full overflow-hidden rounded-t-[16px] border-b-2"
@@ -216,7 +217,6 @@
                             </div>
                             <div class="p-6 flex-1 flex flex-col">
                                 <!-- Ikon / Logo Kecil -->
-
                                 <!-- Judul Project -->
                                 <h3 class="text-lg font-semibold text-[#192424] mb-2 line-clamp-1"
                                     title="Dana Siap Pakai Badan Nasional Penanggulangan Bencana (DSP BNPB)">
@@ -245,170 +245,271 @@
 
                 <!-- Prev/Next Buttons -->
                 <button id="prevBtn"
-                    class="absolute top-1/2 left-0 -translate-y-1/2 bg-white p-3 rounded-full shadow-lg">&larr;</button>
+                    class="hidden md:block absolute top-1/2 -left-7 md:-left-16 translate-y-20 bg-white p-3 rounded-full shadow-lg z-10">&larr;</button>
                 <button id="nextBtn"
-                    class="absolute top-1/2 right-0 -translate-y-1/2 bg-teal-600 text-white p-3 rounded-full shadow-lg">&rarr;</button>
+                    class="hidden md:block absolute top-1/2 right-0 md:-right-10 translate-y-20 bg-[#04b2f7] text-white p-3 rounded-full shadow-lg z-10">&rarr;</button>
             </div>
     </section>
 
-    {{-- Feedback Section --}}
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4 max-w-4xl">
-            <!-- Heading -->
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-2">WHAT THEY SAY</h2>
-                <p class="text-xl text-gray-600">Our Partners Kind Words</p>
-            </div>
-
-            <!-- Testimonials -->
-            <div class="space-y-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-white rounded-lg shadow-md p-8 relative">
-                    <div class="absolute top-4 left-4 text-gray-200 text-5xl">“</div>
-                    <p class="text-gray-600 mb-6 mt-2 pl-8 italic">
-                        "Respon admin Someah Baik dan dapat memahami permintaan dari Admin BKHM. Memiliki backup web staging
-                        dan pelayanan diluar jam kerja"
-                    </p>
-                    <div class="border-t pt-4 pl-8">
-                        <h4 class="font-semibold text-gray-800">Shaka</h4>
-                        <p class="text-sm text-gray-500">Stat Admin IT Darmasiswa</p>
-                    </div>
-                </div>
-
-                <!-- Testimonial 2 -->
-                <div class="bg-white rounded-lg shadow-md p-8 relative">
-                    <div class="absolute top-4 left-4 text-gray-200 text-5xl">“</div>
-                    <p class="text-gray-600 mb-6 mt-2 pl-8 italic">
-                        "Tim yang kompeten dan profesional. Komunikasi lancar, solusi kreatif, dan hasil kerja berkualitas
-                        membuat saya sangat puas dengan layanan mereka."
-                    </p>
-                    <div class="border-t pt-4 pl-8">
-                        <h4 class="font-semibold text-gray-800">Muhammad Ivandry</h4>
-                        <p class="text-sm text-gray-500">Pasker ID | Pranata Komputer</p>
-                    </div>
-                </div>
-
-                <!-- Testimonial 3 -->
-                <div class="bg-white rounded-lg shadow-md p-8 relative">
-                    <div class="absolute top-4 left-4 text-gray-200 text-5xl">“</div>
-                    <p class="text-gray-600 mb-6 mt-2 pl-8 italic">
-                        "Sejauh ini Someah cukup adaptif di saat ada perubahan yang kami minta sehubungan dengan kondisi
-                        terkini. Responsif dalam mengelola isue yang disampalkan."
-                    </p>
-                    <div class="border-t pt-4 pl-8">
-                        <h4 class="font-semibold text-gray-800">Nindlastuti</h4>
-                        <p class="text-sm text-gray-500">PT Grafindo Media Pratama | Department Head</p>
-                    </div>
-                </div>
-            </div>
+    <section class="py-16 bg-white relative overflow-hidden">
+        <!-- Header -->
+        <div class="max-w-7xl mx-auto px-4 text-center mb-12">
+            <p class="text-[#04b2f7] font-bold text-sm mb-2">WHAT THEY SAY</p>
+            <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900">
+                Our Partners’ Kind Words
+            </h2>
         </div>
-    </section>
 
-    <x-cta-section></x-cta-section>
+            <!-- Carousel Wrapper -->
+            <div id="testimonialCarousel" class="relative max-w-4xl mx-auto">
+                <!-- Slides Container -->
+                <div class="overflow-hidden">
+                    <div id="slides" class="flex transition-transform duration-700 ease-out">
+                        <!-- Slide 1 -->
+                        <div class="flex-none w-full sm:w-3/4 lg:w-1/2 px-4">
+                            <div
+                                class="bg-white rounded-xl shadow-md border-2 border-transparent hover:border-teal-500 transform hover:scale-105 transition">
+                                <div class="p-8 flex flex-col justify-between h-[400px]">
+                                    <p class="text-gray-600 mb-6">
+                                        “Tim yang kompeten dan profesional. Komunikasi lancar, solusi kreatif, dan hasil
+                                        kerja berkualitas membuat saya sangat puas dengan layanan mereka.”
+                                    </p>
+                                    <div class="flex items-center gap-4">
+                                        <img src="/icons/icon-user.svg" alt="Muhammad Ivandry"
+                                            class="w-16 h-16 rounded-lg bg-teal-50 p-2" />
+                                        <div>
+                                            <p class="font-bold text-gray-800">Muhammad Ivandry</p>
+                                            <p class="text-sm text-gray-600">Pasker ID | Pranata Komputer</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="flex-none w-full sm:w-3/4 lg:w-1/2 px-4">
+                            <div
+                                class="bg-white rounded-xl shadow-md border-2 border-transparent hover:border-teal-500 transform hover:scale-105 transition">
+                                <div class="p-8 flex flex-col justify-between h-[400px]">
+                                    <p class="text-gray-600 mb-6">
+                                        “Sejauh ini Someah cukup adaptif di saat ada perubahan yang kami minta sehubungan
+                                        dengan kondisi terkini. Responsif dalam mengelola isu yang disampaikan.”
+                                    </p>
+                                    <div class="flex items-center gap-4">
+                                        <img src="/icons/icon-user.svg" alt="Nindiastuti"
+                                            class="w-16 h-16 rounded-lg bg-teal-50 p-2" />
+                                        <div>
+                                            <p class="font-bold text-gray-800">Nindiastuti</p>
+                                            <p class="text-sm text-gray-600">PT Grafindo Media Pratama | Department Head
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="flex-none w-full sm:w-3/4 lg:w-1/2 px-4">
+                            <div
+                                class="bg-white rounded-xl shadow-md border-2 border-transparent hover:border-teal-500 transform hover:scale-105 transition">
+                                <div class="p-8 flex flex-col justify-between h-[400px]">
+                                    <p class="text-gray-600 mb-6">
+                                        “Respon admin Someah baik dan dapat memahami permintaan dari Admin BKHM. Memiliki
+                                        backup web staging dan pelayanan di luar jam kerja.”
+                                    </p>
+                                    <div class="flex items-center gap-4">
+                                        <img src="/icons/icon-user.svg" alt="Shaka"
+                                            class="w-16 h-16 rounded-lg bg-teal-50 p-2" />
+                                        <div>
+                                            <p class="font-bold text-gray-800">Shaka</p>
+                                            <p class="text-sm text-gray-600">Staf Admin IT Darmasiswa</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Basic configuration
-            if (document.getElementById('threejs-canvas')) {
-                initThreeJS();
+                <!-- Prev/Next Buttons -->
+                <button id="prevBtn"
+                    class="hidden sm:flex absolute left-2 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow hover:bg-gray-100 z-20">
+                    &larr;
+                </button>
+                <button id="nextBtn"
+                    class="hidden sm:flex absolute right-2 top-1/2 -translate-y-1/2 bg-[#04b2f7] p-2 rounded-full shadow text-white hover:bg-teal-700 z-20">
+                    &rarr;
+                </button>
+
+                <!-- Dots -->
+                <div class="flex justify-center gap-2 mt-6">
+                    <span class="dot w-6 h-1 bg-[#04b2f7] rounded-full cursor-pointer" data-index="0"></span>
+                    <span class="dot w-2 h-2 bg-gray-300 rounded-full cursor-pointer" data-index="1"></span>
+                    <span class="dot w-2 h-2 bg-gray-300 rounded-full cursor-pointer" data-index="2"></span>
+                </div>
+            </div>
+        </section>
+
+        {{-- <x-coverflow-slider :slides="$slides" /> --}}
+
+        <x-cta-section></x-cta-section>
+
+        <script>
+            // Carousel functionality
+            const slides = document.getElementById('slides');
+            const total = slides.children.length;
+            let index = 0;
+
+            function update() {
+                slides.style.transform = `translateX(-${index * (100/ total)}%)`;
+                document.querySelectorAll('.dot').forEach((dot, i) => {
+                    dot.classList.toggle('bg-[#04b2f7]', i === index);
+                    dot.classList.toggle('bg-gray-300', i !== index);
+                });
             }
 
-            init3DCard('card-1', 0x04b2f7);
-            init3DCard('card-2', 0x6c5ce7);
-            init3DCard('card-3', 0x00b894);
+            document.getElementById('prevBtn').onclick = () => {
+                index = (index - 1 + total) % total;
+                update();
+            };
+            document.getElementById('nextBtn').onclick = () => {
+                index = (index + 1) % total;
+                update();
+            };
+            document.querySelectorAll('.dot').forEach(dot =>
+                dot.addEventListener('click', () => {
+                    index = parseInt(dot.dataset.index);
+                    update();
+                })
+            );
 
-        });
+            update();
 
-        // Staggered animation with shorter delay
-        document.addEventListener('DOMContentLoaded', () => {
-            const techItems = document.querySelectorAll('.tech-item');
-            techItems.forEach((item, index) => {
-                item.style.opacity = '0';
-                item.style.transform = 'translateY(10px)';
+            document.addEventListener('DOMContentLoaded', () => {
+                const carousel = document.getElementById('carousel');
+                const prevBtn = document.getElementById('prevBtn');
+                const nextBtn = document.getElementById('nextBtn');
 
-                setTimeout(() => {
-                    item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-                    item.style.opacity = '1';
-                    item.style.transform = 'translateY(0)';
-                }, 50 * index);
-            });
-        });
+                // Lebar satu card + gap (ubah sesuai gap dan w-80 mu)
+                const cardWidth = carousel.querySelector('.flex-none').offsetWidth;
+                const gap = parseInt(getComputedStyle(carousel).gap) || 24; // gap-6 = 1.5rem = 24px
+                const scrollAmount = cardWidth + gap;
 
-        function init3DCard(containerId, color) {
-            const container = document.getElementById(containerId);
-            if (!container) return;
+                prevBtn.addEventListener('click', () => {
+                    carousel.scrollBy({
+                        left: -scrollAmount,
+                        behavior: 'smooth'
+                    });
+                });
 
-            const width = container.clientWidth;
-            const height = container.clientHeight;
-
-            // 1. Create Scene
-            const scene = new THREE.Scene();
-
-            // 2. Create Camera
-            const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-            camera.position.z = 5;
-
-            // 3. Create Renderer
-            const renderer = new THREE.WebGLRenderer({
-                antialias: true,
-                alpha: true
-            });
-            renderer.setSize(width, height);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-            container.appendChild(renderer.domElement);
-
-            // 4. Create 3D Object
-            const geometry = new THREE.IcosahedronGeometry(1.5, 1);
-            const material = new THREE.MeshStandardMaterial({
-                color: color,
-                metalness: 0.7,
-                roughness: 0.4,
-                transparent: true,
-                opacity: 0.9
-            });
-            const mesh = new THREE.Mesh(geometry, material);
-            scene.add(mesh);
-
-            // 5. Add Lighting
-            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-            scene.add(ambientLight);
-
-            const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-            directionalLight.position.set(1, 1, 1);
-            scene.add(directionalLight);
-
-            // 6. Handle Mouse Move
-            container.addEventListener('mousemove', (e) => {
-                const x = (e.clientX - container.getBoundingClientRect().left) / width;
-                const y = (e.clientY - container.getBoundingClientRect().top) / height;
-
-                mesh.rotation.y = x * 2;
-                mesh.rotation.x = -y * 2;
+                nextBtn.addEventListener('click', () => {
+                    carousel.scrollBy({
+                        left: scrollAmount,
+                        behavior: 'smooth'
+                    });
+                });
             });
 
-            // 7. Animation Loop
-            function animate() {
-                requestAnimationFrame(animate);
-
-                // Gentle rotation when not interacting
-                if (!container.matches(':hover')) {
-                    mesh.rotation.x += 0.005;
-                    mesh.rotation.y += 0.01;
+            document.addEventListener('DOMContentLoaded', function() {
+                // Basic configuration
+                if (document.getElementById('threejs-canvas')) {
+                    initThreeJS();
                 }
 
-                renderer.render(scene, camera);
-            }
+                init3DCard('card-1', 0x04b2f7);
+                init3DCard('card-2', 0x6c5ce7);
+                init3DCard('card-3', 0x00b894);
 
-            animate();
-
-            // 8. Handle Resize
-            window.addEventListener('resize', () => {
-                camera.aspect = container.clientWidth / container.clientHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(container.clientWidth, container.clientHeight);
             });
-        }
-    </script>
 
-    <script src="//unpkg.com/alpinejs" defer></script>
-@endsection
+            // Staggered animation with shorter delay
+            document.addEventListener('DOMContentLoaded', () => {
+                const techItems = document.querySelectorAll('.tech-item');
+                techItems.forEach((item, index) => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateY(10px)';
+
+                    setTimeout(() => {
+                        item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }, 50 * index);
+                });
+            });
+
+            function init3DCard(containerId, color) {
+                const container = document.getElementById(containerId);
+                if (!container) return;
+
+                const width = container.clientWidth;
+                const height = container.clientHeight;
+
+                // 1. Create Scene
+                const scene = new THREE.Scene();
+
+                // 2. Create Camera
+                const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+                camera.position.z = 5;
+
+                // 3. Create Renderer
+                const renderer = new THREE.WebGLRenderer({
+                    antialias: true,
+                    alpha: true
+                });
+                renderer.setSize(width, height);
+                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+                container.appendChild(renderer.domElement);
+
+                // 4. Create 3D Object
+                const geometry = new THREE.IcosahedronGeometry(1.5, 1);
+                const material = new THREE.MeshStandardMaterial({
+                    color: color,
+                    metalness: 0.7,
+                    roughness: 0.4,
+                    transparent: true,
+                    opacity: 0.9
+                });
+                const mesh = new THREE.Mesh(geometry, material);
+                scene.add(mesh);
+
+                // 5. Add Lighting
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+                scene.add(ambientLight);
+
+                const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+                directionalLight.position.set(1, 1, 1);
+                scene.add(directionalLight);
+
+                // 6. Handle Mouse Move
+                container.addEventListener('mousemove', (e) => {
+                    const x = (e.clientX - container.getBoundingClientRect().left) / width;
+                    const y = (e.clientY - container.getBoundingClientRect().top) / height;
+
+                    mesh.rotation.y = x * 2;
+                    mesh.rotation.x = -y * 2;
+                });
+
+                // 7. Animation Loop
+                function animate() {
+                    requestAnimationFrame(animate);
+
+                    // Gentle rotation when not interacting
+                    if (!container.matches(':hover')) {
+                        mesh.rotation.x += 0.005;
+                        mesh.rotation.y += 0.01;
+                    }
+
+                    renderer.render(scene, camera);
+                }
+
+                animate();
+
+                // 8. Handle Resize
+                window.addEventListener('resize', () => {
+                    camera.aspect = container.clientWidth / container.clientHeight;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(container.clientWidth, container.clientHeight);
+                });
+            }
+        </script>
+
+        <script src="//unpkg.com/alpinejs" defer></script>
+    @endsection
