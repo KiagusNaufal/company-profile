@@ -46,13 +46,13 @@
 </section>
 
 <!-- Process Section -->
-<section class="py-12 bg-white sm:py-16 scroll-reveal-section" x-data="{ openTab: 'discover' }">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-8 sm:mb-12">
-            <h2 class="text-2xl font-bold text-gray-900 sm:text-3xl">Our Proven Process</h2>
-            <h3 class="text-xl font-bold text-gray-900 sm:text-2xl">Delivering Excellence at Every Stage</h3>
+<section class="pt-8 pb-16 bg-white scroll-reveal-section" x-data="{ openTab: 'discover' }">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center text-gray-900 mb-1 ">Our Proven Process</h2>
+        <h2 class="text-3xl font-bold text-center text-gray-900 mb-5 ">Delivering Excellence at Every Stage</h2>
+
         </div>
-        
+
         <!-- Tabs Navigation -->
         <div class="flex flex-wrap justify-center gap-2 mb-6 sm:gap-4 sm:mb-8">
             <button @click="openTab = 'discover'"
@@ -348,7 +348,7 @@
                         Let's build something amazing together
                     </span>
                 </h2>
-                
+
                 <div class="w-full sm:w-auto lg:flex-shrink-0">
                     <div class="inline-flex rounded-md shadow w-full sm:w-auto">
                         <button type="button" class="py-3 px-6 sm:px-8 md:px-10 bg-[#04b2f7] hover:bg-[#0399d9] text-white w-full transition ease-in duration-200 text-center text-base sm:text-lg font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-[#04b2f7] focus:ring-offset-2 rounded-lg">

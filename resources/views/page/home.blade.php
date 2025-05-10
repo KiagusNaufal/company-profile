@@ -15,14 +15,16 @@
                     Lebih dari Sekadar Kode, <br>
                     Kami Menciptakan Solusi
                 </h1>
-                <p class="py-5 px-20 text-xl w-[750px] text-gray-600">
-                    We’re Heroes to your business forward through ex pert software development, strategic big data analytics,
+                <p class="py-5 px-20 text-xl md:w-[750px] text-gray-600">
+                    We’re Heroes to your business forward through ex pert software development, strategic big data
+                    analytics,
                     and seamless IT maintenance. Elevate your enterprise with us.
                 </p>
                 <div class="py-5 px-20 flex gap-4">
-                    <a href="#" class="bg-[#0e60de] text-white px-5 py-3 rounded-lg hover:bg-blue-800 transition">Tell
+                    <a href="#" class="bg-[#04b2f7] text-white px-5 py-3 rounded-lg hover:bg-blue-800 transition">Tell
                         Us Digital Mission</a>
-                    <a href="#" class="border border-[#0e60de] px-5 py-3 rounded-lg hover:bg-blue-700 hover:text-white transition flex items-center">
+                    <a href="#"
+                        class="border border-[#04b2f7] px-5 py-3 rounded-lg hover:bg-[#04b2f7] hover:text-white transition flex items-center">
                         Learn More <span>→</span>
                     </a>
                 </div>
@@ -35,7 +37,7 @@
         </div>
     </section>
 
-
+    <!-- Technology Section -->
     <section class="py-4 bg-white">
         <div class="container mx-auto px-4">
             <!-- Heading -->
@@ -43,79 +45,85 @@
                 <p class="text-gray-600">Language that use our solution to enhance their digitalization.</p>
             </div>
 
-           <!-- Marquee Container -->
-<div class="overflow-hidden relative py-5 h-24 bg-gray-100">
-    <!-- Marquee Content -->
-    <div class="absolute flex items-center space-x-20 gap-5 animate-marquee whitespace-nowrap">
-        <!-- Programming Language Logos -->
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-             alt="Logo JavaScript" class="h-12 hover:scale-110 transition-transform">
+            <!-- Marquee Container -->
+            <div class="overflow-hidden relative py-16 h-40 border-b-2">
+                <!-- Marquee Content -->
+                <div class="absolute flex items-center space-x-20 gap-5 animate-marquee whitespace-nowrap">
+                    <!-- Programming Language Logos -->
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                        alt="Logo JavaScript" class="h-12 hover:scale-110 transition-transform">
 
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-             alt="Logo Python" class="h-14 hover:scale-110 transition-transform">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                        alt="Logo Python" class="h-14 hover:scale-110 transition-transform">
 
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
-             alt="Logo Java" class="h-12 hover:scale-110 transition-transform">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Logo Java"
+                        class="h-12 hover:scale-110 transition-transform">
 
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
-             alt="Logo PHP" class="h-14 hover:scale-110 transition-transform">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="Logo PHP"
+                        class="h-14 hover:scale-110 transition-transform">
 
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original-wordmark.svg"
-             alt="Logo Go" class="h-12 hover:scale-110 transition-transform">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original-wordmark.svg" alt="Logo Go"
+                        class="h-12 hover:scale-110 transition-transform">
 
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg"
-             alt="Logo Ruby" class="h-14 hover:scale-110 transition-transform">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg" alt="Logo Ruby"
+                        class="h-14 hover:scale-110 transition-transform">
 
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
-             alt="Logo C++" class="h-12 hover:scale-110 transition-transform">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
+                        alt="Logo C++" class="h-12 hover:scale-110 transition-transform">
 
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"
-             alt="Logo C#" class="h-14 hover:scale-110 transition-transform">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="Logo C#"
+                        class="h-14 hover:scale-110 transition-transform">
 
-        <!-- Duplicate for seamless loop -->
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-             alt="Logo JavaScript" class="h-12 hover:scale-110 transition-transform">
+                    <!-- Duplicate for seamless loop -->
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                        alt="Logo JavaScript" class="h-12 hover:scale-110 transition-transform">
 
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-             alt="Logo Python" class="h-14 hover:scale-110 transition-transform">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                        alt="Logo Python" class="h-14 hover:scale-110 transition-transform">
 
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
-             alt="Logo Java" class="h-12 hover:scale-110 transition-transform">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Logo Java"
+                        class="h-12 hover:scale-110 transition-transform">
 
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
-             alt="Logo PHP" class="h-14 hover:scale-110 transition-transform">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="Logo PHP"
+                        class="h-14 hover:scale-110 transition-transform">
 
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original-wordmark.svg"
-             alt="Logo Go" class="h-12 hover:scale-110 transition-transform">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original-wordmark.svg" alt="Logo Go"
+                        class="h-12 hover:scale-110 transition-transform">
 
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg"
-             alt="Logo Ruby" class="h-14 hover:scale-110 transition-transform">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg" alt="Logo Ruby"
+                        class="h-14 hover:scale-110 transition-transform">
 
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
-             alt="Logo C++" class="h-12 hover:scale-110 transition-transform">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
+                        alt="Logo C++" class="h-12 hover:scale-110 transition-transform">
 
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"
-             alt="Logo C#" class="h-14 hover:scale-110 transition-transform">
-    </div>
-</div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="Logo C#"
+                        class="h-14 hover:scale-110 transition-transform">
+                </div>
+            </div>
+            <style>
+                @keyframes marquee {
+                    0% {
+                        transform: translateX(0);
+                    }
 
-        <style>
-            @keyframes marquee {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(-50%); }
-            }
-            .animate-marquee {
-                animation: marquee 10s linear infinite;
-            }
-        </style>
+                    100% {
+                        transform: translateX(-50%);
+                    }
+                }
+
+                .animate-marquee {
+                    animation: marquee 10s linear infinite;
+                }
+            </style>
     </section>
 
     <!-- Services Section -->
-    <section class="py-20  bg-sky-50">
+    <section class="py-20 ">
         <!-- Header -->
         <div class="max-w-3xl mx-auto grid justify-between text-center mb-16 py-5 scroll-reveal-section">
-            <p class="text-lg uppercase text-blue-700 font-semibold">Our Services</p>
-            <h2 class="mt-2 px-8 text-3xl lg:text-4xl tracking-normal md:tracking-wide font-[600] max-w-[800px] text-gray-800">
+            <p class="text-lg uppercase text-[#04b2f7] font-semibold">Our Services</p>
+            <h2
+                class="mt-4 px-8 text-3xl lg:text-4xl tracking-normal md:tracking-wide font-semibold max-w-[800px] text-gray-800">
                 We possess techniques that can dismantle them into fragments
             </h2>
         </div>
@@ -124,27 +132,27 @@
             <!-- Service Item 1 -->
             <div class="flex flex-col lg:flex-row items-center gap-8">
                 <div class="lg:w-1/2">
-                    <img src="{{ asset('image/Developer activity-bro.svg') }}" alt="Software Development"
-                        class="w-full rounded-lg  w-[80%] md:h-[460px] w-[80%]">
+                    <img src="{{ asset('image/Developer activity-bro (1).svg') }}" alt="Software Development"
+                        class="w-full rounded-lg md:h-[460px] ">
                 </div>
-                <div class="lg:w-1/2 space-y-4">
+                <div class="lg:w-1/2 space-y-4 pt-10">
                     <h3 class="text-2xl font-semibold text-gray-800">Software Development</h3>
                     <p class="text-gray-600 sm:text-[28px] lg:text-2xl">
                         In the realm of coding quests, we are your digital heroes. Harness the power of our software
                         development prowess to turn your visions into groundbreaking digital solutions.
                         We don’t just write code; we script success stories.
                     </p>
-                    <a href="#" class="inline-flex items-center text-blue-700 hover:underline font-medium text-xl">
+                    <a href="#" class="inline-flex items-center text-[#04b2f7] hover:underline font-medium text-xl">
                         Learn More <span class="ml-2">→</span>
                     </a>
                 </div>
             </div>
 
             <!-- Service Item 2 (reverse on large screens) -->
-            <div class="flex flex-col lg:flex-row-reverse items-center gap-8">
+            <div class="flex flex-col lg:flex-row-reverse items-center gap-8 scroll-reveal-row">
                 <div class="lg:w-1/2">
-                    <img src="{{ asset('image/Data extraction-rafiki.svg') }}" alt="Data Analytics"
-                        class="w-full rounded-lg  w-[80%] md:h-[460px] w-[80%]">
+                    <img src="{{ asset('image/Data extraction-rafiki (1).svg') }}" alt="Data Analytics"
+                        class="w-full rounded-lg md:h-[460px]">
                 </div>
                 <div class="lg:w-1/2 space-y-4">
                     <h3 class="text-2xl font-semibold text-gray-800">Data Analytics</h3>
@@ -153,17 +161,17 @@
                         conquering data challenges, our expertise ensures your business emerges victorious.
                         We turn data into your most powerful ally.
                     </p>
-                    <a href="#" class="inline-flex items-center text-blue-700 hover:underline font-medium text-xl">
+                    <a href="#" class="inline-flex items-center text-[#04b2f7] hover:underline font-medium text-xl">
                         Learn More <span class="ml-2">→</span>
                     </a>
                 </div>
             </div>
 
             <!-- Service Item 3 -->
-            <div class="flex flex-col lg:flex-row items-center gap-8">
+            <div class="flex flex-col lg:flex-row items-center gap-8 scroll-reveal-row">
                 <div class="lg:w-1/2">
-                    <img src="{{ asset('image/Maintenance-bro.svg') }}" alt="IT Maintenance"
-                        class="w-full rounded-lg  w-[80%] md:h-[460px] w-[80%]">
+                    <img src="{{ asset('image/Maintenance-bro (1).svg') }}" alt="IT Maintenance"
+                        class="w-full rounded-lg md:h-[460px] ">
                 </div>
                 <div class="lg:w-1/2 sm:w1/2 space-y-4">
                     <h3 class="text-2xl font-semibold text-gray-800">IT Maintenance</h3>
@@ -172,7 +180,7 @@
                         maintenance to keep your systems resilient, secure, and ever‑ready for the challenges of the digital
                         frontier.
                     </p>
-                    <a href="#" class="inline-flex items-center text-blue-700 hover:underline font-medium text-xl">
+                    <a href="#" class="inline-flex items-center text-[#04b2f7] hover:underline font-medium text-xl">
                         Learn More <span class="ml-2">→</span>
                     </a>
                 </div>
@@ -181,215 +189,327 @@
 
         <!-- See All Services Button -->
         <div class="mt-16 text-center">
-            <a href="#"
-                class="inline-block px-8 py-3 border border-[#0e60de] text-blue-700 rounded-lg hover:bg-[#0e61de] hover:text-white transition">
+            <a href="{{ route('services') }}"
+                class="inline-block px-8 py-3 border border-[#04b2f7] text-[#04b2f7] rounded-lg hover:bg-[#04b2f7] hover:text-white transition">
                 See All Service →
             </a>
         </div>
     </section>
 
-    <section class="py-16 bg-gray-50 border-b-[1px] border-gray-200">
-        <div class="container mx-auto px-4">
-            <!-- Heading Section -->
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">SELECTED WORKS</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">
-                    We work and collaborate to create digital products for business and user goals.
-                </p>
+    <section class="py-16 bg-blue-50 ">
+        <div class="max-w-7xl mx-auto px-4 relative">
+            <!-- Judul -->
+            <h2 class="text-sm font-semibold text-[#04b2f7] uppercase mb-2">Selected Works</h2>
+            <p class="text-3xl font-bold text-gray-900 mb-6">
+                We work and collaborate to create <br>
+                digital products for business and user goals.
+            </p>
+
+            <!-- Carousel Wrapper -->
+            <div id="carousel"
+                class="overflow-x-auto snap-x snap-mandatory mt-5 flex space-x-6 scrollbar-none h-[512px] scroll-smooth">
+                @foreach ($projects as $project)
+                    <div class=" flex-none w-full sm:w-80 bg-white rounded-2xl shadow-lg snap-start">
+                        <div class="flex flex-col h-full border rounded-[16px] bg-white overflow-hidden">
+                            <!-- Thumbnail Utama -->
+                            <div class="h-48 w-full overflow-hidden rounded-t-[16px] border-b-2"
+                                style="background-image: url('https://picsum.photos/500/300')">
+                            </div>
+                            <div class="p-6 flex-1 flex flex-col">
+                                <!-- Ikon / Logo Kecil -->
+                                <!-- Judul Project -->
+                                <h3 class="text-lg font-semibold text-[#192424] mb-2 line-clamp-1"
+                                    title="Dana Siap Pakai Badan Nasional Penanggulangan Bencana (DSP BNPB)">
+                                    {{ $project['title'] }}
+                                </h3>
+
+                                <!-- Deskripsi -->
+                                <p class="text-sm text-[#343C3C] mb-6 line-clamp-5 flex-1">
+                                    {{ $project['description'] }}
+                                </p>
+
+                                <!-- Read More -->
+                                <a href="#"
+                                    class="inline-flex items-center text-[#008A85] font-medium hover:underline">
+                                    <span>Read More</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-5 w-5" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
+                <!-- Prev/Next Buttons -->
+                <button id="prevBtn"
+                    class="hidden md:block absolute top-1/2 -left-7 md:-left-16 translate-y-20 bg-white p-3 rounded-full shadow-lg z-10">&larr;</button>
+                <button id="nextBtn"
+                    class="hidden md:block absolute top-1/2 right-0 md:-right-10 translate-y-20 bg-[#04b2f7] text-white p-3 rounded-full shadow-lg z-10">&rarr;</button>
             </div>
-
-            <!-- Projects Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Dana Siap Pakal Badan Nasional...</h3>
-                    <p class="text-gray-600 mb-4">
-                        DBP is a web-based application system designed to simplify the management of today’s trust in the National Dossier Management Agency. With an intuitive interface and efficient footrest, DBP ensures that fund management is carried out transparently and accurately.
-                    </p>
-                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
-                        Read More →
-                    </a>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">E-Presensi Kemnaker</h3>
-                    <p class="text-gray-600 mb-4">
-                        E-Presensi is a computer-based application designed to manage and monitor employee attendance at the Ministry of Management or the Republic of Indonesia. This application leverages the latest technology to ensure an efficient, accurate, and integrated attendance process with existing data.
-                    </p>
-                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
-                        Read More →
-                    </a>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">School Collaboration System</h3>
-                    <p class="text-gray-600 mb-4">
-                        SCS is an innovative web platform that enables collaboratively create and develop latest integration into the Nordiska Curriculum. We are currently working on a dedicated collaboration project to support SCS in linked theater for teachers to shape up.
-                    </p>
-                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
-                        Read More →
-                    </a>
-                </div>
-            </div>
-        </div>
     </section>
 
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4 max-w-4xl">
-            <!-- Heading -->
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-2">WHAT THEY SAY</h2>
-                <p class="text-xl text-gray-600">Our Partners Kind Words</p>
-            </div>
-
-            <!-- Testimonials -->
-            <div class="space-y-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-white rounded-lg shadow-md p-8 relative">
-                    <div class="absolute top-4 left-4 text-gray-200 text-5xl">“</div>
-                    <p class="text-gray-600 mb-6 mt-2 pl-8 italic">
-                        "Respon admin Someah Baik dan dapat memahami permintaan dari Admin BKHM. Memiliki backup web staging dan pelayanan diluar jam kerja"
-                    </p>
-                    <div class="border-t pt-4 pl-8">
-                        <h4 class="font-semibold text-gray-800">Shaka</h4>
-                        <p class="text-sm text-gray-500">Stat Admin IT Darmasiswa</p>
-                    </div>
-                </div>
-
-                <!-- Testimonial 2 -->
-                <div class="bg-white rounded-lg shadow-md p-8 relative">
-                    <div class="absolute top-4 left-4 text-gray-200 text-5xl">“</div>
-                    <p class="text-gray-600 mb-6 mt-2 pl-8 italic">
-                        "Tim yang kompeten dan profesional. Komunikasi lancar, solusi kreatif, dan hasil kerja berkualitas membuat saya sangat puas dengan layanan mereka."
-                    </p>
-                    <div class="border-t pt-4 pl-8">
-                        <h4 class="font-semibold text-gray-800">Muhammad Ivandry</h4>
-                        <p class="text-sm text-gray-500">Pasker ID | Pranata Komputer</p>
-                    </div>
-                </div>
-
-                <!-- Testimonial 3 -->
-                <div class="bg-white rounded-lg shadow-md p-8 relative">
-                    <div class="absolute top-4 left-4 text-gray-200 text-5xl">“</div>
-                    <p class="text-gray-600 mb-6 mt-2 pl-8 italic">
-                        "Sejauh ini Someah cukup adaptif di saat ada perubahan yang kami minta sehubungan dengan kondisi terkini. Responsif dalam mengelola isue yang disampalkan."
-                    </p>
-                    <div class="border-t pt-4 pl-8">
-                        <h4 class="font-semibold text-gray-800">Nindlastuti</h4>
-                        <p class="text-sm text-gray-500">PT Grafindo Media Pratama | Department Head</p>
-                    </div>
-                </div>
-            </div>
+    <section class="py-16 bg-white relative overflow-hidden">
+        <!-- Header -->
+        <div class="max-w-7xl mx-auto px-4 text-center mb-12">
+            <p class="text-[#04b2f7] font-bold text-sm mb-2">WHAT THEY SAY</p>
+            <h2 class="text-3xl sm:text-4xl font-semibold text-gray-900">
+                Our Partners’ Kind Words
+            </h2>
         </div>
-    </section>
 
-    <x-cta-section></x-cta-section>
+            <!-- Carousel Wrapper -->
+            <div id="testimonialCarousel" class="relative max-w-4xl mx-auto">
+                <!-- Slides Container -->
+                <div class="overflow-hidden">
+                    <div id="slides" class="flex transition-transform duration-700 ease-out">
+                        <!-- Slide 1 -->
+                        <div class="flex-none w-full sm:w-3/4 lg:w-1/2 px-4">
+                            <div
+                                class="bg-white rounded-xl shadow-md border-2 border-transparent hover:border-teal-500 transform hover:scale-105 transition">
+                                <div class="p-8 flex flex-col justify-between h-[400px]">
+                                    <p class="text-gray-600 mb-6">
+                                        “Tim yang kompeten dan profesional. Komunikasi lancar, solusi kreatif, dan hasil
+                                        kerja berkualitas membuat saya sangat puas dengan layanan mereka.”
+                                    </p>
+                                    <div class="flex items-center gap-4">
+                                        <img src="/icons/icon-user.svg" alt="Muhammad Ivandry"
+                                            class="w-16 h-16 rounded-lg bg-teal-50 p-2" />
+                                        <div>
+                                            <p class="font-bold text-gray-800">Muhammad Ivandry</p>
+                                            <p class="text-sm text-gray-600">Pasker ID | Pranata Komputer</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="flex-none w-full sm:w-3/4 lg:w-1/2 px-4">
+                            <div
+                                class="bg-white rounded-xl shadow-md border-2 border-transparent hover:border-teal-500 transform hover:scale-105 transition">
+                                <div class="p-8 flex flex-col justify-between h-[400px]">
+                                    <p class="text-gray-600 mb-6">
+                                        “Sejauh ini Someah cukup adaptif di saat ada perubahan yang kami minta sehubungan
+                                        dengan kondisi terkini. Responsif dalam mengelola isu yang disampaikan.”
+                                    </p>
+                                    <div class="flex items-center gap-4">
+                                        <img src="/icons/icon-user.svg" alt="Nindiastuti"
+                                            class="w-16 h-16 rounded-lg bg-teal-50 p-2" />
+                                        <div>
+                                            <p class="font-bold text-gray-800">Nindiastuti</p>
+                                            <p class="text-sm text-gray-600">PT Grafindo Media Pratama | Department Head
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="flex-none w-full sm:w-3/4 lg:w-1/2 px-4">
+                            <div
+                                class="bg-white rounded-xl shadow-md border-2 border-transparent hover:border-teal-500 transform hover:scale-105 transition">
+                                <div class="p-8 flex flex-col justify-between h-[400px]">
+                                    <p class="text-gray-600 mb-6">
+                                        “Respon admin Someah baik dan dapat memahami permintaan dari Admin BKHM. Memiliki
+                                        backup web staging dan pelayanan di luar jam kerja.”
+                                    </p>
+                                    <div class="flex items-center gap-4">
+                                        <img src="/icons/icon-user.svg" alt="Shaka"
+                                            class="w-16 h-16 rounded-lg bg-teal-50 p-2" />
+                                        <div>
+                                            <p class="font-bold text-gray-800">Shaka</p>
+                                            <p class="text-sm text-gray-600">Staf Admin IT Darmasiswa</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-<script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Basic configuration
-            if (document.getElementById('threejs-canvas')) {
-                initThreeJS();
+                <!-- Prev/Next Buttons -->
+                <button id="prevBtn"
+                    class="hidden sm:flex absolute left-2 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow hover:bg-gray-100 z-20">
+                    &larr;
+                </button>
+                <button id="nextBtn"
+                    class="hidden sm:flex absolute right-2 top-1/2 -translate-y-1/2 bg-[#04b2f7] p-2 rounded-full shadow text-white hover:bg-teal-700 z-20">
+                    &rarr;
+                </button>
+
+                <!-- Dots -->
+                <div class="flex justify-center gap-2 mt-6">
+                    <span class="dot w-6 h-1 bg-[#04b2f7] rounded-full cursor-pointer" data-index="0"></span>
+                    <span class="dot w-2 h-2 bg-gray-300 rounded-full cursor-pointer" data-index="1"></span>
+                    <span class="dot w-2 h-2 bg-gray-300 rounded-full cursor-pointer" data-index="2"></span>
+                </div>
+            </div>
+        </section>
+
+        {{-- <x-coverflow-slider :slides="$slides" /> --}}
+
+        <x-cta-section></x-cta-section>
+
+        <script>
+            // Carousel functionality
+            const slides = document.getElementById('slides');
+            const total = slides.children.length;
+            let index = 0;
+
+            function update() {
+                slides.style.transform = `translateX(-${index * (100/ total)}%)`;
+                document.querySelectorAll('.dot').forEach((dot, i) => {
+                    dot.classList.toggle('bg-[#04b2f7]', i === index);
+                    dot.classList.toggle('bg-gray-300', i !== index);
+                });
             }
 
-            init3DCard('card-1', 0x04b2f7);
-        init3DCard('card-2', 0x6c5ce7);
-        init3DCard('card-3', 0x00b894);
-        
-        });
+            document.getElementById('prevBtn').onclick = () => {
+                index = (index - 1 + total) % total;
+                update();
+            };
+            document.getElementById('nextBtn').onclick = () => {
+                index = (index + 1) % total;
+                update();
+            };
+            document.querySelectorAll('.dot').forEach(dot =>
+                dot.addEventListener('click', () => {
+                    index = parseInt(dot.dataset.index);
+                    update();
+                })
+            );
 
-        // Staggered animation with shorter delay
-        document.addEventListener('DOMContentLoaded', () => {
-          const techItems = document.querySelectorAll('.tech-item');
-          techItems.forEach((item, index) => {
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(10px)';
+            update();
 
-            setTimeout(() => {
-              item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-              item.style.opacity = '1';
-              item.style.transform = 'translateY(0)';
-            }, 50 * index);
-          });
-        });
+            document.addEventListener('DOMContentLoaded', () => {
+                const carousel = document.getElementById('carousel');
+                const prevBtn = document.getElementById('prevBtn');
+                const nextBtn = document.getElementById('nextBtn');
 
-    function init3DCard(containerId, color) {
-        const container = document.getElementById(containerId);
-        if (!container) return;
+                // Lebar satu card + gap (ubah sesuai gap dan w-80 mu)
+                const cardWidth = carousel.querySelector('.flex-none').offsetWidth;
+                const gap = parseInt(getComputedStyle(carousel).gap) || 24; // gap-6 = 1.5rem = 24px
+                const scrollAmount = cardWidth + gap;
 
-        const width = container.clientWidth;
-        const height = container.clientHeight;
+                prevBtn.addEventListener('click', () => {
+                    carousel.scrollBy({
+                        left: -scrollAmount,
+                        behavior: 'smooth'
+                    });
+                });
 
-        // 1. Create Scene
-        const scene = new THREE.Scene();
+                nextBtn.addEventListener('click', () => {
+                    carousel.scrollBy({
+                        left: scrollAmount,
+                        behavior: 'smooth'
+                    });
+                });
+            });
 
-        // 2. Create Camera
-        const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-        camera.position.z = 5;
+            document.addEventListener('DOMContentLoaded', function() {
+                // Basic configuration
+                if (document.getElementById('threejs-canvas')) {
+                    initThreeJS();
+                }
 
-        // 3. Create Renderer
-        const renderer = new THREE.WebGLRenderer({
-          antialias: true,
-          alpha: true
-        });
-        renderer.setSize(width, height);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        container.appendChild(renderer.domElement);
+                init3DCard('card-1', 0x04b2f7);
+                init3DCard('card-2', 0x6c5ce7);
+                init3DCard('card-3', 0x00b894);
 
-        // 4. Create 3D Object
-        const geometry = new THREE.IcosahedronGeometry(1.5, 1);
-        const material = new THREE.MeshStandardMaterial({
-          color: color,
-          metalness: 0.7,
-          roughness: 0.4,
-          transparent: true,
-          opacity: 0.9
-        });
-        const mesh = new THREE.Mesh(geometry, material);
-        scene.add(mesh);
+            });
 
-        // 5. Add Lighting
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-        scene.add(ambientLight);
+            // Staggered animation with shorter delay
+            document.addEventListener('DOMContentLoaded', () => {
+                const techItems = document.querySelectorAll('.tech-item');
+                techItems.forEach((item, index) => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateY(10px)';
 
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-        directionalLight.position.set(1, 1, 1);
-        scene.add(directionalLight);
+                    setTimeout(() => {
+                        item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }, 50 * index);
+                });
+            });
 
-        // 6. Handle Mouse Move
-        container.addEventListener('mousemove', (e) => {
-          const x = (e.clientX - container.getBoundingClientRect().left) / width;
-          const y = (e.clientY - container.getBoundingClientRect().top) / height;
+            function init3DCard(containerId, color) {
+                const container = document.getElementById(containerId);
+                if (!container) return;
 
-          mesh.rotation.y = x * 2;
-          mesh.rotation.x = -y * 2;
-        });
+                const width = container.clientWidth;
+                const height = container.clientHeight;
 
-        // 7. Animation Loop
-        function animate() {
-          requestAnimationFrame(animate);
+                // 1. Create Scene
+                const scene = new THREE.Scene();
 
-          // Gentle rotation when not interacting
-          if (!container.matches(':hover')) {
-            mesh.rotation.x += 0.005;
-            mesh.rotation.y += 0.01;
-          }
+                // 2. Create Camera
+                const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+                camera.position.z = 5;
 
-          renderer.render(scene, camera);
-        }
+                // 3. Create Renderer
+                const renderer = new THREE.WebGLRenderer({
+                    antialias: true,
+                    alpha: true
+                });
+                renderer.setSize(width, height);
+                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+                container.appendChild(renderer.domElement);
 
-        animate();
+                // 4. Create 3D Object
+                const geometry = new THREE.IcosahedronGeometry(1.5, 1);
+                const material = new THREE.MeshStandardMaterial({
+                    color: color,
+                    metalness: 0.7,
+                    roughness: 0.4,
+                    transparent: true,
+                    opacity: 0.9
+                });
+                const mesh = new THREE.Mesh(geometry, material);
+                scene.add(mesh);
 
-        // 8. Handle Resize
-        window.addEventListener('resize', () => {
-          camera.aspect = container.clientWidth / container.clientHeight;
-          camera.updateProjectionMatrix();
-          renderer.setSize(container.clientWidth, container.clientHeight);
-        });
-      }
-</script>
+                // 5. Add Lighting
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+                scene.add(ambientLight);
 
-<script src="//unpkg.com/alpinejs" defer></script>
-@endsection
+                const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+                directionalLight.position.set(1, 1, 1);
+                scene.add(directionalLight);
+
+                // 6. Handle Mouse Move
+                container.addEventListener('mousemove', (e) => {
+                    const x = (e.clientX - container.getBoundingClientRect().left) / width;
+                    const y = (e.clientY - container.getBoundingClientRect().top) / height;
+
+                    mesh.rotation.y = x * 2;
+                    mesh.rotation.x = -y * 2;
+                });
+
+                // 7. Animation Loop
+                function animate() {
+                    requestAnimationFrame(animate);
+
+                    // Gentle rotation when not interacting
+                    if (!container.matches(':hover')) {
+                        mesh.rotation.x += 0.005;
+                        mesh.rotation.y += 0.01;
+                    }
+
+                    renderer.render(scene, camera);
+                }
+
+                animate();
+
+                // 8. Handle Resize
+                window.addEventListener('resize', () => {
+                    camera.aspect = container.clientWidth / container.clientHeight;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(container.clientWidth, container.clientHeight);
+                });
+            }
+        </script>
+
+        <script src="//unpkg.com/alpinejs" defer></script>
+    @endsection

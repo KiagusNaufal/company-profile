@@ -433,7 +433,7 @@
         <!-- Extended Team Section -->
         <div class="mt-12 md:mt-20">
             <h3 class="text-xl md:text-2xl font-bold text-center text-gray-800 mb-6 md:mb-8">Our Extended Team</h3>
-        
+
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
                 <!-- Team Member 5 -->
                 <div class="text-center">
@@ -444,7 +444,7 @@
                     <h4 class="text-sm sm:text-base font-bold text-gray-800">Alex Turner</h4>
                     <p class="text-xs sm:text-sm text-[#04b2f7]">Lead Developer</p>
                 </div>
-        
+
                 <!-- Team Member 6 -->
                 <div class="text-center">
                     <div class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 mx-auto mb-3 md:mb-4 rounded-full overflow-hidden border-4 border-white shadow-lg">
@@ -454,7 +454,7 @@
                     <h4 class="text-sm sm:text-base font-bold text-gray-800">Sophia Martinez</h4>
                     <p class="text-xs sm:text-sm text-[#04b2f7]">UX Designer</p>
                 </div>
-        
+
                 <!-- Team Member 7 -->
                 <div class="text-center">
                     <div class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 mx-auto mb-3 md:mb-4 rounded-full overflow-hidden border-4 border-white shadow-lg">
@@ -464,7 +464,7 @@
                     <h4 class="text-sm sm:text-base font-bold text-gray-800">David Kim</h4>
                     <p class="text-xs sm:text-sm text-[#04b2f7]">Marketing Director</p>
                 </div>
-        
+
                 <!-- Team Member 8 -->
                 <div class="text-center">
                     <div class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 mx-auto mb-3 md:mb-4 rounded-full overflow-hidden border-4 border-white shadow-lg">
@@ -474,7 +474,7 @@
                     <h4 class="text-sm sm:text-base font-bold text-gray-800">Lisa Wong</h4>
                     <p class="text-xs sm:text-sm text-[#04b2f7]">HR Manager</p>
                 </div>
-        
+
                 <!-- Team Member 9 -->
                 <div class="text-center">
                     <div class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 mx-auto mb-3 md:mb-4 rounded-full overflow-hidden border-4 border-white shadow-lg">
@@ -484,7 +484,7 @@
                     <h4 class="text-sm sm:text-base font-bold text-gray-800">Robert Johnson</h4>
                     <p class="text-xs sm:text-sm text-[#04b2f7]">QA Lead</p>
                 </div>
-        
+
                 <!-- Team Member 10 -->
                 <div class="text-center">
                     <div class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 mx-auto mb-3 md:mb-4 rounded-full overflow-hidden border-4 border-white shadow-lg">
@@ -496,7 +496,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- CTA -->
         <div class="mt-12 md:mt-16 text-center">
             <a href="#" class="inline-flex items-center px-6 py-2 md:px-8 md:py-3 bg-[#04b2f7] hover:bg-[#003366] text-white text-sm md:text-base font-medium rounded-lg shadow-md transition-colors duration-300">
