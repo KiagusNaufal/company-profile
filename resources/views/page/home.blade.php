@@ -197,7 +197,7 @@
     </section>
 
     <section class="py-16 bg-blue-50 ">
-        <div class="max-w-7xl mx-auto px-4 relative">
+        <div class="max-w-7xl  mx-auto px-4 relative">
             <!-- Judul -->
             <h2 class="text-sm font-semibold text-[#04b2f7] uppercase mb-2">Selected Works</h2>
             <p class="text-3xl font-bold text-gray-900 mb-6">
@@ -207,12 +207,12 @@
 
             <!-- Carousel Wrapper -->
             <div id="carousel"
-                class="overflow-x-auto snap-x snap-mandatory mt-5 flex space-x-6 scrollbar-none h-[512px] scroll-smooth [&::-webkit-scrollbar]:hidden">
+                class="overflow-x-auto snap-x snap-mandatory mt-5 flex space-x-8 md:space-x-[234px] scrollbar-none min-h-[512px] md:h-[640px] scroll-smooth [&::-webkit-scrollbar]:hidden">
                 @foreach ($projects as $project)
-                    <div class=" flex-none w-full sm:w-80 bg-white rounded-2xl shadow-lg snap-start">
-                        <div class="flex flex-col h-full border rounded-[16px] bg-white overflow-hidden ">
+                    <div class=" flex-none w-full sm:w-80 bg-white  rounded-2xl shadow-lg snap-start">
+                        <div class="flex flex-col h-full min-w-[512px] gap-[32px] border rounded-[16px] bg-white overflow-hidden ">
                             <!-- Thumbnail Utama -->
-                            <div class="h-48 w-full overflow-hidden rounded-t-[16px] border-b-2"
+                            <div class="h-48 md:h-[280px] w-full overflow-hidden rounded-t-[16px] border-b-2"
                                 style="background-image: url('https://picsum.photos/500/300')">
                             </div>
                             <div class="p-6 flex-1 flex flex-col">
@@ -245,7 +245,7 @@
 
                 <!-- Prev/Next Buttons -->
                 <button id="prevBtn"
-                    class="hidden md:block absolute top-1/2 -left-7 md:-left-16 translate-y-20 bg-white p-3 rounded-full shadow-lg z-10">&larr;</button>
+                    class="hidden md:block absolute top-1/2 -left-7 md:-left-[280px] translate-y-20 bg-white p-3 rounded-full shadow-lg z-10">&larr;</button>
                 <button id="nextBtn"
                     class="hidden md:block absolute top-1/2 right-0 md:-right-10 translate-y-20 bg-[#04b2f7] text-white p-3 rounded-full shadow-lg z-10">&rarr;</button>
             </div>
