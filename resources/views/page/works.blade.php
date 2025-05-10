@@ -86,13 +86,13 @@
 
                     <div class="p-6 flex-1 flex flex-col">
                         <div class="flex items-center justify-between sm:mx-5 mb-4">
-                            <h3 class="text-xl font-semibold text-gray-800">{{ $project['title'] }}</h3>
-                            <span class="text-sm {{ $project['badge_color'] }} px-3 py-1 rounded-full">
-                                {{ $project['category'] }}
+                            <h3 class="text-xl font-semibold text-gray-800">{{ $project->name }}</h3>
+                            <span class="text-sm {{ $project->badge_color }} px-3 py-1 rounded-full">
+                                {{ $project->kategori->name }}
                             </span>
                         </div>
                         <p class="text-gray-600 mb-4 line-clamp-3 flex-1">
-                            {{ $project['description'] }}
+                            {{ $project->description }}
                         </p>
                         <div class="mt-4">
                             <a href="#"
