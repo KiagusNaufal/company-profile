@@ -207,10 +207,10 @@
 
             <!-- Carousel Wrapper -->
             <div id="carousel"
-                class="overflow-x-auto snap-x snap-mandatory mt-5 flex space-x-6 scrollbar-none h-[512px] scroll-smooth">
+                class="overflow-x-auto snap-x snap-mandatory mt-5 flex space-x-6 scrollbar-none h-[512px] scroll-smooth [&::-webkit-scrollbar]:hidden">
                 @foreach ($projects as $project)
                     <div class=" flex-none w-full sm:w-80 bg-white rounded-2xl shadow-lg snap-start">
-                        <div class="flex flex-col h-full border rounded-[16px] bg-white overflow-hidden">
+                        <div class="flex flex-col h-full border rounded-[16px] bg-white overflow-hidden ">
                             <!-- Thumbnail Utama -->
                             <div class="h-48 w-full overflow-hidden rounded-t-[16px] border-b-2"
                                 style="background-image: url('https://picsum.photos/500/300')">
