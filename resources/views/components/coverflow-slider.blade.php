@@ -6,17 +6,17 @@
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
             <!-- Slides -->
-            @foreach($slides as $slide)
+            @foreach($projects as $project)
             <div class="swiper-slide">
                 <div class="relative overflow-hidden rounded-2xl shadow-xl transform transition-transform duration-300 hover:scale-105">
                     <img
-                        src="{{ $slide['image'] }}"
-                        alt="{{ $slide['title'] }}"
+                        src="{{ asset('storage/' . $product->image) ?? 'https://via.placeholder.com/50' }}"
+                        alt="{{ $project->name }}"
                         class="w-full h-96 object-cover">
 
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">{{ $slide['title'] }}</h3>
-                        <p class="text-gray-200 line-clamp-2">{{ $slide['description'] }}</p>
+                        <h3 class="text-xl font-bold text-white mb-2">{{ $project->name }}</h3>
+                        <p class="text-gray-200 line-clamp-2">{{ $project->description }}</p>
                     </div>
                 </div>
             </div>

@@ -26,6 +26,8 @@ Route::get('/dashboard', function () {
     return view('admin.dashboard.dashboard');
 })->name('dashboard');
 
+
+
 Route::get('/produk', [ProdukController::class, 'index'])->name('produk');
 Route::post('/produk/store', [ProdukController::class, 'store'])->name('produk.store');
 Route::put('/produk/{id}', [ProdukController::class, 'update'])->name('produk.update');

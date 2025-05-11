@@ -21,6 +21,8 @@ class ProdukController extends Controller
         return view('admin.produk.produk', compact('products', 'categories'));
     }
 
+
+
     /**
      * Show the form for creating a new resource.
      */

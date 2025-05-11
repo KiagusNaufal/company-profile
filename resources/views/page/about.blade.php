@@ -236,11 +236,11 @@
                     <div class="w-full sm:w-5/12 sm:pr-5 sm:text-right mb-4 sm:mb-0">
                         <div class="bg-gray-50 p-4 sm:p-6 rounded-lg shadow-sm border border-gray-200 relative">
                             <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-lg sm:text-xl font-bold text-[#04b2f7]">Somearch</h3>
-                                <span class="text-xs sm:text-sm bg-[#04b2f7] text-white px-2 sm:px-3 py-1 rounded-full">2015</span>
+                                <h3 class="text-lg sm:text-xl font-bold text-[#04b2f7]">Aeratek</h3>
+                                <span class="text-xs sm:text-sm bg-[#04b2f7] text-white px-2 sm:px-3 py-1 rounded-full">2009</span>
                             </div>
                             <p class="mt-2 text-sm sm:text-base text-gray-700">
-                                Our journey begins, led by four visionary founders with a passion for technology innovation.
+                              Membuat aplikasi pertama untuk sebuah klinik laboratorium berbasis desktop. Aplikasi ini membantu klinik tersebut berkembang pesat hingga memiliki tiga cabang. 
                             </p>
                         </div>
                     </div>
@@ -251,11 +251,11 @@
                     <div class="w-full sm:w-5/12 sm:pl-5 sm:text-left mt-4 sm:mt-0">
                         <div class="bg-gray-50 p-4 sm:p-6 rounded-lg shadow-sm border border-gray-200 relative">
                             <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-lg sm:text-xl font-bold text-[#04b2f7]">Somearch 2.0</h3>
-                                <span class="text-xs sm:text-sm bg-[#04b2f7] text-white px-2 sm:px-3 py-1 rounded-full">2018</span>
+                                <h3 class="text-lg sm:text-xl font-bold text-[#04b2f7]">Aeratek</h3>
+                                <span class="text-xs sm:text-sm bg-[#04b2f7] text-white px-2 sm:px-3 py-1 rounded-full">2014</span>
                             </div>
                             <p class="mt-2 text-sm sm:text-base text-gray-700">
-                                Undergoes transformation, now led by two dedicated founders focused on enterprise solutions.
+                                Membuat aplikasi sistem informasi sekolah. Aplikasi ini dirancang untuk membantu sekolah dalam mengelola berbagai aspek, seperti keuangan, kehadiran siswa, pelanggaran, serta nilai harian dan rapor
                             </p>
                         </div>
                     </div>
@@ -270,7 +270,7 @@
                                 <span class="text-xs sm:text-sm bg-[#04b2f7] text-white px-2 sm:px-3 py-1 rounded-full">2020</span>
                             </div>
                             <p class="mt-2 text-sm sm:text-base text-gray-700">
-                                Rebrands as Aeratek, reflecting our evolution into a global technology solutions provider.
+                               Membuat game pertama yang bertemakan edukasi dan berbasis Unity. Game ini  membantu pendidikan dalam mentransferkan ilmu kepada siswa dengan cara yang mudah dipahami dan menyenangkan
                             </p>
                         </div>
                     </div>
@@ -281,11 +281,11 @@
                     <div class="w-full sm:w-5/12 sm:pl-5 sm:text-left mt-4 sm:mt-0">
                         <div class="bg-gray-50 p-4 sm:p-6 rounded-lg shadow-sm border border-gray-200 relative">
                             <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-lg sm:text-xl font-bold text-[#04b2f7]">Aeratek Today</h3>
-                                <span class="text-xs sm:text-sm bg-[#04b2f7] text-white px-2 sm:px-3 py-1 rounded-full">2023</span>
+                                <h3 class="text-lg sm:text-xl font-bold text-[#04b2f7]">Aeratek</h3>
+                                <span class="text-xs sm:text-sm bg-[#04b2f7] text-white px-2 sm:px-3 py-1 rounded-full">2024</span>
                             </div>
                             <p class="mt-2 text-sm sm:text-base text-gray-700">
-                                Continues to build on its foundation, delivering innovative solutions to clients worldwide.
+                                Mengukuhkan diri sebagai perusahaan yang berbadan hukum PT (Perseroan Terbatas). Langkah ini memperkuat komitmen kami untuk memberikan layanan berkualitas tinggi dan pelayanan yang lebih profesional
                             </p>
                         </div>
                     </div>
