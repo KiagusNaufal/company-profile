@@ -75,9 +75,9 @@
                             <span class="text-gray-700">Dashboard</span>
                         </a>
                         
-                        <a href="}" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg sidebar-link ">
+                        <a href="{{ route('kategori') }}" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg sidebar-link @if(Route::is('kategori')) active @endif">
                             <i class="fas fa-users mr-3 text-primary"></i>
-                            <span class="text-gray-700">Pengguna</span>
+                            <span class="text-gray-700">Kategori</span>
                         </a>
                         
                         <a href="{{ route('produk') }}" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg sidebar-link @if(Route::is('produk')) active @endif">

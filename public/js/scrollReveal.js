@@ -1,21 +1,40 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Inisialisasi ScrollReveal dengan konfigurasi global
+document.addEventListener("DOMContentLoaded", function() {
+    // Initialize ScrollReveal with better defaults
     const sr = ScrollReveal({
         reset: false,
         viewportOffset: {
             top: 50,
             right: 0,
-            bottom: 50,
+            bottom: 100,  // Trigger animations earlier
             left: 0
-        }
+        },
+        opacity: 0,      // Explicit initial state
+        viewFactor: 0.2, // Percentage of element visible before triggering
+        mobile: true     // Ensure works on mobile
     });
 
-    // Fungsi untuk menandai elemen yang sudah di-reveal
-    function markAsRevealed(el) {
+    // Function to handle revealed elements
+    function handleReveal(el) {
+        // Force show the element
+        el.style.opacity = 1;
+        el.style.visibility = 'visible';
+        
+        // Special handling for images
+        const images = el.querySelectorAll('img');
+        images.forEach(img => {
+            img.style.opacity = 1;
+            img.style.visibility = 'visible';
+            img.style.transform = 'translateZ(0)'; // Enable GPU acceleration
+        });
+        
+        // Add revealed class
         el.classList.add('revealed');
+        
+        // Force reflow to ensure animations trigger
+        void el.offsetHeight;
     }
 
-    // Konfigurasi untuk berbagai jenis elemen
+    // Configuration for all reveal types
     const revealConfigs = [
         {
             selector: '.scroll-reveal-item',
@@ -24,8 +43,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 distance: '20px',
                 origin: 'bottom',
                 duration: 800,
-                easing: 'ease-out',
-                beforeReveal: markAsRevealed
+                easing: 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+                beforeReveal: handleReveal
             }
         },
         {
@@ -35,8 +54,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 distance: '40px',
                 origin: 'bottom',
                 duration: 1000,
-                easing: 'ease-out',
-                beforeReveal: markAsRevealed
+                easing: 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+                beforeReveal: handleReveal
             }
         },
         {
@@ -46,9 +65,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 distance: '20px',
                 origin: 'bottom',
                 duration: 800,
-                easing: 'ease-out',
+                easing: 'cubic-bezier(0.25, 0.1, 0.25, 1)',
                 interval: 100,
-                beforeReveal: markAsRevealed
+                beforeReveal: handleReveal
             }
         },
         {
@@ -58,21 +77,33 @@ document.addEventListener('DOMContentLoaded', function() {
                 distance: '30px',
                 origin: 'bottom',
                 duration: 800,
-                easing: 'ease-out',
+                easing: 'cubic-bezier(0.25, 0.1, 0.25, 1)',
                 interval: 150,
-                beforeReveal: markAsRevealed
+                beforeReveal: handleReveal
             }
         },
         {
             selector: '.scroll-reveal-tech',
             config: {
                 delay: 100,
-                distance: '20px',
+                distance: '10px',
                 origin: 'bottom',
                 duration: 600,
-                easing: 'ease-out',
+                easing: 'cubic-bezier(0.25, 0.1, 0.25, 1)',
                 interval: 50,
-                beforeReveal: markAsRevealed
+                beforeReveal: function(el) {
+                    handleReveal(el);
+                    // Additional tech-item specific handling
+                    const icons = el.querySelectorAll('img, svg');
+                    icons.forEach(icon => {
+                        icon.style.opacity = 1;
+                        icon.style.visibility = 'visible';
+                    });
+                },
+                afterReveal: function(el) {
+                    el.style.opacity = 1;
+                    el.style.visibility = 'visible';
+                }
             }
         },
         {
@@ -82,8 +113,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 distance: '40px',
                 origin: 'bottom',
                 duration: 800,
-                easing: 'ease-out',
-                beforeReveal: markAsRevealed
+                easing: 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+                beforeReveal: handleReveal
             }
         },
         {
@@ -93,9 +124,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 distance: '20px',
                 origin: 'bottom',
                 duration: 800,
-                easing: 'ease-out',
+                easing: 'cubic-bezier(0.25, 0.1, 0.25, 1)',
                 interval: 100,
-                beforeReveal: markAsRevealed
+                beforeReveal: handleReveal
             }
         },
         {
@@ -105,33 +136,49 @@ document.addEventListener('DOMContentLoaded', function() {
                 distance: '30px',
                 origin: 'bottom',
                 duration: 800,
-                easing: 'ease-out',
-                beforeReveal: markAsRevealed
+                easing: 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+                beforeReveal: handleReveal
             }
         }
     ];
 
-    // Terapkan konfigurasi untuk semua selector
-    revealConfigs.forEach(item => {
-        sr.reveal(item.selector, item.config);
-    });
+    // Apply configurations with small timeout to ensure DOM readiness
+    setTimeout(() => {
+        revealConfigs.forEach(item => {
+            sr.reveal(item.selector, item.config);
+        });
+    }, 50);
 
-    // Untuk SPA (Single Page Apps)
+    // SPA Navigation Handling
     if (typeof history !== 'undefined') {
         const handleNavigation = () => {
-            // Hancurkan instance lama dan buat yang baru
+            // Clean up and reinitialize for SPA
             sr.destroy();
-            revealConfigs.forEach(item => {
-                sr.reveal(item.selector, item.config);
-            });
+            setTimeout(() => {
+                revealConfigs.forEach(item => {
+                    sr.reveal(item.selector, item.config);
+                });
+            }, 100);
         };
 
-        // Listen untuk event navigasi (SPA)
         window.addEventListener('popstate', handleNavigation);
         
-        // Jika menggunakan router JavaScript
         if (typeof router !== 'undefined') {
             router.afterEach(handleNavigation);
         }
     }
+
+    // Fallback for images that might load after reveal
+    document.querySelectorAll('[class*="scroll-reveal-"] img').forEach(img => {
+        img.onload = function() {
+            this.style.opacity = 1;
+            this.style.visibility = 'visible';
+        };
+        img.onerror = function() {
+            this.style.display = 'none';
+            const fallback = document.createElement('div');
+            fallback.className = 'image-fallback';
+            this.parentNode.insertBefore(fallback, this);
+        };
+    });
 });

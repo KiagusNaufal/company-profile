@@ -24,7 +24,8 @@
     </section> --}}
 
     <!-- Works Hero Section -->
-    <section class="relative py-32 h-[512px] md:min-h-[712px] bg-gradient-to-r from-blue-50 to-gray-50 overflow-hidden scroll-reveal-section">
+    <section
+        class="relative py-32 h-[512px] md:min-h-[712px] bg-gradient-to-r from-blue-50 to-gray-50 overflow-hidden scroll-reveal-section">
         <!-- Soft Dot Texture -->
         <div class="absolute inset-0 opacity-5">
             <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -76,39 +77,40 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             @foreach ($projects as $project)
-                <div
-                    class="flex flex-col bg-white rounded-xl shadow-lg md:mt-14 md:mx-3 hover:shadow-xl transition-shadow duration-300 group scroll-reveal-card">
-
-                    <div class="h-96 w-full overflow-hidden rounded-t-xl border-2"
-                        style="background-image: url('https://source.unsplash.com/400x300')">
-
+                <div class="flex flex-col bg-white rounded-xl shadow-lg md:mt-14 md:mx-3 hover:shadow-xl transition-shadow duration-300 group scroll-reveal-card">
+    <!-- Image Container -->
+    <div class="relative h-96 w-full overflow-hidden rounded-t-xl border-2 border-gray-200">
+        <img src="{{ asset('storage/'.$project->image) }}" 
+             alt="{{ $project->title }}"
+             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+             loading="lazy"
+             onerror="this.src='https://via.placeholder.com/800x600?text=Image+Not+Available'; this.className='w-full h-full object-contain bg-gray-100 p-4'">
+    </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="flex items-center justify-between sm:mx-5 mb-4">
+                        <h3 class="text-xl font-semibold text-gray-800">{{ $project->name }}</h3>
+                        <span class="text-sm {{ $project->badge_color }} px-3 py-1 rounded-full">
+                            {{ $project->kategori->name }}
+                        </span>
                     </div>
-
-                    <div class="p-6 flex-1 flex flex-col">
-                        <div class="flex items-center justify-between sm:mx-5 mb-4">
-                            <h3 class="text-xl font-semibold text-gray-800">{{ $project->name }}</h3>
-                            <span class="text-sm {{ $project->badge_color }} px-3 py-1 rounded-full">
-                                {{ $project->kategori->name }}
-                            </span>
-                        </div>
-                        <p class="text-gray-600 mb-4 line-clamp-3 flex-1">
-                            {{ $project->description }}
-                        </p>
-                        <div class="mt-4">
-                            <a href="#"
-                                class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors">
-                                <span class="mr-2 align-text-bottom">StartView</span>
-                                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                                </svg>
-                            </a>
-                        </div>
+                    <p class="text-gray-600 mb-4 line-clamp-3 flex-1">
+                        {{ $project->description }}
+                    </p>
+                    <div class="mt-4">
+                        <a href="#"
+                            class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors">
+                            <span class="mr-2 align-text-bottom">StartView</span>
+                            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
                     </div>
-
                 </div>
-            @endforeach
+
+        </div>
+        @endforeach
         </div>
     </section>
 

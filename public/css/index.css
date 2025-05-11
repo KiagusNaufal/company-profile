@@ -73,18 +73,35 @@
   background: #f9fafb;
 }
 
-/* Style awal untuk semua elemen yang akan di-reveal */
+/* Pastikan tech-item memiliki stacking context yang benar */
+/* Pastikan elemen reveal memiliki style awal yang benar */
 [class*="scroll-reveal-"] {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
+    visibility: hidden; /* Gunakan visibility bukan opacity untuk menghindari layout shift */
+    will-change: transform, opacity; /* Optimasi performa */
 }
 
-/* Style setelah di-reveal */
-[class*="scroll-reveal-"].revealed {
-    opacity: 1;
-    visibility: visible;
+/* Style khusus untuk tech items */
+.tech-item {
+    opacity: 1 !important; /* Pastikan tidak di-override */
+    backface-visibility: hidden; /* Cegah flickering */
+    transform-style: preserve-3d;
 }
+
+/* Style untuk gambar di dalam tech item */
+.tech-item img {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transition: transform 0.3s ease-out !important;
+    transform: translateZ(0); /* Aktifkan hardware acceleration */
+}
+
+/* Class revealed */
+.revealed {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+/* Style setelah di-reveal */
+
 
 
 #mobile-menu button {
