@@ -330,11 +330,11 @@
                 </div>
 
                 <!-- Prev/Next Buttons -->
-                <button id="prevBtn"
+                <button id="prevBtn_testimonial"
                     class="hidden sm:flex absolute left-2 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow hover:bg-gray-100 z-20">
                     &larr;
                 </button>
-                <button id="nextBtn"
+                <button id="nextBtn_testimonial"
                     class="hidden sm:flex absolute right-2 top-1/2 -translate-y-1/2 bg-[#04b2f7] p-2 rounded-full shadow text-white hover:bg-teal-700 z-20">
                     &rarr;
                 </button>
@@ -366,11 +366,11 @@
                 });
             }
 
-            document.getElementById('prevBtn').onclick = () => {
+            document.getElementById('prevBtn_testimonial').onclick = () => {
                 index = (index - 1 + total) % total;
                 update();
             };
-            document.getElementById('nextBtn').onclick = () => {
+            document.getElementById('nextBtn_testimonial').onclick = () => {
                 index = (index + 1) % total;
                 update();
             };
