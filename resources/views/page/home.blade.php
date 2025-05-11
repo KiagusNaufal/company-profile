@@ -370,7 +370,8 @@
                 index = (index - 1 + total) % total;
                 update();
             };
-            document.getElementById('nextBtn_testimonial').onclick = () => {
+            document.getElementById('nextBtn_testimonial
+            ').onclick = () => {
                 index = (index + 1) % total;
                 update();
             };
