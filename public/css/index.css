@@ -73,6 +73,19 @@
   background: #f9fafb;
 }
 
+/* Style awal untuk semua elemen yang akan di-reveal */
+[class*="scroll-reveal-"] {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
+}
+
+/* Style setelah di-reveal */
+[class*="scroll-reveal-"].revealed {
+    opacity: 1;
+    visibility: visible;
+}
+
 
 #mobile-menu button {
   width: calc(100% - 32px);

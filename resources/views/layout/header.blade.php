@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@yield('title', 'Company Profile')</title>
+    <title>@yield('title', 'Aeratek Global Solution')</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
     <script src="https://unpkg.com/scrollreveal"></script>
     <!-- Sertakan file JavaScript kustom Anda -->
-    <script src="//9766-180-244-132-215.ngrok-free.app/js/scrollReveal.js" defer></script>
-    <script src="//9766-180-244-132-215.ngrok-free.app/js/index.js" defer></script>
-    <link rel="stylesheet" href="//9766-180-244-132-215.ngrok-free.app/css/index.css">
+    <script src="https://smiling-squid-especially.ngrok-free.app/js/scrollReveal.js" defer></script>
+    <script src="https://smiling-squid-especially.ngrok-free.app/js/index.js" defer></script>
+    <link rel="stylesheet" href="https://smiling-squid-especially.ngrok-free.app/css/index.css">
     <script src="{{ asset('js/scrollReveal.js') }}" defer></script>
     <script src="{{ asset('js/index.js') }}" defer></script>
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
