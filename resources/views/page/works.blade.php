@@ -104,6 +104,7 @@
     </section>
 
     <!-- Payment Modal -->
+    @include('partials.form-pembayaran')
   <!-- Payment Modal -->
 <div id="paymentModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center">
     <div class="relative max-w-md w-full mx-4 bg-white rounded-xl shadow-2xl my-8 p-6 max-h-[90vh] overflow-y-auto">
@@ -166,6 +167,7 @@
         </div>
     </div>
 </div>
+
     <!-- CTA Section -->
     <x-cta-section></x-cta-section>
 
