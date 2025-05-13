@@ -4,7 +4,8 @@
                 <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-3 pt-[64px]">
                     <div class="text-white">
                         <p class="font-[600] mb-3">Lorem Ipsum</p>
-                        <p class="font[400] mb-6 max-w-[75%]">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        <p class="font-light text-slate-100 mb-6 max-w-[75%]">Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit.
                             Doloribus pariatur alias placeat molestias</p>
                         <div class="flex gap-2">
                             <a href="https://www.facebook.com">
@@ -26,28 +27,32 @@
                     </div>
                     <div class="text-white">
                         <p class="font-[600] text-[#ffffff] text-[20px] mb-6">Company</p>
-                        <p class="cursor-pointer font-thin mb-4 hover:underline">About Us</p>
-                        <p class="cursor-pointer font-thin mb-4 hover:underline">Services</p>
-                        <p class="cursor-pointer font-thin mb-4 hover:underline">Portofolio</p>
-                        <p class="cursor-pointer font-thin mb-4 hover:underline">Career</p>
+                        <p class="cursor-pointer font-light mb-4 hover:underline"><a href="{{ url('/about') }}">About
+                                Us</a></p>
+                        <p class="cursor-pointer font-light mb-4 hover:underline"><a
+                                href="{{ url('/service') }}">Services</a></p>
+                        <p class="cursor-pointer font-light mb-4 hover:underline"><a
+                                href="{{ url('/works') }}">Portofolio</a></p>
+                        <p class="cursor-pointer font-light mb-4 hover:underline"><a
+                                href="{{ url('/') }}">Career</a></p>
                     </div>
                     <div class="text-white">
-                        <p class="font-[600] text-[#ffffff] text-[20px] mb-6">Contact Us</p>
-                        <p class="font-[600] text-[#ffffff]">Office</p>
+                        <p class="font-[600] text-slate-100 text-[20px] mb-6">Contact Us</p>
+                        <p class="font-[600] text-slate-100">Office</p>
                         <a href="https://maps.app.goo.gl/">
-                            <p class="font-thin mb-6 hover:underline ">Jl. Arciko Gg Harapan II No 60 Rt 01 Rw 13 Kel
+                            <p class="font-light mb-6 hover:underline ">Jl. Arciko Gg Harapan II No 60 Rt 01 Rw 13 Kel
                                 Sayang Cianjur, <br> Kota Cianjur, Jawa Barat</p>
                         </a>
-                        <p class="font-[600] text-[#ffffff]">Workshop</p>
+                        <p class="font-[600] text-slate-100">Workshop</p>
                         <a href="https://maps.app.goo.gl/">
-                            <p class="font-thin  mb-6 hover:underline">Jl. Arciko Gg Harapan II No 60 Rt 01 Rw 13 Kel
+                            <p class="font-light  mb-6 hover:underline">Jl. Arciko Gg Harapan II No 60 Rt 01 Rw 13 Kel
                                 Sayang Cianjur, <br> Kota Cianjur, Jawa Barat</p>
                         </a>
-                        <a href="font-thin pb-2 cursor-pointer">
+                        <a href="font-light pb-2 cursor-pointer">
                             <p class="mb-1 hover-underline ">aeratek@gmail.com</p>
                         </a>
                         <a href="https://whatsapp.com">
-                            <p class="font-thin mb-6 hover-underline ">+62 878 8231 8231</p>
+                            <p class="font-light mb-6 hover-underline ">+62 878 8231 8231</p>
                         </a>
                     </div>
                 </div>
