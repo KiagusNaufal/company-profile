@@ -1,58 +1,86 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById('contactModal');
-    const modalOverlay = document.getElementById('modalOverlay');
-    const modalPanel = document.querySelector('#contactModal .modal-panel');
-    const tellUsButtons = document.querySelectorAll('#tellUsButton, #tellUsButtonMobile');
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("contactModal");
+    const modalOverlay = document.getElementById("modalOverlay");
+    const modalPanel = document.querySelector("#contactModal .modal-panel");
+    const tellUsButtons = document.querySelectorAll(
+        "#tellUsButton, #tellUsButtonMobile"
+    );
+    const closeModalBtns = ["closeModal", "cancelButton"].map((id) =>
+        document.getElementById(id)
+    );
 
     // Initialize
-    modalPanel.style.transform = 'translateX(100%)';
-    modalOverlay.style.opacity = '0';
-    modalOverlay.style.pointerEvents = 'none';
+    modalPanel.style.transform = "translateX(100%)";
+    modalOverlay.style.opacity = "0";
+    modalOverlay.style.pointerEvents = "none";
 
     // Smooth toggle function
     function toggleModal(show) {
         if (show) {
-            modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-            
+            modal.classList.remove("hidden");
+            document.body.style.overflow = "hidden";
+
             // Force reflow to ensure animation runs
             void modal.offsetWidth;
-            
-            modalOverlay.style.pointerEvents = 'auto';
-            modalOverlay.style.opacity = '1';
-            modalPanel.style.transform = 'translateX(0)';
+
+            modalOverlay.style.pointerEvents = "auto";
+            modalOverlay.style.opacity = "1";
+            modalPanel.style.transform = "translateX(0)";
         } else {
-            modalPanel.style.transform = 'translateX(100%)';
-            modalOverlay.style.opacity = '0';
-            modalOverlay.style.pointerEvents = 'none';
-            
+            modalPanel.style.transform = "translateX(100%)";
+            modalOverlay.style.opacity = "0";
+            modalOverlay.style.pointerEvents = "none";
+
             setTimeout(() => {
-                modal.classList.add('hidden');
-                document.body.style.overflow = '';
+                modal.classList.add("hidden");
+                document.body.style.overflow = "";
             }, 500); // Match CSS transition duration
         }
     }
 
     // Event listeners
-    tellUsButtons.forEach(btn => btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        toggleModal(true);
-    }));
+    tellUsButtons.forEach((btn) =>
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
 
-    document.getElementById('closeModal').addEventListener('click', () => toggleModal(false));
-    document.getElementById('cancelButton').addEventListener('click', () => toggleModal(false));
-    modalOverlay.addEventListener('click', () => toggleModal(false));
+            // Tutup mobile menu jika ada
+            const mobileMenu = document.getElementById("mobile-menu");
+            if (mobileMenu && mobileMenu.classList.contains("open")) {
+                mobileMenu.classList.remove("open");
+            }
+
+            toggleModal(true);
+        })
+    );
+
+    closeModalBtns.forEach((btn) =>
+        btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            toggleModal(false);
+        })
+    );
+    modal.addEventListener("click", (e) => e.stopPropagation());
+    modalPanel.addEventListener("click", (e) => e.stopPropagation());
+
+    document
+        .getElementById("closeModal")
+        .addEventListener("click", () => toggleModal(false));
+    document
+        .getElementById("cancelButton")
+        .addEventListener("click", () => toggleModal(false));
+    modalOverlay.addEventListener("click", () => toggleModal(false));
 
     // Form handling
-    const form = document.querySelector('#contactModal form');
+    const form = document.querySelector("#contactModal form");
     if (form) {
-        form.addEventListener('submit', async (e) => {
+        form.addEventListener("submit", async (e) => {
             e.preventDefault();
-            
-            const formAlert = document.getElementById('formAlert');
+
+            const formAlert = document.getElementById("formAlert");
             const submitButton = form.querySelector('button[type="submit"]');
             const originalButtonText = submitButton.innerHTML;
-            
+
             // Show loading state
             submitButton.disabled = true;
             submitButton.innerHTML = `
@@ -62,27 +90,34 @@ document.addEventListener('DOMContentLoaded', function() {
                 </svg>
                 Sending...
             `;
-            
-            formAlert.textContent = 'Sending message...';
-            formAlert.className = 'px-4 py-3 rounded-lg bg-blue-50 text-blue-700 border-l-4 border-blue-500';
-            formAlert.classList.remove('hidden');
-            
+
+            formAlert.textContent = "Sending message...";
+            formAlert.className =
+                "px-4 py-3 rounded-lg bg-blue-50 text-blue-700 border-l-4 border-blue-500";
+            formAlert.classList.remove("hidden");
+
             try {
                 const response = await fetch(form.action, {
-                    method: 'POST',
+                    method: "POST",
                     body: new FormData(form),
-                    headers: { 'Accept': 'application/json' }
+                    headers: { Accept: "application/json" },
                 });
 
                 if (response.ok) {
                     form.reset();
-                    showAlert('Message sent successfully!', 'success');
+                    showAlert("Message sent successfully!", "success");
                     setTimeout(() => toggleModal(false), 1500);
                 } else {
-                    showAlert('Failed to send message. Please try again.', 'error');
+                    showAlert(
+                        "Failed to send message. Please try again.",
+                        "error"
+                    );
                 }
             } catch (error) {
-                showAlert('Network error. Please check your connection.', 'error');
+                showAlert(
+                    "Network error. Please check your connection.",
+                    "error"
+                );
             } finally {
                 // Reset button state
                 submitButton.disabled = false;
@@ -91,27 +126,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-
     function showAlert(message, type) {
-        const formAlert = document.getElementById('formAlert');
+        const formAlert = document.getElementById("formAlert");
         formAlert.textContent = message;
         formAlert.className = `px-4 py-3 rounded-lg border-l-4 ${
-            type === 'success' 
-                ? 'bg-green-50 text-green-700 border-green-500' 
-                : 'bg-red-50 text-red-700 border-red-500'
+            type === "success"
+                ? "bg-green-50 text-green-700 border-green-500"
+                : "bg-red-50 text-red-700 border-red-500"
         } transition-all`;
-        
-        formAlert.classList.remove('hidden', 'opacity-0');
-        formAlert.classList.add('opacity-100');
-        
+
+        formAlert.classList.remove("hidden", "opacity-0");
+        formAlert.classList.add("opacity-100");
+
         setTimeout(() => {
-            formAlert.classList.add('opacity-0');
-            setTimeout(() => formAlert.classList.add('hidden'), 300);
+            formAlert.classList.add("opacity-0");
+            setTimeout(() => formAlert.classList.add("hidden"), 300);
         }, 5000);
     }
-
-    
 });
-
-
-

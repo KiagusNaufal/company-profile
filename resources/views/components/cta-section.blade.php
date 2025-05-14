@@ -1,4 +1,4 @@
-<section class="py-16 mx-5 scroll-reveal-section">
+<section class="py-10 md:py-16 mx-5 scroll-reveal-section">
     <div class="bg-white dark:bg-gray-800 rounded-3xl max-w-7xl mx-auto shadow-md overflow-hidden">
       <div
         class="flex flex-col lg:flex-row items-center justify-between
@@ -16,6 +16,8 @@
         <div class="w-full lg:w-auto">
           <button
             type="button"
+            id="tellUsButton"
+            data-toggle="contact-modal"
             class="w-full lg:w-auto
                    py-3 px-5
                    bg-[#04b2f7] hover:bg-[#0399d9]

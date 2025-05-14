@@ -25,14 +25,14 @@
                     </p>
 
                     <div class="flex flex-col sm:flex-row gap-4 pt-2">
-                        <a href="#"
+                        <button type="button" id="tellUsButton" data-toggle="contact-modal"
                             class="bg-[#04b2f7] hover:bg-[#0388c4] text-white font-medium px-6 py-3.5 rounded-lg transition-all duration-300 transform hover:-translate-y-1 shadow-md hover:shadow-lg">
                             Tell Us Your Digital Mission
-                        </a>
-                        <a href="#"
+                        </button>
+                        <button type="button" id="tellUsButton" data-toggle="contact-modal"
                             class="border-2 border-[#04b2f7] text-[#04b2f7] hover:bg-[#04b2f7] hover:text-white font-medium px-6 py-3.5 rounded-lg transition-all duration-300 flex items-center justify-center gap-2">
                             Learn More <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -48,176 +48,11 @@
         </div>
     </section>
 
-    <!-- Technology Section -->
-    <section class="py-4 bg-white">
-        <div class="container mx-auto px-4">
-            <!-- Heading -->
-            <div class="text-center mb-12">
-                <p class="text-gray-600">Language that use our solution to enhance their digitalization.</p>
-            </div>
+    <x-marquee></x-marquee>
 
-            <!-- Marquee Container -->
-            <div class="overflow-hidden relative py-16 h-40 border-b-2">
-                <!-- Marquee Content -->
-                <div class="absolute flex items-center space-x-20 gap-5 animate-marquee whitespace-nowrap">
-                    <!-- Programming Language Logos -->
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-                        alt="Logo JavaScript" class="h-12 hover:scale-110 transition-transform">
-
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-                        alt="Logo Python" class="h-14 hover:scale-110 transition-transform">
-
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Logo Java"
-                        class="h-12 hover:scale-110 transition-transform">
-
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="Logo PHP"
-                        class="h-14 hover:scale-110 transition-transform">
-
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original-wordmark.svg" alt="Logo Go"
-                        class="h-12 hover:scale-110 transition-transform">
-
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg" alt="Logo Ruby"
-                        class="h-14 hover:scale-110 transition-transform">
-
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
-                        alt="Logo C++" class="h-12 hover:scale-110 transition-transform">
-
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="Logo C#"
-                        class="h-14 hover:scale-110 transition-transform">
-
-                    <!-- Duplicate for seamless loop -->
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-                        alt="Logo JavaScript" class="h-12 hover:scale-110 transition-transform">
-
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-                        alt="Logo Python" class="h-14 hover:scale-110 transition-transform">
-
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Logo Java"
-                        class="h-12 hover:scale-110 transition-transform">
-
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="Logo PHP"
-                        class="h-14 hover:scale-110 transition-transform">
-
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original-wordmark.svg" alt="Logo Go"
-                        class="h-12 hover:scale-110 transition-transform">
-
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg" alt="Logo Ruby"
-                        class="h-14 hover:scale-110 transition-transform">
-
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
-                        alt="Logo C++" class="h-12 hover:scale-110 transition-transform">
-
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="Logo C#"
-                        class="h-14 hover:scale-110 transition-transform">
-                </div>
-            </div>
-            <style>
-                @keyframes marquee {
-                    0% {
-                        transform: translateX(0);
-                    }
-
-                    100% {
-                        transform: translateX(-50%);
-                    }
-                }
-
-                .animate-marquee {
-                    animation: marquee 10s linear infinite;
-                }
-            </style>
-    </section>
-
-    <!-- Services Section -->
-    <section class="py-20 bg-white">
-        <!-- Header -->
-        <div class="max-w-3xl mx-auto text-center mb-16 py-5 scroll-reveal-section">
-            <p class="text-lg uppercase text-[#04b2f7] font-semibold tracking-wider">Our Services</p>
-            <h2 class="mt-4 px-4 text-3xl lg:text-4xl font-semibold text-gray-800 leading-tight">
-                We possess techniques that can dismantle them into fragments
-            </h2>
-        </div>
-
-        <div class="container mx-auto px-4 lg:px-8 space-y-24">
-            <!-- Service Item 1 -->
-            <div class="flex flex-col lg:flex-row items-center gap-12 scroll-reveal-row">
-                <div class="lg:w-1/2 w-full transform transition duration-500 hover:scale-[1.02]">
-                    <img src="{{ asset('image/Developer activity-bro (1).svg') }}" alt="Software Development"
-                        class="w-full h-auto rounded-xl shadow-lg object-cover max-h-[460px]">
-                </div>
-                <div class="lg:w-1/2 w-full space-y-6">
-                    <h3 class="text-3xl font-bold text-gray-800">Software Development</h3>
-                    <p class="text-gray-600 text-lg leading-relaxed">
-                        In the realm of coding quests, we are your digital heroes. Harness the power of our software
-                        development prowess to turn your visions into groundbreaking digital solutions.
-                        We don't just write code; we script success stories.
-                    </p>
-                    <div class="pt-2">
-                        <a href="#" class="inline-flex items-center group text-[#04b2f7] font-semibold text-lg">
-                            Learn More
-                            <span class="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Service Item 2 (reverse on large screens) -->
-            <div class="flex flex-col lg:flex-row-reverse items-center gap-12 scroll-reveal-row">
-                <div class="lg:w-1/2 w-full transform transition duration-500 hover:scale-[1.02]">
-                    <img src="{{ asset('image/Data extraction-rafiki (1).svg') }}" alt="Data Analytics"
-                        class="w-full h-auto rounded-xl shadow-lg object-cover max-h-[460px]">
-                </div>
-                <div class="lg:w-1/2 w-full space-y-6 lg:pr-8">
-                    <h3 class="text-3xl font-bold text-gray-800">Data Analytics</h3>
-                    <p class="text-gray-600 text-lg leading-relaxed">
-                        Navigate the vast landscapes of data with our heroic analytics. From unraveling insights to
-                        conquering data challenges, our expertise ensures your business emerges victorious.
-                        We turn data into your most powerful ally.
-                    </p>
-                    <div class="pt-2">
-                        <a href="#" class="inline-flex items-center group text-[#04b2f7] font-semibold text-lg">
-                            Learn More
-                            <span class="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Service Item 3 -->
-            <div class="flex flex-col lg:flex-row items-center gap-12 scroll-reveal-row">
-                <div class="lg:w-1/2 w-full transform transition duration-500 hover:scale-[1.02]">
-                    <img src="{{ asset('image/Maintenance-bro (1).svg') }}" alt="IT Maintenance"
-                        class="w-full h-auto rounded-xl shadow-lg object-cover max-h-[460px]">
-                </div>
-                <div class="lg:w-1/2 w-full space-y-6">
-                    <h3 class="text-3xl font-bold text-gray-800">IT Maintenance</h3>
-                    <h3 class="text-3xl font-bold text-gray-800">IT Maintenance</h3>
-                    <p class="text-gray-600 text-lg leading-relaxed">
-                        As guardians of your digital realm, we ensure seamless IT infrastructure. Count on our heroic
-                        maintenance to keep your systems resilient, secure, and ever-ready for the challenges of the digital
-                        frontier.
-                    </p>
-                    <div class="pt-2">
-                        <a href="#" class="inline-flex items-center group text-[#04b2f7] font-semibold text-lg">
-                            Learn More
-                            <span class="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- See All Services Button -->
-        <div class="mt-20 text-center scroll-reveal-section">
-            <a href="{{ route('services') }}"
-                class="inline-block px-8 py-3.5 border-2 border-[#04b2f7] text-[#04b2f7] font-medium rounded-lg 
-                  hover:bg-[#04b2f7] hover:text-white transition-all duration-300 transform hover:-translate-y-1
-                  focus:outline-none focus:ring-2 focus:ring-[#04b2f7] focus:ring-opacity-50">
-                See All Services →
-            </a>
-        </div>
-    </section>
-
+    <x-services></x-services>
+    
+    <!-- Projects Section -->
     <section class="py-16 bg-blue-50 ">
         <div class="max-w-7xl  mx-auto px-4 relative">
             <!-- Judul -->
@@ -229,11 +64,11 @@
 
             <!-- Carousel Wrapper -->
             <div id="carousel"
-                class="overflow-x-auto snap-x snap-mandatory mt-5 flex space-x-8 md:space-x-[234px] scrollbar-none min-h-[512px] md:h-[640px] scroll-smooth [&::-webkit-scrollbar]:hidden">
+                class="overflow-x-auto snap-x snap-mandatory mt-5 flex space-x-1 md:space-x-56 scrollbar-none min-h-[512px] md:h-[640px] scroll-smooth [&::-webkit-scrollbar]:hidden">
                 @foreach ($products as $project)
                     <div class=" flex-none w-full sm:w-80 bg-white  rounded-2xl shadow-lg snap-start">
                         <div
-                            class="flex flex-col h-full min-w-[512px] gap-[32px] border rounded-[16px] bg-white overflow-hidden ">
+                            class="flex flex-col h-full min-w-[400px] md:min-w-[512px] gap-[32px] border rounded-[16px] bg-white overflow-hidden ">
                             <!-- Thumbnail Utama -->
                             <div
                                 class="relative h-48 md:h-[280px] w-full overflow-hidden rounded-t-[16px] border-b-2 border-gray-200">
@@ -269,7 +104,7 @@
 
                                 <!-- Read More -->
                                 <a href="#"
-                                    class="inline-flex items-center text-[#008A85] font-medium hover:underline">
+                                    class="inline-flex items-center text-[#04b2f7] font-medium hover:underline">
                                     <span>Read More</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-5 w-5" fill="none"
                                         stroke="currentColor" viewBox="0 0 24 24">
@@ -290,6 +125,7 @@
             </div>
     </section>
 
+    <!-- Testimonial Section -->
     <section class="py-16 bg-white relative overflow-hidden">
         <!-- Header -->
         <div class="max-w-7xl mx-auto px-4 text-center mb-12">
@@ -369,11 +205,11 @@
             </div>
 
             <!-- Prev/Next Buttons -->
-            <button id="prevBtn"
+            <button id="prevBtn_testimonial"
                 class="hidden sm:flex absolute left-2 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow hover:bg-gray-100 z-20">
                 &larr;
             </button>
-            <button id="nextBtn"
+            <button id="nextBtn_testimonial"
                 class="hidden sm:flex absolute right-2 top-1/2 -translate-y-1/2 bg-[#04b2f7] p-2 rounded-full shadow text-white hover:bg-teal-700 z-20">
                 &rarr;
             </button>
@@ -405,11 +241,11 @@
             });
         }
 
-        document.getElementById('prevBtn').onclick = () => {
+        document.getElementById('prevBtn_testimonial').onclick = () => {
             index = (index - 1 + total) % total;
             update();
         };
-        document.getElementById('nextBtn').onclick = () => {
+        document.getElementById('nextBtn_testimonial').onclick = () => {
             index = (index + 1) % total;
             update();
         };

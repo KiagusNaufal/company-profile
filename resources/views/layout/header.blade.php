@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8" />
@@ -7,7 +7,11 @@
     <title>@yield('title', 'Aeratek Global Solution')</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap"
+        rel="stylesheet">
     <script src="https://unpkg.com/scrollreveal"></script>
     <!-- Sertakan file JavaScript kustom Anda -->
     <script src="https://smiling-squid-especially.ngrok-free.app/js/scrollReveal.js" defer></script>
@@ -21,9 +25,6 @@
 </head>
 
 <body class="bg-white">
-
-    <!-- Navbar -->
-    <!-- Navbar -->
     <!-- Navbar -->
     <div
         class="z-50 py-3 w-full flex items-center justify-center text-sm border-b border-gray-200 bg-white fixed top-0 left-0">
@@ -54,8 +55,7 @@
                 </a>
                 <button type="button"
                     class="ml-4 group rounded-lg border border-[#343C3C] text-[#343C3C] px-4 py-2 text-sm transition hover:border-gray-900 hover:bg-gray-50"
-                    id="tellUsButton"
-                    data-toggle="contact-modal">
+                    id="tellUsButton" data-toggle="contact-modal">
                     Tell Us
                 </button>
             </div>
@@ -120,6 +120,7 @@
             mobileMenu.addEventListener('click', function(e) {
                 e.stopPropagation();
             });
+
         });
         // Highlight active menu
         let currentPath = window.location.pathname;
