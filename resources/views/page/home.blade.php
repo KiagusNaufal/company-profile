@@ -20,23 +20,23 @@
             <!-- Text Content -->
             <div class="w-full lg:w-1/2 py-8 sm:py-12 lg:py-16 xl:py-20 px-4 sm:px-6 lg:px-8 xl:px-12">
                 <div class="max-w-2xl mx-auto lg:mx-0 space-y-4 sm:space-y-6">
-                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-gray-900">
+                    <h1 class="text-2xl sm:text-4xl lg:text-5xl font-bold leading-tight text-gray-900">
                         Lebih dari Sekadar Kode,<br>
                         <span class="text-[#04b2f7]">Kami Menciptakan Solusi</span>
                     </h1>
 
-                    <p class="text-base sm:text-lg text-gray-600 leading-relaxed">
+                    <p class="text-sm sm:text-lg text-gray-600 leading-relaxed">
                         We're Heroes to your business forward through expert software development, strategic big data
                         analytics, and seamless IT maintenance. Elevate your enterprise with us.
                     </p>
 
-                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 hero-buttons">
+                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 hero-buttons w-full">
                         <button type="button" id="tellUsButton" data-toggle="contact-modal"
-                            class="bg-[#04b2f7] hover:bg-[#0388c4] text-white font-medium px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg transition-all duration-300 transform hover:-translate-y-1 shadow-md hover:shadow-lg text-sm sm:text-base">
+                            class="bg-[#04b2f7] hover:bg-[#0388c4] text-white font-medium px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg transition-all duration-300 transform hover:-translate-y-1 shadow-md hover:shadow-lg text-sm sm:text-base w-full sm:w-auto">
                             Tell Us Your Digital Mission
                         </button>
                         <button type="button" id="tellUsButton" data-toggle="contact-modal"
-                            class="border-2 border-[#04b2f7] text-[#04b2f7] hover:bg-[#04b2f7] hover:text-white font-medium px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base">
+                            class="border-2 border-[#04b2f7] text-[#04b2f7] hover:bg-[#04b2f7] hover:text-white font-medium px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base w-full sm:w-auto">
                             Learn More <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
                         </button>
                     </div>
@@ -45,7 +45,7 @@
 
             <!-- Hero Image -->
             <div class="w-full lg:w-1/2 flex justify-center lg:justify-end p-4 sm:p-6 lg:p-8">
-                <div class="relative w-full max-w-xl">
+                <div class="relative w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl">
                     <img src="{{ asset('image/company.svg') }}" alt="Hero Image"
                         class="w-full h-auto rounded-xl object-contain drop-shadow-xl" loading="eager" width="600"
                         height="600">

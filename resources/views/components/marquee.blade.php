@@ -1,5 +1,5 @@
     <!-- Technology Section -->
-    <section class="py-4 bg-white">
+    <section class="py-8 bg-white">
         <div class="container mx-auto px-4">
             <!-- Heading -->
             <div class="text-center mb-12">
