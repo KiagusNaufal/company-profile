@@ -1,6 +1,5 @@
 @extends('layout.header')
 
-@section('title', 'About Us')
 
 @section('content')
     <!-- Hero-style About Us Section -->

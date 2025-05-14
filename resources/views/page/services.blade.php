@@ -1,6 +1,5 @@
 @extends('layout.header')
 
-@section('title', 'Home Page')
 
 @section('content')
     <!-- Hero Section -->
@@ -51,8 +50,8 @@
     <!-- Process Section -->
     <section class="pt-8 pb-16 bg-white scroll-reveal-section" x-data="{ openTab: 'discover' }">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center text-gray-900 mb-1 ">Our Proven Process</h2>
-            <h2 class="text-3xl font-bold text-center text-gray-900 mb-5 ">Delivering Excellence at Every Stage</h2>
+            <h2 class="text-2xl font-bold text-center text-gray-900 mb-1 ">Our Proven Process</h2>
+            <h2 class="text-2xl font-bold text-center text-gray-900 mb-5 ">Delivering Excellence at Every Stage</h2>
 
         </div>
 

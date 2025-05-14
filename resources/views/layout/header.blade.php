@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@yield('title', 'Aeratek Global Solution')</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
+<link rel="icon" href="{{ secure_asset('image/logo.svg') }}" type="image/svg+xml">
+
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,9 +21,9 @@
     <script src="https://smiling-squid-especially.ngrok-free.app/js/index.js" defer></script>
     <link rel="stylesheet" href="https://smiling-squid-especially.ngrok-free.app/css/index.css">
     <script src="https://app-sandbox.duitku.com/lib/js/duitku.js"></script>
-    <script src="{{ asset('js/scrollReveal.js') }}" defer></script>
-    <script src="{{ asset('js/index.js') }}" defer></script>
-    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+    <script src="{{ secure_asset('js/scrollReveal.js') }}" defer></script>
+    <script src="{{ secure_asset('js/index.js') }}" defer></script>
+    <link rel="stylesheet" href="{{ secure_asset('css/index.css') }}">
     @stack('styles')
 </head>
 

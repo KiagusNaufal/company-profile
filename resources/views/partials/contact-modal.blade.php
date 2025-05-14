@@ -1,12 +1,10 @@
-<div class="fixed inset-0 z-60 hidden" id="contactModal">
+<div class="fixed inset-0 z-[9999] hidden" id="contactModal">
     <!-- Overlay -->
-    <div class="absolute inset-0 bg-black/20 backdrop-blur-sm transition-opacity duration-300 z-50" id="modalOverlay">
-    </div>
+    <div class="absolute inset-0 bg-black/20 backdrop-blur-sm transition-opacity duration-300 z-[9998]" id="modalOverlay"></div>
 
     <!-- Panel -->
-    <div class="fixed inset-y-0 right-0 w-full max-w-md z-50">
-        <div
-            class="modal-panel h-full flex flex-col bg-white shadow-xl transform transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
+    <div class="fixed inset-y-0 right-0 w-full max-w-md z-[9999]">
+        <div class="modal-panel h-full flex flex-col bg-white shadow-xl transform transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
             <!-- Header -->
             <div class="sticky top-0 z-10 px-6 py-5 bg-gradient-to-r from-[#04b2f7] to-[#0399d9]">
                 <div class="flex items-center justify-between">
