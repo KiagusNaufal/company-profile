@@ -112,7 +112,7 @@
 
     <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize modal and form elements
+    // Inisialisasi elemen modal dan form
     const modal = document.getElementById('paymentModal');
     const paymentForm = document.getElementById('paymentForm');
     const closeModalBtn = document.getElementById('closeModalBtn');
@@ -121,10 +121,37 @@ document.addEventListener('DOMContentLoaded', function() {
     const openDuitkuBtn = document.getElementById('openDuitkuBtn');
     let duitkuReference = null;
 
-    // Initialize modal as hidden
-    closePaymentModal();
+    // Fungsi untuk menutup modal
+    function closePaymentModal() {
+        modal.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+    }
 
-    // Add event listeners to all "Buy Now" buttons
+    // Fungsi untuk menampilkan modal
+    function showPaymentModal(id, name, price) {
+        document.getElementById('modal_produk_id').value = id;
+        document.getElementById('modal_amount').value = price;
+        document.getElementById('modal_project_name').textContent = name;
+        document.getElementById('modal_project_price').textContent = 'Rp ' + parseInt(price).toLocaleString('id-ID');
+
+        modal.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+        paymentFormContainer.classList.remove('hidden');
+        duitkuCheckoutContainer.classList.add('hidden');
+        paymentForm.reset();
+    }
+
+    // Event listener untuk tombol close
+    closeModalBtn.addEventListener('click', closePaymentModal);
+
+    // Event listener untuk klik di luar modal
+    modal.addEventListener('click', function(e) {
+        if (e.target === this) {
+            closePaymentModal();
+        }
+    });
+
+    // Event listener untuk tombol "Buy Now"
     document.querySelectorAll('.buy-now-btn').forEach(button => {
         button.addEventListener('click', function() {
             const id = this.getAttribute('data-id');
@@ -134,171 +161,82 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Show payment modal function
-    function showPaymentModal(id, name, price) {
-        // Validate inputs
-        if (!id || !name || !price) {
-            console.error('Invalid modal data');
-            return;
-        }
-
-        // Set form values
-        document.getElementById('modal_produk_id').value = id;
-        document.getElementById('modal_amount').value = price;
-        document.getElementById('modal_project_name').textContent = name;
-        document.getElementById('modal_project_price').textContent = 'Rp ' + parseInt(price).toLocaleString('id-ID');
-
-        // Show modal
-        modal.classList.remove('hidden');
-        document.body.classList.add('overflow-hidden');
-
-        // Reset to form view
-        paymentFormContainer.classList.remove('hidden');
-        duitkuCheckoutContainer.classList.add('hidden');
-        paymentForm.reset();
-    }
-
-    // Close payment modal function
-    function closePaymentModal() {
-        modal.classList.add('hidden');
-        document.body.classList.remove('overflow-hidden');
-    }
-
-    // Close modal when clicking X button
-    closeModalBtn.addEventListener('click', closePaymentModal);
-
-    // Close modal when clicking outside
-    modal.addEventListener('click', function(e) {
-        if (e.target === this) {
-            closePaymentModal();
-        }
-    });
-
-    // Form submission handler
+    // Handler submit form
     paymentForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         
-        // Get form elements
         const submitBtn = this.querySelector('[type="submit"]');
         const originalBtnText = submitBtn.innerHTML;
-        const formData = new FormData(this);
         
         try {
-            // Show loading state
             submitBtn.disabled = true;
             submitBtn.innerHTML = `
                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                 Processing...
             `;
 
-            // Debug: Log form data
-            console.log('Submitting form data:', Object.fromEntries(formData));
-
-            // Make the API request
             const response = await fetch(this.action, {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
                     'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
                 },
-                body: formData
+                body: new FormData(this)
             });
 
-            // Handle response
             if (!response.ok) {
-                const errorResponse = await response.json().catch(() => ({}));
-                throw new Error(
-                    errorResponse.message || 
-                    `Server responded with status ${response.status}`
-                );
+                throw new Error('Server responded with status ' + response.status);
             }
 
             const data = await response.json();
-            console.log('API Response:', data);
-
-            // Handle successful payment creation
+            
             if (data.success && data.reference) {
                 duitkuReference = data.reference;
-                
-                // Hide form, show payment gateway
                 paymentFormContainer.classList.add('hidden');
                 duitkuCheckoutContainer.classList.remove('hidden');
                 
-                // Set up Duitku payment button
                 openDuitkuBtn.onclick = function() {
-                    processDuitkuPayment(duitkuReference);
+                    processDuitkuPayment(data.reference, data.merchantOrderId);
                 };
             } else {
                 throw new Error(data.message || 'Payment creation failed');
             }
-
         } catch (error) {
-            console.error('Payment Error:', error);
-            
-            // Show error to user
-            alert(`Payment Error: ${error.message}`);
-            
-            // Detailed error logging
-            console.group('Error Details');
             console.error('Error:', error);
-            console.error('Form Data:', Object.fromEntries(formData));
-            console.groupEnd();
-
+            alert('Error: ' + error.message);
         } finally {
-            // Reset button state
             submitBtn.disabled = false;
             submitBtn.innerHTML = originalBtnText;
         }
     });
 
-    // Process Duitku payment
-function processDuitkuPayment(reference, merchantOrderId) {
-    if (!window.checkout || !window.checkout.process) {
-        showErrorModal('Payment gateway tidak terload. Silakan refresh halaman.');
-        return;
+    // Fungsi untuk memproses pembayaran Duitku
+    function processDuitkuPayment(reference, merchantOrderId) {
+        if (!window.checkout || !window.checkout.process) {
+            alert('Payment gateway not loaded. Please refresh the page.');
+            return;
+        }
+
+        checkout.process(reference, {
+            defaultLanguage: "id",
+            currency: "IDR",
+            successEvent: function(result) {
+                closePaymentModal(); // Tutup modal setelah pembayaran berhasil
+            },
+            pendingEvent: function(result) {
+            },
+            errorEvent: function(result) {
+                alert('Payment failed: ' + (result.message || 'Please try again'));
+            },
+            closeEvent: function(result) {
+            }
+        });
     }
 
-    // Cek status transaksi terlebih dahulu
-    checkPaymentStatus(merchantOrderId)
-        .then(status => {
-            if (status.paid) {
-                showSuccessModal('Pembayaran sudah berhasil!');
-                return;
-            }
-            
-            if (status.expired) {
-                showErrorModal('Waktu pembayaran telah habis. Silakan buat order baru.');
-                return;
-            }
-
-            // Proses pembayaran Duitku
-            checkout.process(reference, {
-                defaultLanguage: "id",
-                currency: "IDR",
-                successEvent: function(result) {
-                    console.log('Payment success:', result);
-                    showSuccessModal('Pembayaran berhasil! No. Referensi: ' + result.reference);
-                    closePaymentModal();
-                },
-                pendingEvent: function(result) {
-                    console.log('Payment pending:', result);
-                    showInfoModal('Pembayaran dalam proses. Silakan selesaikan pembayaran Anda.');
-                },
-                errorEvent: function(result) {
-                    console.log('Payment error:', result);
-                    showErrorModal('Pembayaran gagal: ' + (result.message || 'Silakan coba lagi'));
-                },
-                closeEvent: function(result) {
-                    console.log('Popup ditutup:', result);
-                    // Optional: Bisa tambahkan notifikasi
-                }
-            });
-        })
-        .catch(error => {
-            console.error('Status check error:', error);
-            showErrorModal('Gagal memproses pembayaran. Silakan hubungi admin.');
-        });
-}
+    // Fungsi untuk menampilkan pesan sukses (bisa disesuaikan)
+    function showSuccessMessage(message) {
+        alert(message); // Bisa diganti dengan modal custom atau notifikasi
+    }
 
 // Fungsi cek status pembayaran
 async function checkPaymentStatus(merchantOrderId) {
