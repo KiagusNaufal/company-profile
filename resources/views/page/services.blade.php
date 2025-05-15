@@ -51,8 +51,8 @@
     <section class="pt-8 pb-16 bg-white scroll-reveal-section" x-data="{ openTab: 'discover' }">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <h2 class="text-2xl font-bold text-center text-gray-900 mb-1 ">Our Proven Process</h2>
-            <h2 class="text-2xl font-bold text-center text-gray-900 mb-5 ">Delivering Excellence at Every Stage</h2>
-
+            <h2 class="text-2xl font-bold text-center text-gray-900 mb-5 ">Delivering Excellence at Every Stage
+            </h2>
         </div>
 
         <!-- Tabs Navigation -->
@@ -417,33 +417,7 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-12 sm:py-16 md:py-20 lg:py-24 scroll-reveal-section">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="bg-white dark:bg-gray-800 rounded-xl max-w-7xl mx-auto shadow-md">
-                <div
-                    class="flex flex-col lg:flex-row items-center justify-between w-full py-6 sm:py-8 md:py-10 lg:py-12 gap-6 lg:gap-8 px-6 sm:px-8 lg:px-10">
-                    <h2
-                        class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-black dark:text-white text-center lg:text-left max-w-2xl">
-                        <span class="block">
-                            Ready to transform your business?
-                        </span>
-                        <span class="block text-[#04b2f7]">
-                            Let's build something amazing together
-                        </span>
-                    </h2>
-
-                    <div class="w-full sm:w-auto lg:flex-shrink-0">
-                        <div class="inline-flex rounded-md shadow w-full sm:w-auto">
-                            <button type="button"
-                                class="py-3 px-6 sm:px-8 md:px-10 bg-[#04b2f7] hover:bg-[#0399d9] text-white w-full transition ease-in duration-200 text-center text-base sm:text-lg font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-[#04b2f7] focus:ring-offset-2 rounded-lg">
-                                Get Started Today
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <x-cta-section></x-cta-section>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {

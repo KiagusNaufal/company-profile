@@ -6,8 +6,11 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\WorksController;
+use App\Http\Controllers\LocalizationController as localizationController;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Support\Facades\Route;
+
+Route::get('locale/{lang}', [localizationController::class, 'setLocale']);
 
 // Public Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -26,15 +29,15 @@ Route::prefix('payment')->group(function () {
     // Create payment (called from your JavaScript)
     Route::post('/create', [PembayaranController::class, 'createPayment'])
         ->name('payment.create');
-    
+
     // Duitku Callback URL (must be publicly accessible)
 Route::post('/callback', [PembayaranController::class, 'callbackHandler'])
     ->withoutMiddleware(VerifyCsrfToken::class);
-    
+
 // Payment Return Page (where users are redirected after payment)
 Route::get('/return', [PembayaranController::class, 'paymentReturn'])
     ->name('payment.return');
-    
+
 // Payment Status Check
 Route::get('/status/{merchantOrderId}', [PembayaranController::class, 'checkStatus'])
     ->name('payment.status');
@@ -49,7 +52,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
         return view('admin.dashboard.dashboard');
     })->name('dashboard');
-    
+
     // Product Routes
     Route::prefix('produk')->group(function () {
         Route::get('/', [ProdukController::class, 'index'])->name('produk');

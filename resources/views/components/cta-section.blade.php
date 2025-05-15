@@ -29,7 +29,6 @@
             Get Started Today
           </button>
         </div>
-
       </div>
     </div>
   </section>

@@ -26,15 +26,14 @@
                         </div>
                     </div>
                     <div class="text-white">
-                        <p class="font-[600] text-[#ffffff] text-[20px] mb-6">Company</p>
-                        <p class="cursor-pointer font-light mb-4 hover:underline"><a href="{{ url('/about') }}">About
-                                Us</a></p>
+                        <p class="font-[600] text-[#ffffff] text-[20px] mb-6">{{ __('message.Footer.company.name') }}</p>
+                        <p class="cursor-pointer font-light mb-4 hover:underline"><a href="{{ url('/about') }}">{{ __('message.Footer.company.about') }}</a></p>
                         <p class="cursor-pointer font-light mb-4 hover:underline"><a
-                                href="{{ url('/service') }}">Services</a></p>
+                                href="{{ url('/service') }}">{{ __('message.Footer.company.services') }}</a></p>
                         <p class="cursor-pointer font-light mb-4 hover:underline"><a
-                                href="{{ url('/works') }}">Portofolio</a></p>
+                                href="{{ url('/works') }}">{{ __('message.Footer.company.products') }}</a></p>
                         <p class="cursor-pointer font-light mb-4 hover:underline"><a
-                                href="{{ url('/') }}">Career</a></p>
+                                href="{{ url('/') }}">{{ __('message.Footer.company.works') }}</a></p>
                     </div>
                     <div class="text-white">
                         <p class="font-[600] text-slate-100 text-[20px] mb-6">Contact Us</p>

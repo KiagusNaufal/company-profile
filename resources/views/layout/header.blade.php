@@ -25,6 +25,7 @@
 
 <body class="bg-white">
     <!-- Navbar -->
+
     <div
         class="z-50 py-3 w-full flex items-center justify-center text-sm border-b border-gray-200 bg-white fixed top-0 left-0">
         <div class="w-[1440px] max-w-[90%] flex justify-between items-center">
@@ -38,25 +39,35 @@
             <div class="hidden min-[800px]:flex gap-6 items-center">
                 <a href="{{ url('/') }}" id="nav-home"
                     class="group py-2 transition duration-200 hover:-translate-y-1 text-[#343C3C]">
-                    <span class="text-sm">Home</span>
+                    <span class="text-sm"><dd>{{ __('message.Header.home') }}</dd></span>
                 </a>
                 <a href="{{ url('/service') }}" id="nav-service"
                     class="group py-2 transition duration-200 hover:-translate-y-1 text-[#343C3C]">
-                    <span class="text-sm">Service</span>
+                    <span class="text-sm">{{ __('message.Header.services') }}</span>
                 </a>
                 <a href="{{ url('/about') }}" id="nav-about"
                     class="group py-2 transition duration-200 hover:-translate-y-1 text-[#343C3C]">
-                    <span class="text-sm">About Us</span>
+                    <span class="text-sm">{{ __('message.Header.about') }}</span>
                 </a>
                 <a href="{{ url('/works') }}" id="nav-works"
                     class="group py-2 transition duration-200 hover:-translate-y-1 text-[#343C3C]">
-                    <span class="text-sm">Works</span>
+                    <span class="text-sm">{{ __('message.Header.works') }}</span>
                 </a>
                 <button type="button"
                     class="ml-4 group rounded-lg border border-[#343C3C] text-[#343C3C] px-4 py-2 text-sm transition hover:border-gray-900 hover:bg-gray-50"
                     id="tellUsButton" data-toggle="contact-modal">
-                    Tell Us
+                    {{ __('message.Header.tellus') }}
                 </button>
+                <a href="locale/id"
+                    class="ml-4 group rounded-lg border border-[#343C3C] text-[#343C3C] px-4 py-2 text-sm transition hover:border-gray-900 hover:bg-gray-50"
+                    id="tellUsButton" data-toggle="contact-modal">
+                    indonesia
+            </a>
+                <a href="locale/en"
+                    class="ml-4 group rounded-lg border border-[#343C3C] text-[#343C3C] px-4 py-2 text-sm transition hover:border-gray-900 hover:bg-gray-50"
+                    id="tellUsButton" data-toggle="contact-modal">
+                    English
+                </a>
             </div>
 
             <!-- Mobile Menu Button -->

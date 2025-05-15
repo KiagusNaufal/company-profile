@@ -92,7 +92,7 @@
                                     </svg>
                                 </div>
                             </div>
-                            
+
                             <div class="p-4 sm:p-6 flex-1 flex flex-col">
                                 <!-- Project Title -->
                                 <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mb-2 sm:mb-3 line-clamp-2">
@@ -175,7 +175,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Slide 2 -->
                 <div class="flex-none w-full sm:w-2/3 lg:w-1/2 px-2 sm:px-3">
                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 hover:border-[#04b2f7] transform hover:scale-[1.01] transition-all duration-300 h-full">
@@ -185,7 +185,7 @@
                                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
                                 </svg>
                                 <p class="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 leading-relaxed">
-                                    "Sejauh ini Someah cukup adaptif di saat ada perubahan yang kami minta sehubungan
+                                    "Sejauh ini Aeratek cukup adaptif di saat ada perubahan yang kami minta sehubungan
                                     dengan kondisi terkini. Responsif dalam mengelola isu yang disampaikan."
                                 </p>
                             </div>
@@ -200,7 +200,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Slide 3 -->
                 <div class="flex-none w-full sm:w-2/3 lg:w-1/2 px-2 sm:px-3">
                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 hover:border-[#04b2f7] transform hover:scale-[1.01] transition-all duration-300 h-full">
@@ -210,7 +210,7 @@
                                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
                                 </svg>
                                 <p class="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 leading-relaxed">
-                                    "Respon admin Someah baik dan dapat memahami permintaan dari Admin BKHM. Memiliki
+                                    "Respon admin Aeratek baik dan dapat memahami permintaan dari Admin BKHM. Memiliki
                                     backup web staging dan pelayanan di luar jam kerja."
                                 </p>
                             </div>
@@ -272,7 +272,7 @@
         function updateCarousel() {
             const slideWidth = calculateSlideWidth();
             slides.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
-            
+
             // Update dots
             document.querySelectorAll('.dot').forEach((dot, i) => {
                 const isActive = i === currentIndex;
