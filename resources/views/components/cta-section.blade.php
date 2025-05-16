@@ -8,8 +8,8 @@
 
         <!-- Heading -->
         <h2 class="text-center lg:text-left text-2xl sm:text-3xl font-extrabold text-black dark:text-white mb-6 lg:mb-0">
-          <span class="block">Ready to transform your business?</span>
-          <span class="block text-[#04b2f7]">Let's build something amazing together</span>
+          <span class="block">{{ __('message.home.cta.title') }}</span>
+          <span class="block text-[#04b2f7] text-2xl">{{ __('message.home.cta.description') }}</span>
         </h2>
 
         <!-- Button -->
@@ -26,10 +26,9 @@
                    shadow-md transition ease-in duration-200
                    focus:outline-none focus:ring-2 focus:ring-offset-2
                    rounded-lg">
-            Get Started Today
+                   {{ __('message.home.cta.button') }}
           </button>
         </div>
-
       </div>
     </div>
   </section>

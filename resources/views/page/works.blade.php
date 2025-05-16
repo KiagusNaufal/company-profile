@@ -26,17 +26,17 @@
             <div class="relative mt-10 max-w-4xl mx-auto px-6 text-center">
                 <!-- Title -->
                 <h1 class="scroll-reveal-item text-5xl sm:text-6xl font-bold text-gray-900">
-                    Our <span class="text-[#04b2f7]">Portfolio</span>
+                    {{ __('works.hero.title1') }} <span class="text-[#04b2f7]">{{ __('works.hero.title2') }}</span>
                 </h1>
                 <!-- Subtitle -->
                 <p class="scroll-reveal-item mt-4 text-xl text-gray-600 max-w-2xl mx-auto">
-                    A selection of digital solutions we’ve crafted—web, mobile, and game applications that drive results.
+                    {{ __('works.hero.subtitle') }}
                 </p>
                 <!-- CTA -->
                 <div class="scroll-reveal-item mt-8">
                     <a href="#projects"
                         class="inline-block px-8 py-4 bg-[#04b2f7] text-white font-medium rounded-full shadow-lg hover:bg-[#0399d9] transition">
-                        View All Projects
+                        {{ __('works.hero.button') }}
                     </a>
                 </div>
             </div>
@@ -54,7 +54,7 @@
     <!-- Projects Grid -->
     <section id="projects" class="container mx-auto px-4 py-16 md:py-24 scroll-reveal-section">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-12 text-center">All Works</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-12 text-center">{{ __('works.projects.heading') }}</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach ($projects as $project)
@@ -88,7 +88,7 @@
                             data-name="{{ $project->name }}"
                             data-price="{{ $project->price }}"
                             class="buy-now-btn w-full mt-4 group inline-flex items-center justify-center text-blue-600 hover:text-blue-800 font-medium transition-colors">
-                            <span class="mr-2">Buy Now</span>
+                            <span class="mr-2">{{ __('works.card.buy_now') }}</span>
                             <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -163,10 +163,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handler submit form
     paymentForm.addEventListener('submit', async function(e) {
         e.preventDefault();
-        
+
         const submitBtn = this.querySelector('[type="submit"]');
         const originalBtnText = submitBtn.innerHTML;
-        
+
         try {
             submitBtn.disabled = true;
             submitBtn.innerHTML = `
@@ -188,12 +188,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             const data = await response.json();
-            
+
             if (data.success && data.reference) {
                 duitkuReference = data.reference;
                 paymentFormContainer.classList.add('hidden');
                 duitkuCheckoutContainer.classList.remove('hidden');
-                
+
                 openDuitkuBtn.onclick = function() {
                     processDuitkuPayment(data.reference, data.merchantOrderId);
                 };
