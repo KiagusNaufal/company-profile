@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Kategori;
 use App\Http\Requests\StoreKategoriRequest;
 use App\Http\Requests\UpdateKategoriRequest;
+use App\Mail\TestEmail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class KategoriController extends Controller
 {
@@ -18,6 +20,18 @@ class KategoriController extends Controller
         return view('admin.kategori.kategori', compact('categories'));
     }
 
+public function email()
+{
+    try {
+        // Kirim email
+        $sent = Mail::to('kiagusnaufal310@gmail.com')->send(new TestEmail());
+        
+            return 'Email berhasil dikirim! Periksa inbox/spam.';
+        
+    } catch (\Exception $e) {
+        return "Error System: " . $e->getMessage();
+    }
+}
     /**
      * Show the form for creating a new resource.
      */

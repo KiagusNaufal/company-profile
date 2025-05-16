@@ -5,9 +5,14 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\SerialNumberController;
 use App\Http\Controllers\WorksController;
+use App\Mail\SendEmail;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SerialNumberNotification;
+
 
 // Public Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -39,16 +44,26 @@ Route::get('/return', [PembayaranController::class, 'paymentReturn'])
 Route::get('/status/{merchantOrderId}', [PembayaranController::class, 'checkStatus'])
     ->name('payment.status');
 });
+
 // Authentication Routes
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login/post', [LoginController::class, 'login'])->name('login.post');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
+
+Route::get('/send', [KategoriController::class, 'email'])->name('send.email');
 // Protected Routes - Requires Authentication
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
         return view('admin.dashboard.dashboard');
     })->name('dashboard');
+
+    Route::prefix('serial')->group(function () {
+        Route::get('/', [SerialNumberController::class, 'index'])->name('serial');
+        Route::post('/store', [SerialNumberController::class, 'store'])->name('serial.store');
+        Route::put('/{id}', [SerialNumberController::class, 'edit'])->name('serial.update');
+        Route::delete('/{id}', [SerialNumberController::class, 'destroy'])->name('serial.destroy');
+    });
     
     // Product Routes
     Route::prefix('produk')->group(function () {

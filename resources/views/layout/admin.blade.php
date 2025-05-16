@@ -84,6 +84,11 @@
                             <i class="fas fa-boxes mr-3 text-primary"></i>
                             <span class="text-gray-700">Produk</span>
                         </a>
+
+                          <a href="{{ route('serial') }}" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg sidebar-link @if(Route::is('serial')) active @endif">
+                            <i class="fas fa-boxes mr-3 text-primary"></i>
+                            <span class="text-gray-700">Serial Number</span>
+                        </a>
                         
                         <!-- Dropdown Menu -->
                         <div x-data="{ open: false }" class="relative">

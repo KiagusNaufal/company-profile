@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "85c1d2065f70e38b0d6bf66559fb13c5",
+    "content-hash": "1c5fd2481775d3514b7e53a30c7999b7",
     "packages": [
         {
             "name": "brick/math",
@@ -134,6 +134,200 @@
                 }
             ],
             "time": "2024-02-09T16:56:22+00:00"
+        },
+        {
+            "name": "cloudinary-labs/cloudinary-laravel",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cloudinary-community/cloudinary-laravel.git",
+                "reference": "dd039fc3a930e165de793133463acfb396fa56fc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cloudinary-community/cloudinary-laravel/zipball/dd039fc3a930e165de793133463acfb396fa56fc",
+                "reference": "dd039fc3a930e165de793133463acfb396fa56fc",
+                "shasum": ""
+            },
+            "require": {
+                "cloudinary/cloudinary_php": "^3.0",
+                "ext-json": "*",
+                "illuminate/support": "^11.0|^12.0",
+                "php": "^8.2"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.20",
+                "mockery/mockery": "^1.6",
+                "orchestra/testbench": "^8.0|^9.0|^10.0",
+                "pestphp/pest": "^2.35|^3.0",
+                "phpspec/prophecy-phpunit": "^2.3",
+                "sempro/phpunit-pretty-print": "^1.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "CloudinaryLabs\\CloudinaryLaravel\\CloudinaryServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "CloudinaryLabs\\CloudinaryLaravel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Josh Manders",
+                    "homepage": "https://github.com/joshmanders"
+                }
+            ],
+            "description": "A Laravel Cloudinary Package",
+            "homepage": "https://github.com/cloudinary-labs/cloudinary-laravel",
+            "keywords": [
+                "File Transformations",
+                "Media management",
+                "cloudinary",
+                "cloudinary-laravel",
+                "file uploads",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/cloudinary-community/cloudinary-laravel/issues",
+                "source": "https://github.com/cloudinary-community/cloudinary-laravel/tree/3.0.1"
+            },
+            "time": "2025-04-22T13:11:27+00:00"
+        },
+        {
+            "name": "cloudinary/cloudinary_php",
+            "version": "3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cloudinary/cloudinary_php.git",
+                "reference": "f87f0635aa6fc950b1cd99257ac04342914cec6c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cloudinary/cloudinary_php/zipball/f87f0635aa6fc950b1cd99257ac04342914cec6c",
+                "reference": "f87f0635aa6fc950b1cd99257ac04342914cec6c",
+                "shasum": ""
+            },
+            "require": {
+                "cloudinary/transformation-builder-sdk": "^2",
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^7.4.5",
+                "guzzlehttp/promises": "^1.5.3|^2.0",
+                "guzzlehttp/psr7": "^2.7",
+                "monolog/monolog": "^2|^3",
+                "php": ">=8.0.0",
+                "psr/log": "^2|^3"
+            },
+            "require-dev": {
+                "ext-dom": "*",
+                "ext-libxml": "*",
+                "ext-zip": "*",
+                "friendsofphp/php-cs-fixer": "*",
+                "phpmd/phpmd": "*",
+                "squizlabs/php_codesniffer": "*",
+                "symfony/phpunit-bridge": "^7.2"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cloudinary",
+                    "homepage": "https://github.com/cloudinary/cloudinary_php/graphs/contributors"
+                }
+            ],
+            "description": "Cloudinary PHP SDK",
+            "homepage": "https://github.com/cloudinary/cloudinary_php",
+            "keywords": [
+                "cdn",
+                "cloud",
+                "cloudinary",
+                "image management",
+                "sdk"
+            ],
+            "support": {
+                "email": "info@cloudinary.com",
+                "issues": "https://github.com/cloudinary/cloudinary_php/issues",
+                "source": "https://github.com/cloudinary/cloudinary_php/tree/3.1.0"
+            },
+            "time": "2025-01-14T23:17:05+00:00"
+        },
+        {
+            "name": "cloudinary/transformation-builder-sdk",
+            "version": "2.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cloudinary/php-transformation-builder-sdk.git",
+                "reference": "6ff4a84f14dbc5197563db63b6abbbe77a68d7e7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cloudinary/php-transformation-builder-sdk/zipball/6ff4a84f14dbc5197563db63b6abbbe77a68d7e7",
+                "reference": "6ff4a84f14dbc5197563db63b6abbbe77a68d7e7",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=8.0.0"
+            },
+            "require-dev": {
+                "ext-dom": "*",
+                "ext-libxml": "*",
+                "ext-zip": "*",
+                "friendsofphp/php-cs-fixer": "*",
+                "phpmd/phpmd": "*",
+                "squizlabs/php_codesniffer": "*",
+                "symfony/phpunit-bridge": "^7.2"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cloudinary",
+                    "homepage": "https://github.com/cloudinary/php-transformation-builder-sdk/graphs/contributors"
+                }
+            ],
+            "description": "Cloudinary PHP Transformation Builder SDK",
+            "homepage": "https://github.com/cloudinary/php-transformation-builder-sdk",
+            "keywords": [
+                "cdn",
+                "cloud",
+                "cloudinary",
+                "image management",
+                "sdk"
+            ],
+            "support": {
+                "email": "info@cloudinary.com",
+                "issues": "https://github.com/cloudinary/php-transformation-builder-sdk/issues",
+                "source": "https://github.com/cloudinary/php-transformation-builder-sdk/tree/2.1.2"
+            },
+            "time": "2025-02-03T11:14:03+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -1520,6 +1714,79 @@
             "time": "2025-01-27T14:24:01+00:00"
         },
         {
+            "name": "lcobucci/jwt",
+            "version": "5.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lcobucci/jwt.git",
+                "reference": "a835af59b030d3f2967725697cf88300f579088e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lcobucci/jwt/zipball/a835af59b030d3f2967725697cf88300f579088e",
+                "reference": "a835af59b030d3f2967725697cf88300f579088e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-openssl": "*",
+                "ext-sodium": "*",
+                "php": "~8.2.0 || ~8.3.0 || ~8.4.0",
+                "psr/clock": "^1.0"
+            },
+            "require-dev": {
+                "infection/infection": "^0.29",
+                "lcobucci/clock": "^3.2",
+                "lcobucci/coding-standard": "^11.0",
+                "phpbench/phpbench": "^1.2",
+                "phpstan/extension-installer": "^1.2",
+                "phpstan/phpstan": "^1.10.7",
+                "phpstan/phpstan-deprecation-rules": "^1.1.3",
+                "phpstan/phpstan-phpunit": "^1.3.10",
+                "phpstan/phpstan-strict-rules": "^1.5.0",
+                "phpunit/phpunit": "^11.1"
+            },
+            "suggest": {
+                "lcobucci/clock": ">= 3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lcobucci\\JWT\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Luís Cobucci",
+                    "email": "lcobucci@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple library to work with JSON Web Token and JSON Web Signature",
+            "keywords": [
+                "JWS",
+                "jwt"
+            ],
+            "support": {
+                "issues": "https://github.com/lcobucci/jwt/issues",
+                "source": "https://github.com/lcobucci/jwt/tree/5.5.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/lcobucci",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/lcobucci",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2025-01-26T21:29:45+00:00"
+        },
+        {
             "name": "league/commonmark",
             "version": "2.6.2",
             "source": {
@@ -2174,6 +2441,73 @@
             "time": "2025-03-24T10:02:05+00:00"
         },
         {
+            "name": "namshi/jose",
+            "version": "7.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/namshi/jose.git",
+                "reference": "89a24d7eb3040e285dd5925fcad992378b82bcff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/namshi/jose/zipball/89a24d7eb3040e285dd5925fcad992378b82bcff",
+                "reference": "89a24d7eb3040e285dd5925fcad992378b82bcff",
+                "shasum": ""
+            },
+            "require": {
+                "ext-date": "*",
+                "ext-hash": "*",
+                "ext-json": "*",
+                "ext-pcre": "*",
+                "ext-spl": "*",
+                "php": ">=5.5",
+                "symfony/polyfill-php56": "^1.0"
+            },
+            "require-dev": {
+                "phpseclib/phpseclib": "^2.0",
+                "phpunit/phpunit": "^4.5|^5.0",
+                "satooshi/php-coveralls": "^1.0"
+            },
+            "suggest": {
+                "ext-openssl": "Allows to use OpenSSL as crypto engine.",
+                "phpseclib/phpseclib": "Allows to use Phpseclib as crypto engine, use version ^2.0."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Namshi\\JOSE\\": "src/Namshi/JOSE/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alessandro Nadalin",
+                    "email": "alessandro.nadalin@gmail.com"
+                },
+                {
+                    "name": "Alessandro Cinelli (cirpo)",
+                    "email": "alessandro.cinelli@gmail.com"
+                }
+            ],
+            "description": "JSON Object Signing and Encryption library for PHP.",
+            "keywords": [
+                "JSON Web Signature",
+                "JSON Web Token",
+                "JWS",
+                "json",
+                "jwt",
+                "token"
+            ],
+            "support": {
+                "issues": "https://github.com/namshi/jose/issues",
+                "source": "https://github.com/namshi/jose/tree/master"
+            },
+            "time": "2016-12-05T07:27:31+00:00"
+        },
+        {
             "name": "nesbot/carbon",
             "version": "3.9.1",
             "source": {
@@ -2571,6 +2905,102 @@
                 }
             ],
             "time": "2024-11-21T10:39:51+00:00"
+        },
+        {
+            "name": "php-open-source-saver/jwt-auth",
+            "version": "v2.8.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHP-Open-Source-Saver/jwt-auth.git",
+                "reference": "9af3bd953b5671247c330562183e159f10700533"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHP-Open-Source-Saver/jwt-auth/zipball/9af3bd953b5671247c330562183e159f10700533",
+                "reference": "9af3bd953b5671247c330562183e159f10700533",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "illuminate/auth": "^10|^11|^12",
+                "illuminate/contracts": "^10|^11|^12",
+                "illuminate/http": "^10|^11|^12",
+                "illuminate/support": "^10|^11|^12",
+                "lcobucci/jwt": "^5.4",
+                "namshi/jose": "^7.0",
+                "nesbot/carbon": "^2.0|^3.0",
+                "php": "^8.2"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3",
+                "illuminate/console": "^10|^11|^12",
+                "illuminate/routing": "^10|^11|^12",
+                "mockery/mockery": "^1.6",
+                "orchestra/testbench": "^8|^9|^10",
+                "phpstan/phpstan": "^2",
+                "phpunit/phpunit": "^10.5|^11"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "JWTAuth": "PHPOpenSourceSaver\\JWTAuth\\Facades\\JWTAuth",
+                        "JWTFactory": "PHPOpenSourceSaver\\JWTAuth\\Facades\\JWTFactory"
+                    },
+                    "providers": [
+                        "PHPOpenSourceSaver\\JWTAuth\\Providers\\LaravelServiceProvider"
+                    ]
+                },
+                "branch-alias": {
+                    "dev-develop": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PHPOpenSourceSaver\\JWTAuth\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sean Tymon",
+                    "email": "tymon148@gmail.com",
+                    "homepage": "https://tymon.xyz",
+                    "role": "Forked package creator | Developer"
+                },
+                {
+                    "name": "Eric Schricker",
+                    "email": "eric.schricker@adiutabyte.de",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Fabio William Conceição",
+                    "email": "messhias@gmail.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Max Snow",
+                    "email": "contact@maxsnow.me",
+                    "role": "Developer"
+                }
+            ],
+            "description": "JSON Web Token Authentication for Laravel and Lumen",
+            "homepage": "https://github.com/PHP-Open-Source-Saver/jwt-auth",
+            "keywords": [
+                "Authentication",
+                "JSON Web Token",
+                "auth",
+                "jwt",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/PHP-Open-Source-Saver/jwt-auth/issues",
+                "source": "https://github.com/PHP-Open-Source-Saver/jwt-auth"
+            },
+            "time": "2025-03-17T11:41:37+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -4701,6 +5131,74 @@
                 }
             ],
             "time": "2024-12-23T08:48:59+00:00"
+        },
+        {
+            "name": "symfony/polyfill-php56",
+            "version": "v1.20.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php56.git",
+                "reference": "54b8cd7e6c1643d78d011f3be89f3ef1f9f4c675"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php56/zipball/54b8cd7e6c1643d78d011f3be89f3ef1f9f4c675",
+                "reference": "54b8cd7e6c1643d78d011f3be89f3ef1f9f4c675",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "type": "metapackage",
+            "extra": {
+                "thanks": {
+                    "url": "https://github.com/symfony/polyfill",
+                    "name": "symfony/polyfill"
+                },
+                "branch-alias": {
+                    "dev-main": "1.20-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 5.6+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php56/tree/v1.20.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-10-23T14:02:19+00:00"
         },
         {
             "name": "symfony/polyfill-php80",
