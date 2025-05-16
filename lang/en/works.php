@@ -1,0 +1,39 @@
+<?php
+
+return [
+    /*
+    |--------------------------------------------------------------------------
+    | Works Page Localization (English)
+    |--------------------------------------------------------------------------
+    */
+
+        // Hero Section
+        'hero' => [
+            'title1'    => 'Our',
+            'title2' =>  'Portfolio',
+            'subtitle' => 'A selection of digital solutions we’ve crafted—web, mobile, and game applications that drive results.',
+            'button'   => 'View All Projects',
+        ],
+
+        // Projects Grid
+        'projects' => [
+            'heading'    => 'All Works',
+        ],
+
+        // Card Actions
+        'card' => [
+            'buy_now'    => 'Buy Now',
+            'price_unit' => 'Rp',
+            'category'   => 'Category',
+        ],
+
+        // Fallback
+        'fallback' => [
+            'image_alt' => 'Image Not Available',
+        ],
+
+        // Call-to-Action
+        'cta' => [
+            'join' => 'Join Us',
+        ],
+    ];

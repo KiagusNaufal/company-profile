@@ -26,16 +26,16 @@
         <div class="relative z-20 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="mx-auto max-w-2xl text-center">
                 <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl">
-                    Innovative Digital Solutions:
-                    <span class="text-[#04b2f7]">Future Ready</span>
+                    {{ __('services.hero.title') }}
+                    <span class="text-[#04b2f7]">{{ __('services.hero.title2') }}</span>
                 </h1>
                 <h2 class="mt-4 text-base leading-7 text-gray-600 sm:text-lg sm:leading-8 md:text-xl md:leading-8">
-                    We craft cutting-edge digital experiences that transform businesses and delight users.
+                    {{ __('services.hero.subtitle') }}
                 </h2>
                 <div class="mt-8 flex items-center justify-center gap-x-6">
                     <a class="inline-flex items-center justify-center gap-2 rounded-xl bg-[#04b2f7] px-4 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-[#0399d9] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#04b2f7]"
                         href="/login">
-                        Explore Solutions
+                        {{ __('services.navigation.explore') }}
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd"
                                 d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
@@ -50,8 +50,8 @@
     <!-- Process Section -->
     <section class="pt-8 pb-16 bg-white scroll-reveal-section" x-data="{ openTab: 'discover' }">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <h2 class="text-2xl font-bold text-center text-gray-900 mb-1 ">Our Proven Process</h2>
-            <h2 class="text-2xl font-bold text-center text-gray-900 mb-5 ">Delivering Excellence at Every Stage
+            <h2 class="text-2xl font-bold text-center text-gray-900 mb-1 ">{{ __('services.process.heading') }}</h2>
+            <h2 class="text-2xl font-bold text-center text-gray-900 mb-5 ">{{ __('services.process.subheading') }}
             </h2>
         </div>
 
@@ -60,27 +60,27 @@
             <button @click="openTab = 'discover'"
                 :class="{ 'bg-gradient-to-r from-[#04b2f7] to-[#0399d9] text-white shadow-lg': openTab === 'discover', 'bg-white hover:bg-gray-50 border border-gray-200': openTab !== 'discover' }"
                 class="px-4 py-2 rounded-lg font-medium text-sm sm:px-6 sm:py-3 sm:text-base sm:rounded-xl sm:font-semibold transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#04b2f7] focus:ring-opacity-50">
-                Research
+                {{ __('services.navigation.research') }}
             </button>
             <button @click="openTab = 'define'"
                 :class="{ 'bg-gradient-to-r from-[#04b2f7] to-[#0399d9] text-white shadow-lg': openTab === 'define', 'bg-white hover:bg-gray-50 border border-gray-200': openTab !== 'define' }"
                 class="px-4 py-2 rounded-lg font-medium text-sm sm:px-6 sm:py-3 sm:text-base sm:rounded-xl sm:font-semibold transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#04b2f7] focus:ring-opacity-50">
-                Strategy
+                {{ __('services.navigation.strategy') }}
             </button>
             <button @click="openTab = 'design'"
                 :class="{ 'bg-gradient-to-r from-[#04b2f7] to-[#0399d9] text-white shadow-lg': openTab === 'design', 'bg-white hover:bg-gray-50 border border-gray-200': openTab !== 'design' }"
                 class="px-4 py-2 rounded-lg font-medium text-sm sm:px-6 sm:py-3 sm:text-base sm:rounded-xl sm:font-semibold transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#04b2f7] focus:ring-opacity-50">
-                Creation
+                {{ __('services.navigation.creation') }}
             </button>
             <button @click="openTab = 'develop'"
                 :class="{ 'bg-gradient-to-r from-[#04b2f7] to-[#0399d9] text-white shadow-lg': openTab === 'develop', 'bg-white hover:bg-gray-50 border border-gray-200': openTab !== 'develop' }"
                 class="px-4 py-2 rounded-lg font-medium text-sm sm:px-6 sm:py-3 sm:text-base sm:rounded-xl sm:font-semibold transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#04b2f7] focus:ring-opacity-50">
-                Implementation
+                {{ __('services.navigation.implementation') }}
             </button>
             <button @click="openTab = 'deliver'"
                 :class="{ 'bg-gradient-to-r from-[#04b2f7] to-[#0399d9] text-white shadow-lg': openTab === 'deliver', 'bg-white hover:bg-gray-50 border border-gray-200': openTab !== 'deliver' }"
                 class="px-4 py-2 rounded-lg font-medium text-sm sm:px-6 sm:py-3 sm:text-base sm:rounded-xl sm:font-semibold transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#04b2f7] focus:ring-opacity-50">
-                Optimization
+                {{ __('services.navigation.optimization') }}
             </button>
         </div>
 
@@ -93,11 +93,9 @@
                         class="w-full h-auto rounded-lg object-cover">
                 </div>
                 <div class="w-full md:w-2/3">
-                    <h3 class="text-xl font-bold text-gray-900 mb-3 sm:text-2xl">In-Depth Research</h3>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 sm:text-2xl">{{ __('services.process.discover.title') }}</h3>
                     <p class="text-gray-700 leading-relaxed text-sm sm:text-base">
-                        We begin every project with comprehensive market and user research to identify opportunities and
-                        challenges. Our team analyzes industry trends, competitor landscapes, and user behaviors to build a
-                        solid foundation for your solution.
+                        {{ __('services.process.discover.description') }}
                     </p>
                 </div>
             </div>
@@ -109,11 +107,9 @@
                         class="w-full h-auto rounded-lg object-cover">
                 </div>
                 <div class="w-full md:w-2/3">
-                    <h3 class="text-xl font-bold text-gray-900 mb-3 sm:text-2xl">Strategic Planning</h3>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 sm:text-2xl">{{ __('services.process.define.title') }}</h3>
                     <p class="text-gray-700 leading-relaxed text-sm sm:text-base">
-                        Transforming insights into actionable strategies, we define clear objectives, KPIs, and roadmaps.
-                        Our strategic approach ensures alignment with your business goals while anticipating future needs
-                        and market shifts.
+                        {{ __('services.process.define.description') }}
                     </p>
                 </div>
             </div>
@@ -125,10 +121,9 @@
                         class="w-full h-auto rounded-lg object-cover">
                 </div>
                 <div class="w-full md:w-2/3">
-                    <h3 class="text-xl font-bold text-gray-900 mb-3 sm:text-2xl">Creative Development</h3>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 sm:text-2xl">{{ __('services.process.design.title') }}</h3>
                     <p class="text-gray-700 leading-relaxed text-sm sm:text-base">
-                        Our design and development teams collaborate to create innovative solutions that balance aesthetics,
-                        functionality, and technical excellence. We prototype, test, and refine until we achieve perfection.
+                        {{ __('services.process.design.description') }}
                     </p>
                 </div>
             </div>
@@ -140,10 +135,9 @@
                         class="w-full h-auto rounded-lg object-cover">
                 </div>
                 <div class="w-full md:w-2/3">
-                    <h3 class="text-xl font-bold text-gray-900 mb-3 sm:text-2xl">Precision Implementation</h3>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 sm:text-2xl">{{ __('services.process.develop.title') }}</h3>
                     <p class="text-gray-700 leading-relaxed text-sm sm:text-base">
-                        We bring solutions to life with meticulous attention to detail. Our agile development process
-                        ensures quality at every stage, with continuous integration and deployment for seamless delivery.
+                        {{ __('services.process.develop.description') }}
                     </p>
                 </div>
             </div>
@@ -155,10 +149,9 @@
                         class="w-full h-auto rounded-lg object-cover">
                 </div>
                 <div class="w-full md:w-2/3">
-                    <h3 class="text-xl font-bold text-gray-900 mb-3 sm:text-2xl">Continuous Optimization</h3>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 sm:text-2xl">{{ __('services.process.deliver.title') }}</h3>
                     <p class="text-gray-700 leading-relaxed text-sm sm:text-base">
-                        Our relationship continues after launch. We monitor performance, gather user feedback, and implement
-                        data-driven improvements to ensure your solution evolves with your business needs.
+                        {{ __('services.process.deliver.description') }}
                     </p>
                 </div>
             </div>
@@ -170,9 +163,9 @@
     <section class="py-12 bg-[#04b2f7]/10 sm:py-16 scroll-reveal-section">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-8 sm:mb-12">
-                <h2 class="text-2xl font-bold text-gray-900 sm:text-3xl">OUR EXPERTISE</h2>
+                <h2 class="text-2xl font-bold text-gray-900 sm:text-3xl">{{ __('services.services_section.heading') }}</h2>
                 <p class="mt-2 text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
-                    Comprehensive digital solutions tailored to your unique business requirements
+                    {{ __('services.services_section.subheading') }}
                 </p>
             </div>
 
@@ -189,11 +182,9 @@
                             </svg>
                         </div>
                         <div class="ml-4">
-                            <h3 class="text-lg font-bold text-gray-900 mb-2 sm:text-xl">Custom Software Development</h3>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2 sm:text-xl">{{ __('services.services_section.cards.software_development.title') }}</h3>
                             <p class="text-gray-700 text-sm sm:text-base">
-                                Bespoke software solutions designed to streamline your operations and enhance productivity.
-                                From enterprise systems to specialized tools, we build applications that give you a
-                                competitive edge.
+                                {{ __('services.services_section.cards.software_development.description') }}
                             </p>
                         </div>
                     </div>
@@ -211,11 +202,9 @@
                             </svg>
                         </div>
                         <div class="ml-4">
-                            <h3 class="text-lg font-bold text-gray-900 mb-2 sm:text-xl">Data Analytics & AI</h3>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2 sm:text-xl">{{ __('services.services_section.cards.data_analytics.title') }}</h3>
                             <p class="text-gray-700 text-sm sm:text-base">
-                                Transform raw data into actionable intelligence with our advanced analytics and machine
-                                learning solutions. We help you uncover patterns, predict trends, and make data-driven
-                                decisions.
+                                {{ __('services.services_section.cards.data_analytics.description') }}
                             </p>
                         </div>
                     </div>
@@ -233,10 +222,9 @@
                             </svg>
                         </div>
                         <div class="ml-4">
-                            <h3 class="text-lg font-bold text-gray-900 mb-2 sm:text-xl">Cloud Solutions</h3>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2 sm:text-xl">{{ __('services.services_section.cards.cloud_solutions.title') }}</h3>
                             <p class="text-gray-700 text-sm sm:text-base">
-                                Scalable, secure cloud infrastructure and services to power your digital transformation. We
-                                specialize in migration, optimization, and management across all major cloud platforms.
+                                {{ __('services.services_section.cards.cloud_solutions.description') }}
                             </p>
                         </div>
                     </div>
@@ -254,10 +242,9 @@
                             </svg>
                         </div>
                         <div class="ml-4">
-                            <h3 class="text-lg font-bold text-gray-900 mb-2 sm:text-xl">Cybersecurity Services</h3>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2 sm:text-xl">{{ __('services.services_section.cards.cybersecurity.title') }}</h3>
                             <p class="text-gray-700 text-sm sm:text-base">
-                                Comprehensive security solutions to protect your digital assets. From vulnerability
-                                assessments to implementation of advanced security frameworks, we safeguard your business.
+                                {{ __('services.services_section.cards.cybersecurity.description') }}
                             </p>
                         </div>
                     </div>
@@ -271,10 +258,10 @@
         <div class="max-w-6xl mx-auto">
             <!-- Heading Section -->
             <div class="text-center mb-8 sm:mb-12">
-                <h2 class="text-2xl font-bold text-gray-900 mb-2 sm:text-3xl">TECHNOLOGIES</h2>
-                <h3 class="text-lg font-medium text-gray-700 mb-3 sm:text-xl">Our Ever-Forward Approach</h3>
+                <h2 class="text-2xl font-bold text-gray-900 mb-2 sm:text-3xl">{{ __('services.technologies.heading') }}</h2>
+                <h3 class="text-lg font-medium text-gray-700 mb-3 sm:text-xl">{{ __('services.technologies.subheading') }}</h3>
                 <p class="text-gray-600 max-w-3xl mx-auto text-sm sm:text-base">
-                    We use the latest technologies and best practices to deliver high-quality apps.
+                    {{ __('services.technologies.description') }}
                 </p>
             </div>
 
@@ -498,5 +485,4 @@
             init3DCard('card-3', 0x00b894);
         });
     </script>
-
 @endsection

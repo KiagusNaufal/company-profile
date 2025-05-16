@@ -3,10 +3,9 @@
             <div class="items-center justify-center">
                 <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-3 pt-[64px]">
                     <div class="text-white">
-                        <p class="font-[600] mb-3">Lorem Ipsum</p>
-                        <p class="font-light text-slate-100 mb-6 max-w-[75%]">Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit.
-                            Doloribus pariatur alias placeat molestias</p>
+                        <p class="font-[600] mb-3 text-2xl">Aeratek Global Solution</p>
+                        <p class="font-normal text-blue-500 max-w-[75%]">{{ __('footer.subtitle') }} <br> </p>
+                        <p class="font-normal text-slate-100 mb-6 max-w-[75%]">{{ __('footer.subtitle2') }} </p>
                         <div class="flex gap-2">
                             <a href="https://www.facebook.com">
                                 <img src="{{ asset('icons/facebook.svg') }}" alt="fb icon" fetchpriority="high"
@@ -26,18 +25,20 @@
                         </div>
                     </div>
                     <div class="text-white">
-                        <p class="font-[600] text-[#ffffff] text-[20px] mb-6">{{ __('message.Footer.company.name') }}</p>
-                        <p class="cursor-pointer font-light mb-4 hover:underline"><a href="{{ url('/about') }}">{{ __('message.Footer.company.about') }}</a></p>
+                        <p class="font-[600] text-[#ffffff] text-[20px] mb-6">Company
+                        </p>
                         <p class="cursor-pointer font-light mb-4 hover:underline"><a
-                                href="{{ url('/service') }}">{{ __('message.Footer.company.services') }}</a></p>
+                                href="{{ url('/about') }}">{{ __('footer.company.about') }}</a></p>
                         <p class="cursor-pointer font-light mb-4 hover:underline"><a
-                                href="{{ url('/works') }}">{{ __('message.Footer.company.products') }}</a></p>
+                                href="{{ url('/service') }}">{{ __('footer.company.services') }}</a></p>
                         <p class="cursor-pointer font-light mb-4 hover:underline"><a
-                                href="{{ url('/') }}">{{ __('message.Footer.company.works') }}</a></p>
+                                href="{{ url('/works') }}">{{ __('footer.company.works') }}</a></p>
+                        <p class="cursor-pointer font-light mb-4 hover:underline"><a
+                                href="{{ url('/') }}">{{ __('footer.company.products') }}</a></p>
                     </div>
                     <div class="text-white">
-                        <p class="font-[600] text-slate-100 text-[20px] mb-6">Contact Us</p>
-                        <p class="font-[600] text-slate-100">Office</p>
+                        <p class="font-[600] text-slate-100 text-[20px] mb-6">{{ __('footer.contact.contact') }}</p>
+                        <p class="font-[600] text-slate-100">{{ __('footer.contact.office') }}</p>
                         <a href="https://maps.app.goo.gl/">
                             <p class="font-light mb-6 hover:underline ">Jl. Arciko Gg Harapan II No 60 Rt 01 Rw 13 Kel
                                 Sayang Cianjur, <br> Kota Cianjur, Jawa Barat</p>
@@ -48,7 +49,7 @@
                                 Sayang Cianjur, <br> Kota Cianjur, Jawa Barat</p>
                         </a>
                         <a href="font-light pb-2 cursor-pointer">
-                            <p class="mb-1 hover-underline ">aeratek@gmail.com</p>
+                            <p class="mb-1 hover-underline ">aeratekglobalsolution@gmail.com</p>
                         </a>
                         <a href="https://whatsapp.com">
                             <p class="font-light mb-6 hover-underline ">+62 878 8231 8231</p>

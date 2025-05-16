@@ -3,7 +3,7 @@
         <div class="container mx-auto px-4">
             <!-- Heading -->
             <div class="text-center mb-12">
-                <p class="text-gray-600">Language that use our solution to enhance their digitalization.</p>
+                <p class="text-gray-600">{{ __('message.home.marquee.text') }}</p>
             </div>
 
             <!-- Marquee Container -->

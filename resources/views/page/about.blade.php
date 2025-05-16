@@ -20,7 +20,7 @@
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
-                    <span class="block">ABOUT US</span>
+                    <span class="block">{{ __('about.about.heading') }}</span>
                     <span class="block text-[#04b2f7] mt-2 sm:mt-4">Aeratek Global Solution</span>
                 </h1>
 
@@ -29,10 +29,7 @@
 
                 <div class="max-w-3xl mx-auto">
                     <p class="text-lg sm:text-xl text-gray-600 leading-relaxed">
-                        We are a technology company focused on providing innovative digital solutions for various business
-                        needs. Founded with a mission to accelerate digital transformation, we offer services that include
-                        software development, IT consulting, and the implementation of cutting-edge technologies tailored to
-                        our clients' needs.
+                        {{ __('about.about.description') }}
                     </p>
                 </div>
 
@@ -40,11 +37,11 @@
                 <div class="mt-8 sm:mt-12 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
                     <a href="#"
                         class="px-6 sm:px-8 py-2 sm:py-3 bg-[#04b2f7] hover:bg-[#0399d9] text-white text-sm sm:text-base font-medium rounded-lg shadow-md transition-colors">
-                        Learn More About Us
+                        {{ __('about.about.button_more') }}
                     </a>
                     <a href="#member-section"
                         class="scroll-smooth px-6 sm:px-8 py-2 sm:py-3 bg-white hover:bg-gray-100 text-gray-800 text-sm sm:text-base font-medium rounded-lg border border-gray-300 shadow-sm transition-colors">
-                        Meet Our Team
+                        {{ __('about.about.button_team') }}
                     </a>
                 </div>
             </div>
@@ -60,7 +57,7 @@
                     Aeratek <span class="text-[#04b2f7]">Core</span> Values
                 </h2>
                 <p class="mt-2 sm:mt-4 text-base sm:text-lg text-gray-700 max-w-2xl mx-auto">
-                    Building the future with precision and innovation
+                    {{ __('about.core_values.subheading') }}
                 </p>
             </div>
 
@@ -77,9 +74,9 @@
                                 d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
                     </div>
-                    <h3 class="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-3">Advanced Engineering</h3>
+                    <h3 class="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-3">{{ __('about.core_values.values.engineering.title') }}</h3>
                     <p class="text-sm sm:text-base text-gray-700">
-                        Cutting-edge solutions built with modern architectures and best practices.
+                        {{ __('about.core_values.values.engineering.description') }}
                     </p>
                 </div>
 
@@ -94,9 +91,9 @@
                                 d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                     </div>
-                    <h3 class="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-3">Responsive Design</h3>
+                    <h3 class="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-3">{{ __('about.core_values.values.responsive.title') }}</h3>
                     <p class="text-sm sm:text-base text-gray-700">
-                        Flawless experiences across all devices and screen sizes.
+                        {{ __('about.core_values.values.responsive.description') }}
                     </p>
                 </div>
 
@@ -111,9 +108,9 @@
                                 d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                         </svg>
                     </div>
-                    <h3 class="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-3">Secure Solutions</h3>
+                    <h3 class="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-3">{{ __('about.core_values.values.secure.title') }}</h3>
                     <p class="text-sm sm:text-base text-gray-700">
-                        Enterprise-grade security built into every layer.
+                        {{ __('about.core_values.values.secure.description') }}
                     </p>
                 </div>
             </div>
@@ -122,7 +119,7 @@
             <div class="mt-12 sm:mt-16 md:mt-20 text-center">
                 <a href="#"
                     class="inline-flex items-center px-6 sm:px-8 py-2 sm:py-3 bg-[#04b2f7] hover:bg-[#003366] text-white text-sm sm:text-base font-medium rounded-lg shadow-md transition-colors duration-300">
-                    Explore Our Work
+                    {{ __('about.core_values.values.explore') }}
                     <svg class="ml-2 w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd"
                             d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
@@ -164,12 +161,10 @@
                                     d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
                             </svg>
                         </div>
-                        <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Our Vision</h3>
+                        <h3 class="text-xl sm:text-2xl font-bold text-gray-900">{{ __('about.vision_mission.vision.title') }}</h3>
                     </div>
                     <p class="text-base sm:text-lg text-gray-700 leading-relaxed">
-                        To establish Aeratek as a global symbol of <span class="font-semibold text-[#003366]">integrity,
-                            innovation, sustainability, excellence, collaboration, and customer satisfaction</span> in the
-                        technology sector.
+                        {{ __('about.vision_mission.vision.description1') }} <span class="font-semibold text-[#003366]">{{ __('about.vision_mission.vision.description2') }}</span> {{ __('about.vision_mission.vision.description3') }}
                     </p>
                 </div>
 
@@ -184,7 +179,7 @@
                                     d="M13 10V3L4 14h7v7l9-11h-7z" />
                             </svg>
                         </div>
-                        <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Our Mission</h3>
+                        <h3 class="text-xl sm:text-2xl font-bold text-gray-900">{{ __('about.vision_mission.mission.title') }}</h3>
                     </div>
 
                     <div class="space-y-4 sm:space-y-6">
@@ -201,9 +196,8 @@
                                 </div>
                             </div>
                             <div>
-                                <h4 class="text-base sm:text-lg font-semibold text-gray-900">Innovative Solutions</h4>
-                                <p class="text-sm sm:text-base text-gray-700">Deliver cutting-edge technology solutions
-                                    that drive business growth and digital transformation.</p>
+                                <h4 class="text-base sm:text-lg font-semibold text-gray-900">{{ __('about.vision_mission.mission.items.mission1.title') }}</h4>
+                                <p class="text-sm sm:text-base text-gray-700">{{ __('about.vision_mission.mission.items.mission1.description') }}</p>
                             </div>
                         </div>
 
@@ -220,9 +214,8 @@
                                 </div>
                             </div>
                             <div>
-                                <h4 class="text-base sm:text-lg font-semibold text-gray-900">Quality Service</h4>
-                                <p class="text-sm sm:text-base text-gray-700">Provide high-quality services with relentless
-                                    focus on customer satisfaction.</p>
+                                <h4 class="text-base sm:text-lg font-semibold text-gray-900">{{ __('about.vision_mission.mission.items.mission2.title') }}</h4>
+                                <p class="text-sm sm:text-base text-gray-700">{{ __('about.vision_mission.mission.items.mission2.description') }}</p>
                             </div>
                         </div>
 
@@ -239,9 +232,8 @@
                                 </div>
                             </div>
                             <div>
-                                <h4 class="text-base sm:text-lg font-semibold text-gray-900">Strategic Partnerships</h4>
-                                <p class="text-sm sm:text-base text-gray-700">Build long-term relationships based on trust,
-                                    professionalism, and mutual success.</p>
+                                <h4 class="text-base sm:text-lg font-semibold text-gray-900">{{ __('about.vision_mission.mission.items.mission3.title') }}</h4>
+                                <p class="text-sm sm:text-base text-gray-700">{{ __('about.vision_mission.mission.items.mission3.description') }}</p>
                             </div>
                         </div>
                     </div>
@@ -255,9 +247,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Section Header -->
             <div class="text-center mb-12 sm:mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900">Our Journey</h2>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900">{{ __('about.timeline.heading') }}</h2>
                 <p class="mt-2 sm:mt-4 text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-                    The milestones in our evolution as a technology innovator
+                    {{ __('about.timeline.subheading') }}
                 </p>
             </div>
 
@@ -278,8 +270,7 @@
                                         class="text-xs sm:text-sm bg-[#04b2f7] text-white px-2 sm:px-3 py-1 rounded-full">2009</span>
                                 </div>
                                 <p class="mt-2 text-sm sm:text-base text-gray-700">
-                                    Membuat aplikasi pertama untuk sebuah klinik laboratorium berbasis desktop. Aplikasi ini
-                                    membantu klinik tersebut berkembang pesat hingga memiliki tiga cabang.
+                                    {{ __('about.timeline.events.years1.description') }}
                                 </p>
                             </div>
                         </div>
@@ -296,9 +287,7 @@
                                         class="text-xs sm:text-sm bg-[#04b2f7] text-white px-2 sm:px-3 py-1 rounded-full">2014</span>
                                 </div>
                                 <p class="mt-2 text-sm sm:text-base text-gray-700">
-                                    Membuat aplikasi sistem informasi sekolah. Aplikasi ini dirancang untuk membantu sekolah
-                                    dalam mengelola berbagai aspek, seperti keuangan, kehadiran siswa, pelanggaran, serta
-                                    nilai harian dan rapor
+                                    {{ __('about.timeline.events.years2.description') }}
                                 </p>
                             </div>
                         </div>
@@ -314,9 +303,7 @@
                                         class="text-xs sm:text-sm bg-[#04b2f7] text-white px-2 sm:px-3 py-1 rounded-full">2020</span>
                                 </div>
                                 <p class="mt-2 text-sm sm:text-base text-gray-700">
-                                    Membuat game pertama yang bertemakan edukasi dan berbasis Unity. Game ini membantu
-                                    pendidikan dalam mentransferkan ilmu kepada siswa dengan cara yang mudah dipahami dan
-                                    menyenangkan
+                                    {{ __('about.timeline.events.years3.description') }}
                                 </p>
                             </div>
                         </div>
@@ -333,9 +320,7 @@
                                         class="text-xs sm:text-sm bg-[#04b2f7] text-white px-2 sm:px-3 py-1 rounded-full">2024</span>
                                 </div>
                                 <p class="mt-2 text-sm sm:text-base text-gray-700">
-                                    Mengukuhkan diri sebagai perusahaan yang berbadan hukum PT (Perseroan Terbatas). Langkah
-                                    ini memperkuat komitmen kami untuk memberikan layanan berkualitas tinggi dan pelayanan
-                                    yang lebih profesional
+                                    {{ __('about.timeline.events.years4.description') }}
                                 </p>
                             </div>
                         </div>
@@ -350,9 +335,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Section Header -->
             <div class="text-center mb-12 sm:mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2 sm:mb-4">Meet Our Leadership</h2>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2 sm:mb-4">{{ __('about.team.heading') }}</h2>
                 <p class="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-                    The visionary minds driving Aeratek's innovation and growth
+                    {{ __('about.team.subheading') }}
                 </p>
                 <div class="mt-4 sm:mt-6 w-16 sm:w-24 h-1 bg-[#04b2f7] mx-auto"></div>
             </div>
@@ -569,7 +554,7 @@
             <div class="mt-12 md:mt-16 text-center">
                 <button type="button" id="tellUsButton" data-toggle="contact-modal"
                     class="inline-flex items-center px-6 py-2 md:px-8 md:py-3 bg-[#04b2f7] hover:bg-[#003366] text-white text-sm md:text-base font-medium rounded-lg shadow-md transition-colors duration-300">
-                    Join Our Team
+                    {{ __('about.cta') }}
                     <svg class="ml-2 w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd"
                             d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"

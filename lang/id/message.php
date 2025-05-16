@@ -34,15 +34,20 @@ return [
             'description' => 'Dari pengembangan custom hingga integrasi sistem – temukan layanan yang paling sesuai untuk tumbuh kembangkan bisnis Anda.',
             'items' => [
                 'development' => 'Pengembangan Perangkat Lunak',
+                'description1' => 'Di ranah petualangan coding, kami adalah pahlawan digital Anda. Manfaatkan keahlian pengembangan perangkat lunak kami untuk mewujudkan visi menjadi solusi digital yang luar biasa. Kami tak sekadar menulis kode; kami menorehkan kisah sukses.',
+                'description2' => 'Jelajahi luasnya lanskap data bersama kepahlawanan analitik kami. Mulai dari mengungkap wawasan hingga menaklukkan tantangan data, keahlian kami memastikan bisnis Anda keluar sebagai pemenang. Kami menjadikan data sebagai sekutu terkuat Anda.',
+                'description3' => 'Sebagai penjaga negeri digital Anda, kami menjamin infrastruktur TI yang mulus. Percayakan pemeliharaan heroik kami untuk menjaga sistem Anda tetap tangguh, aman, dan siap menghadapi segala tantangan di frontier digital.',
                 'analytics'   => 'Analitik Big Data',
                 'it_support'  => 'Pemeliharaan & Dukungan TI',
             ],
+            'all_services' => 'Lihat Semua Layanan',
         ],
 
         // Selected Works / Projects Section
         'projects' => [
             'pre_title'  => 'Selected Works',
-            'title'      => 'Kami berkolaborasi menciptakan produk digital untuk mencapai tujuan bisnis dan pengguna.',
+            'title'      => 'Kami berkolaborasi menciptakan produk',
+            'title2'    => 'digital untuk mencapai tujuan bisnis dan pengguna.',
             'read_more'  => 'Baca Selengkapnya',
         ],
 
@@ -76,20 +81,5 @@ return [
             'button'      => 'Mulai Sekarang',
         ],
 
-    ],
-
-    'Footer' => [
-        'company' => [
-            'name'      => 'Aeratek',
-            'about'     => 'Tentang Kami',
-            'services'  => 'Layanan Kami',
-            'products'  => 'Produk Kami',
-            'works'     => 'Karya Kami',
-        ],
-        'contact' => [
-            'contact'   => 'Kontak Kami',
-            'office'    => 'Kantor Kami',
-            'address'   => 'Jl. Arciko Gg Harapan II No 60 RT 01 RW 13, Sayang, Cianjur, Jawa Barat',
-        ],
     ],
 ];

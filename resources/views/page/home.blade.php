@@ -21,23 +21,22 @@
             <div class="w-full lg:w-1/2 py-8 sm:py-12 lg:py-16 xl:py-20 px-4 sm:px-6 lg:px-8 xl:px-12">
                 <div class="max-w-2xl mx-auto lg:mx-0 space-y-4 sm:space-y-6">
                     <h1 class="text-2xl sm:text-4xl lg:text-5xl font-bold leading-tight text-gray-900">
-                        Lebih dari Sekadar Kode,<br>
-                        <span class="text-[#04b2f7]">Kami Menciptakan Solusi</span>
+                        {{ __('message.home.hero.title_line1') }}<br>
+                        <span class="text-[#04b2f7]">{{ __('message.home.hero.title_line2') }}</span>
                     </h1>
 
                     <p class="text-sm sm:text-lg text-gray-600 leading-relaxed">
-                        We're Heroes to your business forward through expert software development, strategic big data
-                        analytics, and seamless IT maintenance. Elevate your enterprise with us.
+                        {{ __('message.home.hero.subtitle') }}
                     </p>
 
                     <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 hero-buttons w-full">
                         <button type="button" id="tellUsButton" data-toggle="contact-modal"
                             class="bg-[#04b2f7] hover:bg-[#0388c4] text-white font-medium px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg transition-all duration-300 transform hover:-translate-y-1 shadow-md hover:shadow-lg text-sm sm:text-base w-full sm:w-auto">
-                            Tell Us Your Digital Mission
+                            {{ __('message.home.hero.button_primary') }}
                         </button>
                         <button type="button" id="tellUsButton" data-toggle="contact-modal"
                             class="border-2 border-[#04b2f7] text-[#04b2f7] hover:bg-[#04b2f7] hover:text-white font-medium px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base w-full sm:w-auto">
-                            Learn More <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                            {{ __('message.home.hero.button_secondary') }} <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
                         </button>
                     </div>
                 </div>
@@ -63,10 +62,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <!-- Title -->
         <div class="text-center md:text-left">
-            <h2 class="text-sm font-semibold text-[#04b2f7] uppercase mb-2">Selected Works</h2>
+            <h2 class="text-sm font-semibold text-[#04b2f7] uppercase mb-2">{{ __('message.home.projects.pre_title') }}</h2>
             <p class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
-                We work and collaborate to create <br class="hidden sm:block">
-                digital products for business and user goals.
+                {{ __('message.home.projects.title') }} <br class="hidden sm:block">
+                {{ __('message.home.projects.title2') }}
             </p>
         </div>
 
@@ -106,7 +105,7 @@
 
                                 <!-- Read More -->
                                 <a href="#" class="inline-flex items-center text-[#04b2f7] font-medium hover:underline mt-auto text-sm sm:text-base">
-                                    <span>Read More</span>
+                                    <span>{{ __('message.home.projects.read_more') }}</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4 sm:h-5 sm:w-5" fill="none"
                                         stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
