@@ -60,19 +60,19 @@
                 @foreach($serialNumbers as $product)
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <img src="{{ asset( $product->profileImage) ?? 'https://via.placeholder.com/50' }}" alt="{{ $product->name }}" class="h-10 w-10 rounded-md object-cover">
+                        <img src="{{ secure_asset( cetak($product->profileImage)) ?? 'https://via.placeholder.com/50' }}" alt="{{ cetak($product->name) }}" class="h-10 w-10 rounded-md object-cover">
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="font-medium">{{ $product->serialNumber }}</div>
+                        <div class="font-medium">{{ cetak($product->serialNumber) }}</div>
                     </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="font-medium">{{ $product->name }}</div>
+                        <div class="font-medium">{{ cetak($product->name) }}</div>
                     </td>
                                                             <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="font-medium">{{ $product->password }}</div>
+                        <div class="font-medium">{{ cetak($product->password) }}</div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="font-medium">{{ $product->email }}</div>
+                        <div class="font-medium">{{ cetak($product->email) }}</div>
                     </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
                         @if($product->is_active == 1)

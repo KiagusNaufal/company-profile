@@ -15,6 +15,25 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
+        $request->validate([
+            'email' => [
+                'required',
+                'email',
+                'max:255',
+                'regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/'
+            ],
+            'password' => [
+                'required',
+                'string',
+                'min:6',
+                'max:50',
+                'regex:/^[\w!@#$%^&*()\-_=+{};:,<.>]{6,50}$/'
+            ],
+        ], [
+            'email.regex' => 'Email format is invalid.',
+            'password.regex' => 'Password contains invalid characters.',
+        ]);
+
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
@@ -23,7 +42,7 @@ class LoginController extends Controller
         }
 
         Log::warning('Failed login attempt', ['email' => $request->input('email')]);
-        return redirect()->back()->with('error', 'Invalid credentials');
+        return redirect('/login')->back()->with('error', 'Invalid credentials');
     }
 
     public function logout()

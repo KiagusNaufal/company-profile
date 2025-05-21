@@ -40,24 +40,47 @@
 }
 
 /* Mobile Menu Styles */
+/* Mobile Menu Styles */
 #mobile-menu {
-  position: fixed;
-  top: 60px;
-  left: 0;
-  right: 0;
-  background: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 40;
-  overflow-y: auto;
-  max-height: 0;
-  transition: max-height 0.3s ease-out, opacity 0.2s ease-out;
-  opacity: 0;
+    position: fixed;
+    top: 60px; /* Sesuaikan dengan tinggi navbar */
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
 }
 
 #mobile-menu.open {
-  max-height: 500px; /* Adjust based on your content */
-  opacity: 1;
-  padding: 1rem 0;
+    max-height: 500px; /* Sesuaikan dengan kebutuhan */
+    overflow-y: auto;
+}
+
+body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+#mobile-menu.translate-y-0 {
+    transform: translateY(0);
+}
+
+/* Pastikan navbar memiliki z-index yang lebih tinggi */
+nav {
+    z-index: 1001 !important;
+}
+
+/* Pastikan body tidak scroll saat menu terbuka */
+body.overflow-hidden {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
 }
 
 #mobile-menu a {
@@ -236,6 +259,41 @@ button:disabled {
     opacity: 0.7;
     cursor: not-allowed;
     transform: none !important;
+}
+
+/* Tambahkan di bagian style Anda */
+#carousel {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    transition: transform 0.1s ease-out;
+}
+
+#carousel.active {
+    scroll-snap-type: none;
+}
+
+#carousel .flex-none {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+/* Hide scrollbar but keep functionality */
+#carousel::-webkit-scrollbar {
+    display: none;
+}
+
+/* Better cursor feedback */
+.cursor-grab {
+    cursor: grab;
+    cursor: -webkit-grab;
+}
+
+.active.cursor-grab,
+.cursor-grab:active {
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
 }
 
 #mobile-menu {

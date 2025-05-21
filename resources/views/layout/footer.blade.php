@@ -8,17 +8,17 @@
                         <p class="font-normal text-slate-100 mb-6 max-w-[75%]">{{ __('footer.subtitle2') }} </p>
                         <div class="flex gap-2">
                             <a href="https://www.facebook.com">
-                                <img src="{{ asset('icons/facebook.svg') }}" alt="fb icon" fetchpriority="high"
+                                <img src="{{ secure_asset('icons/facebook.svg') }}" alt="fb icon" fetchpriority="high"
                                     width="0" height="0" decoding="async" data-nimg="1"
                                     class="relative mb-4 w-[21px] h-[21px]" style="color:transparent">
                             </a>
                             <a href="https://www.instagram.com">
-                                <img src="{{ asset('icons/instagram.svg') }}" alt="fb icon" fetchpriority="high"
+                                <img src="{{ secure_asset('icons/instagram.svg') }}" alt="fb icon" fetchpriority="high"
                                     width="0" height="0" decoding="async" data-nimg="1"
                                     class="relative mb-4 w-[21px] h-[21px]" style="color:transparent">
                             </a>
                             <a href="https://www.linkedin.com">
-                                <img src="{{ asset('icons/linkedin.svg') }}" alt="fb icon" fetchpriority="high"
+                                <img src="{{ secure_asset('icons/linkedin.svg') }}" alt="fb icon" fetchpriority="high"
                                     width="0" height="0" decoding="async" data-nimg="1"
                                     class="relative mb-4 w-[21px] h-[21px]" style="color:transparent">
                             </a>

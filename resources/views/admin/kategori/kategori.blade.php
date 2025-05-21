@@ -60,14 +60,14 @@
                         <div class="text-sm text-gray-900">{{ $loop->iteration }}</div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="font-medium">{{ $product->name }}</div>
+                        <div class="font-medium">{{ cetak($product->name) }}</div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-right">
                         <div class="flex justify-end space-x-2">
                             <button class="edit-product-btn text-yellow-500 hover:text-yellow-600" data-product='@json($product)'>
                                 <i class="fas fa-edit"></i>
                             </button>
-                            <button class="delete-product-btn text-red-500 hover:text-red-600" data-id="{{ $product->id }}" data-name="{{ $product->name }}">
+                            <button class="delete-product-btn text-red-500 hover:text-red-600" data-id="{{ cetak($product->id) }}" data-name="{{ cetak($product->name) }}">
                                 <i class="fas fa-trash"></i>
                             </button>
                         </div>
@@ -79,7 +79,7 @@
     </div>
 
     <div class="mt-4">
-        {{ $categories->links() }}
+        {{ cetak($categories->links()) }}
     </div>
 </div>
 

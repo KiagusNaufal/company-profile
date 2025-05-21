@@ -144,3 +144,176 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 5000);
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('paymentModal');
+    const paymentForm = document.getElementById('paymentForm');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const paymentFormContainer = document.getElementById('paymentFormContainer');
+    const duitkuCheckoutContainer = document.getElementById('duitkuCheckoutContainer');
+    const openDuitkuBtn = document.getElementById('openDuitkuBtn');
+    let duitkuReference = null;
+    let merchantOrderId = null;
+
+    // Fungsi untuk menutup modal
+    function closePaymentModal() {
+        modal.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+    }
+
+    // Fungsi untuk menampilkan modal
+    function showPaymentModal(id, name, price) {
+        document.getElementById('modal_produk_id').value = id;
+        document.getElementById('modal_amount').value = price;
+        document.getElementById('modal_project_name').textContent = name;
+        document.getElementById('modal_project_price').textContent = 'Rp ' + parseInt(price).toLocaleString('id-ID');
+
+        modal.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+        paymentFormContainer.classList.remove('hidden');
+        duitkuCheckoutContainer.classList.add('hidden');
+        paymentForm.reset();
+    }
+
+    // Event listener untuk tombol close
+    closeModalBtn.addEventListener('click', closePaymentModal);
+
+    // Event listener untuk klik di luar modal
+    modal.addEventListener('click', function(e) {
+        if (e.target === this) {
+            closePaymentModal();
+        }
+    });
+
+    // Event listener untuk tombol "Buy Now"
+    document.querySelectorAll('.buy-now-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const id = this.getAttribute('data-id');
+            const name = this.getAttribute('data-name');
+            const price = this.getAttribute('data-price');
+            showPaymentModal(id, name, price);
+        });
+    });
+
+    // Handler submit form
+    paymentForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const submitBtn = this.querySelector('[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
+
+        try {
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Processing...
+            `;
+
+            const response = await fetch(this.action, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                },
+                body: new FormData(this)
+            });
+
+            if (!response.ok) {
+                throw new Error('Server responded with status ' + response.status);
+            }
+
+            const data = await response.json();
+
+            if (data.success && data.reference) {
+                duitkuReference = data.reference;
+                merchantOrderId = data.merchant_order_id;
+                paymentFormContainer.classList.add('hidden');
+                duitkuCheckoutContainer.classList.remove('hidden');
+
+                openDuitkuBtn.onclick = function() {
+                    processDuitkuPayment(data.reference, data.merchant_order_id);
+                };
+            } else {
+                throw new Error(data.message || 'Payment creation failed');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Error: ' + error.message);
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+        }
+    });
+
+    // Fungsi untuk memproses pembayaran Duitku
+  // Fungsi untuk memproses pembayaran Duitku
+function processDuitkuPayment(reference, merchantOrderId) {
+    if (!window.checkout || !window.checkout.process) {
+        alert('Payment gateway not loaded. Please refresh the page.');
+        return;
+    }
+
+    checkout.process(reference, {
+        defaultLanguage: "id",
+        currency: "IDR",
+        successEvent: function(result) {
+            // Redirect ke halaman return dengan merchantOrderId
+            window.location.href = `/payment/return?merchantOrderId=${merchantOrderId}`;
+        },
+        pendingEvent: function(result) {
+            // Untuk pembayaran pending (bank transfer dll)
+            window.location.href = `/payment/return?merchantOrderId=${merchantOrderId}`;
+        },
+        errorEvent: function(result) {
+            alert('Payment failed: ' + (result.message || 'Please try again'));
+            window.location.href = `/payment/return?merchantOrderId=${merchantOrderId}`;
+        },
+        closeEvent: function(result) {
+            // Jika popup ditutup tanpa menyelesaikan pembayaran
+            console.log('Payment popup closed', result);
+        }
+    });
+}
+
+    // Fungsi untuk memeriksa status pembayaran secara berkala
+    function checkPaymentStatusPeriodically(merchantOrderId) {
+        const interval = setInterval(async () => {
+            try {
+                const response = await fetch(`/payment/status/${merchantOrderId}`);
+                const data = await response.json();
+                
+                if (data.paid) {
+                    clearInterval(interval);
+                    window.location.href = `/payment/return?merchantOrderId=${merchantOrderId}`;
+                } else if (data.status === 'failed') {
+                    clearInterval(interval);
+                    alert('Payment failed. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error checking payment status:', error);
+                clearInterval(interval);
+            }
+        }, 5000); // Periksa setiap 5 detik
+    }
+});
+
+// Fungsi tampilkan modal error
+function showErrorModal(message) {
+    const errorModal = document.getElementById('errorModal');
+    errorModal.querySelector('.modal-body').textContent = message;
+    new bootstrap.Modal(errorModal).show();
+}
+
+// Fungsi tampilkan modal success
+function showSuccessModal(message) {
+    const successModal = document.getElementById('successModal');
+    successModal.querySelector('.modal-body').textContent = message;
+    new bootstrap.Modal(successModal).show();
+}
+
+// Fungsi tampilkan modal info
+function showInfoModal(message) {
+    const infoModal = document.getElementById('infoModal');
+    infoModal.querySelector('.modal-body').textContent = message;
+    new bootstrap.Modal(infoModal).show();
+}

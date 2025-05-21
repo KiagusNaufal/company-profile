@@ -52,55 +52,64 @@
         </section>
 
     <!-- Projects Grid -->
-    <section id="projects" class="container mx-auto px-4 py-16 md:py-24 scroll-reveal-section">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-12 text-center">{{ __('works.projects.heading') }}</h2>
+<!-- In your projects grid section -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    @foreach ($projects as $project)
+    <div class="group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 scroll-reveal-card">
+        <!-- Image Container -->
+        <div class="relative h-64 w-full overflow-hidden">
+            <img src="{{ secure_asset('storage/' . cetak($project->image)) }}" alt="{{ cetak($project->title) }}"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+                onerror="this.src='https://via.placeholder.com/800x600?text=Image+Not+Available'; this.className='w-full h-full object-contain bg-gray-100 p-4'">
+        </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                @foreach ($projects as $project)
-                <div class="group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 scroll-reveal-card">
-                    <!-- Image Container -->
-                    <div class="relative h-64 w-full overflow-hidden">
-                        <img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                            loading="lazy"
-                            onerror="this.src='https://via.placeholder.com/800x600?text=Image+Not+Available'; this.className='w-full h-full object-contain bg-gray-100 p-4'">
-                    </div>
+        <!-- Content Container -->
+        <div class="p-6 bg-white">
+            <div class="flex items-center justify-between mb-4 gap-2">
+                <h3 class="text-xl font-bold text-gray-900 truncate flex-1">{{ cetak($project->name) }}</h3>
+                <span class="text-xs {{ cetak($project->badge_color) }} px-2 py-1 rounded-full font-medium whitespace-nowrap">
+                    {{ cetak($project->kategori->name) }}
+                </span>
+            </div>
 
-                    <!-- Content Container -->
-                    <div class="p-6 bg-white">
-                        <div class="flex items-center justify-between mb-4 gap-2">
-                            <h3 class="text-xl font-bold text-gray-900 truncate flex-1">{{ $project->name }}</h3>
-                            <span class="text-xs {{ $project->badge_color }} px-2 py-1 rounded-full font-medium whitespace-nowrap">
-                                {{ $project->kategori->name }}
-                            </span>
-                        </div>
+            <div class="mb-4">
+                <span class="text-xl font-bold text-gray-900">Rp {{ number_format(cetak($project->price, 0, ',', '.')) }}</span>
+            </div>
 
-                        <div class="mb-4">
-                            <span class="text-xl font-bold text-gray-900">Rp {{ number_format($project->price, 0, ',', '.') }}</span>
-                        </div>
+            <p class="text-gray-600 mb-6 line-clamp-3 leading-relaxed">
+                {{ cetak($project->description) }}
+            </p>
 
-                        <p class="text-gray-600 mb-6 line-clamp-3 leading-relaxed">
-                            {{ $project->description }}
-                        </p>
+            <!-- Button Container -->
+            <div class="flex space-x-3">
+                <!-- Buy Now Button -->
+                <button data-id="{{ cetak($project->id) }}"
+                    data-name="{{ cetak($project->name) }}"
+                    data-price="{{ cetak($project->price) }}"
+                    data-image="{{ cetak($project->image) }}"
+                    class="buy-now-btn flex-1 group inline-flex items-center justify-center text-blue-600 hover:text-blue-800 font-medium transition-colors">
+                    <span class="mr-2">{{ __('works.card.buy_now') }}</span>
+                    <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </button>
 
-                        <button data-id="{{ $project->id }}"
-                            data-name="{{ $project->name }}"
-                            data-price="{{ $project->price }}"
-                            class="buy-now-btn w-full mt-4 group inline-flex items-center justify-center text-blue-600 hover:text-blue-800 font-medium transition-colors">
-                            <span class="mr-2">{{ __('works.card.buy_now') }}</span>
-                            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                @endforeach
+                <!-- View Details Button -->
+                <a href="{{ route('project.detail', ['id' => cetak($project->id), 'slug' => Str::slug(cetak($project->name))]) }}" 
+                   class="flex-1 inline-flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
+                    {{ __('works.card.view_details') }}
+                    <svg class="ml-2 -mr-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
+                    </svg>
+                </a>
             </div>
         </div>
-    </section>
+    </div>
+    @endforeach
+</div>
 
     <!-- Payment Modal -->
     @include('partials.form-pembayaran')
@@ -110,177 +119,7 @@
     <x-cta-section></x-cta-section>
 
     <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Inisialisasi elemen modal dan form
-    const modal = document.getElementById('paymentModal');
-    const paymentForm = document.getElementById('paymentForm');
-    const closeModalBtn = document.getElementById('closeModalBtn');
-    const paymentFormContainer = document.getElementById('paymentFormContainer');
-    const duitkuCheckoutContainer = document.getElementById('duitkuCheckoutContainer');
-    const openDuitkuBtn = document.getElementById('openDuitkuBtn');
-    let duitkuReference = null;
 
-    // Fungsi untuk menutup modal
-    function closePaymentModal() {
-        modal.classList.add('hidden');
-        document.body.classList.remove('overflow-hidden');
-    }
-
-    // Fungsi untuk menampilkan modal
-    function showPaymentModal(id, name, price) {
-        document.getElementById('modal_produk_id').value = id;
-        document.getElementById('modal_amount').value = price;
-        document.getElementById('modal_project_name').textContent = name;
-        document.getElementById('modal_project_price').textContent = 'Rp ' + parseInt(price).toLocaleString('id-ID');
-
-        modal.classList.remove('hidden');
-        document.body.classList.add('overflow-hidden');
-        paymentFormContainer.classList.remove('hidden');
-        duitkuCheckoutContainer.classList.add('hidden');
-        paymentForm.reset();
-    }
-
-    // Event listener untuk tombol close
-    closeModalBtn.addEventListener('click', closePaymentModal);
-
-    // Event listener untuk klik di luar modal
-    modal.addEventListener('click', function(e) {
-        if (e.target === this) {
-            closePaymentModal();
-        }
-    });
-
-    // Event listener untuk tombol "Buy Now"
-    document.querySelectorAll('.buy-now-btn').forEach(button => {
-        button.addEventListener('click', function() {
-            const id = this.getAttribute('data-id');
-            const name = this.getAttribute('data-name');
-            const price = this.getAttribute('data-price');
-            showPaymentModal(id, name, price);
-        });
-    });
-
-    // Handler submit form
-    paymentForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-
-        const submitBtn = this.querySelector('[type="submit"]');
-        const originalBtnText = submitBtn.innerHTML;
-
-        try {
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = `
-                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                Processing...
-            `;
-
-            const response = await fetch(this.action, {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
-                },
-                body: new FormData(this)
-            });
-
-            if (!response.ok) {
-                throw new Error('Server responded with status ' + response.status);
-            }
-
-            const data = await response.json();
-
-            if (data.success && data.reference) {
-                duitkuReference = data.reference;
-                paymentFormContainer.classList.add('hidden');
-                duitkuCheckoutContainer.classList.remove('hidden');
-
-                openDuitkuBtn.onclick = function() {
-                    processDuitkuPayment(data.reference, data.merchantOrderId);
-                };
-            } else {
-                throw new Error(data.message || 'Payment creation failed');
-            }
-        } catch (error) {
-            console.error('Error:', error);
-            alert('Error: ' + error.message);
-        } finally {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalBtnText;
-        }
-    });
-
-    // Fungsi untuk memproses pembayaran Duitku
-    function processDuitkuPayment(reference, merchantOrderId) {
-        if (!window.checkout || !window.checkout.process) {
-            alert('Payment gateway not loaded. Please refresh the page.');
-            return;
-        }
-
-        checkout.process(reference, {
-            defaultLanguage: "id",
-            currency: "IDR",
-            successEvent: function(result) {
-                closePaymentModal(); // Tutup modal setelah pembayaran berhasil
-            },
-            pendingEvent: function(result) {
-            },
-            errorEvent: function(result) {
-                alert('Payment failed: ' + (result.message || 'Please try again'));
-            },
-            closeEvent: function(result) {
-            }
-        });
-    }
-
-    // Fungsi untuk menampilkan pesan sukses (bisa disesuaikan)
-    function showSuccessMessage(message) {
-        alert(message); // Bisa diganti dengan modal custom atau notifikasi
-    }
-
-// Fungsi cek status pembayaran
-async function checkPaymentStatus(merchantOrderId) {
-    try {
-        const response = await fetch(`/api/payment/status/${merchantOrderId}`);
-        if (!response.ok) throw new Error('Failed to check status');
-        return await response.json();
-    } catch (error) {
-        console.error('Error:', error);
-        throw error;
-    }
-}
-    // Additional helper function to check payment status
-    async function checkPaymentStatus(merchantOrderId) {
-        try {
-            const response = await fetch(`/payment/status/${merchantOrderId}`);
-            if (!response.ok) throw new Error('Failed to check status');
-            return await response.json();
-        } catch (error) {
-            console.error('Status check error:', error);
-            return { error: true, message: error.message };
-        }
-    }
-});
-
-// Fungsi tampilkan modal error
-function showErrorModal(message) {
-    const errorModal = document.getElementById('errorModal');
-    errorModal.querySelector('.modal-body').textContent = message;
-    new bootstrap.Modal(errorModal).show();
-}
-
-// Fungsi tampilkan modal success
-function showSuccessModal(message) {
-    const successModal = document.getElementById('successModal');
-    successModal.querySelector('.modal-body').textContent = message;
-    new bootstrap.Modal(successModal).show();
-}
-
-// Fungsi tampilkan modal info
-function showInfoModal(message) {
-    const infoModal = document.getElementById('infoModal');
-    infoModal.querySelector('.modal-body').textContent = message;
-    new bootstrap.Modal(infoModal).show();
-}
     </script>
 @endsection
 

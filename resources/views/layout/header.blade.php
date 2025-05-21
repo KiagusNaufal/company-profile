@@ -25,13 +25,11 @@
 
 <body class="bg-white">
     <!-- Navbar -->
-
-    <div
-        class="z-50 py-3 w-full flex items-center justify-center text-sm border-b border-gray-200 bg-white fixed top-0 left-0">
+    <div class="z-50 py-3 w-full flex items-center justify-center text-sm border-b border-gray-200 bg-white fixed top-0 left-0">
         <div class="w-[1440px] max-w-[90%] flex justify-between items-center">
             <!-- Logo -->
             <div class="flex items-center h-[50px] min-[800px]:h-[60px]">
-                <img src="{{ asset('image/company.svg') }}" alt="Logo"
+                <img src="{{ secure_asset('image/company.svg') }}" alt="Logo"
                     class="object-contain min-[800px]:w-[150px] w-[120px] h-auto">
             </div>
 
@@ -58,16 +56,23 @@
                     id="tellUsButton" data-toggle="contact-modal">
                     {{ __('message.Header.tellus') }}
                 </button>
-                <a href="locale/id"
-                    class="ml-4 group rounded-lg border border-[#343C3C] text-[#343C3C] px-4 py-2 text-sm transition hover:border-gray-900 hover:bg-gray-50"
-                    id="tellUsButton" data-toggle="contact-modal">
-                    indonesia
-            </a>
-                <a href="locale/en"
-                    class="ml-4 group rounded-lg border border-[#343C3C] text-[#343C3C] px-4 py-2 text-sm transition hover:border-gray-900 hover:bg-gray-50"
-                    id="tellUsButton" data-toggle="contact-modal">
-                    English
-                </a>
+                
+            <!-- Gunakan URL lengkap dengan helper url() -->
+<div class="flex border border-[#343C3C] rounded-lg overflow-hidden">
+    <a href="{{ url('/locale/id') }}"
+        class="px-3 py-1.5 text-sm transition-colors duration-200 flex items-center gap-1.5
+               {{ app()->getLocale() === 'id' ? 'bg-[#343C3C] text-white' : 'text-[#343C3C] hover:bg-gray-50' }}">
+        <span class="text-xs">🇮🇩</span>
+        <span>ID</span>
+    </a>
+    <div class="h-5 w-px bg-[#343C3C]"></div>
+    <a href="{{ url('/locale/en') }}"
+        class="px-3 py-1.5 text-sm transition-colors duration-200 flex items-center gap-1.5
+               {{ app()->getLocale() === 'en' ? 'bg-[#343C3C] text-white' : 'text-[#343C3C] hover:bg-gray-50' }}">
+        <span class="text-xs">🇬🇧</span>
+        <span>EN</span>
+    </a>
+</div>
             </div>
 
             <!-- Mobile Menu Button -->
@@ -84,20 +89,38 @@
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="min-[800px]:hidden">
-        <div class="container mx-auto">
-            <a href="{{ url('/') }}" id="nav-home-m" class="block py-3 text-sm text-[#343C3C]">Home</a>
-            <a href="{{ url('/service') }}" id="nav-service-m" class="block py-3 text-sm text-[#343C3C]">Service</a>
-            <a href="{{ url('/about') }}" id="nav-about-m" class="block py-3 text-sm text-[#343C3C]">About Us</a>
-            <a href="{{ url('/works') }}" id="nav-works-m" class="block py-3 text-sm text-[#343C3C]">Works</a>
+<div id="mobile-menu" class="min-[800px]:hidden bg-white fixed top-[60px] left-0 w-full shadow-md z-40">
+            <a href="{{ url('/') }}" id="nav-home-m" class="block py-3 text-sm text-[#343C3C] border-b border-gray-100">{{ __('message.Header.home') }}</a>
+            <a href="{{ url('/service') }}" id="nav-service-m" class="block py-3 text-sm text-[#343C3C] border-b border-gray-100">{{ __('message.Header.services') }}</a>
+            <a href="{{ url('/about') }}" id="nav-about-m" class="block py-3 text-sm text-[#343C3C] border-b border-gray-100">{{ __('message.Header.about') }}</a>
+            <a href="{{ url('/works') }}" id="nav-works-m" class="block py-3 text-sm text-[#343C3C] border-b border-gray-100">{{ __('message.Header.works') }}</a>
+            
+            <!-- Mobile Language Switcher -->
+            <div class="flex justify-center my-4 border-b border-gray-100 pb-3">
+                <div class="flex border border-[#343C3C] rounded-lg overflow-hidden">
+<a href="{{ route('locale.change', 'id') }}">
+                        class="px-3 py-1.5 text-sm transition-colors duration-200 flex items-center gap-1.5
+                               {{ app()->getLocale() === 'id' ? 'bg-[#343C3C] text-white' : 'text-[#343C3C] hover:bg-gray-50' }}">
+                        <span class="text-xs">🇮🇩</span>
+                        <span>ID</span>
+                    </a>
+                    <div class="h-5 w-px bg-[#343C3C]"></div>
+  <a href="{{ route('locale.change', 'en') }}">
+                        class="px-3 py-1.5 text-sm transition-colors duration-200 flex items-center gap-1.5
+                               {{ app()->getLocale() === 'en' ? 'bg-[#343C3C] text-white' : 'text-[#343C3C] hover:bg-gray-50' }}">
+                        <span class="text-xs">🇬🇧</span>
+                        <span>EN</span>
+                    </a>
+                </div>
+            </div>
+            
             <button type="button"
-                class="block w-full py-3 text-sm text-[#343C3C] mt-2 mb-2 text-center rounded hover:bg-gray-50 bg-gray-100"
-                id="tellUsButton" data-toggle="contact-modal">
-                Tell Us
+                class="w-full py-3 text-sm text-white mt-2 mb-2 text-center rounded bg-[#343C3C] hover:bg-opacity-90"
+                id="tellUsButton-mobile" data-toggle="contact-modal">
+                {{ __('message.Header.tellus') }}
             </button>
         </div>
     </div>
-
 
     <!-- Page Content -->
     <div class="mt-20"> <!-- Tambahkan margin top untuk konten utama -->
@@ -108,31 +131,37 @@
     @include('partials.contact-modal')
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const toggleBtn = document.getElementById('menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
 
-            // Initialize menu as closed
-            mobileMenu.classList.remove('open');
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtn = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const body = document.body;
 
-            // Single event listener for toggle
-            toggleBtn.addEventListener('click', function(e) {
-                e.stopPropagation(); // Prevent triggering document click
-                mobileMenu.classList.toggle('open');
-            });
+    // Function to toggle mobile menu
+    function toggleMobileMenu() {
+        mobileMenu.classList.toggle('open');
+        body.classList.toggle('menu-open');
+    }
 
-            // Close menu when clicking outside
-            document.addEventListener('click', function() {
-                mobileMenu.classList.remove('open');
-            });
-
-            // Prevent menu clicks from closing the menu
-            mobileMenu.addEventListener('click', function(e) {
-                e.stopPropagation();
-            });
-
+    // Toggle menu on button click
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleMobileMenu();
         });
-        // Highlight active menu
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (mobileMenu.classList.contains('open') && 
+            !mobileMenu.contains(e.target) && 
+            e.target !== toggleBtn) {
+            toggleMobileMenu();
+        }
+    });
+
+    // Highlight active menu items
+    function highlightActiveMenu() {
         let currentPath = window.location.pathname;
         if (currentPath !== '/' && currentPath.endsWith('/')) {
             currentPath = currentPath.slice(0, -1);
@@ -159,13 +188,27 @@
                 }
             });
         }
-    </script>
+    }
 
+    // Initialize
+    highlightActiveMenu();
+
+    // Close menu when clicking on links
+    const mobileLinks = document.querySelectorAll('#mobile-menu a');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (mobileMenu.classList.contains('open')) {
+                toggleMobileMenu();
+            }
+        });
+    });
+});
+
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
     @stack('scripts')
 </body>
-
 </html>

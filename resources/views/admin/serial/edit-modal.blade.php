@@ -17,24 +17,34 @@
                         <div>
                             <label for="edit_name" class="block text-sm font-medium text-gray-700">Nama Produk</label>
                             <input type="text" name="name" id="edit_name" required
+                                minlength="3" maxlength="50"
+                              required pattern="^[a-zA-Z0-9\s\.\-_,]+$" title="Hanya huruf, angka, spasi, titik, koma, strip, dan underscore yang diperbolehkan" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary"
                                 class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
                         </div>
                         <div>
                             <label for="edit_serialNumber" class="block text-sm font-medium text-gray-700">Serial Number</label>
                             <input type="text" name="serialNumber" id="edit_serialNumber" required
-                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
-                        </div>
-                         <div>
-                            <label for="edit_password" class="block text-sm font-medium text-gray-700">Password</label>
-                            <input type="text" name="password" id="edit_password" required
+                                minlength="5" maxlength="30"
+                                required pattern="^[A-Za-z0-9\-]+$"
+                                title="Serial hanya boleh huruf, angka, dan strip"
                                 class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
                         </div>
                         <div>
-                            <label for="edit_email" class="block text-sm font-medium text-gray-700">Deskripsi</label>
-                            <input type="email" name="email" id="edit_email" required 
+                            <label for="edit_password" class="block text-sm font-medium text-gray-700">Password</label>
+                            <input type="password" name="password" id="edit_password" required
+                                minlength="6" maxlength="32"
+                                required pattern="^[A-Za-z0-9\@\#\$\!\%\^\&\*\(\)\_\+\-]+$"
+                                title="Password minimal 6 karakter, hanya huruf, angka, dan simbol umum"
                                 class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
                         </div>
- <div>
+                        <div>
+                            <label for="edit_email" class="block text-sm font-medium text-gray-700">Email</label>
+                            <input type="email" name="email" id="edit_email" required 
+                                maxlength="100"
+                                required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Masukkan email yang valid"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
+                        </div>
+                        <div>
                             <label for="edit_status" class="block text-sm font-medium text-gray-700">Status</label>
                             <select name="is_active" id="edit_status" required 
                                 class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
@@ -42,10 +52,10 @@
                                 <option value="false">Tidak Aktif</option>
                             </select>
                         </div>
-
                         <div>
                             <label for="edit_image" class="block text-sm font-medium text-gray-700">Gambar</label>
                             <input type="file" name="image" id="edit_image"
+                                accept="image/png, image/jpeg, image/jpg"
                                 class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-primary-dark">
                             <div class="mt-2 hidden" id="currentImageContainer">
                                 <img id="currentProductImage" src="" class="h-20 rounded-md">
@@ -67,6 +77,18 @@
         </div>
     </form>
 </div>
+   <script>
+        // Validasi tambahan di sisi client (opsional)
+        document.getElementById('editProductForm').addEventListener('submit', function(e) {
+            const serial = document.getElementById('edit_serialNumber').value;
+            // Only allow letters, numbers, and dash
+            const serialPattern = /^[A-Za-z0-9\-]+$/;
+            if (!serialPattern.test(serial)) {
+                alert('Serial hanya boleh berisi huruf, angka, dan strip.');
+                e.preventDefault();
+            }
+            // Validasi lain bisa ditambahkan di sini jika perlu
+        });
+    </script>
 </div>
 </div>
-

@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateProdukRequest;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ProdukController extends Controller
 {
@@ -40,9 +41,48 @@ class ProdukController extends Controller
             'name' => 'required|string|max:255',
             'kategori_id' => 'required|exists:kategori,id',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'imagebg_produk' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'description' => 'required|string',
+            'link_aplikasi' => 'required|string',
+            'link_tutorial' => 'required|string',
             'price' => 'required|numeric|min:0',
             'badge_color' => 'nullable|string|max:50',
+        'pain_description' => [
+            'nullable',
+            'string',
+            'max:1000',
+            'regex:/^[a-zA-Z0-9\s\-\_\.\,\(\)\&\:\;\'\"\!\?\/]+$/'
+        ],
+        'gain_description' => [
+            'nullable',
+            'string',
+            'max:1000',
+            'regex:/^[a-zA-Z0-9\s\-\_\.\,\(\)\&\:\;\'\"\!\?\/]+$/'
+        ],
+        'solution_description' => [
+            'nullable',
+            'string',
+            'max:1000',
+            'regex:/^[a-zA-Z0-9\s\-\_\.\,\(\)\&\:\;\'\"\!\?\/]+$/'
+        ],
+        'pain_points' => 'sometimes|array',
+        'pain_points.*' => [
+            'string',
+            'max:255',
+            'regex:/^[a-zA-Z0-9\s\-\_\.\,\(\)\&]+$/'
+        ],
+        'gain_points' => 'sometimes|array',
+        'gain_points.*' => [
+            'string',
+            'max:255',
+            'regex:/^[a-zA-Z0-9\s\-\_\.\,\(\)\&]+$/'
+        ],
+        'solution_points' => 'sometimes|array',
+        'solution_points.*' => [
+            'string',
+            'max:255',
+            'regex:/^[a-zA-Z0-9\s\-\_\.\,\(\)\&]+$/'
+        ],
         ]);
 
         // Handle file upload
@@ -51,6 +91,14 @@ class ProdukController extends Controller
             $validatedData['image'] = '/storage/' . $imagePath;
             $validatedData['image'] = $imagePath;
         }
+                if ($request->hasFile('imagebg_produk')) {
+            $imagePath = $request->file('imagebg_produk')->store('bg_images', 'public');
+            $validatedData['imagebg_produk'] = '/storage/' . $imagePath;
+            $validatedData['imagebg_produk'] = $imagePath;
+        }
+            $validatedData['pain_points'] = array_filter($request->input('pain_points', []));
+    $validatedData['gain_points'] = array_filter($request->input('gain_points', []));
+    $validatedData['solution_points'] = array_filter($request->input('solution_points', []));
 
         Produk::create($validatedData);
         return redirect()->route('produk')->with('success', 'Produk berhasil ditambahkan.');
@@ -59,10 +107,16 @@ class ProdukController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Produk $produk)
-    {
-        //
-    }
+public function show($id, $slug)
+{
+    $project = Produk::with('kategori')->findOrFail($id);
+    $relatedProjects = Produk::where('kategori_id', $project->kategori_id)
+                            ->where('id', '!=', $project->id)
+                            ->limit(3)
+                            ->get();
+    
+    return view('page.show', compact('project', 'relatedProjects'));
+}
 
     /**
      * Show the form for editing the specified resource.
@@ -80,13 +134,65 @@ public function update(Request $request, $id)
     $product = Produk::findOrFail($id);
 
     $validatedData = $request->validate([
-        'name' => 'required|string|max:255',
+        'name' => [
+            'required',
+            'string',
+            'max:255',
+            'regex:/^[a-zA-Z0-9\s\-\_\.\,\(\)\&]+$/'
+        ],
         'kategori_id' => 'required|exists:kategori,id',
         'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif|max:2048',
-        'description' => 'required|string',
-        'price' => 'required|numeric|min:0',
-        'badge_color' => 'nullable|string|max:50',
+        'description' => [
+            'required',
+            'string',
+            'max:1000',
+            'regex:/^[a-zA-Z0-9\s\-\_\.\,\(\)\&\:\;\'\"\!\?\/]+$/'
+        ],
+        'price' => 'required|numeric|min:0|max:100000000',
+        'badge_color' => [
+            'nullable',
+            'string',
+            'max:50',
+            'regex:/^[a-zA-Z0-9\-\_]+$/'
+        ],
+        'pain_description' => [
+            'nullable',
+            'string',
+            'max:1000',
+            'regex:/^[a-zA-Z0-9\s\-\_\.\,\(\)\&\:\;\'\"\!\?\/]+$/'
+        ],
+        'gain_description' => [
+            'nullable',
+            'string',
+            'max:1000',
+            'regex:/^[a-zA-Z0-9\s\-\_\.\,\(\)\&\:\;\'\"\!\?\/]+$/'
+        ],
+        'solution_description' => [
+            'nullable',
+            'string',
+            'max:1000',
+            'regex:/^[a-zA-Z0-9\s\-\_\.\,\(\)\&\:\;\'\"\!\?\/]+$/'
+        ],
+        'pain_points' => 'sometimes|array',
+        'pain_points.*' => [
+            'string',
+            'max:255',
+            'regex:/^[a-zA-Z0-9\s\-\_\.\,\(\)\&]+$/'
+        ],
+        'gain_points' => 'sometimes|array',
+        'gain_points.*' => [
+            'string',
+            'max:255',
+            'regex:/^[a-zA-Z0-9\s\-\_\.\,\(\)\&]+$/'
+        ],
+        'solution_points' => 'sometimes|array',
+        'solution_points.*' => [
+            'string',
+            'max:255',
+            'regex:/^[a-zA-Z0-9\s\-\_\.\,\(\)\&]+$/'
+        ],
     ]);
+
 
     // Handle file upload if new image is provided
     if ($request->hasFile('image')) {
@@ -98,6 +204,11 @@ public function update(Request $request, $id)
         $imagePath = $request->file('image')->store('produk_images', 'public');
         $validatedData['image'] = $imagePath;
     }
+
+    $validatedData['pain_points'] = array_filter($request->input('pain_points', []));
+    $validatedData['gain_points'] = array_filter($request->input('gain_points', []));
+    $validatedData['solution_points'] = array_filter($request->input('solution_points', []));
+
 
     $product->update($validatedData);
 

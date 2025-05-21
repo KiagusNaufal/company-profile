@@ -20,6 +20,11 @@ return Application::configure(basePath: dirname(__DIR__))
             'stripe/webhook',
         ]);
 
+        // Middleware untuk memeriksa slug
+        $middleware->web(append: [
+            App\Http\Middleware\CheckSlugConflict::class,
+        ]);
+
         // Middleware untuk mengatur locale
         $middleware->web(append:[
             App\Http\Middleware\SetLocale::class,

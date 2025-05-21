@@ -12,7 +12,7 @@
             <!-- Service Item 1 -->
             <div class="flex flex-col lg:flex-row items-center gap-12 scroll-reveal-row">
                 <div class="lg:w-1/2 w-full transform transition duration-500 hover:scale-[1.02]">
-                    <img src="{{ asset('image/Developer activity-bro (1).svg') }}" alt="Software Development"
+                    <img src="{{ secure_asset('image/Developer activity-bro (1).svg') }}" alt="Software Development"
                         class="w-full h-auto rounded-xl object-cover max-h-[460px]">
                 </div>
                 <div class="lg:w-1/2 w-full space-y-6">
@@ -21,7 +21,7 @@
                         {{ __('message.home.services.items.description1') }}
                     </p>
                     <div class="pt-2">
-                        <a href="#" class="inline-flex items-center group text-[#04b2f7] font-semibold text-lg">
+                        <a href="{{ route('services') }}" class="inline-flex items-center group text-[#04b2f7] font-semibold text-lg">
                             {{ __('message.home.services.title') }}
                             <span class="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
                         </a>
@@ -32,7 +32,7 @@
             <!-- Service Item 2 (reverse on large screens) -->
             <div class="flex flex-col lg:flex-row-reverse items-center gap-12 scroll-reveal-row">
                 <div class="lg:w-1/2 w-full transform transition duration-500 hover:scale-[1.02]">
-                    <img src="{{ asset('image/Data extraction-rafiki (1).svg') }}" alt="Data Analytics"
+                    <img src="{{ secure_asset('image/Data extraction-rafiki (1).svg') }}" alt="Data Analytics"
                         class="w-full h-auto rounded-xl object-cover max-h-[460px]">
                 </div>
                 <div class="lg:w-1/2 w-full space-y-6 lg:pr-8">
@@ -41,7 +41,7 @@
                         {{ __('message.home.services.items.description2') }}
                     </p>
                     <div class="pt-2">
-                        <a href="#" class="inline-flex items-center group text-[#04b2f7] font-semibold text-lg">
+                        <a href="{{ route('services') }}" class="inline-flex items-center group text-[#04b2f7] font-semibold text-lg">
                             {{ __('message.home.services.title') }}
                             <span class="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
                         </a>
@@ -52,7 +52,7 @@
             <!-- Service Item 3 -->
             <div class="flex flex-col lg:flex-row items-center gap-12 scroll-reveal-row">
                 <div class="lg:w-1/2 w-full transform transition duration-500 hover:scale-[1.02]">
-                    <img src="{{ asset('image/Maintenance-bro (1).svg') }}" alt="IT Maintenance"
+                    <img src="{{ secure_asset('image/Maintenance-bro (1).svg') }}" alt="IT Maintenance"
                         class="w-full h-auto rounded-xl object-cover max-h-[460px]">
                 </div>
                 <div class="lg:w-1/2 w-full space-y-6">
@@ -61,7 +61,7 @@
                         {{ __('message.home.services.items.description3') }}
                     </p>
                     <div class="pt-2">
-                        <a href="#" class="inline-flex items-center group text-[#04b2f7] font-semibold text-lg">
+                        <a href="{{ route('services') }}" class="inline-flex items-center group text-[#04b2f7] font-semibold text-lg">
                             {{ __('message.home.services.title') }}
                             <span class="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
                         </a>

@@ -59,19 +59,19 @@
                 @foreach($products as $product)
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <img src="{{ asset('storage/' . $product->image) ?? 'https://via.placeholder.com/50' }}" alt="{{ $product->name }}" class="h-10 w-10 rounded-md object-cover">
+                        <img src="{{ secure_asset('storage/' . cetak($product->image)) ?? 'https://via.placeholder.com/50' }}" alt="{{ cetak($product->name) }}" class="h-10 w-10 rounded-md object-cover">
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="font-medium">{{ $product->name }}</div>
-                        <div class="text-gray-500 text-sm">{{ $product->description }}</div>
+                        <div class="font-medium">{{ cetak($product->name) }}</div>
+                        <div class="text-gray-500 text-sm">{{ cetak($product->description) }}</div>
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap">Rp {{ number_format($product->price, 0, ',', '.') }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">Rp {{ number_format(cetak($product->price, 0, ',', '.')) }}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-right">
                         <div class="flex justify-end space-x-2">
                             <button class="edit-product-btn text-yellow-500 hover:text-yellow-600" data-product='@json($product)'>
                                 <i class="fas fa-edit"></i>
                             </button>
-                            <button class="delete-product-btn text-red-500 hover:text-red-600" data-id="{{ $product->id }}" data-name="{{ $product->name }}">
+                            <button class="delete-product-btn text-red-500 hover:text-red-600" data-id="{{ cetak($product->id) }}" data-name="{{ cetak($product->name) }}">
                                 <i class="fas fa-trash"></i>
                             </button>
                         </div>
@@ -83,7 +83,7 @@
     </div>
 
     <div class="mt-4">
-        {{ $products->links() }}
+        {{ cetak($products->links()) }}
     </div>
 </div>
 
@@ -105,32 +105,133 @@ $(document).ready(function() {
     });
 
     
-    // Edit Product Modal
-$('.edit-product-btn').click(function() {
+$(document).on('click', '.edit-product-btn', function() {
     const product = JSON.parse($(this).attr('data-product'));
-    const editUrl = '/produk/' + product.id;
-    
-    // Populate all form fields
+    console.log(product);
+    // Populate basic fields
     $('#edit_name').val(product.name);
     $('#edit_price').val(product.price);
     $('#edit_description').val(product.description);
     $('#edit_category').val(product.kategori_id);
     $('#edit_badge_color').val(product.badge_color);
     
-    // Update badge preview
-    updateBadgePreview();
+    // Populate descriptions
+    $('#edit_pain_description').val(product.pain_description || '');
+    $('#edit_gain_description').val(product.gain_description || '');
+    $('#edit_solution_description').val(product.solution_description || '');
     
-    // Handle image
+    // Clear existing points
+    $('#edit_pain_points_container').empty();
+    $('#edit_gain_points_container').empty();
+    $('#edit_solution_points_container').empty();
+    
+    // Populate pain points
+    if (product.pain_points && product.pain_points.length > 0) {
+        product.pain_points.forEach(point => {
+            $('#edit_pain_points_container').append(`
+                <div class="flex items-center">
+                    <input type="text" name="pain_points[]" value="${point}" 
+                            required pattern="^[a-zA-Z0-9\s\.\-_,]+$" title="Hanya huruf, angka, spasi, titik, koma, strip, dan underscore yang diperbolehkan"
+                           class="flex-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
+                    <button type="button" class="ml-2 text-red-500 remove-point-btn">
+                        ✕
+                    </button>
+                </div>
+            `);
+        });
+    }
+    
+    // Populate gain points
+    if (product.gain_points && product.gain_points.length > 0) {
+        product.gain_points.forEach(point => {
+            $('#edit_gain_points_container').append(`
+                <div class="flex items-center">
+                    <input type="text" name="gain_points[]" value="${point}" 
+                            required pattern="^[a-zA-Z0-9\s\.\-_,]+$" title="Hanya huruf, angka, spasi, titik, koma, strip, dan underscore yang diperbolehkan"
+                           class="flex-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
+                    <button type="button" class="ml-2 text-red-500 remove-point-btn">
+                        ✕
+                    </button>
+                </div>
+            `);
+        });
+    }
+    
+    // Populate solution points
+    if (product.solution_points && product.solution_points.length > 0) {
+        product.solution_points.forEach(point => {
+            $('#edit_solution_points_container').append(`
+                <div class="flex items-center">
+                    <input type="text" name="solution_points[]" value="${point}" 
+                            required pattern="^[a-zA-Z0-9\s\.\-_,]+$" title="Hanya huruf, angka, spasi, titik, koma, strip, dan underscore yang diperbolehkan"
+                           class="flex-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
+                    <button type="button" class="ml-2 text-red-500 remove-point-btn">
+                        ✕
+                    </button>
+                </div>
+            `);
+        });
+    }
+    
+    // Update image preview
     if (product.image) {
-        $('#currentProductImage').attr('src', '{{ asset('storage/') }}' + '/' + product.image);
+        $('#currentProductImage').attr('src', '/storage/' + product.image);
         $('#currentImageContainer').removeClass('hidden');
     } else {
         $('#currentImageContainer').addClass('hidden');
     }
     
-    $('#editProductForm').attr('action', editUrl);
+    // Set form action
+    $('#editProductForm').attr('action', '/produk/' + product.id);
+    
+    // Show modal
     $('#editProductModal').removeClass('hidden');
 });
+
+// Function to add new pain point
+function addEditPainPoint() {
+    $('#edit_pain_points_container').append(`
+        <div class="flex items-center">
+            <input type="text" name="pain_points[]" 
+                   class="flex-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
+            <button type="button" class="ml-2 text-red-500 remove-point-btn">
+                ✕
+            </button>
+        </div>
+    `);
+}
+
+// Function to add new gain point
+function addEditGainPoint() {
+    $('#edit_gain_points_container').append(`
+        <div class="flex items-center">
+            <input type="text" name="gain_points[]" 
+                   class="flex-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
+            <button type="button" class="ml-2 text-red-500 remove-point-btn">
+                ✕
+            </button>
+        </div>
+    `);
+}
+
+// Function to add new solution point
+function addEditSolutionPoint() {
+    $('#edit_solution_points_container').append(`
+        <div class="flex items-center">
+            <input type="text" name="solution_points[]" 
+                   class="flex-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
+            <button type="button" class="ml-2 text-red-500 remove-point-btn">
+                ✕
+            </button>
+        </div>
+    `);
+}
+
+// Remove point handler
+$(document).on('click', '.remove-point-btn', function() {
+    $(this).parent().remove();
+});
+
     
     $('#cancelEditBtn, #editModalBackdrop').click(function() {
         $('#editProductModal').addClass('hidden');

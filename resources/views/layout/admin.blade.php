@@ -6,6 +6,9 @@
     <title>@yield('title') - Aplikasi Saya</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="{{ secure_asset('image/logo.svg') }}" type="image/svg+xml">
+
+    
 <script src="//unpkg.com/alpinejs" defer></script>
 
     <script>
@@ -64,7 +67,7 @@
         <div class="hidden md:flex md:flex-shrink-0">
             <div class="flex flex-col w-64 bg-white border-r border-gray-200">
                 <div class="flex items-center justify-center h-20 px-6 bg-white border-b border-gray-200">
-                    <img src="{{ asset('image/company.svg') }}" alt="Logo" class="h-10">
+                    <img src="{{ secure_asset('image/company.svg') }}" alt="Logo" class="h-10">
                     <span class="ml-3 text-xl font-bold text-primary">Aplikasi</span>
                 </div>
                 <div class="flex flex-col flex-grow px-4 py-6 overflow-y-auto">
@@ -140,7 +143,7 @@
             <div x-show="mobileMenuOpen" class="fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-xl transform transition-transform duration-300 ease-in-out">
                 <div class="flex items-center justify-between h-20 px-6 bg-white border-b border-gray-200">
                     <div class="flex items-center">
-                        <img src="{{ asset('image/company.svg') }}" alt="Logo" class="h-8">
+                        <img src="{{ secure_asset('image/company.svg') }}" alt="Logo" class="h-8">
                         <span class="ml-3 text-lg font-bold text-primary">Aplikasi</span>
                     </div>
                     <button @click="mobileMenuOpen = false" class="p-1 rounded-md hover:bg-gray-100">

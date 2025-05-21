@@ -17,30 +17,30 @@
             </svg>
         </div>
 
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-reveal-item">
             <div class="text-center">
-                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
-                    <span class="block">{{ __('about.about.heading') }}</span>
-                    <span class="block text-[#04b2f7] mt-2 sm:mt-4">Aeratek Global Solution</span>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900scroll-reveal-item">
+                    <span class="block scroll-reveal-item">{{ __('about.about.heading') }}</span>
+                    <span class="block text-[#04b2f7] mt-2 sm:mt-4 scroll-reveal-item">Aeratek Global Solution</span>
                 </h1>
 
                 <!-- Underline decoration -->
                 <div class="mt-4 sm:mt-6 mb-6 sm:mb-8 w-16 sm:w-24 h-1 bg-[#04b2f7] mx-auto"></div>
 
-                <div class="max-w-3xl mx-auto">
+                <div class="max-w-3xl mx-auto scroll-reveal-item">
                     <p class="text-lg sm:text-xl text-gray-600 leading-relaxed">
                         {{ __('about.about.description') }}
                     </p>
                 </div>
 
                 <!-- CTA Buttons -->
-                <div class="mt-8 sm:mt-12 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
-                    <a href="#"
-                        class="px-6 sm:px-8 py-2 sm:py-3 bg-[#04b2f7] hover:bg-[#0399d9] text-white text-sm sm:text-base font-medium rounded-lg shadow-md transition-colors">
+                <div class="mt-8 sm:mt-12 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 scroll-reveal-item">
+                    <a href="#our-story" 
+                        class="px-6 sm:px-8 py-2 sm:py-3 bg-[#04b2f7] hover:bg-[#0399d9] text-white text-sm sm:text-base font-medium rounded-lg shadow-md transition-colors scroll-reveal-item">
                         {{ __('about.about.button_more') }}
                     </a>
                     <a href="#member-section"
-                        class="scroll-smooth px-6 sm:px-8 py-2 sm:py-3 bg-white hover:bg-gray-100 text-gray-800 text-sm sm:text-base font-medium rounded-lg border border-gray-300 shadow-sm transition-colors">
+                        class="scroll-smooth px-6 sm:px-8 py-2 sm:py-3 bg-white hover:bg-gray-100 text-gray-800 text-sm sm:text-base font-medium rounded-lg border border-gray-300 shadow-sm transition-colors scroll-reveal-item">
                         {{ __('about.about.button_team') }}
                     </a>
                 </div>
@@ -50,10 +50,10 @@
 
     <!-- Core Values Section -->
     <section class="relative py-12 sm:py-16 md:py-20 bg-white scroll-reveal-section">
-        <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 scroll-reveal-item">
             <!-- Header -->
-            <div class="text-center mb-12 sm:mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold text-black">
+            <div class="text-center mb-12 sm:mb-16 scroll-reveal-item">
+                <h2 class="text-3xl sm:text-4xl font-bold text-black scroll-reveal-item">
                     Aeratek <span class="text-[#04b2f7]">Core</span> Values
                 </h2>
                 <p class="mt-2 sm:mt-4 text-base sm:text-lg text-gray-700 max-w-2xl mx-auto">
@@ -62,37 +62,37 @@
             </div>
 
             <!-- Icon Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-12">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-12 scroll-reveal-row">
                 <!-- Item 1 -->
                 <div
-                    class="flex flex-col items-center text-center p-4 sm:p-6 rounded-xl bg-white hover:shadow-lg transition-all">
+                    class="flex flex-col items-center text-center p-4 sm:p-6 rounded-xl bg-white hover:shadow-lg transition-all scroll-reveal-item">
                     <div
-                        class="w-16 h-16 sm:w-20 sm:h-20 bg-[#003366] rounded-2xl flex items-center justify-center mb-4 sm:mb-6">
+                        class="w-16 h-16 sm:w-20 sm:h-20 bg-[#003366] rounded-2xl flex items-center justify-center mb-4 sm:mb-6 scroll-reveal-item">
                         <svg class="w-8 h-8 sm:w-10 sm:h-10 text-white" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
                     </div>
-                    <h3 class="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-3">{{ __('about.core_values.values.engineering.title') }}</h3>
-                    <p class="text-sm sm:text-base text-gray-700">
+                    <h3 class="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-3 scroll-reveal_item">{{ __('about.core_values.values.engineering.title') }}</h3>
+                    <p class="text-sm sm:text-base text-gray-700 scroll-reveal-item">
                         {{ __('about.core_values.values.engineering.description') }}
                     </p>
                 </div>
 
                 <!-- Item 2 -->
                 <div
-                    class="flex flex-col items-center text-center p-4 sm:p-6 rounded-xl bg-white hover:shadow-lg transition-all">
+                    class="flex flex-col items-center text-center p-4 sm:p-6 rounded-xl bg-white hover:shadow-lg transition-all scroll-reveal-item">
                     <div
-                        class="w-16 h-16 sm:w-20 sm:h-20 bg-[#04b2f7] rounded-2xl flex items-center justify-center mb-4 sm:mb-6">
+                        class="w-16 h-16 sm:w-20 sm:h-20 bg-[#04b2f7] rounded-2xl flex items-center justify-center mb-4 sm:mb-6 scroll-reveal-item">
                         <svg class="w-8 h-8 sm:w-10 sm:h-10 text-white" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                     </div>
-                    <h3 class="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-3">{{ __('about.core_values.values.responsive.title') }}</h3>
-                    <p class="text-sm sm:text-base text-gray-700">
+                    <h3 class="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-3 scroll-reveal-item">{{ __('about.core_values.values.responsive.title') }}</h3>
+                    <p class="text-sm sm:text-base text-gray-700 scroll-reveal-item">
                         {{ __('about.core_values.values.responsive.description') }}
                     </p>
                 </div>
@@ -243,7 +243,7 @@
     </section>
 
     <!-- Timeline Section -->
-    <section class="py-12 sm:py-16 md:py-20 bg-white scroll-reveal-section">
+    <section id="our-story" class="py-12 sm:py-16 md:py-20 bg-white scroll-reveal-section">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Section Header -->
             <div class="text-center mb-12 sm:mb-16">

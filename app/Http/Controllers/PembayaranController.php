@@ -5,18 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\Pembayaran;
 use App\Http\Requests\StorePembayaranRequest;
 use App\Http\Requests\UpdatePembayaranRequest;
+use App\Mail\SerialNumberCreated;
 use App\Models\PembayaranDuitku;
+use App\Models\SerialNumber;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Log; 
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
-
 
 class PembayaranController extends Controller
 {
-
     private $merchantCode;
     private $apiKey;
     private $callbackUrl;
@@ -32,134 +33,89 @@ class PembayaranController extends Controller
         $this->sandboxMode = config('duitku.sandbox_mode');
     }
 
-   public function callbackHandler(Request $request)
-{
-    Log::info('Duitku Callback Received:', $request->all());
+    /**
+     * Handle Duitku callback
+     */
+    public function callbackHandler(Request $request)
+    {
+        Log::info('Duitku Callback Received:', $request->all());
 
-    try {
-        $callbackData = $request->all();
+        try {
+            $callbackData = $request->all();
+            $merchantOrderId = $callbackData['merchantOrderId'];
 
-        // 1. Verifikasi signature
-        $merchantCode = $callbackData['merchantCode'];
-        $amount = $callbackData['amount'];
-        $merchantOrderId = $callbackData['merchantOrderId'];
-        $signature = $callbackData['signature'];
+            // Verifikasi signature
+            $merchantCode = $callbackData['merchantCode'];
+            $amount = $callbackData['amount'];
+            $signature = $callbackData['signature'];
 
-        // Format string sesuai dokumentasi Duitku
-        $stringToHash = $merchantCode . $amount . $merchantOrderId . $this->apiKey;
-        
-        // Gunakan MD5 sesuai spesifikasi Duitku
-        $expectedSignature = md5($stringToHash);
-        
-        Log::debug('Verification Details:', [
-            'input_string' => $merchantCode . '|' . $amount . '|' . $merchantOrderId . '|' . '[API_KEY_HIDDEN]',
-            'expected' => $expectedSignature,
-            'received' => $signature
-        ]);
+            $stringToHash = $merchantCode . $amount . $merchantOrderId . $this->apiKey;
+            $expectedSignature = md5($stringToHash);
 
-        if ($signature !== $expectedSignature) {
-            Log::error('Signature verification failed', [
-                'expected' => $expectedSignature,
-                'received' => $signature,
-                'data' => $callbackData
+            if ($signature !== $expectedSignature) {
+                throw new \Exception('Invalid callback signature');
+            }
+
+            // Cari transaksi dengan lock untuk prevent race condition
+            $pembayaran = Pembayaran::with(['produk', 'duitkuPayment'])
+                ->where('merchant_order_id', $merchantOrderId)
+                ->lockForUpdate()
+                ->first();
+
+            if (!$pembayaran) {
+                Log::error('Transaction not found', ['merchantOrderId' => $merchantOrderId]);
+                throw new \Exception("Merchant order ID {$merchantOrderId} not found");
+            }
+
+            $status = $this->mapDuitkuStatus($callbackData['resultCode']);
+
+            DB::transaction(function () use ($pembayaran, $callbackData, $status) {
+                // Update status pembayaran
+                $pembayaran->update(['status' => $status]);
+
+                $pembayaran->duitkuPayment->update([
+                    'callback_response' => json_encode($callbackData),
+                    'status' => $this->getStatusText($status),
+                    'payment_method' => $callbackData['paymentMethod'] ?? null
+                ]);
+
+                // Jika pembayaran sukses, generate serial number
+                if ($status == 1) {
+                    $this->generateAndSendSerialNumber($pembayaran);
+                }
+            });
+
+            return response()->json(['success' => true]);
+
+        } catch (\Exception $e) {
+            Log::error('Callback Error: ' . $e->getMessage(), [
+                'exception' => $e,
+                'request' => $request->all()
             ]);
-            throw new \Exception('Invalid callback signature');
+            return response()->json(['success' => false, 'message' => $e->getMessage()], 400);
         }
-
-        // 2. Cari transaksi
-        $pembayaran = Pembayaran::where('merchant_order_id', $merchantOrderId)->firstOrFail();
-        $duitkuPayment = PembayaranDuitku::where('merchant_order_id', $merchantOrderId)->firstOrFail();
-
-        // 3. Update status pembayaran
-        $status = $this->mapDuitkuStatus($callbackData['resultCode']);
-
-        DB::transaction(function () use ($pembayaran, $duitkuPayment, $callbackData, $status) {
-            $pembayaran->update(['status' => $status]);
-
-            $duitkuPayment->update([
-                'callback_response' => json_encode($callbackData),
-                'status' => $this->getStatusText($status),
-                'payment_method' => $callbackData['paymentMethod'] ?? null
-            ]);
-        });
-
-        return response()->json(['success' => true]);
-
-    } catch (\Exception $e) {
-        Log::error('Callback Error: ' . $e->getMessage());
-        return response()->json(['success' => false], 400);
-    }
-}
-
-    private function mapDuitkuStatus($resultCode)
-    {
-        return match ($resultCode) {
-            '00' => 1, // Success
-            '01' => 2, // Failed
-            default => 0 // Pending
-        };
     }
 
-    private function getStatusText($statusCode)
-    {
-        return match ($statusCode) {
-            1 => 'success',
-            2 => 'failed',
-            default => 'pending'
-        };
-    }
-
-    // Add to PembayaranController
-    public function paymentReturn(Request $request)
-    {
-        $merchantOrderId = $request->input('merchantOrderId');
-        $reference = $request->input('reference');
-
-        // Get payment details
-        $payment = Pembayaran::with('duitkuPayment')
-            ->where('merchant_order_id', $merchantOrderId)
-            ->firstOrFail();
-
-        return view('payment.return', compact('payment'));
-    }
-
-    public function checkStatus($merchantOrderId)
-    {
-        $payment = Pembayaran::with('duitkuPayment')
-            ->where('merchant_order_id', $merchantOrderId)
-            ->firstOrFail();
-
-        return response()->json([
-            'status' => $payment->status,
-            'paid' => $payment->status == 1,
-            'payment_method' => $payment->duitkuPayment->payment_method ?? null,
-            'reference' => $payment->duitkuPayment->reference ?? null
-        ]);
-    }
-
+    /**
+     * Create new payment
+     */
     public function createPayment(Request $request)
     {
         DB::beginTransaction();
 
         try {
-            $validated = $request->validate([
-                'produk_id' => 'required|exists:produk,id',
-                'amount' => 'required|numeric|min:1000',
-                'email' => 'required|email',
-                'customer_name' => 'required|string',
-                'phone_number' => 'required|string'
-            ]);
+            $validated = $this->validatePaymentRequest($request);
 
-            // 1. Generate Merchant Order ID
+            // Generate Merchant Order ID
             $merchantOrderId = Str::uuid()->toString();
 
-            // 2. Simpan ke pembayaran_duitku DULU
+            // 1. Simpan ke pembayaran_duitku terlebih dahulu
             $duitkuPayment = PembayaranDuitku::create([
                 'merchant_order_id' => $merchantOrderId,
                 'status' => 'pending'
             ]);
 
-            // 3. Baru simpan ke pembayaran
+            // 2. Simpan ke tabel pembayaran
             $pembayaran = Pembayaran::create([
                 'produk_id' => $validated['produk_id'],
                 'merchant_order_id' => $merchantOrderId,
@@ -167,24 +123,25 @@ class PembayaranController extends Controller
                 'customer_email' => $validated['email'],
                 'customer_name' => $validated['customer_name'],
                 'customer_phone' => $validated['phone_number'],
-                'status' => 0
+                'status' => 0 // pending
             ]);
 
-            // 4. Hubungkan ke Duitku
+            // Commit transaction sebelum call API Duitku
+            DB::commit();
+
+            // 3. Panggil API Duitku
             $duitkuResponse = $this->createDuitkuInvoice($pembayaran);
 
             if ($duitkuResponse['statusCode'] != '00') {
-                throw new \Exception($duitkuResponse['statusMessage'] ?? 'Gagal membuat invoice Duitku');
+                throw new \Exception($duitkuResponse['statusMessage'] ?? 'Failed to create Duitku invoice');
             }
 
-            // 5. Update data Duitku
+            // Update reference tanpa transaction
             $duitkuPayment->update([
                 'reference' => $duitkuResponse['reference'],
                 'payment_method' => $duitkuResponse['paymentMethod'] ?? null,
                 'transaction_response' => $duitkuResponse
             ]);
-
-            DB::commit();
 
             return response()->json([
                 'success' => true,
@@ -192,9 +149,9 @@ class PembayaranController extends Controller
                 'reference' => $duitkuResponse['reference'],
                 'merchant_order_id' => $merchantOrderId
             ]);
+
         } catch (\Exception $e) {
             DB::rollBack();
-
             Log::error('Payment Error: ' . $e->getMessage(), [
                 'request' => $request->all(),
                 'trace' => $e->getTraceAsString()
@@ -202,13 +159,74 @@ class PembayaranController extends Controller
 
             return response()->json([
                 'success' => false,
-                'message' => env('APP_DEBUG')
-                    ? $e->getMessage()
-                    : 'Terjadi kesalahan sistem. Silakan coba lagi.'
+                'message' => env('APP_DEBUG') ? $e->getMessage() : 'Payment processing failed'
             ], 500);
         }
     }
 
+    /**
+     * Generate and send serial number
+     */
+    private function generateAndSendSerialNumber(Pembayaran $pembayaran)
+    {
+        try {
+            // Generate unique serial number
+            do {
+                $serialNumber = 'SN' . strtoupper(bin2hex(random_bytes(5)));
+            } while (SerialNumber::where('serialNumber', $serialNumber)->exists());
+
+            // Generate random password
+            $plainPassword = substr(md5(uniqid()), 0, 8);
+            $hashedPassword = Hash::make($plainPassword);
+
+            // Create serial number record
+            $serial = SerialNumber::create([
+                'serialNumber' => $serialNumber,
+                'password' => $hashedPassword,
+                'name' => $pembayaran->customer_name,
+                'email' => $pembayaran->customer_email,
+                'phoneNumber' => $pembayaran->customer_phone,
+                'profileImage' => "/storage/profile_images/default.png",
+                'is_active' => 1,
+            ]);
+
+            // Send email
+            Mail::to($pembayaran->customer_email)
+                ->send(new SerialNumberCreated(
+                    $serialNumber,
+                    $plainPassword,
+                    $pembayaran->produk->name,
+                    $pembayaran->produk->image
+                ));
+
+            Log::info('Serial number generated and sent', [
+                'email' => $pembayaran->customer_email,
+                'serial_number' => $serialNumber
+            ]);
+
+        } catch (\Exception $e) {
+            Log::error('Failed to generate serial number: ' . $e->getMessage());
+            throw $e;
+        }
+    }
+
+    /**
+     * Validate payment request
+     */
+    private function validatePaymentRequest(Request $request)
+    {
+        return $request->validate([
+            'produk_id' => 'required|exists:produk,id',
+            'amount' => 'required|numeric|min:1000|max:100000000',
+            'email' => 'required|email|max:255',
+            'customer_name' => 'required|string|max:100|regex:/^[a-zA-Z\s\'.-]+$/u',
+            'phone_number' => 'required|string|max:20|regex:/^[0-9+\-\s]+$/'
+        ]);
+    }
+
+    /**
+     * Create Duitku invoice
+     */
     private function createDuitkuInvoice(Pembayaran $pembayaran)
     {
         $timestamp = round(microtime(true) * 1000);
@@ -223,7 +241,7 @@ class PembayaranController extends Controller
             'customerVaName' => $pembayaran->customer_name,
             'callbackUrl' => $this->callbackUrl,
             'returnUrl' => $this->returnUrl,
-            'expiryPeriod' => 1440, // 24 jam dalam menit
+            'expiryPeriod' => 1440, // 24 jam
             'itemDetails' => [
                 [
                     'name' => $pembayaran->produk->name,
@@ -244,66 +262,98 @@ class PembayaranController extends Controller
                 'x-duitku-timestamp' => $timestamp,
                 'x-duitku-merchantcode' => $this->merchantCode,
             ])
-                ->timeout(30)
-                ->retry(3, 1000)
-                ->post($endpoint, $payload);
+            ->timeout(30)
+            ->retry(3, 1000)
+            ->post($endpoint, $payload);
 
             if ($response->failed()) {
                 throw new \Exception('Duitku API Error: ' . $response->body());
             }
 
             return $response->json();
+
         } catch (\Exception $e) {
             Log::error('Duitku Connection Error: ' . $e->getMessage());
-            throw new \Exception('Gagal terhubung ke payment gateway');
+            throw new \Exception('Failed to connect to payment gateway');
         }
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Map Duitku status code to our system
      */
-    public function create()
+    private function mapDuitkuStatus($resultCode)
     {
-        //
+        return match ($resultCode) {
+            '00' => 1, // Success
+            '01' => 2, // Failed
+            default => 0 // Pending
+        };
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Get status text
      */
-    public function store(StorePembayaranRequest $request)
+    private function getStatusText($statusCode)
     {
-        //
+        return match ($statusCode) {
+            1 => 'success',
+            2 => 'failed',
+            default => 'pending'
+        };
     }
 
     /**
-     * Display the specified resource.
+     * Payment return page
      */
-    public function show(Pembayaran $pembayaran)
-    {
-        //
+public function paymentReturn(Request $request)
+{
+    $merchantOrderId = $request->input('merchantOrderId');
+    
+    try {
+        $payment = Pembayaran::with(['produk', 'duitkuPayment'])
+            ->where('merchant_order_id', $merchantOrderId)
+            ->firstOrFail();
+
+        $isSuccess = $payment->status == 1;
+        $paymentMethod = $payment->duitkuPayment->payment_method ?? null;
+        $status = $payment->status;
+
+        // Jika sukses, cek apakah sudah punya serial number
+        $hasSerialNumber = false;
+        if ($isSuccess) {
+            $hasSerialNumber = SerialNumber::where('email', $payment->customer_email)
+                ->whereNotNull('serialNumber')
+                ->exists();
+        }
+
+        return view('page.done', [
+            'isSuccess' => $isSuccess,
+            'payment' => $payment,
+            'paymentMethod' => $paymentMethod,
+            'status' => $status,
+            'hasSerialNumber' => $hasSerialNumber
+        ]);
+
+    } catch (\Exception $e) {
+        Log::error('Payment return error: ' . $e->getMessage());
+        return redirect('/')->with('error', 'Transaksi tidak ditemukan');
     }
+}
 
     /**
-     * Show the form for editing the specified resource.
+     * Check payment status
      */
-    public function edit(Pembayaran $pembayaran)
+    public function checkStatus($merchantOrderId)
     {
-        //
-    }
+        $payment = Pembayaran::with('duitkuPayment')
+            ->where('merchant_order_id', $merchantOrderId)
+            ->firstOrFail();
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdatePembayaranRequest $request, Pembayaran $pembayaran)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Pembayaran $pembayaran)
-    {
-        //
+        return response()->json([
+            'status' => $payment->status,
+            'paid' => $payment->status == 1,
+            'payment_method' => $payment->duitkuPayment->payment_method ?? null,
+            'reference' => $payment->duitkuPayment->reference ?? null
+        ]);
     }
 }

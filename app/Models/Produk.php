@@ -17,15 +17,26 @@ class Produk extends Model
         'kategori_id',
         'price',
         'image',
-        'badge_color'
+        'imagebg_produk',
+        'badge_color',
+        'pain_description',
+        'gain_description',
+        'solution_description',
+        'pain_points',
+        'gain_points',
+        'solution_points',
     ];
     protected $casts = [
         'price' => 'double',
+            'pain_points' => 'array',
+    'gain_points' => 'array',
+    'solution_points' => 'array',
     ];
     protected $attributes = [
         'description' => null,
         'price' => 0,
         'image' => null,
+        'imagebg_produk' => null,
         'badge_color' => null,
     ];
     protected $hidden = [

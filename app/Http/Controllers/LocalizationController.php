@@ -8,15 +8,22 @@ use Illuminate\Support\Facades\Session;
 
 class LocalizationController extends Controller
 {
-    function setLocale($lang)
-    {
-        // Validate the language code
-        $availableLocales = ['en', 'id'];
-        if (in_array($lang, $availableLocales)) {
-            Session::put('locale', $lang);
-            App::setLocale($lang);
-        }
-
-        return redirect()->back();
+public function setLocale($lang)
+{
+    if (!in_array($lang, ['en', 'id'])) {
+        abort(404);
     }
+
+    session()->put('locale', $lang);
+    app()->setLocale($lang);
+    
+    // Redirect kembali ke halaman sebelumnya dengan URL yang benar
+    $previousUrl = str_replace(
+        ['/locale/en', '/locale/id'],
+        '',
+        url()->previous()
+    );
+    
+    return redirect($previousUrl);
+}
 }

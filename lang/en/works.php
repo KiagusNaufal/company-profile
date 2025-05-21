@@ -22,6 +22,7 @@ return [
 
         // Card Actions
         'card' => [
+                    'view_details' => 'View Details',
             'buy_now'    => 'Buy Now',
             'price_unit' => 'Rp',
             'category'   => 'Category',

@@ -42,7 +42,7 @@
     <div class="min-h-screen flex items-center justify-center p-4">
         <div class="login-card w-full max-w-md bg-white rounded-xl overflow-hidden p-8">
             <div class="text-center mb-8">
-                <img src="{{ asset('image/company.svg') }}" alt="Company Logo" class="h-32 mx-auto mb-4">
+                <img src="{{ secure_asset('image/company.svg') }}" alt="Company Logo" class="h-32 mx-auto mb-4">
                 <h1 class="text-2xl font-bold text-gray-800">Selamat Datang</h1>
                 <p class="text-gray-600">Masuk ke akun Anda</p>
             </div>

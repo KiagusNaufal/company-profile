@@ -23,6 +23,7 @@ return [
 
     // Card Actions
     'card' => [
+        'view_details' => 'Lihat Detail',
         'buy_now'    => 'Beli Sekarang',
         'price_unit' => 'Rp',
         'category'   => 'Kategori',

@@ -1,6 +1,6 @@
     <!-- Technology Section -->
     <section class="py-8 bg-white">
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto px-4 scroll-reveal-section">
             <!-- Heading -->
             <div class="text-center mb-12">
                 <p class="text-gray-600">{{ __('message.home.marquee.text') }}</p>

@@ -20,18 +20,6 @@ class KategoriController extends Controller
         return view('admin.kategori.kategori', compact('categories'));
     }
 
-public function email()
-{
-    try {
-        // Kirim email
-        $sent = Mail::to('kiagusnaufal310@gmail.com')->send(new TestEmail());
-        
-            return 'Email berhasil dikirim! Periksa inbox/spam.';
-        
-    } catch (\Exception $e) {
-        return "Error System: " . $e->getMessage();
-    }
-}
     /**
      * Show the form for creating a new resource.
      */
@@ -46,7 +34,7 @@ public function email()
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => ['required', 'string', 'max:255', 'regex:/^[A-Za-z0-9\s]+$/'],
         ]);
 
         Kategori::create($validatedData);

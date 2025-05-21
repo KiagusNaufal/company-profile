@@ -16,6 +16,7 @@ class SerialNumber extends Authenticatable implements JWTSubject
         'password',
         'name',
         'email',
+        'pembayaran_id',
         'phoneNumber',
         'profileImage',
         'is_active'
@@ -70,4 +71,10 @@ class SerialNumber extends Authenticatable implements JWTSubject
     {
         return $this->password;
     }
+
+    public function pembayaran()
+    {
+        return $this->belongsTo(Pembayaran::class, 'pembayaran_id', 'id');
+    }
+
 }

@@ -17,7 +17,28 @@
                         <div>
                             <label for="edit_name" class="block text-sm font-medium text-gray-700">Nama Produk</label>
                             <input type="text" name="name" id="edit_name" required
+                                pattern="^[a-zA-Z0-9\s\.\-_,]+$"
+                                title="Hanya huruf, angka, spasi, titik, koma, strip, dan underscore yang diperbolehkan"
                                 class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
+                        </div>
+                        <div>
+                            <label for="edit_email" class="block text-sm font-medium text-gray-700">Email</label>
+                            <input type="email" name="email" id="edit_email" required
+                                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                                title="Masukkan email yang valid"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
+                        </div>
+                        <div>
+                            <label for="edit_phoneNumber" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                            <input type="number" name="phoneNumber" id="edit_phoneNumber" required min="0"
+                                pattern="^[0-9]+$"
+                                title="Hanya angka yang diperbolehkan"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
+                        </div>
+                        <div>
+                            <label for="edit_image" class="block text-sm font-medium text-gray-700">Gambar</label>
+                            <input type="file" name="image" id="edit_image" accept="image/*"
+                                class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-primary-dark">
                         </div>
                     </div>
                 </div>
@@ -36,4 +57,15 @@
 </div>
 </div>
 </div>
-
+<script>
+    // Validasi tambahan di sisi client (opsional)
+    document.getElementById('editProductForm').addEventListener('submit', function(e) {
+        const name = document.getElementById('edit_name').value;
+        const namePattern = /^[a-zA-Z0-9\s\.\-_,]+$/;
+        if (!namePattern.test(name)) {
+            alert('Nama hanya boleh berisi huruf, angka, spasi, titik, koma, strip, dan underscore.');
+            e.preventDefault();
+        }
+        // Validasi lain bisa ditambahkan di sini jika perlu
+    });
+</script>

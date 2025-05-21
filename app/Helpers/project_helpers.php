@@ -48,3 +48,9 @@ if (! function_exists('get_all_projects')) {
         ];
     }
 }
+
+if (!function_exists('cetak')) {
+    function cetak($str) {
+        return htmlspecialchars($str, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    }
+}

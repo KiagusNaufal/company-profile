@@ -22,6 +22,11 @@ class Pembayaran extends Model
         'nominal' => 'double'
     ];
 
+    public function pembayaranSerialNumber()
+    {
+        return $this->hasMany(SerialNumber::class, 'pembayaran_id', 'id');
+    }
+
     public function produk()
     {
         return $this->belongsTo(Produk::class);

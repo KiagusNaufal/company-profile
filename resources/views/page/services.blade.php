@@ -89,7 +89,7 @@
             <!-- Research Content -->
             <div x-show="openTab === 'discover'" x-transition class="flex flex-col gap-6 items-center md:flex-row">
                 <div class="w-full md:w-1/3">
-                    <img src="{{ asset('image/define.svg') }}" alt="Research Phase"
+                    <img src="{{ secure_asset('image/define.svg') }}" alt="Research Phase"
                         class="w-full h-auto rounded-lg object-cover">
                 </div>
                 <div class="w-full md:w-2/3">
@@ -103,7 +103,7 @@
             <!-- Strategy Content -->
             <div x-show="openTab === 'define'" x-transition class="flex flex-col gap-6 items-center md:flex-row">
                 <div class="w-full md:w-1/3">
-                    <img src="{{ asset('image/delivery.svg') }}" alt="Strategy Phase"
+                    <img src="{{ secure_asset('image/delivery.svg') }}" alt="Strategy Phase"
                         class="w-full h-auto rounded-lg object-cover">
                 </div>
                 <div class="w-full md:w-2/3">
@@ -117,7 +117,7 @@
             <!-- Creation Content -->
             <div x-show="openTab === 'design'" x-transition class="flex flex-col gap-6 items-center md:flex-row">
                 <div class="w-full md:w-1/3">
-                    <img src="{{ asset('image/design.svg') }}" alt="Creation Phase"
+                    <img src="{{ secure_asset('image/design.svg') }}" alt="Creation Phase"
                         class="w-full h-auto rounded-lg object-cover">
                 </div>
                 <div class="w-full md:w-2/3">
@@ -131,7 +131,7 @@
             <!-- Implementation Content -->
             <div x-show="openTab === 'develop'" x-transition class="flex flex-col gap-6 items-center md:flex-row">
                 <div class="w-full md:w-1/3">
-                    <img src="{{ asset('image/develop.svg') }}" alt="Implementation Phase"
+                    <img src="{{ secure_asset('image/develop.svg') }}" alt="Implementation Phase"
                         class="w-full h-auto rounded-lg object-cover">
                 </div>
                 <div class="w-full md:w-2/3">
@@ -145,7 +145,7 @@
             <!-- Optimization Content -->
             <div x-show="openTab === 'deliver'" x-transition class="flex flex-col gap-6 items-center md:flex-row">
                 <div class="w-full md:w-1/3">
-                    <img src="{{ asset('image/discover.svg') }}" alt="Optimization Phase"
+                    <img src="{{ secure_asset('image/discover.svg') }}" alt="Optimization Phase"
                         class="w-full h-auto rounded-lg object-cover">
                 </div>
                 <div class="w-full md:w-2/3">
