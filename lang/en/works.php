@@ -17,7 +17,9 @@ return [
 
         // Projects Grid
         'projects' => [
-            'heading'    => 'All Works',
+            'heading'  => 'All Works',
+            'title'    => 'Our Featured Projects',
+            'subtitle' => 'Explore our diverse portfolio of web, mobile, and game applications.',
         ],
 
         // Card Actions

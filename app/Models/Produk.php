@@ -18,6 +18,9 @@ class Produk extends Model
         'price',
         'image',
         'imagebg_produk',
+        'image_logo',
+        'link_aplikasi',
+        'link_tutorial',
         'badge_color',
         'pain_description',
         'gain_description',
@@ -37,6 +40,7 @@ class Produk extends Model
         'price' => 0,
         'image' => null,
         'imagebg_produk' => null,
+        'image_logo' => null,
         'badge_color' => null,
     ];
     protected $hidden = [

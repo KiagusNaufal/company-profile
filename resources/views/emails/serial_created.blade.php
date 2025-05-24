@@ -1,132 +1,241 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <title>Your OMSETin Serial Number</title>
     <style>
+        /* Base Styles */
         body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f7fafc;
+            color: #4a5568;
+            line-height: 1.6;
         }
+        
+        /* Email Container */
         .email-container {
             max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
         }
-        .logo {
+        
+        /* Header Section */
+        .email-header {
+            padding: 40px 20px 20px;
             text-align: center;
-            margin-bottom: 30px;
+            border-bottom: 1px solid #e2e8f0;
         }
-        .logo img {
-            max-width: 180px;
-        }
-        .serial-container {
-            position: relative;
-            margin: 30px 0;
-            text-align: center;
-        }
-        .serial-bg {
-            background-image: url('cid:background.png');
-            background-size: cover;
-            background-position: center;
-            border-radius: 10px;
-            padding: 60px 20px;
-            position: relative;
-        }
-        .serial-bg-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(255,255,255,0.7);
-            border-radius: 10px;
-        }
-        .brand-name {
-            font-size: 28px;
-            font-weight: bold;
-            color: #2d3748;
+        
+        .logo-container {
             margin-bottom: 15px;
-            position: relative;
         }
-        .serial-number {
-            font-size: 32px;
-            font-weight: bold;
-            letter-spacing: 3px;
-            color: #2b6cb0;
-            margin: 20px 0;
-            padding: 15px;
-            background-color: rgba(255,255,255,0.9);
-            border-radius: 8px;
-            display: inline-block;
-            position: relative;
+        
+        .logo {
+            height: 70px;
+            width: auto;
+            max-width: 200px;
         }
-        .serial-label {
-            font-size: 18px;
-            color: #4a5568;
-            margin-top: 10px;
-            position: relative;
+        
+        .product-name {
+            margin: 15px 0 0;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #2d3748;
         }
-        .footer {
+        
+        /* Content Section */
+        .email-content {
+            padding: 30px;
+        }
+        
+        .serial-container {
             text-align: center;
-            color: #718096;
+            margin: 25px 0;
+            padding: 20px;
+            background-color: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .serial-image {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+        }
+        
+        .serial-number {
+            font-size: 22px;
+            font-weight: 600;
+            color: #2d3748;
+            margin: 10px 0;
+            letter-spacing: 1px;
+        }
+        
+        .password-container {
+            background-color: #edf2f7;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 16px;
+        }
+        
+        .password-label {
+            display: block;
             font-size: 14px;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #e2e8f0;
+            color: #718096;
+            margin-bottom: 5px;
         }
-        .action-buttons {
-            margin-top: 30px;
-            position: relative;
+        
+        .password-value {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 18px;
         }
-        .btn {
+        
+        /* Links Section */
+        .action-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .action-button {
             display: inline-block;
             padding: 12px 24px;
-            margin: 0 10px;
-            background-color: #4299e1;
-            color: white;
+            background-color: #4f46e5;
+            color: white !important;
             text-decoration: none;
             border-radius: 6px;
-            font-weight: bold;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
-        .btn:hover {
-            background-color: #2b6cb0;
+        
+        .action-button:hover {
+            background-color: #4338ca;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
         }
-        .serial-content {
-            position: relative;
-            z-index: 1;
+        
+        .action-button.secondary {
+            background-color: #e2e8f0;
+            color: #2d3748 !important;
+        }
+        
+        .action-button.secondary:hover {
+            background-color: #cbd5e0;
+        }
+        
+        /* Footer Section */
+        .email-footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+            font-size: 12px;
+            color: #718096;
+        }
+        
+        .footer-links {
+            margin-top: 10px;
+        }
+        
+        .footer-link {
+            color: #4f46e5;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive Adjustments */
+        @media only screen and (max-width: 600px) {
+            .action-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .action-button {
+                display: block;
+                text-align: center;
+            }
+            
+            .email-content {
+                padding: 20px;
+            }
+            
+            .logo {
+                height: 60px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="email-container">
-        <div class="logo">
-            <img src="cid:logo.png" alt="OMSETin Logo">
+        <!-- Clean Header with Logo -->
+        <div class="email-header">
+            <div class="logo-container">
+                @if($hasLogoImage)
+                    <img src="cid:logo.png" alt="OMSETin Logo" class="logo">
+                @endif
+            </div>
+            <h1 class="product-name">{{ $productName }}</h1>
         </div>
         
-        <div class="serial-container">
-            <div class="serial-bg">
-                <div class="serial-bg-overlay"></div>
-                <div class="serial-content">
-                    <div class="brand-name">OMSETin</div>
-                    <div class="serial-number">{{ $serialNumber }}</div>
-                    <div class="serial-label">Serial Number</div>
+        <!-- Main Content -->
+        <div class="email-content">
+            <h2 style="text-align: center; color: #2d3748; margin-bottom: 25px;">Your Serial Number Information</h2>
+            
+            <!-- Serial Number Image -->
+            <div class="serial-container">
+                @if($hasSerialImage)
+                    <img src="cid:serial_image.png" alt="Your Serial Number" class="serial-image">
+                @endif
+                
+                <div class="password-container">
+                    <span class="password-label">Your temporary password:</span>
+                    <span class="password-value">{{ $plainPassword }}</span>
                 </div>
+                
+                <p style="text-align: center; margin-top: 20px; color: #4a5568;">
+                    Please keep this information secure. You can change your password after logging in.
+                </p>
             </div>
             
-<div class="serial-container">
-    <div class="serial-bg" style="background-image: url('cid:background.png'); background-size: cover; background-position: center; border-radius: 10px; padding: 60px 20px;">
-        <div class="serial-content">
-            <div class="brand-name">OMSETin</div>
-            <div class="serial-number">{{ $serialNumber }}</div>
-            <div class="serial-label">Serial Number</div>
+            <!-- Action Buttons -->
+            <div class="action-links">
+                <a href="{{ $link_aplikasi }}" class="action-button" target="_blank">
+                    Launch Application
+                </a>
+                <a href="{{ $link_tutorial }}" class="action-button secondary" target="_blank">
+                    View Tutorial
+                </a>
+            </div>
+            
+            <p style="text-align: center; color: #718096; margin-top: 30px;">
+                Need help? Contact our support team at <a href="mailto:support@omsetin.com" style="color: #4f46e5;">support@omsetin.com</a>
+            </p>
         </div>
-    </div>
-</div>  
         
-        <div class="footer">
-            <p>© 2023 OMSETin. All rights reserved.</p>
-            <p>support@omsetin.com</p>
+        <!-- Footer -->
+        <div class="email-footer">
+            <p>&copy; {{ date('Y') }} OMSETin. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="https://omsetin.com/privacy" class="footer-link" target="_blank">Privacy Policy</a>
+                <a href="https://omsetin.com/terms" class="footer-link" target="_blank">Terms of Service</a>
+                <a href="https://omsetin.com/contact" class="footer-link" target="_blank">Contact Us</a>
+            </div>
         </div>
     </div>
 </body>

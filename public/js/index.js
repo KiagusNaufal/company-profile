@@ -14,11 +14,20 @@ document.addEventListener("DOMContentLoaded", function () {
     modalOverlay.style.opacity = "0";
     modalOverlay.style.pointerEvents = "none";
 
+    // Store scroll position
+    let scrollPosition = 0;
+
     // Smooth toggle function
     function toggleModal(show) {
         if (show) {
+            // Store current scroll position
+            scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+            
             modal.classList.remove("hidden");
             document.body.style.overflow = "hidden";
+            document.body.style.position = "fixed";
+            document.body.style.top = `-${scrollPosition}px`;
+            document.body.style.width = "100%";
 
             // Force reflow to ensure animation runs
             void modal.offsetWidth;
@@ -33,7 +42,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
             setTimeout(() => {
                 modal.classList.add("hidden");
-                document.body.style.overflow = "";
+                // Restore scroll position
+                document.body.style.removeProperty("overflow");
+                document.body.style.removeProperty("position");
+                document.body.style.removeProperty("top");
+                document.body.style.removeProperty("width");
+                window.scrollTo(0, scrollPosition);
             }, 500); // Match CSS transition duration
         }
     }
@@ -44,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
             e.preventDefault();
             e.stopPropagation();
 
-            // Tutup mobile menu jika ada
+            // Close mobile menu if open
             const mobileMenu = document.getElementById("mobile-menu");
             if (mobileMenu && mobileMenu.classList.contains("open")) {
                 mobileMenu.classList.remove("open");
@@ -55,21 +69,21 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
     closeModalBtns.forEach((btn) =>
-        btn.addEventListener("click", (e) => {
+        btn && btn.addEventListener("click", (e) => {
             e.stopPropagation();
             toggleModal(false);
         })
     );
-    modal.addEventListener("click", (e) => e.stopPropagation());
-    modalPanel.addEventListener("click", (e) => e.stopPropagation());
+    
+    if (modal) modal.addEventListener("click", (e) => e.stopPropagation());
+    if (modalPanel) modalPanel.addEventListener("click", (e) => e.stopPropagation());
 
-    document
-        .getElementById("closeModal")
-        .addEventListener("click", () => toggleModal(false));
-    document
-        .getElementById("cancelButton")
-        .addEventListener("click", () => toggleModal(false));
-    modalOverlay.addEventListener("click", () => toggleModal(false));
+    const closeModal = document.getElementById("closeModal");
+    const cancelButton = document.getElementById("cancelButton");
+    
+    if (closeModal) closeModal.addEventListener("click", () => toggleModal(false));
+    if (cancelButton) cancelButton.addEventListener("click", () => toggleModal(false));
+    if (modalOverlay) modalOverlay.addEventListener("click", () => toggleModal(false));
 
     // Form handling
     const form = document.querySelector("#contactModal form");
@@ -128,6 +142,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function showAlert(message, type) {
         const formAlert = document.getElementById("formAlert");
+        if (!formAlert) return;
+        
         formAlert.textContent = message;
         formAlert.className = `px-4 py-3 rounded-lg border-l-4 ${
             type === "success"

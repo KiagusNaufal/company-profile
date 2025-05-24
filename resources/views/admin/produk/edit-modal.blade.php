@@ -38,12 +38,42 @@
                                     <input type="text" name="description" id="edit_description" required pattern="^[a-zA-Z0-9\s\.\-_,]+$" title="Hanya huruf, angka, spasi, titik, koma, strip, dan underscore yang diperbolehkan"
                                         class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
                                 </div>
+                                                                                                <div>
+                                                                    <label for="edit_link_aplikasi" class="block text-sm font-medium text-gray-700">Link Aplikasi</label>
+                                                                    <input type="url" name="link_aplikasi" id="edit_link_aplikasi" required
+                                                                        pattern="https?://.+" title="Masukkan URL yang valid dimulai dengan http:// atau https://"
+                                                                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
+                                                                </div>
+                                                                <div>
+                                                                    <label for="edit_link_tutorial" class="block text-sm font-medium text-gray-700">Link Tutorial</label>
+                                                                    <input type="url" name="link_tutorial" id="edit_link_tutorial" required
+                                                                        pattern="https?://.+" title="Masukkan URL yang valid dimulai dengan http:// atau https://"
+                                                                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
+                                                                </div>
                                 <div>
                                     <label for="edit_image" class="block text-sm font-medium text-gray-700">Gambar</label>
                                     <input type="file" name="image" id="edit_image" accept="image/png, image/jpeg, image/jpg"
                                         class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-primary-dark">
                                     <div class="mt-2 hidden" id="currentImageContainer">
                                         <img id="currentProductImage" src="" class="h-20 rounded-md">
+                                        <p class="text-xs text-gray-500 mt-1">Gambar saat ini</p>
+                                    </div>
+                                </div>
+                                                                <div>
+                                    <label for="edit_image" class="block text-sm font-medium text-gray-700">Gambar Backgorund </label>
+                                    <input type="file" name="imagebg_produk" id="edit_image" accept="image/png, image/jpeg, image/jpg"
+                                        class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-primary-dark">
+                                    <div class="mt-2 hidden" id="currentbgContainer">
+                                        <img id="currentBgImage" src="" class="h-20 rounded-md">
+                                        <p class="text-xs text-gray-500 mt-1">Gambar saat ini</p>
+                                    </div>
+                                </div>
+                                                                                                <div>
+                                    <label for="edit_image" class="block text-sm font-medium text-gray-700">Gambar Logo </label>
+                                    <input type="file" name="image_logo" id="edit_image" accept="image/png, image/jpeg, image/jpg"
+                                        class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-primary-dark">
+                                    <div class="mt-2 hidden" id="currentLogoContainer">
+                                        <img id="currentLogoImage" src="" class="h-20 rounded-md">
                                         <p class="text-xs text-gray-500 mt-1">Gambar saat ini</p>
                                     </div>
                                 </div>

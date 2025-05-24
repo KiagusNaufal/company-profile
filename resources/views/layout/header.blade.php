@@ -98,14 +98,14 @@
             <!-- Mobile Language Switcher -->
             <div class="flex justify-center my-4 border-b border-gray-100 pb-3">
                 <div class="flex border border-[#343C3C] rounded-lg overflow-hidden">
-<a href="{{ route('locale.change', 'id') }}">
+<a href="{{ route('locale.change', 'id') }}"
                         class="px-3 py-1.5 text-sm transition-colors duration-200 flex items-center gap-1.5
                                {{ app()->getLocale() === 'id' ? 'bg-[#343C3C] text-white' : 'text-[#343C3C] hover:bg-gray-50' }}">
                         <span class="text-xs">🇮🇩</span>
                         <span>ID</span>
                     </a>
                     <div class="h-5 w-px bg-[#343C3C]"></div>
-  <a href="{{ route('locale.change', 'en') }}">
+  <a href="{{ route('locale.change', 'en') }}"
                         class="px-3 py-1.5 text-sm transition-colors duration-200 flex items-center gap-1.5
                                {{ app()->getLocale() === 'en' ? 'bg-[#343C3C] text-white' : 'text-[#343C3C] hover:bg-gray-50' }}">
                         <span class="text-xs">🇬🇧</span>
@@ -116,7 +116,7 @@
             
             <button type="button"
                 class="w-full py-3 text-sm text-white mt-2 mb-2 text-center rounded bg-[#343C3C] hover:bg-opacity-90"
-                id="tellUsButton-mobile" data-toggle="contact-modal">
+                id="tellUsButtonMobile" data-toggle="contact-modal">
                 {{ __('message.Header.tellus') }}
             </button>
         </div>

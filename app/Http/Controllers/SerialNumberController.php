@@ -51,9 +51,11 @@ public function store(Request $request)
             return back()->withInput()
                 ->with('error', 'Produk tidak ditemukan.');
         }
-        $productImage = $product->image;
+        $productImage = $product->image_logo;
         $productName = $product->name;
         $imagebg_produk = $product->imagebg_produk;
+        $link_tutorial = $product->link_tutorial;
+        $link_aplikasi = $product->link_aplikasi;
         // Simpan data
         $data = [
             'name' => $validated['name'],
@@ -78,7 +80,9 @@ public function store(Request $request)
                 $plainPassword,
                 $productName,
                 $productImage,
-                $imagebg_produk
+                $imagebg_produk,
+                $link_tutorial,
+                $link_aplikasi,
             ));
 
 

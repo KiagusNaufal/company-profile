@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategori;
 use App\Models\Produk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -11,7 +12,8 @@ class WorksController extends Controller
     public function index()
     {
        $projects = Produk::all();
-       return view('page.works', compact('projects'));
+       $categories = Kategori::all();
+       return view('page.works', compact('projects', 'categories'));   
     }
 
     public function createPayment(Request $request)

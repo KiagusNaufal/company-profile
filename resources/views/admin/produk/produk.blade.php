@@ -114,6 +114,8 @@ $(document).on('click', '.edit-product-btn', function() {
     $('#edit_description').val(product.description);
     $('#edit_category').val(product.kategori_id);
     $('#edit_badge_color').val(product.badge_color);
+    $('#edit_link_aplikasi').val(product.link_aplikasi);
+    $('#edit_link_tutorial').val(product.link_tutorial);
     
     // Populate descriptions
     $('#edit_pain_description').val(product.pain_description || '');
@@ -179,6 +181,19 @@ $(document).on('click', '.edit-product-btn', function() {
         $('#currentImageContainer').removeClass('hidden');
     } else {
         $('#currentImageContainer').addClass('hidden');
+    }
+
+    if (product.imagebg_produk) {
+        $('#currentBgImage').attr('src', '/storage/' + product.imagebg_produk);
+        $('#currentbgContainer').removeClass('hidden');
+    } else {
+        $('#currentbgContainer').addClass('hidden');
+    }
+        if (product.image_logo) {
+        $('#currentLogoImage').attr('src', '/storage/' + product.image_logo);
+        $('#currentLogoContainer').removeClass('hidden');
+    } else {
+        $('#currentLogoContainer').addClass('hidden');
     }
     
     // Set form action

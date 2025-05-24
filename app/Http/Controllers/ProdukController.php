@@ -42,6 +42,7 @@ class ProdukController extends Controller
             'kategori_id' => 'required|exists:kategori,id',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'imagebg_produk' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image_logo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'description' => 'required|string',
             'link_aplikasi' => 'required|string',
             'link_tutorial' => 'required|string',
@@ -96,6 +97,11 @@ class ProdukController extends Controller
             $validatedData['imagebg_produk'] = '/storage/' . $imagePath;
             $validatedData['imagebg_produk'] = $imagePath;
         }
+                        if ($request->hasFile('image_logo')) {
+            $imagePath = $request->file('image_logo')->store('logo_image', 'public');
+            $validatedData['image_logo'] = '/storage/' . $imagePath;
+            $validatedData['image_logo'] = $imagePath;
+        }
             $validatedData['pain_points'] = array_filter($request->input('pain_points', []));
     $validatedData['gain_points'] = array_filter($request->input('gain_points', []));
     $validatedData['solution_points'] = array_filter($request->input('solution_points', []));
@@ -140,6 +146,10 @@ public function update(Request $request, $id)
             'max:255',
             'regex:/^[a-zA-Z0-9\s\-\_\.\,\(\)\&]+$/'
         ],
+                    'imagebg_produk' => 'sometimes|image|mimes:jpeg,png,jpg,gif|max:2048',
+                    'image_logo' => 'sometimes|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'link_aplikasi' => 'sometimes|string',
+            'link_tutorial' => 'sometimes|string',
         'kategori_id' => 'required|exists:kategori,id',
         'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif|max:2048',
         'description' => [
@@ -153,7 +163,6 @@ public function update(Request $request, $id)
             'nullable',
             'string',
             'max:50',
-            'regex:/^[a-zA-Z0-9\-\_]+$/'
         ],
         'pain_description' => [
             'nullable',
@@ -204,7 +213,24 @@ public function update(Request $request, $id)
         $imagePath = $request->file('image')->store('produk_images', 'public');
         $validatedData['image'] = $imagePath;
     }
-
+    if ($request->hasFile('imagebg_produk')) {
+        // Delete old image if exists
+        if ($product->imagebg_produk && Storage::disk('public')->exists($product->imagebg_produk)) {
+            Storage::disk('public')->delete($product->imagebg_produk);
+        }
+        
+        $imagePath = $request->file('imagebg_produk')->store('bg_images', 'public');
+        $validatedData['imagebg_produk'] = $imagePath;
+    }
+        if ($request->hasFile('image_logo')) {
+        // Delete old image if exists
+        if ($product->image_logo && Storage::disk('public')->exists($product->image_logo)) {
+            Storage::disk('public')->delete($product->image_logo);
+        }
+        
+        $imagePath = $request->file('image_logo')->store('bg_images', 'public');
+        $validatedData['image_logo'] = $imagePath;
+    }
     $validatedData['pain_points'] = array_filter($request->input('pain_points', []));
     $validatedData['gain_points'] = array_filter($request->input('gain_points', []));
     $validatedData['solution_points'] = array_filter($request->input('solution_points', []));

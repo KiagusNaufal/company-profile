@@ -13,7 +13,9 @@ use App\Mail\TestEmail;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
-
+use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Laravel\Facades\Image;
 
 
 
@@ -40,6 +42,31 @@ Route::get('/locale/{lang}', [LocalizationController::class, 'setLocale'])
 Route::get('/works/{id}/{slug?}', [ProdukController::class, 'show'])
     ->name('project.detail')
     ->middleware([App\Http\Middleware\CheckSlugConflict::class]);
+
+    Route::get('/f', function () {
+        $manager = new ImageManager(new Driver());
+
+        $image = $manager->read(public_path('storage/bg_images/6eojq3YBTAHAC3KPlVh47Upt8rp1HFvgsAn1JURH.jpg'));
+
+        $image->resize(300, 200);
+        
+                    $image->text(
+                'Serial Number: 1234567890',
+                $image->width() / 2,
+                $image->height() / 2,
+                function($font) {
+                    $font->filename(public_path('fonts/Poppins-Regular.ttf'));
+                    $font->size(48);
+                    $font->color('#ffffff');
+                    $font->valign('middle');
+                    $font->align('center');
+                }
+            );
+
+        $image->save(public_path('storage/bg_images/6eojq3YBTAHAC3KPlVh47Upt8rp1HFvgsAn1JURf.jpg'));
+        return $image->toJpeg();
+        
+});
 
 Route::prefix('payment')->group(function () {
     // Create payment (called from your JavaScript)

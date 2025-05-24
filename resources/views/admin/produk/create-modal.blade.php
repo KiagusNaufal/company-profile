@@ -51,6 +51,12 @@
                                         required pattern="^[a-zA-Z0-9\s\.\-_,]+$" title="Hanya huruf, angka, spasi, titik, koma, strip, dan underscore yang diperbolehkan"
                                         class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-primary-dark">
                                 </div>
+                                                                                                <div>
+                                    <label for="image_logo" class="block text-sm font-medium text-gray-700">Gambar Background</label>
+                                    <input type="file" name="image_logo" id="image_logo" accept="image_logo/*"
+                                        required pattern="^[a-zA-Z0-9\s\.\-_,]+$" title="Hanya huruf, angka, spasi, titik, koma, strip, dan underscore yang diperbolehkan"
+                                        class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-primary-dark">
+                                </div>
                                 <div>
                                     <label for="description" class="block text-sm font-medium text-gray-700">Desc
                                         Produk</label>

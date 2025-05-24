@@ -190,13 +190,19 @@ class PembayaranController extends Controller
                 'is_active' => 1,
             ]);
 
+            $productImage = $pembayaran->produk->image_logo;
+
+
             // Send email
             Mail::to($pembayaran->customer_email)
                 ->send(new SerialNumberCreated(
                     $serialNumber,
                     $plainPassword,
                     $pembayaran->produk->name,
-                    $pembayaran->produk->image
+                    $productImage,
+                    $pembayaran->produk->imagebg_produk,
+                    $pembayaran->produk->link_aplikasi,
+                    $pembayaran->produk->link_tutorial,
                 ));
 
             Log::info('Serial number generated and sent', [

@@ -18,7 +18,9 @@ return [
 
     // Projects Grid
     'projects' => [
-        'heading'    => 'Semua Karya',
+        'heading'  => 'Semua Karya',
+        'title'    => 'Proyek Unggulan Kami',
+        'subtitle' => 'Jelajahi portofolio beragam kami berupa aplikasi web, mobile, dan game.',
     ],
 
     // Card Actions
