@@ -38,6 +38,10 @@ Route::get('/locale/{lang}', [LocalizationController::class, 'setLocale'])
      ->name('locale.change')
      ->where('lang', 'en|id'); // Batasi hanya en atau id
 
+Route::get('/omsetin' , function () {
+    return view(view: 'subdomain.omsetin');
+})->name('omsetin');
+
 // Route project detail dengan middleware untuk mencegah konflik
 Route::get('/works/{id}/{slug?}', [ProdukController::class, 'show'])
     ->name('project.detail')
@@ -49,7 +53,7 @@ Route::get('/works/{id}/{slug?}', [ProdukController::class, 'show'])
         $image = $manager->read(public_path('storage/bg_images/6eojq3YBTAHAC3KPlVh47Upt8rp1HFvgsAn1JURH.jpg'));
 
         $image->resize(300, 200);
-        
+
                     $image->text(
                 'Serial Number: 1234567890',
                 $image->width() / 2,
@@ -65,7 +69,7 @@ Route::get('/works/{id}/{slug?}', [ProdukController::class, 'show'])
 
         $image->save(public_path('storage/bg_images/6eojq3YBTAHAC3KPlVh47Upt8rp1HFvgsAn1JURf.jpg'));
         return $image->toJpeg();
-        
+
 });
 
 Route::prefix('payment')->group(function () {
