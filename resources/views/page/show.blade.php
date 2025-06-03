@@ -101,9 +101,10 @@
                     <a href="{{ $project->link_sub }}"
                         class="flex-1 px-6 py-3 bg-[#04b2f7] hover:bg-[#0388c4] text-white font-medium rounded-lg shadow-md transition-colors flex items-center justify-center">
                          <span class="mr-2">{{ __('show.buy') }}</span>
-                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0020 7.382V6a2 2 0 00-2-2H6a2 2 0 00-2 2v1.382a1 1 0 00.447.842L9 10m6 0v4a2 2 0 11-4 0v-4m4 0H9" />
-                         </svg>
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+</svg>
                     </a>
                     
                     <button class="flex-1 px-6 py-3 border border-gray-300 bg-white hover:bg-gray-50 text-gray-700 font-medium rounded-lg shadow-md transition-colors flex items-center justify-center" id="tellUsButton" data-toggle="contact-modal">
