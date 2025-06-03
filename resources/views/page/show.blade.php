@@ -87,9 +87,6 @@
                 </div>
 
                 <!-- Harga -->
-                <div class="mb-6">
-                    <span class="text-3xl font-bold text-gray-900">Rp {{ number_format($project->price, 0, ',', '.') }}</span>
-                </div>
 
                 <!-- Deskripsi -->
                 <div class="mb-8">
