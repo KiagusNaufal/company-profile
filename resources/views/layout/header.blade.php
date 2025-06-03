@@ -43,6 +43,10 @@
                     class="group py-2 transition duration-200 hover:-translate-y-1 text-[#343C3C]">
                     <span class="text-sm">{{ __('message.Header.services') }}</span>
                 </a>
+                <a href="{{ url('/omsetin') }}" id="nav-product"
+                    class="group py-2 transition duration-200 hover:-translate-y-1 text-[#343C3C]">
+                    <span class="text-sm">product</span>
+                </a>
                 <a href="{{ url('/about') }}" id="nav-about"
                     class="group py-2 transition duration-200 hover:-translate-y-1 text-[#343C3C]">
                     <span class="text-sm">{{ __('message.Header.about') }}</span>
@@ -56,7 +60,7 @@
                     id="tellUsButton" data-toggle="contact-modal">
                     {{ __('message.Header.tellus') }}
                 </button>
-                
+
             <!-- Gunakan URL lengkap dengan helper url() -->
 <div class="flex border border-[#343C3C] rounded-lg overflow-hidden">
     <a href="{{ url('/locale/id') }}"
@@ -94,7 +98,7 @@
             <a href="{{ url('/service') }}" id="nav-service-m" class="block py-3 text-sm text-[#343C3C] border-b border-gray-100">{{ __('message.Header.services') }}</a>
             <a href="{{ url('/about') }}" id="nav-about-m" class="block py-3 text-sm text-[#343C3C] border-b border-gray-100">{{ __('message.Header.about') }}</a>
             <a href="{{ url('/works') }}" id="nav-works-m" class="block py-3 text-sm text-[#343C3C] border-b border-gray-100">{{ __('message.Header.works') }}</a>
-            
+
             <!-- Mobile Language Switcher -->
             <div class="flex justify-center my-4 border-b border-gray-100 pb-3">
                 <div class="flex border border-[#343C3C] rounded-lg overflow-hidden">
@@ -113,7 +117,7 @@
                     </a>
                 </div>
             </div>
-            
+
             <button type="button"
                 class="w-full py-3 text-sm text-white mt-2 mb-2 text-center rounded bg-[#343C3C] hover:bg-opacity-90"
                 id="tellUsButton" data-toggle="contact-modal">
@@ -153,8 +157,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Close menu when clicking outside
     document.addEventListener('click', function(e) {
-        if (mobileMenu.classList.contains('open') && 
-            !mobileMenu.contains(e.target) && 
+        if (mobileMenu.classList.contains('open') &&
+            !mobileMenu.contains(e.target) &&
             e.target !== toggleBtn) {
             toggleMobileMenu();
         }
@@ -170,6 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const navItems = {
             '/': 'nav-home',
             '/service': 'nav-service',
+            '/omsetin': 'nav-product', // Assuming this is the same as service
             '/about': 'nav-about',
             '/works': 'nav-works'
         };
