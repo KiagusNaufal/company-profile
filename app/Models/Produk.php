@@ -22,18 +22,12 @@ class Produk extends Model
         'link_aplikasi',
         'link_tutorial',
         'badge_color',
-        'pain_description',
-        'gain_description',
-        'solution_description',
-        'pain_points',
-        'gain_points',
-        'solution_points',
+        'image_slide',
+        'link_sub'
     ];
     protected $casts = [
         'price' => 'double',
-            'pain_points' => 'array',
-    'gain_points' => 'array',
-    'solution_points' => 'array',
+        'image_slide' => 'array'
     ];
     protected $attributes = [
         'description' => null,

@@ -116,64 +116,22 @@ $(document).on('click', '.edit-product-btn', function() {
     $('#edit_badge_color').val(product.badge_color);
     $('#edit_link_aplikasi').val(product.link_aplikasi);
     $('#edit_link_tutorial').val(product.link_tutorial);
+    $('#edit_link_sub').val(product.link_sub);
     
-    // Populate descriptions
-    $('#edit_pain_description').val(product.pain_description || '');
-    $('#edit_gain_description').val(product.gain_description || '');
-    $('#edit_solution_description').val(product.solution_description || '');
     
-    // Clear existing points
-    $('#edit_pain_points_container').empty();
-    $('#edit_gain_points_container').empty();
-    $('#edit_solution_points_container').empty();
+if (product.image_slide && product.image_slide.length > 0) {
+    $('#currentSlideImages').empty(); // kosongkan dulu
     
-    // Populate pain points
-    if (product.pain_points && product.pain_points.length > 0) {
-        product.pain_points.forEach(point => {
-            $('#edit_pain_points_container').append(`
-                <div class="flex items-center">
-                    <input type="text" name="pain_points[]" value="${point}" 
-                            required pattern="^[a-zA-Z0-9\s\.\-_,]+$" title="Hanya huruf, angka, spasi, titik, koma, strip, dan underscore yang diperbolehkan"
-                           class="flex-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
-                    <button type="button" class="ml-2 text-red-500 remove-point-btn">
-                        ✕
-                    </button>
-                </div>
-            `);
-        });
-    }
+    product.image_slide.forEach(function(slidePath) {
+        const img = $('<img>').attr('src', '/storage/' + slidePath).addClass('h-20 mr-2 rounded-md object-cover');
+        $('#currentSlideImages').append(img);
+    });
     
-    // Populate gain points
-    if (product.gain_points && product.gain_points.length > 0) {
-        product.gain_points.forEach(point => {
-            $('#edit_gain_points_container').append(`
-                <div class="flex items-center">
-                    <input type="text" name="gain_points[]" value="${point}" 
-                            required pattern="^[a-zA-Z0-9\s\.\-_,]+$" title="Hanya huruf, angka, spasi, titik, koma, strip, dan underscore yang diperbolehkan"
-                           class="flex-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
-                    <button type="button" class="ml-2 text-red-500 remove-point-btn">
-                        ✕
-                    </button>
-                </div>
-            `);
-        });
-    }
-    
-    // Populate solution points
-    if (product.solution_points && product.solution_points.length > 0) {
-        product.solution_points.forEach(point => {
-            $('#edit_solution_points_container').append(`
-                <div class="flex items-center">
-                    <input type="text" name="solution_points[]" value="${point}" 
-                            required pattern="^[a-zA-Z0-9\s\.\-_,]+$" title="Hanya huruf, angka, spasi, titik, koma, strip, dan underscore yang diperbolehkan"
-                           class="flex-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
-                    <button type="button" class="ml-2 text-red-500 remove-point-btn">
-                        ✕
-                    </button>
-                </div>
-            `);
-        });
-    }
+    $('#currentSlideContainer').removeClass('hidden');
+} else {
+    $('#currentSlideContainer').addClass('hidden');
+}
+
     
     // Update image preview
     if (product.image) {
@@ -204,48 +162,7 @@ $(document).on('click', '.edit-product-btn', function() {
 });
 
 // Function to add new pain point
-function addEditPainPoint() {
-    $('#edit_pain_points_container').append(`
-        <div class="flex items-center">
-            <input type="text" name="pain_points[]" 
-                   class="flex-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
-            <button type="button" class="ml-2 text-red-500 remove-point-btn">
-                ✕
-            </button>
-        </div>
-    `);
-}
 
-// Function to add new gain point
-function addEditGainPoint() {
-    $('#edit_gain_points_container').append(`
-        <div class="flex items-center">
-            <input type="text" name="gain_points[]" 
-                   class="flex-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
-            <button type="button" class="ml-2 text-red-500 remove-point-btn">
-                ✕
-            </button>
-        </div>
-    `);
-}
-
-// Function to add new solution point
-function addEditSolutionPoint() {
-    $('#edit_solution_points_container').append(`
-        <div class="flex items-center">
-            <input type="text" name="solution_points[]" 
-                   class="flex-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
-            <button type="button" class="ml-2 text-red-500 remove-point-btn">
-                ✕
-            </button>
-        </div>
-    `);
-}
-
-// Remove point handler
-$(document).on('click', '.remove-point-btn', function() {
-    $(this).parent().remove();
-});
 
     
     $('#cancelEditBtn, #editModalBackdrop').click(function() {

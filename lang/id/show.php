@@ -15,7 +15,7 @@ return [
     'gain' => 'Poin Keuntungan',
     'solution' => 'Poin Solusi',
     'related' => 'Produk Terkait',
-    'buy' => 'Beli Sekarang',
+    'buy' => 'Detail/Demo',
     'contact' => 'Hubungi Kami',
 
     

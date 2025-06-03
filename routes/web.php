@@ -43,6 +43,15 @@ Route::get('/works/{id}/{slug?}', [ProdukController::class, 'show'])
     ->name('project.detail')
     ->middleware([App\Http\Middleware\CheckSlugConflict::class]);
 
+    Route::get('/test-email', function () {
+    try {
+        Mail::to('kiagusnaufal310@gmail.com')->send(new TestEmail());
+        return 'Test email sent successfully!';
+    } catch (\Exception $e) {
+        return 'Error sending email: ' . $e->getMessage();
+    }
+});
+
     Route::get('/f', function () {
         $manager = new ImageManager(new Driver());
 

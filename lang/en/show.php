@@ -15,7 +15,7 @@ return [
     'gain' => 'Gain Points',
     'solution' => 'Solution Points',
     'related' => 'Related Product',
-    'buy' => 'Buy Now',
+    'buy' => 'Detail/Demo',
     'contact' => 'Contact Us',
 
     

@@ -45,6 +45,7 @@
                                         required pattern="^[a-zA-Z0-9\s\.\-_,]+$" title="Hanya huruf, angka, spasi, titik, koma, strip, dan underscore yang diperbolehkan"
                                         class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-primary-dark">
                                 </div>
+
                                                                 <div>
                                     <label for="imagebg_produk" class="block text-sm font-medium text-gray-700">Gambar Background</label>
                                     <input type="file" name="imagebg_produk" id="imagebg_produk" accept="imagebg_produk/*"
@@ -52,11 +53,30 @@
                                         class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-primary-dark">
                                 </div>
                                                                                                 <div>
-                                    <label for="image_logo" class="block text-sm font-medium text-gray-700">Gambar Background</label>
+                                    <label for="image_logo" class="block text-sm font-medium text-gray-700">Gambar Logo</label>
                                     <input type="file" name="image_logo" id="image_logo" accept="image_logo/*"
                                         required pattern="^[a-zA-Z0-9\s\.\-_,]+$" title="Hanya huruf, angka, spasi, titik, koma, strip, dan underscore yang diperbolehkan"
                                         class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-primary-dark">
                                 </div>
+<div class="mb-4">
+    <label for="image_slide" class="block text-sm font-medium text-gray-700 mb-1">
+        Gambar Slide <span class="text-red-500">*</span>
+    </label>
+    <input
+        type="file"
+        name="image_slide[]"
+        id="image_slide"
+        accept="image/*"
+        multiple
+        required
+            class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-primary-dark"
+        aria-describedby="image_slide_help"
+    >
+    <p id="image_slide_help" class="mt-1 text-xs text-gray-500">
+        Format yang diperbolehkan: JPG, PNG, atau GIF. Bisa pilih lebih dari satu file.
+    </p>
+</div>
+
                                 <div>
                                     <label for="description" class="block text-sm font-medium text-gray-700">Desc
                                         Produk</label>
@@ -75,6 +95,12 @@
                                                                         pattern="https?://.+" title="Masukkan URL yang valid dimulai dengan http:// atau https://"
                                                                         class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
                                                                 </div>
+                                                                                                                                <div>
+                                                                    <label for="link_sub" class="block text-sm font-medium text-gray-700">Link SubDomain</label>
+                                                                    <input type="url" name="link_sub" id="link_sub" required
+                                                                        pattern="https?://.+" title="Masukkan URL yang valid dimulai dengan http:// atau https://"
+                                                                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
+                                                                </div>
                                 <div>
                                     <label for="badge_color" class="block text-sm font-medium text-gray-700">Warna
                                         Badge</label>
@@ -90,70 +116,6 @@
                                         <option value="bg-indigo-100 text-indigo-800">Indigo</option>
                                         <option value="bg-gray-100 text-gray-800">Abu-abu</option>
                                     </select>
-                                </div>
-                                <div class="mt-6 space-y-6">
-                                    <!-- Pain Section -->
-                                    <div>
-                                        <h4 class="text-lg font-medium text-red-600 mb-2">Pain Points</h4>
-                                        <div class="mb-4">
-                                            <label class="block text-sm font-medium text-gray-700">Pain
-                                                Description</label>
-                                            <textarea name="pain_description" rows="2"
-                                                required pattern="^[a-zA-Z0-9\s\.\-_,]+$" title="Hanya huruf, angka, spasi, titik, koma, strip, dan underscore yang diperbolehkan"
-                                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary"></textarea>
-                                        </div>
-
-                                        <label class="block text-sm font-medium text-gray-700">Pain Points</label>
-                                        <div id="pain-points-container" class="space-y-2 mt-2">
-                                            <!-- Points will be added here -->
-                                        </div>
-                                        <button type="button" id="add-pain-point"
-                                            class="mt-2 text-sm text-blue-600 hover:text-blue-800">
-                                            + Add Pain Point
-                                        </button>
-                                    </div>
-
-                                    <!-- Solution Section -->
-                                    <div>
-                                        <h4 class="text-lg font-medium text-blue-600 mb-2">Our Solution</h4>
-                                        <div class="mb-4">
-                                            <label class="block text-sm font-medium text-gray-700">Solution
-                                                Description</label>
-                                            <textarea name="solution_description" rows="2"
-                                                required pattern="^[a-zA-Z0-9\s\.\-_,]+$" title="Hanya huruf, angka, spasi, titik, koma, strip, dan underscore yang diperbolehkan"
-                                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary"></textarea>
-                                        </div>
-
-                                        <label class="block text-sm font-medium text-gray-700">Solution Points</label>
-                                        <div id="solution-points-container" class="space-y-2 mt-2">
-                                            <!-- Points will be added here -->
-                                        </div>
-                                        <button type="button" id="add-solution-point"
-                                            class="mt-2 text-sm text-blue-600 hover:text-blue-800">
-                                            + Add Solution Point
-                                        </button>
-                                    </div>
-
-                                    <!-- Gain Section -->
-                                    <div>
-                                        <h4 class="text-lg font-medium text-green-600 mb-2">Customer Benefits</h4>
-                                        <div class="mb-4">
-                                            <label class="block text-sm font-medium text-gray-700">Gain
-                                                Description</label>
-                                            <textarea name="gain_description" rows="2"
-                                                required pattern="^[a-zA-Z0-9\s\.\-_,]+$" title="Hanya huruf, angka, spasi, titik, koma, strip, dan underscore yang diperbolehkan"
-                                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary"></textarea>
-                                        </div>
-
-                                        <label class="block text-sm font-medium text-gray-700">Gain Points</label>
-                                        <div id="gain-points-container" class="space-y-2 mt-2">
-                                            <!-- Points will be added here -->
-                                        </div>
-                                        <button type="button" id="add-gain-point"
-                                            class="mt-2 text-sm text-blue-600 hover:text-blue-800">
-                                            + Add Gain Point
-                                        </button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -176,54 +138,6 @@
 
 
 @push('scripts')
-    <script>
-        $(document).ready(function() {
-            // Add Pain Point
-            $('#add-pain-point').click(function() {
-                $('#pain-points-container').append(`
-                <div class="flex items-center">
-                    <input type="text" name="pain_points[]" 
-                            required pattern="^[a-zA-Z0-9\s\.\-_,]+$" title="Hanya huruf, angka, spasi, titik, koma, strip, dan underscore yang diperbolehkan"
-                           class="flex-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
-                    <button type="button" class="ml-2 text-red-500 remove-point-btn">
-                        ✕
-                    </button>
-                </div>
-            `);
-            });
-
-            // Add Solution Point
-            $('#add-solution-point').click(function() {
-                $('#solution-points-container').append(`
-                <div class="flex items-center">
-                    <input type="text" name="solution_points[]" 
-                            required pattern="^[a-zA-Z0-9\s\.\-_,]+$" title="Hanya huruf, angka, spasi, titik, koma, strip, dan underscore yang diperbolehkan"
-                           class="flex-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
-                    <button type="button" class="ml-2 text-red-500 remove-point-btn">
-                        ✕
-                    </button>
-                </div>
-            `);
-            });
-
-            // Add Gain Point
-            $('#add-gain-point').click(function() {
-                $('#gain-points-container').append(`
-                <div class="flex items-center">
-                    <input type="text" name="gain_points[]" 
-                            required pattern="^[a-zA-Z0-9\s\.\-_,]+$" title="Hanya huruf, angka, spasi, titik, koma, strip, dan underscore yang diperbolehkan"
-                           class="flex-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
-                    <button type="button" class="ml-2 text-red-500 remove-point-btn">
-                        ✕
-                    </button>
-                </div>
-            `);
-            });
-
-            // Remove Point
-            $(document).on('click', '.remove-point-btn', function() {
-                $(this).parent().remove();
-            });
-        });
+   
     </script>
 @endpush

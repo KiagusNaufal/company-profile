@@ -50,6 +50,12 @@
                                                                         pattern="https?://.+" title="Masukkan URL yang valid dimulai dengan http:// atau https://"
                                                                         class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
                                                                 </div>
+                                                                  <div>
+                                                                    <label for="edit_link_sub" class="block text-sm font-medium text-gray-700">Link SubDomain</label>
+                                                                    <input type="url" name="link_sub" id="edit_link_sub" required
+                                                                        pattern="https?://.+" title="Masukkan URL yang valid dimulai dengan http:// atau https://"
+                                                                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
+                                                                </div>
                                 <div>
                                     <label for="edit_image" class="block text-sm font-medium text-gray-700">Gambar</label>
                                     <input type="file" name="image" id="edit_image" accept="image/png, image/jpeg, image/jpg"
@@ -77,6 +83,21 @@
                                         <p class="text-xs text-gray-500 mt-1">Gambar saat ini</p>
                                     </div>
                                 </div>
+                                  <div>
+    <label for="edit_image_slide" class="block text-sm font-medium text-gray-700">Gambar Slide</label>
+    <input type="file" name="image_slide[]" id="edit_image_slide" accept="image/png, image/jpeg, image/jpg" multiple
+        class="mt-1 block w-full text-sm text-gray-500
+        file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0
+        file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-primary-dark">
+    
+    <div id="currentSlideContainer" class="mt-2">
+        <label class="block text-sm font-medium text-gray-700">Slide Produk Saat Ini</label>
+        <div id="currentSlideImages" class="flex flex-wrap gap-2 mt-2">
+            <!-- Gambar slide saat ini akan dimunculkan di sini -->
+        </div>
+    </div>
+</div>
+
                                 <div>
                                     <label for="edit_badge_color" class="block text-sm font-medium text-gray-700">Warna Badge</label>
                                     <select name="badge_color" id="edit_badge_color" required
@@ -100,62 +121,8 @@
                                     </div>
                                 </div>
 
-                                <!-- Pain Section -->
-                                <div class="mt-4 border-t pt-4">
-                                    <h4 class="text-lg font-medium text-red-600 mb-2">Pain Points</h4>
-                                    <div class="mb-4">
-                                        <label class="block text-sm font-medium text-gray-700">Pain Description</label>
-                                        <textarea name="pain_description" id="edit_pain_description" rows="2" 
-                                        required pattern="^[a-zA-Z0-9\s\.\-_,]+$" title="Hanya huruf, angka, spasi, titik, koma, strip, dan underscore yang diperbolehkan"
-                                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary"></textarea>
-                                    </div>
-                                    
-                                    <label class="block text-sm font-medium text-gray-700">Pain Points</label>
-                                    <div id="edit_pain_points_container" class="space-y-2 mt-2">
-                                        <!-- Points will be added here -->
-                                    </div>
-                                    <button type="button" onclick="addEditPainPoint()" class="mt-2 text-sm text-blue-600 hover:text-blue-800">
-                                        + Add Pain Point
-                                    </button>
-                                </div>
 
-                                <!-- Solution Section -->
-                                <div class="mt-4 border-t pt-4">
-                                    <h4 class="text-lg font-medium text-blue-600 mb-2">Our Solution</h4>
-                                    <div class="mb-4">
-                                        <label class="block text-sm font-medium text-gray-700">Solution Description</label>
-                                        <textarea name="solution_description" id="edit_solution_description" rows="2" 
-                                            required pattern="^[a-zA-Z0-9\s\.\-_,]+$" title="Hanya huruf, angka, spasi, titik, koma, strip, dan underscore yang diperbolehkan"
-                                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary"></textarea>
-                                    </div>
-                                    
-                                    <label class="block text-sm font-medium text-gray-700">Solution Points</label>
-                                    <div id="edit_solution_points_container" class="space-y-2 mt-2">
-                                        <!-- Points will be added here -->
-                                    </div>
-                                    <button type="button" onclick="addEditSolutionPoint()" class="mt-2 text-sm text-blue-600 hover:text-blue-800">
-                                        + Add Solution Point
-                                    </button>
-                                </div>
 
-                                <!-- Gain Section -->
-                                <div class="mt-4 border-t pt-4">
-                                    <h4 class="text-lg font-medium text-green-600 mb-2">Customer Benefits</h4>
-                                    <div class="mb-4">
-                                        <label class="block text-sm font-medium text-gray-700">Gain Description</label>
-                                        <textarea name="gain_description" id="edit_gain_description" rows="2" 
-                                            required pattern="^[a-zA-Z0-9\s\.\-_,]+$" title="Hanya huruf, angka, spasi, titik, koma, strip, dan underscore yang diperbolehkan"
-                                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary"></textarea>
-                                    </div>
-                                    
-                                    <label class="block text-sm font-medium text-gray-700">Gain Points</label>
-                                    <div id="edit_gain_points_container" class="space-y-2 mt-2">
-                                        <!-- Points will be added here -->
-                                    </div>
-                                    <button type="button" onclick="addEditGainPoint()" class="mt-2 text-sm text-blue-600 hover:text-blue-800">
-                                        + Add Gain Point
-                                    </button>
-                                </div>
                             </div>
                         </div>
                     </div>

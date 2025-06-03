@@ -116,7 +116,7 @@
             
             <button type="button"
                 class="w-full py-3 text-sm text-white mt-2 mb-2 text-center rounded bg-[#343C3C] hover:bg-opacity-90"
-                id="tellUsButtonMobile" data-toggle="contact-modal">
+                id="tellUsButton" data-toggle="contact-modal">
                 {{ __('message.Header.tellus') }}
             </button>
         </div>

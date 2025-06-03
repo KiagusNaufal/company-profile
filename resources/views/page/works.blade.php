@@ -125,14 +125,6 @@
                                 <span class="text-gray-600 text-xs sm:text-sm ml-1">4.8</span>
                             </div>
                         </div>
-
-                        <div class="mb-3 sm:mb-4">
-                            <span class="text-base sm:text-lg md:text-xl font-bold text-gray-900">Rp {{ number_format(cetak($project->price)), 0, ',', '.' }}</span>
-                            @if($project->original_price)
-                            <span class="text-xs sm:text-sm text-gray-500 line-through ml-2">Rp {{ number_format(cetak($project->original_price)), 0, ',', '.' }}</span>
-                            @endif
-                        </div>
-
                         <!-- Progress Bar (for crowdfunding projects) -->
                         @if($project->funding_goal)
                         <div class="mb-3 sm:mb-4">

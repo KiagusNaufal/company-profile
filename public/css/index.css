@@ -75,6 +75,41 @@ nav {
     z-index: 1001 !important;
 }
 
+  @media (max-width: 640px) {
+        .hero-buttons {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .hero-buttons button {
+            width: 100%;
+        }
+
+        /* Testimonial carousel mobile fixes */
+        #testimonialCarousel {
+            -webkit-overflow-scrolling: touch;
+            scroll-snap-type: x mandatory;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+        }
+        
+        #slides {
+            scroll-snap-align: start;
+            min-width: 100vw;
+        }
+        
+        .testimonial-slide {
+            min-width: 85vw;
+            scroll-snap-align: start;
+            margin-right: 1rem;
+        }
+
+        .dot-mobile {
+            width: 12px;
+            height: 12px;
+        }
+    }
+
 /* Pastikan body tidak scroll saat menu terbuka */
 body.overflow-hidden {
     overflow: hidden;
@@ -262,23 +297,6 @@ button:disabled {
 }
 
 /* Tambahkan di bagian style Anda */
-#carousel {
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-x: contain;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-    transition: transform 0.1s ease-out;
-}
-
-#carousel.active {
-    scroll-snap-type: none;
-}
-
-#carousel .flex-none {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-}
-
 /* Hide scrollbar but keep functionality */
 #carousel::-webkit-scrollbar {
     display: none;

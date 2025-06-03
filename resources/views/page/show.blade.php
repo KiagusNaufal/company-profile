@@ -7,22 +7,47 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             <!-- Gallery Produk -->
             <div class="space-y-4">
-                <!-- Gambar Utama -->
-                <div class="rounded-xl overflow-hidden bg-gray-100 shadow-lg">
-                    <img src="{{ secure_asset('storage/' . cetak($project->image)) }}" alt="{{ cetak($project->name) }}" 
-                         class="w-full h-auto object-cover aspect-square"
-                         id="mainImage">
+                <!-- Gambar Utama dengan Zoom -->
+                <div class="relative rounded-xl overflow-hidden bg-gray-100 shadow-lg" id="zoom-container">
+                    <img src="{{ secure_asset('storage/' . $project->image) }}" alt="{{ $project->name }}" 
+                         class="w-full h-auto object-cover aspect-square cursor-zoom-in"
+                         id="mainImage"
+                         data-zoom-image="{{ secure_asset('storage/' . $project->image) }}">
                 </div>
                 
-                <!-- Thumbnail Gallery -->
-                <div class="grid grid-cols-4 gap-3">
-                    @foreach(($project->images ?? []) as $image)
-                    <div class="cursor-pointer border-2 border-transparent hover:border-blue-400 rounded-lg transition-all thumbnail">
-                        <img src="{{ secure_asset('storage/' . cetak($image)) }}" 
-                             class="w-full h-20 object-cover rounded-md"
-                             onclick="document.getElementById('mainImage').src = this.src">
+                <!-- Expanded Gallery with Navigation -->
+                <div class="relative">
+                    <div class="flex overflow-x-auto space-x-4 py-4 scrollbar-hide" id="thumbnailSlider">
+                        <!-- Main Image Thumbnail -->
+                        <div class="flex-none cursor-pointer border-2 border-blue-400 rounded-lg transition-all thumbnail active">
+                            <img src="{{ secure_asset('storage/' . $project->image) }}" 
+                                 class="w-24 h-24 object-cover rounded-md"
+                                 onclick="changeMainImage(this, '{{ secure_asset('storage/' . $project->image) }}')">
+                        </div>
+                        
+                        <!-- Image Slides from image_slide array -->
+                        @if(!empty($project->image_slide))
+                            @foreach($project->image_slide as $image)
+                                <div class="flex-none cursor-pointer border-2 border-transparent hover:border-blue-400 rounded-lg transition-all thumbnail">
+                                    <img src="{{ secure_asset('storage/' . $image) }}" 
+                                         class="w-24 h-24 object-cover rounded-md"
+                                         onclick="changeMainImage(this, '{{ secure_asset('storage/' . $image) }}')">
+                                </div>
+                            @endforeach
+                        @endif
                     </div>
-                    @endforeach
+                    
+                    <!-- Navigation arrows -->
+                    <button class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-3 rounded-full shadow-lg -ml-4 z-10 slider-prev hover:bg-gray-100 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <button class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-3 rounded-full shadow-lg -mr-4 z-10 slider-next hover:bg-gray-100 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
                 </div>
             </div>
 
@@ -55,15 +80,15 @@
 
                 <!-- Judul dan Kategori -->
                 <div class="mb-4">
-                    <h1 class="text-2xl md:text-3xl font-bold text-gray-900">{{ cetak($project->name) }}</h1>
-                    <span class="inline-block mt-2 px-3 py-1 text-xs font-semibold rounded-full {{ cetak($project->badge_color) }}">
-                        {{ cetak($project->kategori->name) }}
+                    <h1 class="text-2xl md:text-3xl font-bold text-gray-900">{{ $project->name }}</h1>
+                    <span class="inline-block mt-2 px-3 py-1 text-xs font-semibold rounded-full {{ $project->badge_color }}">
+                        {{ $project->kategori->name }}
                     </span>
                 </div>
 
                 <!-- Harga -->
                 <div class="mb-6">
-                    <span class="text-3xl font-bold text-gray-900">Rp {{ number_format(cetak($project->price, 0, ',', '.')) }}</span>
+                    <span class="text-3xl font-bold text-gray-900">Rp {{ number_format($project->price, 0, ',', '.') }}</span>
                 </div>
 
                 <!-- Deskripsi -->
@@ -74,76 +99,17 @@
                     </div>
                 </div>
 
-                <!-- Pain Points Section -->
-                @if($project->pain_description || $project->pain_points)
-                <div class="mb-6 bg-red-50 p-4 rounded-lg">
-                    <h3 class="text-lg font-semibold text-red-800 mb-2">{{ __('show.pain') }}</h3>
-                    @if($project->pain_description)
-                    <div class="prose max-w-none text-red-700 mb-3">
-                        {!! nl2br(e($project->pain_description)) !!}
-                    </div>
-                    @endif
-                    @if($project->pain_points)
-                    <ul class="list-disc pl-5 space-y-1 text-red-700">
-                        @foreach($project->pain_points as $point)
-                        <li>{{ $point }}</li>
-                        @endforeach
-                    </ul>
-                    @endif
-                </div>
-                @endif
-
-                <!-- Gain Points Section -->
-                @if($project->gain_description || $project->gain_points)
-                <div class="mb-6 bg-green-50 p-4 rounded-lg">
-                    <h3 class="text-lg font-semibold text-green-800 mb-2">{{ __('show.gain') }}</h3>
-                    @if($project->gain_description)
-                    <div class="prose max-w-none text-green-700 mb-3">
-                        {!! nl2br(e($project->gain_description)) !!}
-                    </div>
-                    @endif
-                    @if($project->gain_points)
-                    <ul class="list-disc pl-5 space-y-1 text-green-700">
-                        @foreach($project->gain_points as $point)
-                        <li>{{ $point }}</li>
-                        @endforeach
-                    </ul>
-                    @endif
-                </div>
-                @endif
-
-                <!-- Solution Section -->
-                @if($project->solution_description || $project->solution_points)
-                <div class="mb-6 bg-blue-50 p-4 rounded-lg">
-                    <h3 class="text-lg font-semibold text-blue-800 mb-2">{{ __('show.solution') }}</h3>
-                    @if($project->solution_description)
-                    <div class="prose max-w-none text-blue-700 mb-3">
-                        {!! nl2br(e($project->solution_description)) !!}
-                    </div>
-                    @endif
-                    @if($project->solution_points)
-                    <ul class="list-disc pl-5 space-y-1 text-blue-700">
-                        @foreach($project->solution_points as $point)
-                        <li>{{ $point }}</li>
-                        @endforeach
-                    </ul>
-                    @endif
-                </div>
-                @endif
-
                 <!-- Tombol Aksi -->
                 <div class="flex flex-col sm:flex-row gap-3">
-                    <button data-id="{{ cetak($project->id) }}"
-                            data-name="{{ cetak($project->name) }}"
-                            data-price="{{ cetak($project->price) }}"
-                            class="buy-now-btn flex-1 px-6 py-3 bg-[#04b2f7] hover:bg-[#0388c4] text-white font-medium rounded-lg shadow-md transition-colors flex items-center justify-center">
-                        <span class="mr-2">{{ __('show.buy') }}</span>
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                        </svg>
-                    </button>
+                    <a href="{{ $project->link_sub }}"
+                        class="flex-1 px-6 py-3 bg-[#04b2f7] hover:bg-[#0388c4] text-white font-medium rounded-lg shadow-md transition-colors flex items-center justify-center">
+                         <span class="mr-2">{{ __('show.buy') }}</span>
+                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                         </svg>
+                    </a>
                     
-                    <button class="flex-1 px-6 py-3 border border-gray-300 bg-white hover:bg-gray-50 text-gray-700 font-medium rounded-lg shadow-md transition-colors flex items-center justify-center">
+                    <button class="flex-1 px-6 py-3 border border-gray-300 bg-white hover:bg-gray-50 text-gray-700 font-medium rounded-lg shadow-md transition-colors flex items-center justify-center" id="tellUsButton" data-toggle="contact-modal">
                         <span class="mr-2">{{ __('show.contact') }}</span>
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
@@ -152,48 +118,6 @@
                 </div>
             </div>
         </div>
-
-        {{-- <!-- Detail Tambahan -->
-        <div class="mt-16 pt-8 border-t border-gray-200">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">Detail Produk</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Spesifikasi -->
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Spesifikasi Teknis</h3>
-                    <div class="bg-gray-50 rounded-lg p-6">
-                        <ul class="space-y-3">
-                            @foreach($project->specifications as $spec)
-                            <li class="flex justify-between border-b border-gray-100 pb-2">
-                                <span class="text-gray-600 font-medium">{{ $spec['name'] }}</span>
-                                <span class="text-gray-900">{{ $spec['value'] }}</span>
-                            </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Dokumentasi -->
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Dokumentasi</h3>
-                    <div class="grid grid-cols-2 gap-4">
-                        @foreach($project->documentations as $doc)
-                        <a href="{{ secure_asset('storage/' . $doc) }}" target="_blank" class="border rounded-lg p-3 hover:bg-gray-50 transition-colors">
-                            <div class="flex items-center">
-                                <svg class="w-8 h-8 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-                                </svg>
-                                <div>
-                                    <p class="text-sm font-medium text-gray-900 truncate">Document {{ $loop->iteration }}</p>
-                                    <p class="text-xs text-gray-500">PDF</p>
-                                </div>
-                            </div>
-                        </a>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div> --}}
     </div>
 </section>
 
@@ -205,14 +129,13 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach($relatedProjects as $related)
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                <a href="{{ route('project.detail', ['id' => cetak($related->id), 'slug' => Str::slug(cetak($related->name))]) }}">
+                <a href="{{ route('project.detail', ['id' => $related->id, 'slug' => Str::slug($related->name)]) }}">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ secure_asset('storage/' . cetak($related->image)) }}" alt="{{ cetak($related->name) }}" 
+                        <img src="{{ secure_asset('storage/' . $related->image) }}" alt="{{ $related->name }}" 
                              class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
                     </div>
                     <div class="p-4">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-1">{{ cetak($related->name) }}</h3>
-                        <p class="text-[#04b2f7] font-medium">Rp {{ number_format(cetak($related->price, 0, ',', '.')) }}</p>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-1">{{ $related->name }}</h3>
                     </div>
                 </a>
             </div>
@@ -228,20 +151,144 @@
 @include('partials.form-pembayaran')
 
 <script>
-    // Implementasi zoom gambar
     document.addEventListener('DOMContentLoaded', function() {
         const mainImage = document.getElementById('mainImage');
         const thumbnails = document.querySelectorAll('.thumbnail');
+        const slider = document.getElementById('thumbnailSlider');
+        const prevBtn = document.querySelector('.slider-prev');
+        const nextBtn = document.querySelector('.slider-next');
+        const zoomContainer = document.getElementById('zoom-container');
         
-        thumbnails.forEach(thumb => {
-            thumb.addEventListener('click', function() {
-                mainImage.src = this.src;
-                thumbnails.forEach(t => t.classList.remove('border-blue-400'));
-                this.classList.add('border-blue-400');
+        // Initialize variables for slider
+        let scrollAmount = 0;
+        const scrollStep = 200;
+        let isDragging = false;
+        let startX, scrollLeft;
+        
+        // Change main image function
+        window.changeMainImage = function(element, fullSizeUrl) {
+            // Update main image
+            mainImage.src = element.src;
+            mainImage.setAttribute('data-zoom-image', fullSizeUrl);
+            
+            // Update active thumbnail
+            thumbnails.forEach(thumb => {
+                thumb.classList.remove('border-blue-400', 'active');
+                thumb.classList.add('border-transparent');
+            });
+            element.parentElement.classList.add('border-blue-400', 'active');
+            element.parentElement.classList.remove('border-transparent');
+            
+            // Reset zoom container
+            zoomContainer.classList.remove('cursor-zoom-out');
+            zoomContainer.classList.add('cursor-zoom-in');
+            mainImage.style.transform = 'scale(1)';
+        };
+        
+        // Slider navigation
+        nextBtn.addEventListener('click', function() {
+            const maxScroll = slider.scrollWidth - slider.clientWidth;
+            scrollAmount = Math.min(scrollAmount + scrollStep, maxScroll);
+            slider.scrollTo({
+                left: scrollAmount,
+                behavior: 'smooth'
             });
         });
         
-        // Implementasi modal pembelian
+        prevBtn.addEventListener('click', function() {
+            scrollAmount = Math.max(scrollAmount - scrollStep, 0);
+            slider.scrollTo({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Make slider draggable
+        slider.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+            slider.style.cursor = 'grabbing';
+        });
+        
+        slider.addEventListener('mouseleave', () => {
+            isDragging = false;
+            slider.style.cursor = 'grab';
+        });
+        
+        slider.addEventListener('mouseup', () => {
+            isDragging = false;
+            slider.style.cursor = 'grab';
+        });
+        
+        slider.addEventListener('mousemove', (e) => {
+            if(!isDragging) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2;
+            slider.scrollLeft = scrollLeft - walk;
+        });
+        
+        // Simple zoom functionality
+        zoomContainer.addEventListener('click', function() {
+            if (this.classList.contains('cursor-zoom-in')) {
+                // Zoom in
+                this.classList.remove('cursor-zoom-in');
+                this.classList.add('cursor-zoom-out');
+                mainImage.style.transform = 'scale(2)';
+                mainImage.style.transformOrigin = 'center center';
+            } else {
+                // Zoom out
+                this.classList.remove('cursor-zoom-out');
+                this.classList.add('cursor-zoom-in');
+                mainImage.style.transform = 'scale(1)';
+            }
+        });
+        
+        // Touch support for slider
+        let touchStartX = 0;
+        let touchScrollLeft = 0;
+        
+        slider.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].pageX;
+            touchScrollLeft = slider.scrollLeft;
+        }, {passive: true});
+        
+        slider.addEventListener('touchmove', (e) => {
+            const x = e.touches[0].pageX;
+            const walk = (x - touchStartX) * 2;
+            slider.scrollLeft = touchScrollLeft - walk;
+        }, {passive: false});
     });
 </script>
+
+<style>
+    /* Custom scrollbar hiding */
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    
+    /* Smooth transitions for images */
+    #mainImage {
+        transition: transform 0.3s ease;
+    }
+    
+    /* Thumbnail active state */
+    .thumbnail.active {
+        border-color: #3b82f6 !important;
+        box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+    }
+    
+    /* Zoom cursor */
+    .cursor-zoom-in {
+        cursor: zoom-in;
+    }
+    .cursor-zoom-out {
+        cursor: zoom-out;
+    }
+</style>
 @endsection

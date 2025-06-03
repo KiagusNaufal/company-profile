@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('serial_number', function (Blueprint $table) {
             $table->id();
-            $table->string('serial_number')->unique();
+            $table->string('serialNumber')->unique();
             $table->string('password');
             $table->string('name');
             $table->string('email');
-            $table->string('phone_number');
-            $table->string('profile_image')->nullable();
+            $table->string('phoneNumber');
+            $table->string('profileImage')->nullable();
             $table->boolean('is_active')->default(true);
             $table->timestamp('last_login_at')->nullable();
             $table->timestamps();
