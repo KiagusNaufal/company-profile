@@ -288,6 +288,117 @@ form::-webkit-scrollbar-thumb {
 .animate-spin {
     animation: spin 1s linear infinite;
 }
+    @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-float-1 {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-float-2 {
+            animation: float 8s ease-in-out infinite 2s;
+        }
+
+        .animate-float-3 {
+            animation: float 7s ease-in-out infinite 1s;
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        /* Count animation */
+        @keyframes countUp {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .animate-count {
+            animation: countUp 0.8s ease-out forwards;
+        }
+
+
+        /* Smooth transition for project cards */
+        .project-card {
+            transition: all 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .bg-\[\#04b2f7\] {
+            background-color: #04b2f7;
+        }
+
+        .hover\:bg-\[\#0399d9\]:hover {
+            background-color: #0399d9;
+        }
+
+        .focus\:ring-\[\#04b2f7\]:focus {
+            --tw-ring-color: #04b2f7;
+        }
+
+        /* Active filter button style */
+        .category-filter.active {
+            background-color: #04b2f7 !important;
+            color: white !important;
+            border-color: #04b2f7 !important;
+        }
+
+        /* Button sizing for mobile */
+        @media (max-width: 640px) {
+
+            .category-filter,
+            .buy-now-btn,
+            [class*="px-4"].py-3 {
+                padding-left: 1rem;
+                padding-right: 1rem;
+                padding-top: 0.75rem;
+                padding-bottom: 0.75rem;
+                font-size: 0.875rem;
+            }
+        }
+
+        /* For mobile menu */
+        .filter-tabs {
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .filter-tabs::-webkit-scrollbar {
+            display: none;
+        }
 
 /* Disabled button state */
 button:disabled {
