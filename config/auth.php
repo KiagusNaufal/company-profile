@@ -45,6 +45,10 @@ return [
         'driver' => 'jwt',
         'provider' => 'serial_numbers',
     ],
+    'api' => [
+        'driver' => 'jwt',
+        'provider' => 'serial_number_basic',
+    ],
 ],
 
     /*
@@ -73,6 +77,10 @@ return [
     'serial_numbers' => [
         'driver' => 'eloquent',
         'model' => App\Models\SerialNumber::class,
+    ],
+    'serial_number_basic' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\SerialNumberBasic::class,
     ],
 ],
 
