@@ -14,7 +14,7 @@ Route::post('serial-number', [SerialNumberController::class, 'store']);
 
 // Serial Number Basic Routes
 Route::prefix('serial-number-basic')->group(function () {
-    Route::post('login', [SerialNumberBasicController::class, 'signin']); // Changed from signin to signin
+    Route::post('signin', [SerialNumberBasicController::class, 'login']); // Changed from signin to signin
     Route::middleware('auth:api_basic')->group(function () { // Specific guard
         Route::post('/logout', [SerialNumberBasicController::class, 'logout']);
         Route::post('/refresh', [SerialNumberBasicController::class, 'refresh']);
@@ -27,7 +27,7 @@ Route::prefix('serial-number-basic')->group(function () {
 
 // Serial Number Routes
 Route::prefix('serial-number')->group(function () {
-    Route::post('signin', [SerialNumberController::class, 'signin']); // Changed from signin to login
+    Route::post('signin', [SerialNumberController::class, 'login']); // Changed from signin to login
     Route::middleware('auth:api_serial')->group(function () { // Specific guard
         Route::post('/logout', [SerialNumberController::class, 'logout']);
         Route::post('/refresh', [SerialNumberController::class, 'refresh']);
