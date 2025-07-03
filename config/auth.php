@@ -41,16 +41,15 @@ return [
         'provider' => 'users',
     ],
 
-    'api' => [
+    'api_serial' => [  // Changed from 'api' to 'api_serial'
         'driver' => 'jwt',
         'provider' => 'serial_numbers',
     ],
-    'api' => [
+    'api_basic' => [    // Changed from 'api' to 'api_basic'
         'driver' => 'jwt',
         'provider' => 'serial_number_basic',
     ],
 ],
-
     /*
     |--------------------------------------------------------------------------
     | User Providers
