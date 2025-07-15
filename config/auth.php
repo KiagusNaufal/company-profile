@@ -49,6 +49,30 @@ return [
         'driver' => 'jwt',
         'provider' => 'serial_number_basic',
     ],
+        'api_services' => [    // Changed from 'api' to 'api_basic'
+        'driver' => 'jwt',
+        'provider' => 'serial_number_services',
+    ],
+        'api_bengkel' => [    // Changed from 'api' to 'api_basic'
+        'driver' => 'jwt',
+        'provider' => 'serial_number_bengkel',
+    ],
+      'api_laundry' => [    // Changed from 'api' to 'api_basic'
+        'driver' => 'jwt',
+        'provider' => 'serial_number_laundry',
+    ],
+      'api_pom' => [    // Changed from 'api' to 'api_basic'
+        'driver' => 'jwt',
+        'provider' => 'serial_number_pom',
+    ],
+      'api_iuran' => [    // Changed from 'api' to 'api_basic'
+        'driver' => 'jwt',
+        'provider' => 'serial_number_iuran',
+    ],
+      'api_wash' => [    // Changed from 'api' to 'api_basic'
+        'driver' => 'jwt',
+        'provider' => 'serial_number_wash',
+    ],
 ],
     /*
     |--------------------------------------------------------------------------

@@ -43,10 +43,6 @@
                     class="group py-2 transition duration-200 hover:-translate-y-1 text-[#343C3C]">
                     <span class="text-sm">{{ __('message.Header.services') }}</span>
                 </a>
-                <a href="{{ url('/omsetin') }}" id="nav-product"
-                    class="group py-2 transition duration-200 hover:-translate-y-1 text-[#343C3C]">
-                    <span class="text-sm">product</span>
-                </a>
                 <a href="{{ url('/about') }}" id="nav-about"
                     class="group py-2 transition duration-200 hover:-translate-y-1 text-[#343C3C]">
                     <span class="text-sm">{{ __('message.Header.about') }}</span>
@@ -174,7 +170,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const navItems = {
             '/': 'nav-home',
             '/service': 'nav-service',
-            '/omsetin': 'nav-product', // Assuming this is the same as service
             '/about': 'nav-about',
             '/works': 'nav-works'
         };
