@@ -76,7 +76,8 @@
             <div class="flex-none w-[85vw] sm:w-96 md:w-[420px] bg-white rounded-2xl shadow-lg snap-start select-none">
                 <div class="flex flex-col h-full gap-4 sm:gap-6 border rounded-2xl bg-white overflow-hidden hover:shadow-xl transition-shadow duration-300">
                     <!-- Thumbnail -->
-                    <div class="relative aspect-video w-full overflow-hidden rounded-t-2xl border-b border-gray-200">
+                    <div class="relative w-full h-56 sm:h-64 md:h-85 overflow-hidden rounded-t-2xl border-b border-gray-200">
+
                         <img src="{{ secure_asset('storage/' . cetak($project->image)) }}" alt="{{ cetak($project->title) }} Thumbnail"
                             class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
                             loading="lazy"
@@ -229,7 +230,107 @@
                             </div>
                         </div>
                     </div>
+                  <!-- Slide 4 -->
+<div class="flex-none testimonial-slide w-full sm:w-2/3 lg:w-1/2 px-2 sm:px-3 scroll-reveal-item">
+    <div class="bg-white rounded-xl shadow-lg border border-gray-100 hover:border-[#04b2f7] transform hover:scale-[1.01] transition-all duration-300 h-full flex flex-col">
+        <div class="flex flex-col items-center pt-6 px-6">
+            <div class="relative">
+                <img src="{{ secure_asset('image/user.svg') }}" alt="Fauzan Rachman"
+                    class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[#04b2f7]/10 p-2 border-4 border-[#04b2f7]/20 object-cover" />
+                <svg class="absolute -bottom-2 -right-2 w-8 h-8 text-[#04b2f7]" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zM0 21v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10H0z"/>
+                </svg>
+            </div>
+            <div class="text-center mt-4">
+                <p class="font-bold text-gray-800 text-lg sm:text-xl">Fauzan Rachman</p>
+                <p class="text-sm sm:text-base text-gray-600">Owner | Kedai Kopi Nusantara</p>
+            </div>
+        </div>
+        <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+            <p class="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 leading-relaxed text-center">
+                "Aplikasi dari Aeratek sangat membantu dalam pencatatan omzet harian. Interface-nya simpel dan mudah dipakai."
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 5 -->
+<div class="flex-none testimonial-slide w-full sm:w-2/3 lg:w-1/2 px-2 sm:px-3 scroll-reveal-item">
+    <div class="bg-white rounded-xl shadow-lg border border-gray-100 hover:border-[#04b2f7] transform hover:scale-[1.01] transition-all duration-300 h-full flex flex-col">
+        <div class="flex flex-col items-center pt-6 px-6">
+            <div class="relative">
+                <img src="{{ secure_asset('image/user.svg') }}" alt="Dewi Suryani"
+                    class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[#04b2f7]/10 p-2 border-4 border-[#04b2f7]/20 object-cover" />
+                <svg class="absolute -bottom-2 -right-2 w-8 h-8 text-[#04b2f7]" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zM0 21v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10H0z"/>
+                </svg>
+            </div>
+            <div class="text-center mt-4">
+                <p class="font-bold text-gray-800 text-lg sm:text-xl">Dewi Suryani</p>
+                <p class="text-sm sm:text-base text-gray-600">Laundry Express | Pemilik</p>
+            </div>
+        </div>
+        <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+            <p class="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 leading-relaxed text-center">
+                "Saya suka karena OMZETin bisa cetak struk langsung via Bluetooth printer. Simple dan praktis!"
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 6 -->
+<div class="flex-none testimonial-slide w-full sm:w-2/3 lg:w-1/2 px-2 sm:px-3 scroll-reveal-item">
+    <div class="bg-white rounded-xl shadow-lg border border-gray-100 hover:border-[#04b2f7] transform hover:scale-[1.01] transition-all duration-300 h-full flex flex-col">
+        <div class="flex flex-col items-center pt-6 px-6">
+            <div class="relative">
+                <img src="{{ secure_asset('image/user.svg') }}" alt="Rendy Pratama"
+                    class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[#04b2f7]/10 p-2 border-4 border-[#04b2f7]/20 object-cover" />
+                <svg class="absolute -bottom-2 -right-2 w-8 h-8 text-[#04b2f7]" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zM0 21v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10H0z"/>
+                </svg>
+            </div>
+            <div class="text-center mt-4">
+                <p class="font-bold text-gray-800 text-lg sm:text-xl">Rendy Pratama</p>
+                <p class="text-sm sm:text-base text-gray-600">Owner | Bengkel Sejahtera</p>
+            </div>
+        </div>
+        <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+            <p class="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 leading-relaxed text-center">
+                "Buat usaha bengkel, aplikasi ini sangat cocok karena saya hanya butuh pencatatan transaksi sederhana."
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 7 -->
+<div class="flex-none testimonial-slide w-full sm:w-2/3 lg:w-1/2 px-2 sm:px-3 scroll-reveal-item">
+    <div class="bg-white rounded-xl shadow-lg border border-gray-100 hover:border-[#04b2f7] transform hover:scale-[1.01] transition-all duration-300 h-full flex flex-col">
+        <div class="flex flex-col items-center pt-6 px-6">
+            <div class="relative">
+                <img src="{{ secure_asset('image/user.svg') }}" alt="Fitri Aulia"
+                    class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[#04b2f7]/10 p-2 border-4 border-[#04b2f7]/20 object-cover" />
+                <svg class="absolute -bottom-2 -right-2 w-8 h-8 text-[#04b2f7]" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zM0 21v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10H0z"/>
+                </svg>
+            </div>
+            <div class="text-center mt-4">
+                <p class="font-bold text-gray-800 text-lg sm:text-xl">Fitri Aulia</p>
+                <p class="text-sm sm:text-base text-gray-600">Butik Cantika | Pemilik</p>
+            </div>
+        </div>
+        <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+            <p class="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 leading-relaxed text-center">
+                "Mudah banget dipakai! Saya bisa pantau omzet butik tanpa ribet."
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 8 -->
+<!-- Lanjutkan dengan format yang sama hingga slide ke-10 -->
+
                 </div>
+              
             </div>
 
             <!-- Navigation Buttons - Hidden on Mobile -->

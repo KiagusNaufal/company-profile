@@ -34,7 +34,7 @@ Route::prefix('serial-number-basic')->group(function () {
     });
 });
 Route::prefix('serial-number-services')->group(function () {
-    Route::post('signin', [SerialNumberServices::class, 'login']); // Changed from signin to signin
+    Route::post('signin', [SerialNumberServicesController::class, 'login']); // Changed from signin to signin
     Route::middleware('auth:api_services')->group(function () { // Specific guard
         Route::post('/logout', [SerialNumberServicesController::class, 'logout']);
         Route::post('/refresh', [SerialNumberServicesController::class, 'refresh']);

@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Your OMSETin Serial Number</title>
+    <title>Your OMZETin Serial Number</title>
     <style>
         /* Base Styles */
         body {
@@ -36,11 +36,18 @@
             margin-bottom: 15px;
         }
         
-        .logo {
-            height: 70px;
-            width: auto;
-            max-width: 200px;
-        }
+.logo {
+    height: 120px;  /* Diubah dari 60px/200px menjadi 120px */
+    width: auto;
+    max-width: 100%;  /* Memastikan logo tidak melebihi container */
+}
+
+/* Untuk versi mobile */
+@media only screen and (max-width: 600px) {
+    .logo {
+        height: 100px;  /* Diubah dari 60px menjadi 100px untuk mobile */
+    }
+}
         
         .product-name {
             margin: 15px 0 0;
@@ -185,10 +192,10 @@
     <div class="email-container">
         <!-- Clean Header with Logo -->
         <div class="email-header">
-            <div class="logo-container">
-                @if($hasLogoImage)
-                    <img src="cid:logo.png" alt="OMSETin Logo" class="logo">
-                @endif
+<div class="logo-container">
+    @if($hasLogoImage)
+        <img src="cid:logo.png" alt="OMSETin Logo" class="logo" style="width: 200px; height: auto;">
+    @endif
             </div>
             <h1 class="product-name">{{ $productName }}</h1>
         </div>
@@ -202,35 +209,40 @@
                 @if($hasSerialImage)
                     <img src="cid:serial_image.png" alt="Your Serial Number" class="serial-image">
                 @endif
+              
+              <div class="password-container">
+                    <span class="password-label">Serial Number:</span>
+                    <span class="password-value">{{ $serialNumber }}</span>
+                </div>
                 
                 <div class="password-container">
-                    <span class="password-label">Your temporary password:</span>
+                    <span class="password-label">Password:</span>
                     <span class="password-value">{{ $plainPassword }}</span>
                 </div>
                 
                 <p style="text-align: center; margin-top: 20px; color: #4a5568;">
-                    Please keep this information secure. You can change your password after logging in.
+                Jaga selalu keamanan akun Anda. Setelah login, segera perbarui kata sandi Anda demi perlindungan yang lebih baik.
                 </p>
             </div>
             
             <!-- Action Buttons -->
             <div class="action-links">
                 <a href="{{ $link_aplikasi }}" class="action-button" target="_blank">
-                    Launch Application
+                    Download Aplikasi
                 </a>
                 <a href="{{ $link_tutorial }}" class="action-button secondary" target="_blank">
-                    View Tutorial
+                    Lihat Tutorial
                 </a>
             </div>
             
             <p style="text-align: center; color: #718096; margin-top: 30px;">
-                Need help? Contact our support team at <a href="mailto:support@omsetin.com" style="color: #4f46e5;">support@omsetin.com</a>
+                Butuh bantuan? Hubungi Kami <a href="mailto:support@omsetin.com" style="color: #4f46e5;">aeratek@gmail.com</a>
             </p>
         </div>
         
         <!-- Footer -->
         <div class="email-footer">
-            <p>&copy; {{ date('Y') }} OMSETin. All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} OMZETin. All rights reserved.</p>
             <div class="footer-links">
                 <a href="https://omsetin.com/privacy" class="footer-link" target="_blank">Privacy Policy</a>
                 <a href="https://omsetin.com/terms" class="footer-link" target="_blank">Terms of Service</a>

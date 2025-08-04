@@ -33,11 +33,14 @@
                                     <input type="number" name="price" id="edit_price" required min="0" pattern="^[0-9]+$" title="Hanya angka yang diperbolehkan"
                                         class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
                                 </div>
-                                <div>
-                                    <label for="edit_description" class="block text-sm font-medium text-gray-700">Deskripsi</label>
-                                    <input type="text" name="description" id="edit_description" required pattern="^[a-zA-Z0-9\s\.\-_,]+$" title="Hanya huruf, angka, spasi, titik, koma, strip, dan underscore yang diperbolehkan"
-                                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary">
-                                </div>
+                   <div>
+    <label for="edit_description" class="block text-sm font-medium text-gray-700">Deskripsi</label>
+    <textarea name="description" id="edit_description"
+        title="Hanya huruf, angka, spasi, titik, koma, strip, dan underscore yang diperbolehkan"
+        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary"
+        rows="5"></textarea>
+</div>
+
                                                                                                 <div>
                                                                     <label for="edit_link_aplikasi" class="block text-sm font-medium text-gray-700">Link Aplikasi</label>
                                                                     <input type="url" name="link_aplikasi" id="edit_link_aplikasi" required

@@ -7,7 +7,12 @@ use App\Mail\SerialNumberCreated;
 use App\Models\Produk;
 use App\Models\SerialNumber;
 use App\Models\SerialNumberBasic;
+use App\Models\SerialNumberBengkel;
+use App\Models\SerialNumberIuran;
+use App\Models\SerialNumberLaundry;
+use App\Models\SerialNumberPom;
 use App\Models\SerialNumberServices;
+use App\Models\SerialNumberWash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
@@ -84,19 +89,19 @@ public function store(Request $request)
             $serial = SerialNumberServices::create($data);
         }
         else if ($product->name == 'OMZETin Bengkel') {
-            $serial = SerialNumberServices::create($data);
+            $serial = SerialNumberBengkel::create($data);
         }
         else if ($product->name == 'OMZETin Pom') {
-            $serial = SerialNumberServices::create($data);
+            $serial = SerialNumberPom::create($data);
         }
         else if ($product->name == 'OMZETin Laundry') {
-            $serial = SerialNumberServices::create($data);
+            $serial = SerialNumberLaundry::create($data);
         }
         else if ($product->name == 'OMZETin Iuran') {
-            $serial = SerialNumberServices::create($data);
+            $serial = SerialNumberIuran::create($data);
         }
         else if ($product->name == 'OMZETin Wash') {
-            $serial = SerialNumberServices::create($data);
+            $serial = SerialNumberWash::create($data);
         }
         else {
             $serial = SerialNumber::create($data);
