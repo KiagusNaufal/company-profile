@@ -65,7 +65,7 @@
         <span class="text-xs">🇮🇩</span>
         <span>ID</span>
     </a>
-    <div class="h-5 w-px bg-[#343C3C]"></div>
+    <div class="h-9 w-px bg-[#343C3C]"></div>
     <a href="{{ url('/locale/en') }}"
         class="px-3 py-1.5 text-sm transition-colors duration-200 flex items-center gap-1.5
                {{ app()->getLocale() === 'en' ? 'bg-[#343C3C] text-white' : 'text-[#343C3C] hover:bg-gray-50' }}">
