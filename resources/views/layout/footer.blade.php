@@ -49,10 +49,10 @@
                                 Sayang Cianjur, <br> Kota Cianjur, Jawa Barat</p>
                         </a>
                         <a href="font-light pb-2 cursor-pointer">
-                            <p class="mb-1 hover-underline ">aeratekglobalsolution@gmail.com</p>
+                            <p class="mb-1 hover-underline ">aeratek@gmail.com</p>
                         </a>
                         <a href="https://whatsapp.com">
-                            <p class="font-light mb-6 hover-underline ">+62 878 8231 8231</p>
+                            <p class="font-light mb-6 hover-underline ">+62 851 1748 2655</p>
                         </a>
                     </div>
                 </div>
