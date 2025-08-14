@@ -392,18 +392,35 @@
 
     <style>
         /* Animations */
-        @keyframes float {
+       .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 
-            0%,
-            100% {
-                transform: translateY(0);
-            }
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
 
-            50% {
-                transform: translateY(-8px);
-            }
-        }
+.animate-float-1 { animation: float 6s ease-in-out infinite; }
+.animate-float-2 { animation: float 8s ease-in-out infinite 2s; }
+.animate-float-3 { animation: float 7s ease-in-out infinite 1s; }
 
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.animate-bounce { animation: bounce 2s infinite; }
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -416,17 +433,6 @@
             }
         }
 
-        .animate-float-1 {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .animate-float-2 {
-            animation: float 8s ease-in-out infinite 2s;
-        }
-
-        .animate-float-3 {
-            animation: float 7s ease-in-out infinite 1s;
-        }
 
         .animate-fade-in-up {
             animation: fadeInUp 0.6s ease-out forwards;
