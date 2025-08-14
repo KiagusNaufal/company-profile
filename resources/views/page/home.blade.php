@@ -114,100 +114,63 @@
 
     <!-- Projects Section -->
 <!-- Projects Section -->
-<section class="py-12 sm:py-16 bg-blue-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+<section class="py-12 sm:py-16 bg-blue-50 scroll-reveal-section">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative scroll-reveal-item">
         <!-- Title -->
-        <div class="text-center md:text-left mb-10">
-            <h2 class="text-sm font-semibold text-[#04b2f7] uppercase mb-2">SELECTED WORKS</h2>
-            <p class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-                Kami berkolaborasi menciptakan produk digital<br>
-                untuk mencapai tujuan bisnis dan pengguna
+        <div class="text-center md:text-left">
+            <h2 class="text-sm font-semibold text-[#04b2f7] uppercase mb-2">{{ __('message.home.projects.pre_title') }}</h2>
+            <p class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
+                {{ __('message.home.projects.title') }} <br class="hidden sm:block">
+                {{ __('message.home.projects.title2') }}
             </p>
         </div>
 
         <!-- Carousel Wrapper -->
-        <div class="relative group">
-            <div id="carousel" class="overflow-x-auto flex gap-6 scrollbar-none scroll-smooth pb-4 pl-4 sm:pl-6">
-                <!-- Project Card 1 -->
-                <div class="flex-none w-[300px] sm:w-[350px]">
-                    <div class="h-full border rounded-2xl bg-white overflow-hidden hover:shadow-xl transition-all duration-300">
-                        <!-- Thumbnail -->
-                        <div class="relative w-full h-48 sm:h-56 overflow-hidden">
-                            <img src="{{ secure_asset('image/project1.jpg') }}" alt="OMZETin Stok"
-                                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
-                        </div>
-                        
-                        <div class="p-6">
-                            <div class="flex items-center gap-2 mb-2">
-                                <span class="text-xs font-medium px-2 py-1 bg-blue-100 text-blue-800 rounded-full">APUKASIKASIR</span>
-                                <h3 class="text-lg font-bold text-gray-800">OMZETin Stok</h3>
-                            </div>
-                            
-                            <p class="text-gray-600 mb-4">Aplikasi Kasir Android Lengkap & Professional by Aeratek</p>
-                            
-                            <a href="#" class="inline-flex items-center text-sm font-medium text-[#04b2f7] hover:text-[#0388c4]">
-                                Lihat Detail
-                                <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <div class="relative group scroll-reveal-item">
+            <div id="carousel" class="overflow-x-auto snap-x snap-mandatory flex space-x-4 md:space-x-6 scrollbar-none scroll-smooth pb-4">
+                @foreach ($products as $project)
+                    <div class="flex-none w-[85vw] sm:w-96 md:w-[420px] bg-white rounded-2xl shadow-lg snap-start select-none">
+                        <div class="flex flex-col h-full gap-4 sm:gap-6 border rounded-2xl bg-white overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                            <!-- Thumbnail -->
+                            <div class="relative w-full h-55 sm:h-55 md:h-55 overflow-hidden rounded-t-2xl border-b border-gray-200">
+                                <img src="{{ secure_asset('storage/' . cetak($project->image)) }}" alt="{{ cetak($project->title) }} Thumbnail"
+                                    class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+                                    loading="lazy"
+                                    onerror="this.style.display='none'; this.parentElement.classList.add('bg-gray-100')">
 
-                <!-- Project Card 2 -->
-                <div class="flex-none w-[300px] sm:w-[350px]">
-                    <div class="h-full border rounded-2xl bg-white overflow-hidden hover:shadow-xl transition-all duration-300">
-                        <!-- Thumbnail -->
-                        <div class="relative w-full h-48 sm:h-56 overflow-hidden">
-                            <img src="{{ secure_asset('image/project2.jpg') }}" alt="OMZETin Lite"
-                                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
-                        </div>
-                        
-                        <div class="p-6">
-                            <div class="flex items-center gap-2 mb-2">
-                                <span class="text-xs font-medium px-2 py-1 bg-blue-100 text-blue-800 rounded-full">APUKASIKASIR</span>
-                                <h3 class="text-lg font-bold text-gray-800">OMZETin Lite</h3>
+                                <!-- Fallback if image fails to load -->
+                                <div class="absolute inset-0 bg-gray-100 flex items-center justify-center hidden">
+                                    <svg class="w-8 h-8 sm:w-12 sm:h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                        </path>
+                                    </svg>
+                                </div>
                             </div>
-                            
-                            <p class="text-gray-600 mb-4">Aplikasi Kasir Android Sederhana & Praktis by Aeratek</p>
-                            
-                            <a href="#" class="inline-flex items-center text-sm font-medium text-[#04b2f7] hover:text-[#0388c4]">
-                                Lihat Detail
-                                <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Project Card 3 -->
-                <div class="flex-none w-[300px] sm:w-[350px]">
-                    <div class="h-full border rounded-2xl bg-white overflow-hidden hover:shadow-xl transition-all duration-300">
-                        <!-- Thumbnail -->
-                        <div class="relative w-full h-48 sm:h-56 overflow-hidden">
-                            <img src="{{ secure_asset('image/project3.jpg') }}" alt="OMZETin Service"
-                                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
-                        </div>
-                        
-                        <div class="p-6">
-                            <div class="flex items-center gap-2 mb-2">
-                                <span class="text-xs font-medium px-2 py-1 bg-blue-100 text-blue-800 rounded-full">APUKASIKASIR</span>
-                                <h3 class="text-lg font-bold text-gray-800">OMZETin Service</h3>
+                            <div class="p-4 sm:p-6 flex-1 flex flex-col">
+                                <!-- Project Title -->
+                                <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mb-2 sm:mb-3 line-clamp-2">
+                                    {{ cetak($project->name) }}
+                                </h3>
+
+                                <!-- Description -->
+                                <p class="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 line-clamp-3 flex-1">
+                                    {{ cetak($project->description) }}
+                                </p>
+
+                                <!-- Read More -->
+                                <a href="{{ route('project.detail', ['id' => cetak($project->id), 'slug' => Str::slug(cetak($project->name))]) }}" 
+                                    class="flex-1 inline-flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
+                                    {{ __('works.card.view_details') }}
+                                    <svg class="ml-2 -mr-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
                             </div>
-                            
-                            <p class="text-gray-600 mb-4">Aplikasi Kasir Android untuk Usaha Jasa by Aeratek</p>
-                            
-                            <a href="#" class="inline-flex items-center text-sm font-medium text-[#04b2f7] hover:text-[#0388c4]">
-                                Lihat Detail
-                                <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
                         </div>
                     </div>
-                </div>
+                @endforeach
             </div>
             
             <!-- Navigation arrows -->
@@ -715,12 +678,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     let currentProjectIndex = 0;
-    let autoScrollInterval;
-    let isHovered = false;
+    let isDragging = false;
+    let startPos = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+    let animationId;
 
-    // Function to get the width of a slide including margins
     function getSlideWidth() {
-        if (projectSlides.length === 0) return 0;
         const slide = projectSlides[0];
         const style = window.getComputedStyle(slide);
         return slide.offsetWidth + 
@@ -728,7 +692,6 @@ document.addEventListener('DOMContentLoaded', function() {
                parseFloat(style.marginLeft);
     }
 
-    // Update carousel position
     function updateProjectCarousel() {
         const slideWidth = getSlideWidth();
         carousel.scrollTo({
@@ -737,14 +700,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Next slide function
     function nextProjectSlide() {
         const containerWidth = carousel.parentElement.offsetWidth;
         const maxScroll = carousel.scrollWidth - containerWidth;
         const currentScroll = carousel.scrollLeft;
         
         if (currentScroll >= maxScroll - 10) {
-            // If at end, go back to start
+            // Jika sudah di akhir, kembali ke awal
             currentProjectIndex = 0;
         } else {
             currentProjectIndex = Math.min(currentProjectIndex + 1, projectSlides.length - 1);
@@ -752,10 +714,9 @@ document.addEventListener('DOMContentLoaded', function() {
         updateProjectCarousel();
     }
 
-    // Previous slide function
     function prevProjectSlide() {
         if (carousel.scrollLeft <= 10) {
-            // If at start, go to end
+            // Jika di awal, pergi ke akhir
             currentProjectIndex = projectSlides.length - 1;
         } else {
             currentProjectIndex = Math.max(currentProjectIndex - 1, 0);
@@ -763,50 +724,14 @@ document.addEventListener('DOMContentLoaded', function() {
         updateProjectCarousel();
     }
 
-    // Start auto-scrolling
-    function startAutoScroll() {
-        if (autoScrollInterval) clearInterval(autoScrollInterval);
-        autoScrollInterval = setInterval(() => {
-            if (!isHovered) {
-                nextProjectSlide();
-            }
-        }, 3000); // Change slide every 3 seconds
-    }
-
-    // Stop auto-scrolling when hovering
-    function handleHoverStart() {
-        isHovered = true;
-        clearInterval(autoScrollInterval);
-    }
-
-    // Resume auto-scrolling when not hovering
-    function handleHoverEnd() {
-        isHovered = false;
-        startAutoScroll();
-    }
-
-    // Event listeners for buttons
+    // Event listeners untuk tombol
     prevBtn?.addEventListener('click', prevProjectSlide);
     nextBtn?.addEventListener('click', nextProjectSlide);
 
-    // Handle scroll events to update index
+    // Handle scroll events untuk update index
     carousel?.addEventListener('scroll', function() {
         const slideWidth = getSlideWidth();
         currentProjectIndex = Math.round(carousel.scrollLeft / slideWidth);
-    });
-
-    // Hover events for auto-scroll pausing
-    carousel?.addEventListener('mouseenter', handleHoverStart);
-    carousel?.addEventListener('touchstart', handleHoverStart);
-    carousel?.addEventListener('mouseleave', handleHoverEnd);
-    carousel?.addEventListener('touchend', handleHoverEnd);
-
-    // Initialize auto-scroll
-    startAutoScroll();
-
-    // Handle window resize
-    window.addEventListener('resize', function() {
-        updateProjectCarousel();
     });
 
     // ==================== TESTIMONIAL CAROUSEL ====================
@@ -822,41 +747,32 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentIndex = 0;
     let isTestimonialDragging = false;
     let isAtEnd = false;
-    let testimonialAutoScrollInterval;
-    let isTestimonialHovered = false;
 
-    // Determine how many slides to show based on screen size
     function getSlidesPerView() {
-        if (window.innerWidth >= 1024) return 3; // Desktop - 3 slides
-        if (window.innerWidth >= 640) return 2;  // Tablet - 2 slides
-        return 1;                               // Mobile - 1 slide
+        if (window.innerWidth >= 1024) return 3;
+        if (window.innerWidth >= 640) return 2;
+        return 1;
     }
     
-    // Update carousel position
-    function updateTestimonialCarousel() {
+    function updateCarousel() {
         const slidesPerView = getSlidesPerView();
         const slideWidth = 100 / slidesPerView;
         const maxIndex = Math.max(totalSlides - slidesPerView, 0);
         
-        // Jika sudah di akhir dan klik next lagi, kembali ke awal
         if (isAtEnd && currentIndex >= lastSlideIndex) {
             currentIndex = 0;
             isAtEnd = false;
-        } 
-        // Jika mencapai slide terakhir, set flag isAtEnd
-        else if (currentIndex >= lastSlideIndex) {
+        } else if (currentIndex >= lastSlideIndex) {
             isAtEnd = true;
         }
         
-        // Pastikan currentIndex tidak melebihi batas
         currentIndex = Math.min(currentIndex, maxIndex);
         
         slidesContainer.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
-        updateTestimonialDots();
+        updateDots();
     }
     
-    // Update dot indicators
-    function updateTestimonialDots() {
+    function updateDots() {
         const activeDotIndex = Math.min(Math.floor(currentIndex / getSlidesPerView()), lastSlideIndex);
         
         dots.forEach((dot, index) => {
@@ -873,88 +789,55 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Next slide
-    function nextTestimonialSlide() {
+    function nextSlide() {
         const slidesPerView = getSlidesPerView();
         const maxIndex = Math.max(totalSlides - slidesPerView, 0);
         
         if (currentIndex < maxIndex) {
             currentIndex += 1;
         } else {
-            // Jika sudah di slide terakhir, set flag untuk kembali ke awal
             isAtEnd = true;
         }
-        updateTestimonialCarousel();
+        updateCarousel();
     }
     
-    // Previous slide
-    function prevTestimonialSlide() {
+    function prevSlide() {
         if (currentIndex > 0) {
             currentIndex -= 1;
-            isAtEnd = false; // Reset flag jika mundur dari slide terakhir
-            updateTestimonialCarousel();
+            isAtEnd = false;
+            updateCarousel();
         }
     }
     
-    // Go to specific slide
-    function goToTestimonialSlide(index) {
+    function goToSlide(index) {
         const slidesPerView = getSlidesPerView();
         currentIndex = Math.min(index * slidesPerView, lastSlideIndex);
         isAtEnd = currentIndex >= lastSlideIndex;
-        updateTestimonialCarousel();
-    }
-
-    // Start auto-scrolling for testimonials
-    function startTestimonialAutoScroll() {
-        if (testimonialAutoScrollInterval) clearInterval(testimonialAutoScrollInterval);
-        testimonialAutoScrollInterval = setInterval(() => {
-            if (!isTestimonialHovered) {
-                nextTestimonialSlide();
-            }
-        }, 4000); // Change slide every 4 seconds
-    }
-
-    // Stop auto-scrolling when hovering
-    function handleTestimonialHoverStart() {
-        isTestimonialHovered = true;
-        clearInterval(testimonialAutoScrollInterval);
-    }
-
-    // Resume auto-scrolling when not hovering
-    function handleTestimonialHoverEnd() {
-        isTestimonialHovered = false;
-        startTestimonialAutoScroll();
+        updateCarousel();
     }
     
     // Initialize
-    updateTestimonialCarousel();
-    startTestimonialAutoScroll();
+    updateCarousel();
 
     // Event listeners
-    prevBtnTestimonial?.addEventListener('click', prevTestimonialSlide);
-    nextBtnTestimonial?.addEventListener('click', nextTestimonialSlide);
+    prevBtnTestimonial?.addEventListener('click', prevSlide);
+    nextBtnTestimonial?.addEventListener('click', nextSlide);
     
     dots.forEach(dot => {
         dot.addEventListener('click', () => {
-            goToTestimonialSlide(parseInt(dot.dataset.index));
+            goToSlide(parseInt(dot.dataset.index));
         });
     });
     
     mobileDots.forEach(dot => {
         dot.addEventListener('click', () => {
-            goToTestimonialSlide(parseInt(dot.dataset.index));
+            goToSlide(parseInt(dot.dataset.index));
         });
     });
-
-    // Hover events for testimonial carousel
-    slidesContainer?.addEventListener('mouseenter', handleTestimonialHoverStart);
-    slidesContainer?.addEventListener('touchstart', handleTestimonialHoverStart);
-    slidesContainer?.addEventListener('mouseleave', handleTestimonialHoverEnd);
-    slidesContainer?.addEventListener('touchend', handleTestimonialHoverEnd);
     
     // Handle window resize
     window.addEventListener('resize', function() {
-        updateTestimonialCarousel();
+        updateCarousel();
         updateProjectCarousel();
     });
 });
