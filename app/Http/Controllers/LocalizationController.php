@@ -10,7 +10,7 @@ class LocalizationController extends Controller
 {
 public function setLocale($lang)
 {
-    if (!in_array($lang, ['en', 'id'])) {
+    if (!in_array($lang, ['id', 'en'])) {
         abort(404);
     }
 
@@ -19,7 +19,7 @@ public function setLocale($lang)
     
     // Redirect kembali ke halaman sebelumnya dengan URL yang benar
     $previousUrl = str_replace(
-        ['/locale/en', '/locale/id'],
+        ['/locale/id', '/locale/en'],
         '',
         url()->previous()
     );
