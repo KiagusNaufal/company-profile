@@ -154,7 +154,11 @@
                                     {{ cetak($project->name) }}
                                 </h3>
 
-                        
+                                <!-- Description -->
+                                <p class="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 line-clamp-3 flex-1">
+                                    {{ cetak($project->description) }}
+                                </p>
+
                                 <!-- Read More -->
                                 <a href="{{ route('project.detail', ['id' => cetak($project->id), 'slug' => Str::slug(cetak($project->name))]) }}" 
                                     class="flex-1 inline-flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
