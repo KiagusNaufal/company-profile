@@ -2,24 +2,24 @@
 
 @section('content')
     <!-- Works Hero Section -->
-   <!-- Works Hero Section -->
+<!-- Works Hero Section -->
 <section class="relative py-12 md:py-16 lg:py-20 min-h-[60vh] md:min-h-[80vh] bg-gradient-to-br from-blue-50 to-indigo-50 overflow-hidden">
     <!-- Animated Background Elements -->
-    <div class="absolute inset-0 overflow-hidden">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
         <!-- Floating Circles - Adjusted sizes for better responsiveness -->
         <div class="absolute top-16 left-8 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-blue-100 rounded-full opacity-30 animate-float-1"></div>
         <div class="absolute top-1/3 right-8 sm:right-12 w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-indigo-100 rounded-full opacity-20 animate-float-2"></div>
         <div class="absolute bottom-16 left-1/4 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-blue-200 rounded-full opacity-25 animate-float-3"></div>
 
-        <!-- Grid Pattern - Made more subtle -->
+        <!-- Grid Pattern - Fixed size for all screen -->
         <div class="absolute inset-0 opacity-3">
-            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <svg class="absolute left-0 top-0" width="100vw" height="100vh" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                 <defs>
                     <pattern id="grid-pattern" width="60" height="60" patternUnits="userSpaceOnUse">
                         <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#04b2f7" stroke-width="0.3" opacity="0.15" />
                     </pattern>
                 </defs>
-                <rect width="100%" height="100%" fill="url(#grid-pattern)" />
+                <rect width="1920" height="1080" fill="url(#grid-pattern)" />
             </svg>
         </div>
     </div>
