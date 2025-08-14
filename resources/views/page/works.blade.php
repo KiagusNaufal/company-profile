@@ -2,78 +2,60 @@
 
 @section('content')
     <!-- Works Hero Section -->
-    <section
-        class="relative py-12 md:py-20 lg:py-28 h-auto min-h-[40vh] md:min-h-[80vh] bg-gradient-to-br from-blue-50 to-indigo-50 overflow-hidden scroll-reveal-section">
-        <!-- Animated Background Elements -->
-        <div class="absolute inset-0 overflow-hidden">
-            <!-- Floating Circles -->
-            <div
-                class="absolute top-16 left-8 w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 bg-blue-100 rounded-full opacity-30 animate-float-1">
-            </div>
-            <div
-                class="absolute top-1/3 right-8 sm:right-12 md:right-20 w-32 h-32 sm:w-40 sm:h-40 md:w-60 md:h-60 bg-indigo-100 rounded-full opacity-20 animate-float-2">
-            </div>
-            <div
-                class="absolute bottom-16 left-1/4 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 bg-blue-200 rounded-full opacity-25 animate-float-3">
-            </div>
+   <!-- Works Hero Section -->
+<section class="relative py-12 md:py-16 lg:py-20 min-h-[60vh] md:min-h-[80vh] bg-gradient-to-br from-blue-50 to-indigo-50 overflow-hidden">
+    <!-- Animated Background Elements -->
+    <div class="absolute inset-0 overflow-hidden">
+        <!-- Floating Circles - Adjusted sizes for better responsiveness -->
+        <div class="absolute top-16 left-8 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-blue-100 rounded-full opacity-30 animate-float-1"></div>
+        <div class="absolute top-1/3 right-8 sm:right-12 w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-indigo-100 rounded-full opacity-20 animate-float-2"></div>
+        <div class="absolute bottom-16 left-1/4 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-blue-200 rounded-full opacity-25 animate-float-3"></div>
 
-            <!-- Grid Pattern -->
-            <div class="absolute inset-0 opacity-5">
-                <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <pattern id="grid-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
-                            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#04b2f7" stroke-width="0.5" opacity="0.2" />
-                        </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#grid-pattern)" />
+        <!-- Grid Pattern - Made more subtle -->
+        <div class="absolute inset-0 opacity-3">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="grid-pattern" width="60" height="60" patternUnits="userSpaceOnUse">
+                        <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#04b2f7" stroke-width="0.3" opacity="0.15" />
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid-pattern)" />
+            </svg>
+        </div>
+    </div>
+
+    <div class="relative container mx-auto px-4 sm:px-6 h-full flex flex-col justify-center items-center text-center">
+        <!-- Title with consistent sizing -->
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight">
+            {{ __('works.hero.title1') }}
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#04b2f7] to-[#6366f1] block sm:inline">
+                {{ __('works.hero.title2') }}
+            </span>
+        </h1>
+
+        <!-- Subtitle with proper line clamping -->
+        <p class="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto mb-6 md:mb-8 px-4 leading-relaxed line-clamp-3">
+            {{ __('works.hero.subtitle') }}
+        </p>
+
+        <!-- CTA Button with consistent sizing -->
+        <div>
+            <a href="#projects" class="inline-flex items-center px-5 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-[#04b2f7] to-[#6366f1] text-white font-medium rounded-full shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5">
+                <span class="mr-2">{{ __('works.hero.button') }}</span>
+                <svg class="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                 </svg>
-            </div>
+            </a>
         </div>
 
-        <div class="relative container mx-auto px-4 sm:px-6 h-full flex flex-col justify-center items-center text-center">
-            <!-- Animated Title -->
-            <h1
-                class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 md:mb-6 animate-fade-in-up">
-                {{ __('works.hero.title1') }}
-                <span class="text-transparent bg-clip-text"
-                    style="background-image: linear-gradient(to right, #04b2f7, #6366f1);">
-                    {{ __('works.hero.title2') }}
-                </span>
-            </h1>
-
-            <!-- Subtitle with smooth transition -->
-            <p
-                class="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto mb-6 md:mb-10 px-4 animate-fade-in-up delay-100">
-                {{ __('works.hero.subtitle') }}
-            </p>
-
-            <!-- CTA Button with hover effect -->
-            <div class="animate-fade-in-up delay-200">
-                <a href="#projects"
-                    class="relative inline-flex items-center px-5 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 overflow-hidden font-medium text-white rounded-full group"
-                    style="background-image: linear-gradient(to right, #04b2f7, #6366f1);">
-                    <span
-                        class="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
-                    <span class="relative flex items-center">
-                        {{ __('works.hero.button') }}
-                        <svg class="w-4 h-4 sm:w-5 sm:h-5 ml-2 transition-transform group-hover:translate-x-1"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                        </svg>
-                    </span>
-                </a>
-            </div>
-
-            <!-- Scrolling indicator with pulse animation - Adjusted position -->
-            <div class="absolute bottom-4 sm:bottom-6 md:bottom-8 left-0 right-0 flex justify-center animate-bounce">
-                <div class="w-6 h-10 sm:w-8 sm:h-12 md:w-10 md:h-16 flex justify-center">
-                    <div class="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-blue-500 animate-pulse"></div>
-                </div>
+        <!-- Scrolling indicator -->
+        <div class="absolute bottom-6 sm:bottom-8 left-0 right-0 flex justify-center animate-bounce">
+            <div class="w-6 h-10 flex justify-center">
+                <div class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></div>
             </div>
         </div>
-    </section>
-
+    </div>
+</section>
 
     <!-- Projects Grid Section -->
     <section id="projects" class="py-10 sm:py-12 md:py-16 lg:py-20 bg-white scroll-reveal-section">
