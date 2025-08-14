@@ -96,7 +96,6 @@ return [
         'driver' => 'eloquent',
         'model' => App\Models\User::class,
     ],
-
     'serial_numbers' => [
         'driver' => 'eloquent',
         'model' => App\Models\SerialNumber::class,
@@ -105,8 +104,32 @@ return [
         'driver' => 'eloquent',
         'model' => App\Models\SerialNumberBasic::class,
     ],
+    // Add these missing providers:
+    'serial_number_services' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\SerialNumberServices::class, // Make sure this model exists
+    ],
+    'serial_number_bengkel' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\SerialNumberBengkel::class,
+    ],
+    'serial_number_laundry' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\SerialNumberLaundry::class,
+    ],
+    'serial_number_pom' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\SerialNumberPom::class,
+    ],
+    'serial_number_iuran' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\SerialNumberIuran::class,
+    ],
+    'serial_number_wash' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\SerialNumberWash::class,
+    ],
 ],
-
     /*
     |--------------------------------------------------------------------------
     | Resetting Passwords

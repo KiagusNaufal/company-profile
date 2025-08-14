@@ -48,14 +48,14 @@ class SerialNumberCreated extends Mailable
             $image = $manager->read($imagePath);
             
             // Calculate dynamic font size based on image width
-            $fontSize = min(48, $image->width() / 15);
+            $fontSize = min(120, $image->width() / 15);
             
             // Add serial number with shadow effect
             $centerX = $image->width() / 2;
             $centerY = $image->height() / 2;
 
             // Geser ke bawah (misal +60px dari tengah)
-            $image->text($this->serialNumber, $centerX, $centerY + 94, function($font) use ($fontSize) {
+            $image->text($this->serialNumber, $centerX + 55, $centerY + 85, function($font) use ($fontSize) {
                 $font->filename(public_path('fonts/Poppins-Regular.ttf'));
                 $font->size($fontSize * 0.5);
                 $font->color('#000000');

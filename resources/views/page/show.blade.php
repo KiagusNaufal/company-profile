@@ -128,7 +128,7 @@
             @foreach($relatedProjects as $related)
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
                 <a href="{{ route('project.detail', ['id' => $related->id, 'slug' => Str::slug($related->name)]) }}">
-                    <div class="h-48 overflow-hidden">
+                    <div class="h-65 overflow-hidden">
                         <img src="{{ secure_asset('storage/' . $related->image) }}" alt="{{ $related->name }}" 
                              class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
                     </div>
