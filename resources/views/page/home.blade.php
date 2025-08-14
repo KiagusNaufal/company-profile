@@ -680,13 +680,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     let currentProjectIndex = 0;
-    let isDragging = false;
-    let startPos = 0;
-    let currentTranslate = 0;
-    let prevTranslate = 0;
-    let animationId;
+    let autoScrollInterval;
+    let isHovered = false;
 
+    // Function to get the width of a slide including margins
     function getSlideWidth() {
+        if (projectSlides.length === 0) return 0;
         const slide = projectSlides[0];
         const style = window.getComputedStyle(slide);
         return slide.offsetWidth + 
@@ -694,6 +693,7 @@ document.addEventListener('DOMContentLoaded', function() {
                parseFloat(style.marginLeft);
     }
 
+    // Update carousel position
     function updateProjectCarousel() {
         const slideWidth = getSlideWidth();
         carousel.scrollTo({
@@ -702,13 +702,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Next slide function
     function nextProjectSlide() {
         const containerWidth = carousel.parentElement.offsetWidth;
         const maxScroll = carousel.scrollWidth - containerWidth;
         const currentScroll = carousel.scrollLeft;
         
         if (currentScroll >= maxScroll - 10) {
-            // Jika sudah di akhir, kembali ke awal
+            // If at end, go back to start
             currentProjectIndex = 0;
         } else {
             currentProjectIndex = Math.min(currentProjectIndex + 1, projectSlides.length - 1);
@@ -716,9 +717,10 @@ document.addEventListener('DOMContentLoaded', function() {
         updateProjectCarousel();
     }
 
+    // Previous slide function
     function prevProjectSlide() {
         if (carousel.scrollLeft <= 10) {
-            // Jika di awal, pergi ke akhir
+            // If at start, go to end
             currentProjectIndex = projectSlides.length - 1;
         } else {
             currentProjectIndex = Math.max(currentProjectIndex - 1, 0);
@@ -726,14 +728,50 @@ document.addEventListener('DOMContentLoaded', function() {
         updateProjectCarousel();
     }
 
-    // Event listeners untuk tombol
+    // Start auto-scrolling
+    function startAutoScroll() {
+        if (autoScrollInterval) clearInterval(autoScrollInterval);
+        autoScrollInterval = setInterval(() => {
+            if (!isHovered) {
+                nextProjectSlide();
+            }
+        }, 3000); // Change slide every 3 seconds
+    }
+
+    // Stop auto-scrolling when hovering
+    function handleHoverStart() {
+        isHovered = true;
+        clearInterval(autoScrollInterval);
+    }
+
+    // Resume auto-scrolling when not hovering
+    function handleHoverEnd() {
+        isHovered = false;
+        startAutoScroll();
+    }
+
+    // Event listeners for buttons
     prevBtn?.addEventListener('click', prevProjectSlide);
     nextBtn?.addEventListener('click', nextProjectSlide);
 
-    // Handle scroll events untuk update index
+    // Handle scroll events to update index
     carousel?.addEventListener('scroll', function() {
         const slideWidth = getSlideWidth();
         currentProjectIndex = Math.round(carousel.scrollLeft / slideWidth);
+    });
+
+    // Hover events for auto-scroll pausing
+    carousel?.addEventListener('mouseenter', handleHoverStart);
+    carousel?.addEventListener('touchstart', handleHoverStart);
+    carousel?.addEventListener('mouseleave', handleHoverEnd);
+    carousel?.addEventListener('touchend', handleHoverEnd);
+
+    // Initialize auto-scroll
+    startAutoScroll();
+
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        updateProjectCarousel();
     });
 
     // ==================== TESTIMONIAL CAROUSEL ====================
@@ -749,32 +787,41 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentIndex = 0;
     let isTestimonialDragging = false;
     let isAtEnd = false;
+    let testimonialAutoScrollInterval;
+    let isTestimonialHovered = false;
 
+    // Determine how many slides to show based on screen size
     function getSlidesPerView() {
-        if (window.innerWidth >= 1024) return 3;
-        if (window.innerWidth >= 640) return 2;
-        return 1;
+        if (window.innerWidth >= 1024) return 3; // Desktop - 3 slides
+        if (window.innerWidth >= 640) return 2;  // Tablet - 2 slides
+        return 1;                               // Mobile - 1 slide
     }
     
-    function updateCarousel() {
+    // Update carousel position
+    function updateTestimonialCarousel() {
         const slidesPerView = getSlidesPerView();
         const slideWidth = 100 / slidesPerView;
         const maxIndex = Math.max(totalSlides - slidesPerView, 0);
         
+        // Jika sudah di akhir dan klik next lagi, kembali ke awal
         if (isAtEnd && currentIndex >= lastSlideIndex) {
             currentIndex = 0;
             isAtEnd = false;
-        } else if (currentIndex >= lastSlideIndex) {
+        } 
+        // Jika mencapai slide terakhir, set flag isAtEnd
+        else if (currentIndex >= lastSlideIndex) {
             isAtEnd = true;
         }
         
+        // Pastikan currentIndex tidak melebihi batas
         currentIndex = Math.min(currentIndex, maxIndex);
         
         slidesContainer.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
-        updateDots();
+        updateTestimonialDots();
     }
     
-    function updateDots() {
+    // Update dot indicators
+    function updateTestimonialDots() {
         const activeDotIndex = Math.min(Math.floor(currentIndex / getSlidesPerView()), lastSlideIndex);
         
         dots.forEach((dot, index) => {
@@ -791,55 +838,88 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    function nextSlide() {
+    // Next slide
+    function nextTestimonialSlide() {
         const slidesPerView = getSlidesPerView();
         const maxIndex = Math.max(totalSlides - slidesPerView, 0);
         
         if (currentIndex < maxIndex) {
             currentIndex += 1;
         } else {
+            // Jika sudah di slide terakhir, set flag untuk kembali ke awal
             isAtEnd = true;
         }
-        updateCarousel();
+        updateTestimonialCarousel();
     }
     
-    function prevSlide() {
+    // Previous slide
+    function prevTestimonialSlide() {
         if (currentIndex > 0) {
             currentIndex -= 1;
-            isAtEnd = false;
-            updateCarousel();
+            isAtEnd = false; // Reset flag jika mundur dari slide terakhir
+            updateTestimonialCarousel();
         }
     }
     
-    function goToSlide(index) {
+    // Go to specific slide
+    function goToTestimonialSlide(index) {
         const slidesPerView = getSlidesPerView();
         currentIndex = Math.min(index * slidesPerView, lastSlideIndex);
         isAtEnd = currentIndex >= lastSlideIndex;
-        updateCarousel();
+        updateTestimonialCarousel();
+    }
+
+    // Start auto-scrolling for testimonials
+    function startTestimonialAutoScroll() {
+        if (testimonialAutoScrollInterval) clearInterval(testimonialAutoScrollInterval);
+        testimonialAutoScrollInterval = setInterval(() => {
+            if (!isTestimonialHovered) {
+                nextTestimonialSlide();
+            }
+        }, 4000); // Change slide every 4 seconds
+    }
+
+    // Stop auto-scrolling when hovering
+    function handleTestimonialHoverStart() {
+        isTestimonialHovered = true;
+        clearInterval(testimonialAutoScrollInterval);
+    }
+
+    // Resume auto-scrolling when not hovering
+    function handleTestimonialHoverEnd() {
+        isTestimonialHovered = false;
+        startTestimonialAutoScroll();
     }
     
     // Initialize
-    updateCarousel();
+    updateTestimonialCarousel();
+    startTestimonialAutoScroll();
 
     // Event listeners
-    prevBtnTestimonial?.addEventListener('click', prevSlide);
-    nextBtnTestimonial?.addEventListener('click', nextSlide);
+    prevBtnTestimonial?.addEventListener('click', prevTestimonialSlide);
+    nextBtnTestimonial?.addEventListener('click', nextTestimonialSlide);
     
     dots.forEach(dot => {
         dot.addEventListener('click', () => {
-            goToSlide(parseInt(dot.dataset.index));
+            goToTestimonialSlide(parseInt(dot.dataset.index));
         });
     });
     
     mobileDots.forEach(dot => {
         dot.addEventListener('click', () => {
-            goToSlide(parseInt(dot.dataset.index));
+            goToTestimonialSlide(parseInt(dot.dataset.index));
         });
     });
+
+    // Hover events for testimonial carousel
+    slidesContainer?.addEventListener('mouseenter', handleTestimonialHoverStart);
+    slidesContainer?.addEventListener('touchstart', handleTestimonialHoverStart);
+    slidesContainer?.addEventListener('mouseleave', handleTestimonialHoverEnd);
+    slidesContainer?.addEventListener('touchend', handleTestimonialHoverEnd);
     
     // Handle window resize
     window.addEventListener('resize', function() {
-        updateCarousel();
+        updateTestimonialCarousel();
         updateProjectCarousel();
     });
 });
