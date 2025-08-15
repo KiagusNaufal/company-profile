@@ -3,7 +3,7 @@
 @section('content')
     <!-- Works Hero Section -->
 <!-- Works Hero Section -->
-<section class="relative py-12 md:py-16 lg:py-20 min-h-[60vh] md:min-h-[80vh] bg-gradient-to-br from-blue-50 to-indigo-50 overflow-hidden">
+<section class="relative py-8 md:py-12 lg:py-16 min-h-[40vh] md:min-h-[50vh] bg-gradient-to-br from-blue-50 to-indigo-50 overflow-hidden">
     <!-- Animated Background Elements -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
         <!-- Floating Circles - Adjusted sizes for better responsiveness -->
@@ -26,7 +26,7 @@
 
     <div class="relative container mx-auto px-4 sm:px-6 h-full flex flex-col justify-center items-center text-center">
         <!-- Title with consistent sizing -->
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-5 leading-tight">
             {{ __('works.hero.title1') }}
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#04b2f7] to-[#6366f1] block sm:inline">
                 {{ __('works.hero.title2') }}
@@ -34,24 +34,24 @@
         </h1>
 
         <!-- Subtitle with proper line clamping -->
-        <p class="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto mb-6 md:mb-8 px-4 leading-relaxed line-clamp-3">
+        <p class="text-xs sm:text-sm md:text-base text-gray-600 max-w-2xl mx-auto mb-5 md:mb-6 px-4 leading-relaxed line-clamp-3">
             {{ __('works.hero.subtitle') }}
         </p>
 
         <!-- CTA Button with consistent sizing -->
         <div>
-            <a href="#projects" class="inline-flex items-center px-5 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-[#04b2f7] to-[#6366f1] text-white font-medium rounded-full shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5">
+            <a href="#projects" class="inline-flex items-center px-4 py-1.5 sm:px-5 sm:py-2 bg-gradient-to-r from-[#04b2f7] to-[#6366f1] text-white font-medium rounded-full shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 text-sm sm:text-base">
                 <span class="mr-2">{{ __('works.hero.button') }}</span>
-                <svg class="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-3 h-3 sm:w-4 sm:h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                 </svg>
             </a>
         </div>
 
         <!-- Scrolling indicator -->
-        <div class="absolute bottom-6 sm:bottom-8 left-0 right-0 flex justify-center animate-bounce">
-            <div class="w-6 h-10 flex justify-center">
-                <div class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></div>
+        <div class="absolute bottom-4 sm:bottom-6 left-0 right-0 flex justify-center animate-bounce">
+            <div class="w-5 h-8 flex justify-center">
+                <div class="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></div>
             </div>
         </div>
     </div>
@@ -147,25 +147,12 @@
 
                             <!-- Button Container - Updated with better mobile sizing -->
                             <div class="flex space-x-3 mt-4 sm:mt-5 md:mt-6 scroll-reveal-item">
-                                <!-- Buy Now Button -->
-                                <button data-id="{{ cetak($project->id) }}" data-name="{{ cetak($project->name) }}"
-                                    data-price="{{ cetak($project->price) }}" data-image="{{ cetak($project->image) }}"
-                                    class="buy-now-btn flex-1 group inline-flex items-center justify-center px-4 py-3 bg-[#04b2f7] text-white font-medium rounded-lg hover:bg-[#0399d9] transition-all shadow-md hover:shadow-lg text-sm">
-                                    <span class="mr-2">{{ __('works.card.buy_now') }}</span>
-                                    <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
-                                        fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                                    </svg>
-                                </button>
-
-                                <!-- View Details Button -->
-                                <a href="{{ route('project.detail', ['id' => cetak($project->id), 'slug' => Str::slug(cetak($project->name))]) }}"
-                                    class="flex-1 inline-flex items-center justify-center px-4 py-3 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#04b2f7] transition-colors">
-                                    {{ __('works.card.view_details') }}
-                                </a>
-                            </div>
+    <!-- View Details Button -->
+    <a href="{{ route('project.detail', ['id' => cetak($project->id), 'slug' => Str::slug(cetak($project->name))]) }}"
+        class="flex-1 inline-flex items-center justify-center px-4 py-3 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#04b2f7] transition-colors">
+        {{ __('works.card.view_details') }}
+    </a>
+</div>
                         </div>
                     </div>
                 @endforeach

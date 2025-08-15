@@ -115,7 +115,7 @@
     <!-- Projects Section -->
 <!-- Projects Section -->
 <section class="py-12 sm:py-16 bg-blue-50 scroll-reveal-section">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative scroll-reveal-item">
+    <div class="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 relative scroll-reveal-item">
         <!-- Title -->
         <div class="text-center md:text-left">
             <h2 class="text-sm font-semibold text-[#04b2f7] uppercase mb-2">{{ __('message.home.projects.pre_title') }}</h2>
