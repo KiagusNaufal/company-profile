@@ -3,13 +3,13 @@
 @section('content')
     <!-- Works Hero Section -->
 <!-- Works Hero Section -->
-<section class="relative py-8 md:py-12 lg:py-16 min-h-[40vh] md:min-h-[50vh] bg-gradient-to-br from-blue-50 to-indigo-50 overflow-hidden">
+<section class="relative py-16 md:py-24 lg:py-32 min-h-[60vh] md:min-h-[70vh] bg-gradient-to-br from-blue-50 to-indigo-50 overflow-hidden scroll-reveal">
     <!-- Animated Background Elements -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
         <!-- Floating Circles - Adjusted sizes for better responsiveness -->
-        <div class="absolute top-16 left-8 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-blue-100 rounded-full opacity-30 animate-float-1"></div>
-        <div class="absolute top-1/3 right-8 sm:right-12 w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-indigo-100 rounded-full opacity-20 animate-float-2"></div>
-        <div class="absolute bottom-16 left-1/4 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-blue-200 rounded-full opacity-25 animate-float-3"></div>
+        <div class="absolute top-16 left-8 w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 bg-blue-100 rounded-full opacity-30 animate-float-1"></div>
+        <div class="absolute top-1/3 right-8 sm:right-12 w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 bg-indigo-100 rounded-full opacity-20 animate-float-2"></div>
+        <div class="absolute bottom-16 left-1/4 w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 bg-blue-200 rounded-full opacity-25 animate-float-3"></div>
 
         <!-- Grid Pattern - Fixed size for all screen -->
         <div class="absolute inset-0 opacity-3">
@@ -25,36 +25,37 @@
     </div>
 
     <div class="relative container mx-auto px-4 sm:px-6 h-full flex flex-col justify-center items-center text-center">
-        <!-- Title with consistent sizing -->
-        <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-5 leading-tight">
+        <!-- Title with bigger font and centered -->
+        <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 mb-5 md:mb-8 leading-tight text-center">
             {{ __('works.hero.title1') }}
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#04b2f7] to-[#6366f1] block sm:inline">
                 {{ __('works.hero.title2') }}
             </span>
         </h1>
 
-        <!-- Subtitle with proper line clamping -->
-        <p class="text-xs sm:text-sm md:text-base text-gray-600 max-w-2xl mx-auto mb-5 md:mb-6 px-4 leading-relaxed line-clamp-3">
+        <!-- Subtitle with bigger font and centered -->
+        <p class="text-base sm:text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8 md:mb-10 px-4 leading-relaxed text-center line-clamp-3">
             {{ __('works.hero.subtitle') }}
         </p>
 
         <!-- CTA Button with consistent sizing -->
         <div>
-            <a href="#projects" class="inline-flex items-center px-4 py-1.5 sm:px-5 sm:py-2 bg-gradient-to-r from-[#04b2f7] to-[#6366f1] text-white font-medium rounded-full shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 text-sm sm:text-base">
+            <a href="#projects" class="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-[#04b2f7] to-[#6366f1] text-white font-semibold rounded-full shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 text-lg sm:text-xl">
                 <span class="mr-2">{{ __('works.hero.button') }}</span>
-                <svg class="w-3 h-3 sm:w-4 sm:h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                 </svg>
             </a>
         </div>
 
         <!-- Scrolling indicator -->
-        <div class="absolute bottom-4 sm:bottom-6 left-0 right-0 flex justify-center animate-bounce">
-            <div class="w-5 h-8 flex justify-center">
-                <div class="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></div>
+        <div class="absolute bottom-8 sm:bottom-12 left-0 right-0 flex justify-center animate-bounce">
+            <div class="w-6 h-10 flex justify-center">
+                <div class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></div>
             </div>
         </div>
     </div>
+</section>
 </section>
 
     <!-- Projects Grid Section -->

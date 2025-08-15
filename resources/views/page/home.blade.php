@@ -124,6 +124,7 @@
                 {{ __('message.home.projects.title2') }}
             </p>
         </div>
+    </div>
 
         <!-- Carousel Wrapper -->
         <div class="relative group scroll-reveal-item">
@@ -187,7 +188,6 @@
                 </svg>
             </button>
         </div>
-    </div>
 </section>
 <!-- Testimonial Section -->
 <!-- Testimonial Section -->
