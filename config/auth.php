@@ -73,6 +73,10 @@ return [
         'driver' => 'jwt',
         'provider' => 'serial_number_wash',
     ],
+     'api_resto' => [    // Changed from 'api' to 'api_basic'
+        'driver' => 'jwt',
+        'provider' => 'serial_number_resto',
+    ],
 ],
     /*
     |--------------------------------------------------------------------------
@@ -128,6 +132,10 @@ return [
     'serial_number_wash' => [
         'driver' => 'eloquent',
         'model' => App\Models\SerialNumberWash::class,
+    ],
+      'serial_number_resto' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\SerialNumberResto::class,
     ],
 ],
     /*

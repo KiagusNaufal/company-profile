@@ -9,9 +9,9 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+       public function up(): void
     {
-        Schema::create('serial_number_iuran', function (Blueprint $table) {
+        Schema::create('serial_number_resto', function (Blueprint $table) {
             $table->id();
             $table->string('serialNumber')->unique();
             $table->string('password');

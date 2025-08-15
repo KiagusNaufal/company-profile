@@ -7,6 +7,7 @@ use App\Http\Controllers\SerialNumberController;
 use App\Http\Controllers\SerialNumberIuranController;
 use App\Http\Controllers\SerialNumberLaundryController;
 use App\Http\Controllers\SerialNumberPomController;
+use App\Http\Controllers\SerialNumberRestoController;
 use App\Http\Controllers\SerialNumberServicesController;
 use App\Http\Controllers\SerialNumberWashController;
 use App\Models\SerialNumberBengkel;
@@ -95,6 +96,17 @@ Route::prefix('serial-number-wash')->group(function () {
         Route::post('/refresh', [SerialNumberWashController::class, 'refresh']);
         Route::get('/{serialNumberId}', [SerialNumberWashController::class, 'show']);
         Route::post('/{serialNumberId}/change-password', [SerialNumberWashController::class, 'changePassword']);
+        Route::post('/{serialNumberId}/update', [SerialNumberWashController::class, 'update']);
+        Route::get('/me', [SerialNumberWashController::class, 'me']);
+    });
+});
+Route::prefix('serial-number-resto')->group(function () {
+    Route::post('signin', [SerialNumberRestoController::class, 'login']); // Changed from signin to signin
+    Route::middleware('auth:api_resto')->group(function () { // Specific guard
+        Route::post('/logout', [SerialNumberRestoController::class, 'logout']);
+        Route::post('/refresh', [SerialNumberRestoController::class, 'refresh']);
+        Route::get('/{serialNumberId}', [SerialNumberRestoController::class, 'show']);
+        Route::post('/{serialNumberId}/change-password', [SerialNumberRestoController::class, 'changePassword']);
         Route::post('/{serialNumberId}/update', [SerialNumberWashController::class, 'update']);
         Route::get('/me', [SerialNumberWashController::class, 'me']);
     });

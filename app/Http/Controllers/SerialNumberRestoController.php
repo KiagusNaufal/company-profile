@@ -2,208 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Mail\SerialNumberCreated;
-use App\Models\Produk;
-use App\Models\SerialNumber;
-use App\Models\SerialNumberBasic;
-use App\Models\SerialNumberBengkel;
-use App\Models\SerialNumberIuran;
-use App\Models\SerialNumberLaundry;
-use App\Models\SerialNumberPom;
 use App\Models\SerialNumberResto;
-use App\Models\SerialNumberServices;
-use App\Models\SerialNumberWash;
+use App\Http\Requests\StoreSerialNumberRestoRequest;
+use App\Http\Requests\UpdateSerialNumberRestoRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
-use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
-use Cloudinary\Configuration\Configuration;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Validation\ValidationException;
 use PHPOpenSourceSaver\JWTAuth\Facades\JWTAuth;
 
-class SerialNumberController extends Controller
+class SerialNumberRestoController extends Controller
 {
-
-    public function index()
-    {
-        $serialNumbers = SerialNumber::paginate(10);
-        $produk = Produk::all();
-        return view('admin.serial.index', compact('serialNumbers', 'produk'));
-    }
-
-public function store(Request $request)
-{
-    $validated = $request->validate([
-        'name' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z\s]+$/u'],
-        'email' => ['required', 'email', 'max:255'],
-        'phoneNumber' => ['nullable', 'string', 'max:20', 'regex:/^[0-9+\-\s()]+$/'],
-        'image' => ['nullable', 'image', 'max:10240'],
-        'product_id' => ['required', 'exists:produk,id'],
-    ]);
-
-    try {
-        // Generate serial number
-        do {
-            $serialNumber = 'SN' . strtoupper(bin2hex(random_bytes(5)));
-        } while (SerialNumber::where('serialNumber', $serialNumber)->exists() || 
-                SerialNumberBasic::where('serialNumber', $serialNumber)->exists());
-
-        // Generate password
-        $plainPassword = substr(md5(uniqid()), 0, 8); // 8 karakter acak
-        $hashedPassword = Hash::make($plainPassword);
-
-        $product = Produk::find($validated['product_id']);
-        if (!$product) {
-            return back()->withInput()
-                ->with('error', 'Produk tidak ditemukan.');
-        }
-
-        $productImage = $product->image_logo;
-        $productName = $product->name;
-        $imagebg_produk = $product->imagebg_produk;
-        $link_tutorial = $product->link_tutorial;
-        $link_aplikasi = $product->link_aplikasi;
-
-        // Prepare common data
-        $data = [
-            'name' => $validated['name'],
-            'email' => $validated['email'],
-            'phoneNumber' => $validated['phoneNumber'],
-            'serialNumber' => $serialNumber,
-            'password' => $hashedPassword,
-            'is_active' => 1
-        ];
-
-        if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('profile_images', 'public');
-            $data['profileImage'] = '/storage/' . $path;
-        }
-
-        // Determine which model to use based on product type
-        if ($product->name === 'OMZETin Basic') {
-            $serial = SerialNumberBasic::create($data);
-        }
-        else if ($product->name == 'OMZETin Services') {
-            $serial = SerialNumberServices::create($data);
-        }
-        else if ($product->name == 'OMZETin Bengkel') {
-            $serial = SerialNumberBengkel::create($data);
-        }
-        else if ($product->name == 'OMZETin Pom') {
-            $serial = SerialNumberPom::create($data);
-        }
-        else if ($product->name == 'OMZETin Laundry') {
-            $serial = SerialNumberLaundry::create($data);
-        }
-        else if ($product->name == 'OMZETin Iuran') {
-            $serial = SerialNumberIuran::create($data);
-        }
-        else if ($product->name == 'OMZETin Wash') {
-            $serial = SerialNumberWash::create($data);
-        }
-                else if ($product->name == 'OMZETin Resto') {
-            $serial = SerialNumberResto::create($data);
-        }
-        else {
-            $serial = SerialNumber::create($data);
-        }
-
-        // Kirim email
-        Mail::to($validated['email'])
-            ->send(new SerialNumberCreated(
-                $serialNumber,
-                $plainPassword,
-                $productName,
-                $productImage,
-                $imagebg_produk,
-                $link_tutorial,
-                $link_aplikasi,
-            ));
-
-        return redirect()->route('serial')
-            ->with('success', 'Serial number berhasil dibuat dan informasi telah dikirim via email');
-
-    } catch (\Exception $e) {
-        // Hapus data jika gagal mengirim email
-        if (isset($serial)) {
-            if ($product->product_type === 'basic') {
-                SerialNumberBasic::where('serialNumber', $serialNumber)->delete();
-            } else {
-                SerialNumber::where('serialNumber', $serialNumber)->delete();
-            }
-        }
-
-        return back()->withInput()
-            ->with('error', 'Gagal membuat serial number: ' . $e->getMessage());
-    }
-}
-
-    public function edit(Request $request, $id)
-    {
-        try {
-            $serial = SerialNumber::find($id);
-
-            if (!$serial) {
-                return redirect('serial')->with('error', 'Serial number not found!');
-            }
-
-            // Update serial number data
-            $validated = $request->validate([
-                'serialNumber' => ['required', 'string', 'max:255', 'regex:/^SN[A-F0-9]{10}$/i'],
-                'password' => ['nullable', 'string', 'min:8'],
-                'name' => ['nullable', 'string', 'max:255', 'regex:/^[a-zA-Z\s]+$/u'],
-                'email' => ['nullable', 'email', 'max:255'],
-                'phoneNumber' => ['nullable', 'string', 'max:20', 'regex:/^[0-9+\-\s()]+$/'],
-                'image' => ['nullable', 'image', 'max:10240'], // max 10MB
-            ]);
-
-            // Hash password if provided
-            if (!empty($validated['password'])) {
-                // Only hash if not already hashed (assume hashed if starts with $2y$)
-                if (strpos($validated['password'], '$2y$') !== 0) {
-                    $validated['password'] = Hash::make($validated['password']);
-                }
-            } else {
-                unset($validated['password']);
-            }
-
-            if ($request->hasFile('image')) {
-                $imagePath = $request->file('image')->store('produk_images', 'public');
-                $validated['profileImage'] = '/storage/' . $imagePath;
-            }
-
-            $serial->update($validated);
-
-            return redirect('serial')->with('success', 'Serial number updated successfully!');
-        } catch (\Exception $e) {
-            return redirect('serial')->with('error', 'Failed to update serial number: ' . $e->getMessage());
-        }
-    }
-
-    public function destroy($id)
-    {
-        $product = SerialNumber::findOrFail($id);
-
-        // Delete the image file if it exists
-        if ($product->profileImage && Storage::disk('public')->exists($product->profileImage)) {
-            Storage::disk('public')->delete($product->profileImage);
-        }
-
-        $product->delete();
-
-        return redirect()->route('serial')->with('success', 'Produk berhasil dihapus.');
-    }
-    public function login(Request $request)
+        public function login(Request $request)
     {
         try {
             $request->validate([
                 'serialNumber' => [
                     'required',
                     'string',
-                    'exists:serial_number,serialNumber'
+                    'exists:serial_number_pom,serialNumber'
                 ],
                 'password' => [
                     'required',
@@ -222,7 +38,7 @@ public function store(Request $request)
         }
 
         try {
-            $serial = SerialNumber::where('serialNumber', $request->serialNumber)->first();
+            $serial = SerialNumberResto::where('serialNumber', $request->serialNumber)->first();
 
             if (!$serial || !Hash::check($request->password, $serial->password)) {
                 Log::error('Login failed: Invalid credentials', [
@@ -295,7 +111,7 @@ public function store(Request $request)
         ]);
 
         // Find the serial number by ID
-        $serialNumber = SerialNumber::find($serialNumberId);
+        $serialNumber = SerialNumberResto::find($serialNumberId);
 
         if (!$serialNumber) {
             return response()->json([
@@ -368,7 +184,7 @@ public function update(Request $request, $serialNumberId)
         }
 
         Log::info("Updating serial number in database...");
-        $updatedSerialNumber = SerialNumber::find($serialNumberId);
+        $updatedSerialNumber = SerialNumberResto::find($serialNumberId);
 
         if (!$updatedSerialNumber) {
             Log::warning("Serial number not found");
@@ -388,7 +204,7 @@ public function update(Request $request, $serialNumberId)
     public function show($serialNumberId)
     {
         try {
-            $serialNumber = SerialNumber::find($serialNumberId);
+            $serialNumber = SerialNumberResto::find($serialNumberId);
             
             if (!$serialNumber) {
                 return response()->json(['message' => 'Serial number not found'], 404);
@@ -432,14 +248,6 @@ public function update(Request $request, $serialNumberId)
                 'type' => 'bearer',
                 'expires_in' => config('jwt.ttl') * 60
             ]
-        ]);
-    }
-
-    public function me()
-    {
-        return response()->json([
-            'status' => 'success',
-            'serial' => JWTAuth::user()
         ]);
     }
 }
