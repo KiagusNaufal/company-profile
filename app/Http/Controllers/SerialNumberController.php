@@ -83,7 +83,7 @@ public function store(Request $request)
         }
 
         // Determine which model to use based on product type
-        if ($product->name === 'OMZETin Basic') {
+        if ($product->name === 'OMZETin Lite') {
             $serial = SerialNumberBasic::create($data);
         }
         else if ($product->name == 'OMZETin Services') {

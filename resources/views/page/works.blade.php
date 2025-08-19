@@ -3,7 +3,7 @@
 @section('content')
     <!-- Works Hero Section -->
 <!-- Works Hero Section -->
-<section class="relative py-16 md:py-24 lg:py-32 min-h-[60vh] md:min-h-[70vh] bg-gradient-to-br from-blue-50 to-indigo-50 overflow-hidden scroll-reveal">
+<section class="relative py-16 md:py-24 lg:py-32 min-h-[60vh] md:min-h-[70vh] bg-gradient-to-br from-blue-50 to-indigo-50 overflow-hidden scroll-reveal-section">
     <!-- Animated Background Elements -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
         <!-- Floating Circles - Adjusted sizes for better responsiveness -->
