@@ -33,6 +33,7 @@
     </span>
 </div>
 @endif
+
 <div class="bg-white rounded-xl shadow-sm p-6">
     <div class="flex justify-between items-center mb-6">
         <div>
@@ -41,6 +42,27 @@
         <button id="createProductBtn" class="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-lg flex items-center">
             <i class="fas fa-plus mr-2"></i> Tambah Serial Number
         </button>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="mb-6">
+        <form id="searchForm" method="GET" action="{{ route('serial.index') }}" class="flex gap-4">
+            <div class="relative flex-1">
+                <input type="text" name="search" id="searchInput" 
+                       value="{{ request('search') }}" 
+                       placeholder="Cari berdasarkan serial number, nama, atau email..." 
+                       class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+            </div>
+            <button type="submit" class="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-lg flex items-center">
+                <i class="fas fa-search mr-2"></i> Cari
+            </button>
+            @if(request('search'))
+            <a href="{{ route('serial.index') }}" class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded-lg flex items-center">
+                <i class="fas fa-times mr-2"></i> Reset
+            </a>
+            @endif
+        </form>
     </div>
 
     <!-- Tabel Produk -->
@@ -60,21 +82,20 @@
                 @foreach($serialNumbers as $product)
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <img src="{{ secure_asset( cetak($product->profileImage)) ?? 'https://via.placeholder.com/50' }}" alt="{{ cetak($product->name) }}" class="h-10 w-10 rounded-md object-cover">
+                        <img src="{{ secure_asset($product->profileImage ?? 'https://via.placeholder.com/50') }}" 
+                             alt="{{ $product->name }}" 
+                             class="h-10 w-10 rounded-md object-cover">
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="font-medium">{{ cetak($product->serialNumber) }}</div>
-                    </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="font-medium">{{ cetak($product->name) }}</div>
-                    </td>
-                                                            <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="font-medium">{{ cetak($product->password) }}</div>
+                        <div class="font-medium">{{ $product->serialNumber }}</div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="font-medium">{{ cetak($product->email) }}</div>
+                        <div class="font-medium">{{ $product->name }}</div>
                     </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="font-medium">{{ $product->email }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
                         @if($product->is_active == 1)
                             <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                 Aktif
@@ -87,10 +108,22 @@
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-right">
                         <div class="flex justify-end space-x-2">
-                            <button class="edit-product-btn text-yellow-500 hover:text-yellow-600" data-product='@json($product)'>
+                            <!-- Tombol Download Gambar Serial Number -->
+                            <button class="download-serial-btn bg-blue-500 hover:bg-blue-600 text-white p-2 rounded" 
+                                    data-serial="{{ $product->serialNumber }}" 
+                                    data-name="{{ $product->name }}"
+                                    title="Download Gambar Serial Number">
+                                <i class="fas fa-download"></i>
+                            </button>
+                            <button class="edit-product-btn text-yellow-500 hover:text-yellow-600 p-2 rounded" 
+                                    data-product='@json($product)'
+                                    title="Edit Serial Number">
                                 <i class="fas fa-edit"></i>
                             </button>
-                            <button class="delete-product-btn text-red-500 hover:text-red-600" data-id="{{ $product->id }}" data-serial="{{ $product->serialNumber }}">
+                            <button class="delete-product-btn text-red-500 hover:text-red-600 p-2 rounded" 
+                                    data-id="{{ $product->id }}" 
+                                    data-serial="{{ $product->serialNumber }}"
+                                    title="Hapus Serial Number">
                                 <i class="fas fa-trash"></i>
                             </button>
                         </div>
@@ -101,15 +134,33 @@
         </table>
     </div>
 
+    <!-- Modal Download -->
+    <div id="downloadModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+        <div class="bg-white rounded-lg p-6 w-full max-w-md">
+            <h3 class="text-lg font-semibold mb-4">Download Gambar Serial Number</h3>
+            <div class="mb-4">
+                <p>Serial Number: <span id="modalSerialNumber" class="font-bold"></span></p>
+                <p>Nama: <span id="modalName" class="font-bold"></span></p>
+            </div>
+            <div class="flex justify-end space-x-2">
+                <button id="cancelDownloadBtn" class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded">
+                    Batal
+                </button>
+                <button id="confirmDownloadBtn" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+                    Download
+                </button>
+            </div>
+        </div>
+    </div>
+
     <div class="mt-4">
-        {{ $serialNumbers->links() }}
+        {{ $serialNumbers->appends(request()->query())->links() }}
     </div>
 </div>
 
 @include('admin.serial.create-modal')
 @include('admin.serial.edit-modal')
 @include('admin.serial.delete-modal')
-
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -123,44 +174,34 @@ $(document).ready(function() {
         $('#createProductModal').addClass('hidden');
     });
 
-    
     // Edit Product Modal
-$('.edit-product-btn').click(function() {
-    const product = JSON.parse($(this).attr('data-product'));
-    const editUrl = '/serial/' + product.id;
-    
-    // Populate form fields
-    $('#edit_name').val(product.name);
-    $('#edit_serialNumber').val(product.serialNumber);
-    $('#edit_email').val(product.email);
-    $('#edit_password').val(product.password);
-    $('#edit_status').val(product.is_active.toString());
-    
-    // Handle image display
-    if (product.profileImage) {
-        // Clean up URL by removing any double slashes
-        let imageUrl = product.profileImage.replace(/([^:]\/)\/+/g, '$1');
+    $('.edit-product-btn').click(function() {
+        const product = JSON.parse($(this).attr('data-product'));
+        const editUrl = '/serial/' + product.id;
         
-        // If it's not a full URL, prepend with base storage path
-        if (!imageUrl.startsWith('http')) {
-            imageUrl =  imageUrl;
+        // Populate form fields
+        $('#edit_name').val(product.name);
+        $('#edit_serialNumber').val(product.serialNumber);
+        $('#edit_email').val(product.email);
+        $('#edit_password').val(product.password);
+        $('#edit_status').val(product.is_active.toString());
+        
+        // Handle image display
+        if (product.profileImage) {
+            let imageUrl = product.profileImage.replace(/([^:]\/)\/+/g, '$1');
+            if (!imageUrl.startsWith('http')) {
+                imageUrl = imageUrl;
+            }
+            $('#currentProductImage').attr('src', imageUrl);
+            $('#currentImageContainer').removeClass('hidden');
+        } else {
+            $('#currentProductImage').attr('src', 'https://via.placeholder.com/150');
+            $('#currentImageContainer').removeClass('hidden');
         }
         
-        $('#currentProductImage').attr('src', imageUrl);
-        $('#currentImageContainer').removeClass('hidden');
-    } else {
-        $('#currentProductImage').attr('src', 'https://via.placeholder.com/150');
-        $('#currentImageContainer').removeClass('hidden');
-    }
-    
-    // Debug logs
-    console.log('Original image path:', product.profileImage);
-    console.log('Processed image src:', $('#currentProductImage').attr('src'));
-    console.log('Full product data:', product);
-    
-    $('#editProductForm').attr('action', editUrl);
-    $('#editProductModal').removeClass('hidden');
-});
+        $('#editProductForm').attr('action', editUrl);
+        $('#editProductModal').removeClass('hidden');
+    });
     
     $('#cancelEditBtn, #editModalBackdrop').click(function() {
         $('#editProductModal').addClass('hidden');
@@ -181,16 +222,89 @@ $('.edit-product-btn').click(function() {
         $('#deleteProductModal').addClass('hidden');
     });
     
+    // Download Serial Number Image
+    let currentDownloadSerial = '';
+    let currentDownloadName = '';
+    
+    $('.download-serial-btn').click(function() {
+        currentDownloadSerial = $(this).data('serial');
+        currentDownloadName = $(this).data('name');
+        
+        $('#modalSerialNumber').text(currentDownloadSerial);
+        $('#modalName').text(currentDownloadName);
+        $('#downloadModal').removeClass('hidden');
+    });
+    
+    $('#cancelDownloadBtn').click(function() {
+        $('#downloadModal').addClass('hidden');
+    });
+    
+    $('#confirmDownloadBtn').click(function() {
+        downloadSerialImage(currentDownloadSerial, currentDownloadName);
+        $('#downloadModal').addClass('hidden');
+    });
+    
     // Close modals when clicking outside content
     $(document).keyup(function(e) {
         if (e.key === "Escape") {
             $('#createProductModal').addClass('hidden');
-            $('#detailProductModal').addClass('hidden');
             $('#editProductModal').addClass('hidden');
             $('#deleteProductModal').addClass('hidden');
+            $('#downloadModal').addClass('hidden');
         }
+    });
+    
+    // Auto-submit search form when typing (with delay)
+    let searchTimeout;
+    $('#searchInput').on('input', function() {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+            $('#searchForm').submit();
+        }, 500);
     });
 });
 
+function downloadSerialImage(serialNumber, name) {
+    // Show loading indicator
+    const originalText = $('#confirmDownloadBtn').html();
+    $('#confirmDownloadBtn').html('<i class="fas fa-spinner fa-spin mr-2"></i> Memproses...');
+    $('#confirmDownloadBtn').prop('disabled', true);
+    
+    // Create a form to submit the request
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = '{{ route("serial.download") }}';
+    
+    // Add CSRF token
+    const csrfToken = document.createElement('input');
+    csrfToken.type = 'hidden';
+    csrfToken.name = '_token';
+    csrfToken.value = '{{ csrf_token() }}';
+    form.appendChild(csrfToken);
+    
+    // Add serial number
+    const serialInput = document.createElement('input');
+    serialInput.type = 'hidden';
+    serialInput.name = 'serial_number';
+    serialInput.value = serialNumber;
+    form.appendChild(serialInput);
+    
+    // Add name
+    const nameInput = document.createElement('input');
+    nameInput.type = 'hidden';
+    nameInput.name = 'name';
+    nameInput.value = name;
+    form.appendChild(nameInput);
+    
+    document.body.appendChild(form);
+    form.submit();
+    document.body.removeChild(form);
+    
+    // Reset button after a short delay
+    setTimeout(() => {
+        $('#confirmDownloadBtn').html('Download');
+        $('#confirmDownloadBtn').prop('disabled', false);
+    }, 2000);
+}
 </script>
 @endsection
