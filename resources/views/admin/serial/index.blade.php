@@ -273,7 +273,7 @@ function downloadSerialImage(serialNumber, name) {
     // Create a form to submit the request
     const form = document.createElement('form');
     form.method = 'POST';
-    form.action = '{{ route("serial.download") }}';
+    form.action = '/serial/download'; // Ganti dengan route yang sesuai
     
     // Add CSRF token
     const csrfToken = document.createElement('input');
