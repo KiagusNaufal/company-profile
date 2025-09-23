@@ -46,7 +46,7 @@
 
     <!-- Search Bar -->
     <div class="mb-6">
-        <form id="searchForm" method="GET" action="{{ route('serial.index') }}" class="flex gap-4">
+        <form id="searchForm" method="GET" action="{{ route('url()->current()') }}" class="flex gap-4">
             <div class="relative flex-1">
                 <input type="text" name="search" id="searchInput" 
                        value="{{ request('search') }}" 
@@ -58,7 +58,7 @@
                 <i class="fas fa-search mr-2"></i> Cari
             </button>
             @if(request('search'))
-            <a href="{{ route('serial.index') }}" class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded-lg flex items-center">
+            <a href="{{ route('url()->current()') }}" class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded-lg flex items-center">
                 <i class="fas fa-times mr-2"></i> Reset
             </a>
             @endif
