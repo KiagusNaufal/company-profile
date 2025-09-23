@@ -98,6 +98,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/store', [ProdukController::class, 'store'])->name('produk.store');
         Route::put('/{id}', [ProdukController::class, 'update'])->name('produk.update');
         Route::delete('/{id}', [ProdukController::class, 'destroy'])->name('produk.destroy');
+        Route::post('/serial/download', [SerialNumberController::class, 'downloadSerialImage'])->name('serial.download');
     });
 
     Route::prefix('kategori')->group(function () {
