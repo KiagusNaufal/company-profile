@@ -201,9 +201,6 @@ public function store(Request $request)
         else if ($product->name == 'OMZETin Wash') {
             $serial = SerialNumberWash::create($data);
         }
-                else if ($product->name == 'OMZETin Resto') {
-            $serial = SerialNumberResto::create($data);
-        }
         else {
             $serial = SerialNumber::create($data);
         }
